@@ -1,8 +1,11 @@
+import './ProductCard.css';
+
 export const ProductCard = ({ item }) => {
   return (
-    <>
-      <h2 key={item.id}>{item.name}</h2>
+    <div className="product-card">
       <p>{item.price}</p>
-    </>
+      <h2 key={item.id}>{item.name}</h2>
+      <p>{item.descricao}</p>
+    </div>
   );
 };
