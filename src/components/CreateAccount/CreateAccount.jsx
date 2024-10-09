@@ -1,18 +1,16 @@
-import { Header } from '../../components/Header/Header';
-import './LoginPage.css';
+import './CreateAccount.css';
 
-export const LoginPage = () => {
+export const CreateAccount = () => {
   return (
     <div>
-      <Header />
-      <p>LoginPage</p>
+      <label htmlFor="nome">Nome</label>
+      <input type="text" id="nome" name="nome" />
+
       <label htmlFor="email">Email</label>
       <input type="text" id="email" name="email" />
 
       <label htmlFor="senha">Senha</label>
       <input type="text" id="senha" name="senha" />
-
-      <button>Entrar</button>
     </div>
   );
 };
