@@ -1,3 +1,5 @@
+import { ProductCard } from '../ProductCard/ProductCard';
+
 export const ProductList = () => {
   const product = [
     {
@@ -10,13 +12,17 @@ export const ProductList = () => {
       name: 'Cadeira',
       price: 15,
     },
+    {
+      id: 3,
+      name: 'Banco',
+      price: 5,
+    },
   ];
 
   return (
     <>
-      <h2>teste</h2>
       {product.map((item) => (
-        <li key={item.id}>{item.name}</li>
+        <ProductCard key={item.id} item={item} />
       ))}
     </>
   );
