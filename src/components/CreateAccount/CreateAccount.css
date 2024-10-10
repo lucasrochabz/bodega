@@ -1,10 +1,14 @@
 .create-account {
   background-color: #ccc;
-  display: flex;
-  flex-direction: column;
+  padding: 2rem;
 }
 
 input[readonly] {
   background-color: #f0f0f0;
   border: none;
+}
+
+.input-item {
+  display: flex;
+  flex-direction: column;
 }
