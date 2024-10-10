@@ -1,13 +1,20 @@
+.header-bg {
+  border-bottom: 2px solid;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border-bottom: 2px solid;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .btn-login {
   background-color: blueviolet;
+  color: #fff;
+  border: none;
   padding: 0.5rem 1rem;
   cursor: pointer;
   transition: 0.3s;
