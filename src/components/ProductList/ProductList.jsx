@@ -6,20 +6,65 @@ export const ProductList = () => {
     {
       id: 1,
       name: 'Mesa',
-      price: 10,
-      descricao: 'Mesa zerada',
+      price: 'R$ 1.200,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
       id: 2,
       name: 'Cadeira',
-      price: 15,
-      descricao: 'Cadeira aprovado pela Nasa',
+      price: 'R$ 2.400,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
       id: 3,
       name: 'Banco',
-      price: 5,
-      descricao: 'O melhor que tá tendo',
+      price: 'R$ 3.800,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
+    },
+    {
+      id: 1,
+      name: 'Mesa',
+      price: 'R$ 1.200,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
+    },
+    {
+      id: 2,
+      name: 'Cadeira',
+      price: 'R$ 2.400,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
+    },
+    {
+      id: 3,
+      name: 'Banco',
+      price: 'R$ 3.800,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
+    },
+    {
+      id: 1,
+      name: 'Mesa',
+      price: 'R$ 1.200,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
+    },
+    {
+      id: 2,
+      name: 'Cadeira',
+      price: 'R$ 2.400,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
+    },
+    {
+      id: 3,
+      name: 'Banco',
+      price: 'R$ 3.800,00',
+      descricao:
+        'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
   ];
 
