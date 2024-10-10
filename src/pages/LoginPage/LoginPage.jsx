@@ -1,4 +1,5 @@
 import { Header } from '../../components/Header/Header';
+import { CreateAccount } from '../../components/CreateAccount/CreateAccount';
 import './LoginPage.css';
 
 export const LoginPage = () => {
@@ -13,6 +14,7 @@ export const LoginPage = () => {
       <input type="text" id="senha" name="senha" />
 
       <button>Entrar</button>
+      <CreateAccount />
     </div>
   );
 };
