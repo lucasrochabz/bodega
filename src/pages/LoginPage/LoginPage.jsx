@@ -1,5 +1,6 @@
 import { Header } from '../../components/Header/Header';
 import { CreateAccount } from '../../components/CreateAccount/CreateAccount';
+import { Footer } from '../../components/Footer/Footer';
 import './LoginPage.css';
 
 export const LoginPage = () => {
@@ -15,6 +16,7 @@ export const LoginPage = () => {
 
       <button>Entrar</button>
       <CreateAccount />
+      <Footer />
     </div>
   );
 };
