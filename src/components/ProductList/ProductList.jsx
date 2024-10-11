@@ -25,42 +25,42 @@ export const ProductList = () => {
         'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
-      id: 1,
+      id: 4,
       name: 'Mesa',
       price: 'R$ 1.200,00',
       descricao:
         'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
-      id: 2,
+      id: 5,
       name: 'Cadeira',
       price: 'R$ 2.400,00',
       descricao:
         'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
-      id: 3,
+      id: 6,
       name: 'Banco',
       price: 'R$ 3.800,00',
       descricao:
         'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
-      id: 1,
+      id: 7,
       name: 'Mesa',
       price: 'R$ 1.200,00',
       descricao:
         'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
-      id: 2,
+      id: 8,
       name: 'Cadeira',
       price: 'R$ 2.400,00',
       descricao:
         'Gostaria de enfatizar que o início da atividade geral de formação de atitudes pode nos levar a considerar.',
     },
     {
-      id: 3,
+      id: 9,
       name: 'Banco',
       price: 'R$ 3.800,00',
       descricao:

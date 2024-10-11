@@ -3,6 +3,12 @@
   padding: 1rem;
   width: 300px;
   border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  scale: 1.1;
 }
 
 .product-card img {
