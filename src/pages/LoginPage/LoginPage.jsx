@@ -8,11 +8,14 @@ export const LoginPage = () => {
   return (
     <div>
       <Header />
-      <section className="login-field">
-        <InputField label={'email'} name={'Email'} />
-        <InputField label={'senha'} name={'Senha'} />
 
-        <button>Entrar</button>
+      <section className="login-container">
+        <div className="login-field">
+          <InputField label={'email'} name={'Email'} />
+          <InputField label={'senha'} name={'Senha'} />
+
+          <button>Entrar</button>
+        </div>
       </section>
       {/* <CreateAccount /> */}
       <Footer />
