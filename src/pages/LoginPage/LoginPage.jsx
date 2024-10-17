@@ -1,21 +1,20 @@
 import { Header } from '../../components/Header/Header';
-import { CreateAccount } from '../../components/CreateAccount/CreateAccount';
+// import { CreateAccount } from '../../components/CreateAccount/CreateAccount';
 import { Footer } from '../../components/Footer/Footer';
+import { InputField } from '../../components/InputField/InputField';
 import './LoginPage.css';
 
 export const LoginPage = () => {
   return (
     <div>
       <Header />
-      <p>LoginPage</p>
-      <label htmlFor="email">Email</label>
-      <input type="text" id="email" name="email" />
+      <section className="login-field">
+        <InputField label={'email'} name={'Email'} />
+        <InputField label={'senha'} name={'Senha'} />
 
-      <label htmlFor="senha">Senha</label>
-      <input type="text" id="senha" name="senha" />
-
-      <button>Entrar</button>
-      <CreateAccount />
+        <button>Entrar</button>
+      </section>
+      {/* <CreateAccount /> */}
       <Footer />
     </div>
   );

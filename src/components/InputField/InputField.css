@@ -1,0 +1,20 @@
+.input-field {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.input-field label {
+  margin-bottom: 0.4rem;
+}
+
+.input-field input {
+  border: 1px solid;
+  border-radius: 5px;
+  padding: 0.8rem;
+  font-size: 1rem;
+}
+
+.input-field input:hover {
+  border: 1px solid blueviolet;
+}
