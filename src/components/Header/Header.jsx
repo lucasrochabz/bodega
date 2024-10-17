@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './Header.css';
 
 export const Header = () => {
@@ -8,10 +9,12 @@ export const Header = () => {
   return (
     <section className="header-bg">
       <div className="header">
-        <h2>Logo</h2>
-        <button className="btn-login" onClick={handleClick}>
+        <Link to={'/'}>
+          <h2>Logo</h2>
+        </Link>
+        <Link to={'/login'} className="btn-login" onClick={handleClick}>
           Login
-        </button>
+        </Link>
       </div>
     </section>
   );
