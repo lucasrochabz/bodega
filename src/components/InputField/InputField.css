@@ -9,12 +9,16 @@
 }
 
 .input-field input {
-  border: 1px solid;
+  border: 1px solid gray;
+  outline: none;
+  font-size: 1rem;
   border-radius: 5px;
   padding: 0.8rem;
-  font-size: 1rem;
+  transition: 0.3s;
 }
 
-.input-field input:hover {
+.input-field input:hover, 
+.input-field input:focus {
   border: 1px solid blueviolet;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
