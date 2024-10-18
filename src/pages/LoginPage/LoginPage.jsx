@@ -1,7 +1,7 @@
 import { Header } from '../../components/Header/Header';
 import { Footer } from '../../components/Footer/Footer';
 import { LoginForm } from '../../components/LoginForm/LoginForm';
-import { RegisterForm } from '../../components/RegisterForm/RegisterForm';
+import { SignUpForm } from '../../components/SignUpForm/SignUpForm';
 import './LoginPage.css';
 
 export const LoginPage = () => {
@@ -11,7 +11,7 @@ export const LoginPage = () => {
 
       <section className="login-container">
         <LoginForm />
-        <RegisterForm />
+        <SignUpForm />
       </section>
 
       <Footer />

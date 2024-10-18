@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { SignUpModal } from '../SignUpModal/SignUpModal';
-import './RegisterForm.css';
+import './SignUpForm.css';
 
-export const RegisterForm = () => {
+export const SignUpForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [nome, setNome] = useState('Criar conta');
 

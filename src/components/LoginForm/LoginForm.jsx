@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import { InputField } from '../../components/InputField/InputField';
+import { InputField } from '../InputField/InputField';
 import './LoginForm.css';
 
 export const LoginForm = () => {
