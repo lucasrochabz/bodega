@@ -1,10 +1,26 @@
 import './InputField.css';
 
-export const InputField = ({ label, name, type }) => {
+export const InputField = ({
+  name,
+  label,
+  type,
+  placeholder,
+  isReadOnly,
+  onChange,
+  value,
+}) => {
   return (
     <div className="input-field">
-      <label htmlFor={label}>{name}</label>
-      <input type={type} id={label} name={label} />
+      <label htmlFor={name}>{label}</label>
+      <input
+        type={type}
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        readOnly={isReadOnly}
+        onChange={onChange}
+        value={value}
+      />
     </div>
   );
 };

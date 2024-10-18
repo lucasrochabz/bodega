@@ -6,7 +6,7 @@ export const Header = () => {
     <section className="header-bg">
       <div className="header">
         <Link to={'/'}>
-          <h2 className="logo">Logo</h2>
+          <h2 className="logo">Bodega</h2>
         </Link>
         <Link to={'/login'} className="btn-login">
           Login

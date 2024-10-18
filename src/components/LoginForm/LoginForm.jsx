@@ -5,9 +5,9 @@ export const LoginForm = () => {
   return (
     <div className="login-field">
       <h1 className="login-title">Login</h1>
-      <InputField label={'email-login'} name={'Email'} type={'text'} />
+      <InputField name={'email-login'} label={'Email'} type={'text'} />
 
-      <InputField label={'senha-login'} name={'Senha'} type={'password'} />
+      <InputField name={'senha-login'} label={'Senha'} type={'password'} />
       <button>Entrar</button>
     </div>
   );

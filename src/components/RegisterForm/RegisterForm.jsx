@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CreateAccount } from '../../components/CreateAccount/CreateAccount';
+import { CreateAccount } from '../CreateAccount/CreateAccount';
 import './RegisterForm.css';
 
 export const RegisterForm = () => {

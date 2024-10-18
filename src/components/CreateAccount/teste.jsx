@@ -66,3 +66,70 @@ const InputField = ({ label, value, onChange, type = 'text', placeholder }) => {
 };
 
 export default InputField;
+
+return (
+  <div className="create-account">
+    {inputs.map((input) => (
+      <>
+        <InputField name={input.name} label={input.label} type={input.type} />
+      </>
+      // <div key={input.name} className="input-item">
+      //   <label htmlFor={input.name}>{input.label}</label>
+      //   <input
+      //     type={input.type}
+      //     id={input.id}
+      //     name={input.name}
+      //     placeholder={input.placeholder}
+      //     readOnly={input.atributo === 'readOnly'}
+      //   />
+      // </div>
+    ))}
+
+    {/* <label htmlFor="nome">Nome</label>
+    <input type="text" id="nome" name="nome" />
+
+    <label htmlFor="email">Email</label>
+    <input type="text" id="email" name="email" />
+
+    <label htmlFor="senha">Senha</label>
+    <input type="text" id="senha" name="senha" />
+
+    <label htmlFor="cep">Cep</label>
+    <input onChange={handleCep} type="text" id="cep" name="cep" />
+
+    <label htmlFor="rua">Rua</label>
+    <input
+      type="text"
+      id="rua"
+      name="rua"
+      value={dataCep.logradouro || ''}
+      readOnly
+    />
+
+    <label htmlFor="numero">Número</label>
+    <input type="number" id="numero" name="numero" />
+
+    <label htmlFor="bairro">Bairro</label>
+    <input type="text" id="bairro" name="bairro" readOnly />
+
+    <label htmlFor="cidade">Cidade</label>
+    <input
+      type="text"
+      id="cidade"
+      name="cidade"
+      value={dataCep.localidade || ''}
+      readOnly
+    />
+
+    <label htmlFor="estado">Estado</label>
+    <input
+      type="text"
+      id="estado"
+      name="estado"
+      value={dataCep.estado || ''}
+      readOnly
+    /> */}
+
+    {/* <button onClick={handleButton}>Criar conta</button> */}
+  </div>
+);
