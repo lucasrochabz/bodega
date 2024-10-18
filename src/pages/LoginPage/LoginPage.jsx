@@ -6,7 +6,7 @@ import './LoginPage.css';
 
 export const LoginPage = () => {
   return (
-    <div>
+    <>
       <Header />
 
       <section className="login-container">
@@ -15,6 +15,6 @@ export const LoginPage = () => {
       </section>
 
       <Footer />
-    </div>
+    </>
   );
 };

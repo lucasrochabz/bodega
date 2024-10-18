@@ -69,10 +69,10 @@ export const ProductList = () => {
   ];
 
   return (
-    <div className="product-list">
+    <section className="product-list">
       {product.map((item) => (
         <ProductCard key={item.id} item={item} />
       ))}
-    </div>
+    </section>
   );
 };
