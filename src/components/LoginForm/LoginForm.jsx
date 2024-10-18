@@ -39,14 +39,13 @@ export const LoginForm = () => {
       <h1 className="default-title">Login</h1>
 
       {inputLogin.map((input) => (
-        <div key={input.name}>
-          <InputField
-            name={input.name}
-            label={input.label}
-            type={input.type}
-            ref={input.ref}
-          />
-        </div>
+        <InputField
+          key={input.name}
+          name={input.name}
+          label={input.label}
+          type={input.type}
+          ref={input.ref}
+        />
       ))}
 
       <button onClick={getUser}>Entrar</button>
