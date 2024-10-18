@@ -6,8 +6,13 @@
   margin: 0 auto;
 }
 
+.login-title {
+  color: var(--primary-color);
+  font-size: 2rem;
+}
+
 .login-field button {
-  background-color: blueviolet;
+  background-color: var(--primary-color);
   color: #fff;
   padding: 0.8rem 1.2rem;
   border: none;

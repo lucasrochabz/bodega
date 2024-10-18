@@ -4,8 +4,10 @@ import './LoginForm.css';
 export const LoginForm = () => {
   return (
     <div className="login-field">
-      <InputField label={'email'} name={'Email'} />
-      <InputField label={'senha'} name={'Senha'} />
+      <h1 className="login-title">Login</h1>
+      <InputField label={'email-login'} name={'Email'} type={'text'} />
+
+      <InputField label={'senha-login'} name={'Senha'} type={'password'} />
       <button>Entrar</button>
     </div>
   );
