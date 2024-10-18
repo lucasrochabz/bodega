@@ -8,6 +8,20 @@ export const LoginForm = () => {
 
   const inputElement = useRef(null);
 
+  const inputLogin = [
+    {
+      name: 'email-login',
+      label: 'Email',
+      type: 'email',
+      ref: inputElement,
+    },
+    {
+      name: 'password-login',
+      label: 'password',
+      type: 'password',
+    },
+  ];
+
   // teste => função para fazer o login
   const getUser = () => {
     console.log('clicou em teste');
@@ -23,14 +37,18 @@ export const LoginForm = () => {
   return (
     <div className="login-field">
       <h1 className="default-title">Login</h1>
-      <InputField
-        name={'email-login'}
-        label={'Email'}
-        type={'email'}
-        ref={inputElement}
-      />
 
-      <InputField name={'senha-login'} label={'Senha'} type={'password'} />
+      {inputLogin.map((input) => (
+        <div key={input.name}>
+          <InputField
+            name={input.name}
+            label={input.label}
+            type={input.type}
+            ref={input.ref}
+          />
+        </div>
+      ))}
+
       <button onClick={getUser}>Entrar</button>
     </div>
   );
