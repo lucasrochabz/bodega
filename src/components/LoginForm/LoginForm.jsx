@@ -1,12 +1,23 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { InputField } from '../InputField/InputField';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const inputElement = useRef();
+  const [userEmail, setUserEmail] = useState('');
+  const [userPassword, setUserPassword] = useState('');
+
+  const inputElement = useRef(null);
+
+  // teste => função para fazer o login
+  const getUser = () => {
+    console.log('clicou em teste');
+
+    window.localStorage.setItem('login', 'login_teste');
+    window.localStorage.setItem('senha', '123456');
+  };
 
   useEffect(() => {
-    inputElement.current.focus(null);
+    inputElement.current.focus();
   }, []);
 
   return (
@@ -20,7 +31,7 @@ export const LoginForm = () => {
       />
 
       <InputField name={'senha-login'} label={'Senha'} type={'password'} />
-      <button>Entrar</button>
+      <button onClick={getUser}>Entrar</button>
     </div>
   );
 };
