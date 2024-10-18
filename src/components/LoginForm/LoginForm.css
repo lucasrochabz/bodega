@@ -6,9 +6,10 @@
   margin: 0 auto;
 }
 
-.login-title {
+.default-title {
   color: var(--primary-color);
   font-size: 2rem;
+  text-align: center;
 }
 
 .login-field button {

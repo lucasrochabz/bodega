@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { InputField } from '../InputField/InputField';
-import './CreateAccount.css';
+import './SignUpModal.css';
 
-export const CreateAccount = () => {
+export const SignUpModal = () => {
   const [dataCep, setDataCep] = useState({});
 
   const handleCep = (event) => {
@@ -40,13 +40,13 @@ export const CreateAccount = () => {
     {
       label: 'Email',
       name: 'email',
-      type: 'text',
+      type: 'email',
       placeholder: 'Digite seu email',
     },
     {
       label: 'Senha',
       name: 'senha',
-      type: 'text',
+      type: 'password',
       placeholder: 'Digite sua senha',
     },
     {
@@ -66,7 +66,7 @@ export const CreateAccount = () => {
     {
       label: 'Número',
       name: 'numero',
-      type: 'text',
+      type: 'number',
       placeholder: 'Digite seu número',
     },
     {

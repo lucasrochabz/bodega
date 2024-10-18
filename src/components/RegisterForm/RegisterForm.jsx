@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CreateAccount } from '../CreateAccount/CreateAccount';
+import { SignUpModal } from '../SignUpModal/SignUpModal';
 import './RegisterForm.css';
 
 export const RegisterForm = () => {
@@ -17,11 +17,13 @@ export const RegisterForm = () => {
   };
 
   return (
-    <div>
-      <h2 className="login-title">Crie a sua conta</h2>
-      <button onClick={handleModal}>{nome}</button>
+    <div className="register-form">
+      <h2 className="default-title">Crie a sua conta</h2>
+      <button className="btn-signup" onClick={handleModal}>
+        {nome}
+      </button>
 
-      {isModalOpen && <CreateAccount />}
+      {isModalOpen && <SignUpModal />}
     </div>
   );
 };
