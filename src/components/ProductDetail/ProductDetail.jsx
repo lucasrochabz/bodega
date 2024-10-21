@@ -1,7 +1,11 @@
 import { useParams } from 'react-router-dom';
+import notebook from '../../assets/images/notebook-2.jpg';
 import './ProductDetail.css';
+import { useState } from 'react';
 
 export const ProductDetail = () => {
+  const [estoque, setEstoque] = useState(0);
+
   const { path } = useParams();
 
   const produtos = [
@@ -52,7 +56,7 @@ export const ProductDetail = () => {
     },
     {
       id: 6,
-      name: 'Tablet2',
+      name: 'Tablet',
       path: 'tablet-2',
       price: 'R$ 5.200,00',
       descricao:
@@ -90,11 +94,26 @@ export const ProductDetail = () => {
 
   const produtoEncontrado = produtos.find((produto) => (produto.path = path));
 
+  const handleTesteCarregar = () => {
+    setEstoque(produtoEncontrado.quantity);
+  };
+
+  const handleTesteBuy = () => {
+    setEstoque((prevEstoque) => prevEstoque - 1);
+  };
+
   return (
-    <>
-      <h2>Detalhes do produto: {path}</h2>
-      <h1>{produtoEncontrado.name}</h1>
-      <p>Preço: {produtoEncontrado.price}</p>
-    </>
+    <div className="product-detail">
+      <img src={notebook} alt={produtoEncontrado.name} />
+
+      <div className="product-detail-info">
+        <h2>Detalhes do produto: {path}</h2>
+        <h1>{produtoEncontrado.name}</h1>
+        <p>Preço: {produtoEncontrado.price}</p>
+        <p>{estoque}</p>
+        <button onClick={handleTesteCarregar}>Carregar</button>
+        <button onClick={handleTesteBuy}>Diminuir</button>
+      </div>
+    </div>
   );
 };

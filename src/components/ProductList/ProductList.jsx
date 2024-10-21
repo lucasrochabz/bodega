@@ -50,7 +50,7 @@ export const ProductList = () => {
     },
     {
       id: 6,
-      name: 'Tablet2',
+      name: 'Tablet',
       path: 'tablet-2',
       price: 'R$ 5.200,00',
       descricao:

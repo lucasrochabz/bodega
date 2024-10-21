@@ -1,0 +1,15 @@
+.product-detail {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.product-detail img {
+  border-radius: 5px;
+}
+
+.product-detail-info {
+  display: flex;
+  flex-direction: column;
+}

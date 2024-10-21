@@ -9,10 +9,11 @@
   --primary-color: blueviolet;
   --secondary-color: #ee8800;
   --tertiary-color: #e0e0e0;
+  --quaternary-color: #ee5544;
 }
 
 body {
-  background-color: #f2f4f7;
+  background-color: #f4f7fc;
 }
 
 a {

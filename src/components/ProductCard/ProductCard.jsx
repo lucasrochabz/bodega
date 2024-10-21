@@ -1,4 +1,5 @@
 import notebook from '../../assets/images/notebook-2.jpg';
+import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
 import './ProductCard.css';
 
 export const ProductCard = ({ item }) => {
@@ -17,9 +18,7 @@ export const ProductCard = ({ item }) => {
       </h2>
       <p>{item.descricao}</p>
       <p>Estoque: {item.quantity}</p>
-      <button onClick={handleClick}>Comprar</button>
-      {/* teste */}
-      {/* <ButtonRequest text="Comprar" /> */}
+      <ButtonBuy handleClick={handleClick} text={'Comprar'} />
     </div>
   );
 };
