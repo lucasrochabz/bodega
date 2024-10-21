@@ -1,9 +1,9 @@
 import notebook from '../../assets/images/notebook-2.jpg';
-import { ButtonRequest } from '../ButtonRequest/ButtonRequest';
 import './ProductCard.css';
 
 export const ProductCard = ({ item }) => {
   const handleClick = () => {
+    // teste fazer função para transformar em minuscula
     const url = `/produto/${item.name}`;
     window.location.href = url;
   };
