@@ -7,6 +7,8 @@
 
 :root {
   --primary-color: blueviolet;
+  --secondary-color: #ee8800;
+  --tertiary-color: #e0e0e0;
 }
 
 body {
@@ -18,5 +20,5 @@ a {
 }
 
 input[readonly] {
-  background-color: #e0e0e0;
+  background-color: var(--tertiary-color);
 }
