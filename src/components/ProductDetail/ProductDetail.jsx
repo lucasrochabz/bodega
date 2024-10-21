@@ -1,7 +1,6 @@
-import { ProductCard } from '../ProductCard/ProductCard';
-import './ProductList.css';
+import './ProductDetail.css';
 
-export const ProductList = () => {
+export const ProductDetail = () => {
   const produtos = [
     {
       id: 1,
@@ -77,11 +76,16 @@ export const ProductList = () => {
     },
   ];
 
+  const produtoEncontrado = produtos.find(
+    (produto) => (produto.name = produtoNome),
+  );
+
   return (
-    <section className="product-list">
-      {produtos.map((item) => (
-        <ProductCard key={item.id} item={item} />
-      ))}
-    </section>
+    <>
+      <h2>ProductDetail</h2>
+      <h2>Detalhes do produto: {produtoNome}</h2>
+      <h1>{produtoEncontrado.name}</h1>
+      <p>Preço: {produtoEncontrado.price}</p>
+    </>
   );
 };
