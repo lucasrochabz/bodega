@@ -11,16 +11,3 @@
   font-size: 2rem;
   text-align: center;
 }
-
-.login-field button {
-  background-color: var(--primary-color);
-  color: #fff;
-  padding: 0.8rem 1.2rem;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.login-field button:hover {
-  opacity: 0.9;
-}

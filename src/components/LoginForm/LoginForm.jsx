@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import { InputField } from '../InputField/InputField';
+import { ButtonRequest } from '../ButtonRequest/ButtonRequest';
 import './LoginForm.css';
 
 export const LoginForm = () => {
@@ -23,11 +24,12 @@ export const LoginForm = () => {
   ];
 
   // teste => função para fazer o login
+  // teste função tem que passar para o componente buttuonrequest
   const getUser = () => {
-    console.log('clicou em teste');
+    alert('fez o login');
 
-    window.localStorage.setItem('login', 'login_teste');
-    window.localStorage.setItem('senha', '123456');
+    // window.localStorage.setItem('login', 'login_teste');
+    // window.localStorage.setItem('senha', '123456');
   };
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export const LoginForm = () => {
         />
       ))}
 
-      <button onClick={getUser}>Entrar</button>
+      <ButtonRequest text="Entrar" />
     </div>
   );
 };

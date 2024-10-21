@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { InputField } from '../InputField/InputField';
+import { ButtonRequest } from '../ButtonRequest/ButtonRequest';
 import './SignUpModal.css';
 
-export const SignUpModal = () => {
+export const SignUpModal = ({ isModalOpen }) => {
   const [dataCep, setDataCep] = useState({});
 
   const handleCep = (event) => {
@@ -23,7 +24,7 @@ export const SignUpModal = () => {
   const handleButton = (event) => {
     event.preventDefault();
 
-    // isso aqui pode ser melhorado
+    // teste: isso aqui pode ser melhorado
     const cepInput = document.getElementById('cep').value;
     if (cepInput.length < 8) {
       alert('cep invalido');
@@ -93,7 +94,7 @@ export const SignUpModal = () => {
   ];
 
   return (
-    <div className="create-account">
+    <div className={isModalOpen ? 'signup' : ''}>
       {inputList.map((input) => (
         <div key={input.name}>
           <InputField
@@ -107,6 +108,8 @@ export const SignUpModal = () => {
           />
         </div>
       ))}
+
+      <ButtonRequest text="Criar" />
     </div>
   );
 };

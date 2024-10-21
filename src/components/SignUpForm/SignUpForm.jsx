@@ -17,13 +17,13 @@ export const SignUpForm = () => {
   };
 
   return (
-    <div className="register-form">
+    <div className="signup-form">
       <h2 className="default-title">Crie a sua conta</h2>
+      {isModalOpen && <SignUpModal isModalOpen={isModalOpen} />}
+
       <button className="btn-signup" onClick={handleModal}>
         {nome}
       </button>
-
-      {isModalOpen && <SignUpModal />}
     </div>
   );
 };
