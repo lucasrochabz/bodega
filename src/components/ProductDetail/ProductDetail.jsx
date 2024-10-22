@@ -110,6 +110,7 @@ export const ProductDetail = () => {
         <h2>Detalhes do produto: {path}</h2>
         <h1>{produtoEncontrado.name}</h1>
         <p>Preço: {produtoEncontrado.price}</p>
+        <p>{produtoEncontrado.descricao}</p>
         <p>{estoque}</p>
         <button onClick={handleTesteCarregar}>Carregar</button>
         <button onClick={handleTesteBuy}>Diminuir</button>

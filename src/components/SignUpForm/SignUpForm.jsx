@@ -4,16 +4,9 @@ import './SignUpForm.css';
 
 export const SignUpForm = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [nome, setNome] = useState('Criar conta');
 
   const handleModal = () => {
-    setIsModalOpen((prevState) => !prevState);
-
-    if (isModalOpen) {
-      setNome('Criar conta');
-    } else {
-      setNome('Já tem uma conta?');
-    }
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
@@ -22,7 +15,7 @@ export const SignUpForm = () => {
       {isModalOpen && <SignUpModal isModalOpen={isModalOpen} />}
 
       <button className="btn-signup" onClick={handleModal}>
-        {nome}
+        {isModalOpen ? 'Já tem uma conta?' : 'Criar conta'}
       </button>
     </div>
   );

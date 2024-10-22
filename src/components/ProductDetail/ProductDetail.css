@@ -12,4 +12,5 @@
 .product-detail-info {
   display: flex;
   flex-direction: column;
+  width: 400px;
 }

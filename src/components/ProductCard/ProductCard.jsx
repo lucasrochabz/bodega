@@ -5,7 +5,7 @@ import './ProductCard.css';
 export const ProductCard = ({ item }) => {
   const handleClick = () => {
     // teste fazer função para transformar em minuscula
-    const url = `/produto/${item.name}`;
+    const url = `/produto/${item.path}`;
     window.location.href = url;
   };
 

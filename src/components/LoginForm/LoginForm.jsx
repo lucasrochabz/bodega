@@ -18,7 +18,7 @@ export const LoginForm = () => {
     },
     {
       name: 'password-login',
-      label: 'password',
+      label: 'Password',
       type: 'password',
     },
   ];
