@@ -1,7 +1,7 @@
 .login-field {
   display: flex;
   flex-direction: column;
-  width: 460px;
+  max-width: 460px;
   gap: 1rem;
   margin: 0 auto;
 }

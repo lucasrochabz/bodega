@@ -1,10 +1,12 @@
 .btn-buy {
-  background-color: var(--quaternary-color);
+  background-color: var(--primary-color);
   color: #fff;
-  padding: 0.8rem 1.2rem;
+  font-size: 1rem;
+  font-weight: bold;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  padding: 0.8rem 1.2rem;
   margin-top: 1rem;
 }
 

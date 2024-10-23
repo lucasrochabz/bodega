@@ -14,3 +14,14 @@
   flex-direction: column;
   width: 400px;
 }
+
+.info-prince {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.info-descricao {
+  margin-bottom: 2rem;
+}

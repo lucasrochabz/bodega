@@ -17,7 +17,7 @@ export const ProductCard = ({ item }) => {
         {item.name}
       </h2>
       <p>{item.descricao}</p>
-      <p>Estoque: {item.quantity}</p>
+      <p>Estoque: {item.stock}</p>
       <ButtonBuy handleClick={handleClick} text={'Comprar'} />
     </div>
   );

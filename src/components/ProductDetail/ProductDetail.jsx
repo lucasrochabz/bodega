@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import notebook from '../../assets/images/notebook-2.jpg';
 import './ProductDetail.css';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 export const ProductDetail = () => {
   const [estoque, setEstoque] = useState(0);
@@ -16,7 +16,7 @@ export const ProductDetail = () => {
       price: 'R$ 1.200,00',
       descricao:
         'O Notebook é ideal para quem busca desempenho e portabilidade em um único aparelho.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 2,
@@ -25,7 +25,7 @@ export const ProductDetail = () => {
       price: 'R$ 2.400,00',
       descricao:
         'O Smartphone oferece tecnologia avançada e recursos inovadores para facilitar o seu dia a dia.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ export const ProductDetail = () => {
       price: 'R$ 3.800,00',
       descricao:
         'A Câmera proporciona imagens de alta qualidade, capturando momentos únicos com precisão incrível.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 4,
@@ -43,7 +43,7 @@ export const ProductDetail = () => {
       price: 'R$ 4.000,00',
       descricao:
         'O Smartwatch combina estilo e funcionalidade, monitorando sua saúde e conectando você ao mundo.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 5,
@@ -52,7 +52,7 @@ export const ProductDetail = () => {
       price: 'R$ 5.200,00',
       descricao:
         'O Tablet é perfeito para entretenimento e trabalho, oferecendo versatilidade em um design compacto.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 6,
@@ -61,7 +61,7 @@ export const ProductDetail = () => {
       price: 'R$ 5.200,00',
       descricao:
         'O Tablet é perfeito para entretenimento e trabalho, oferecendo versatilidade em um design compacto.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 7,
@@ -70,7 +70,7 @@ export const ProductDetail = () => {
       price: 'R$ 3.800,00',
       descricao:
         'A Câmera proporciona imagens de alta qualidade, capturando momentos únicos com precisão incrível.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 8,
@@ -79,7 +79,7 @@ export const ProductDetail = () => {
       price: 'R$ 2.400,00',
       descricao:
         'O Smartphone oferece tecnologia avançada e recursos inovadores para facilitar o seu dia a dia.',
-      quantity: 10,
+      stock: 10,
     },
     {
       id: 9,
@@ -88,19 +88,23 @@ export const ProductDetail = () => {
       price: 'R$ 1.200,00',
       descricao:
         'O Notebook é ideal para quem busca desempenho e portabilidade em um único aparelho.',
-      quantity: 10,
+      stock: 10,
     },
   ];
 
   const produtoEncontrado = produtos.find((produto) => (produto.path = path));
 
   const handleTesteCarregar = () => {
-    setEstoque(produtoEncontrado.quantity);
+    setEstoque(produtoEncontrado.stock);
   };
 
   const handleTesteBuy = () => {
     setEstoque((prevEstoque) => prevEstoque - 1);
   };
+
+  useEffect(() => {
+    handleTesteCarregar();
+  }, []);
 
   return (
     <div className="product-detail">
@@ -109,11 +113,11 @@ export const ProductDetail = () => {
       <div className="product-detail-info">
         <h2>Detalhes do produto: {path}</h2>
         <h1>{produtoEncontrado.name}</h1>
-        <p>Preço: {produtoEncontrado.price}</p>
-        <p>{produtoEncontrado.descricao}</p>
-        <p>{estoque}</p>
-        <button onClick={handleTesteCarregar}>Carregar</button>
-        <button onClick={handleTesteBuy}>Diminuir</button>
+        <p className="info-prince">{produtoEncontrado.price}</p>
+        <p className="info-descricao">{produtoEncontrado.descricao}</p>
+        <p>Estoque: {estoque}</p>
+        {/* <button onClick={handleTesteCarregar}>Carregar</button> */}
+        <button onClick={handleTesteBuy}>Comprar</button>
       </div>
     </div>
   );
