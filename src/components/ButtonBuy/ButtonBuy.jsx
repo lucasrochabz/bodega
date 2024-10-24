@@ -1,9 +1,13 @@
 import './ButtonBuy.css';
 
-export const ButtonBuy = ({ text, handleClick }) => {
+export const ButtonBuy = ({ text, handleClick, isDisabled }) => {
   return (
     <>
-      <button onClick={handleClick} className="btn-buy">
+      <button
+        className={isDisabled ? 'btn-buy-disabled' : 'btn-buy'}
+        onClick={handleClick}
+        aria-disabled={isDisabled}
+      >
         {text}
       </button>
     </>

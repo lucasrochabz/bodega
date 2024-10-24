@@ -7,9 +7,21 @@
   border-radius: 5px;
   cursor: pointer;
   padding: 0.8rem 1.2rem;
-  margin-top: 1rem;
 }
 
 .btn-buy:hover {
   opacity: 0.9;
+}
+
+/* teste */
+.btn-buy-disabled {
+  background-color: var(--primary-color);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: not-allowed;
+  padding: 0.8rem 1.2rem;
+  opacity: 0.5;
 }
