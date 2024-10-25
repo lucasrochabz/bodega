@@ -23,7 +23,7 @@ export const LoginForm = () => {
   // teste auth
   const isConnected = () => {
     const getAuth = window.localStorage.getItem('auth');
-    console.log(getAuth);
+    console.log('A chave existe no localStorage?', getAuth);
 
     if (getAuth) {
       console.log('sim');
@@ -32,7 +32,8 @@ export const LoginForm = () => {
     }
   };
 
-  const handleClick = () => {
+  //teste
+  const handleLogin = () => {
     console.log('clicou no botão Entrar');
     window.localStorage.setItem('auth', 'Está conectado');
   };
@@ -56,7 +57,7 @@ export const LoginForm = () => {
         />
       ))}
 
-      <ButtonRequest text="Entrar" handleClick={handleClick} />
+      <ButtonRequest text="Entrar" handleClick={handleLogin} />
     </div>
   );
 };

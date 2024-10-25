@@ -21,6 +21,7 @@ export const SignUpModal = ({ isModalOpen }) => {
     setDataCep(dataCeps);
   };
 
+  // teste: saber o que isso esta fazendo
   const handleButton = (event) => {
     event.preventDefault();
 
@@ -31,6 +32,7 @@ export const SignUpModal = ({ isModalOpen }) => {
     }
   };
 
+  // teste: corrigir isso pois se mudar a posição da lista da problema na funcao cep
   const inputList = [
     {
       label: 'Nome',
@@ -93,6 +95,10 @@ export const SignUpModal = ({ isModalOpen }) => {
     },
   ];
 
+  const handleSignup = () => {
+    console.log('Criou a conta');
+  };
+
   return (
     <div className={isModalOpen ? 'signup' : ''}>
       {inputList.map((input) => (
@@ -109,7 +115,7 @@ export const SignUpModal = ({ isModalOpen }) => {
         </div>
       ))}
 
-      <ButtonRequest text="Criar" />
+      <ButtonRequest text="Criar" handleClick={handleSignup} />
     </div>
   );
 };
