@@ -16,7 +16,7 @@ export const ProductCard = ({ item }) => {
       <h2 className="title" key={item.id}>
         {item.name}
       </h2>
-      <p>{item.descricao}</p>
+      <p className="descricao">{item.descricao}</p>
       <p>Estoque: {item.stock}</p>
       <ButtonBuy handleClick={handleClick} text={'Comprar'} />
     </div>

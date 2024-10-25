@@ -5,7 +5,7 @@ import './ProductDetail.css';
 import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
 
 export const ProductDetail = () => {
-  const [estoque, setEstoque] = useState(0);
+  const [currentStock, setCurrentStock] = useState(0);
   const [quantity, setQuantity] = useState(1);
   const [total, setTotal] = useState(0);
 
@@ -98,7 +98,7 @@ export const ProductDetail = () => {
   const produtoEncontrado = produtos.find((produto) => produto.path === path);
 
   const loadInfoProduct = () => {
-    setEstoque(produtoEncontrado.stock - 1);
+    setCurrentStock(produtoEncontrado.stock - 1);
     setTotal(produtoEncontrado.price);
   };
 
@@ -106,31 +106,39 @@ export const ProductDetail = () => {
     loadInfoProduct();
   }, []);
 
-  const updateStock = () => {
-    if (estoque < 1) {
-      console.log(estoque);
-      alert('Acabou!');
-      return;
-    }
-
-    const newQuantity = quantity + 1;
-    const newEstoque = estoque - 1;
-    setEstoque(newEstoque);
-    setQuantity(newQuantity);
-    setTotal(produtoEncontrado.price * newQuantity);
-    console.log(estoque);
-
-    if (newEstoque === 5) {
-      console.log(estoque);
-      alert('Faltam 5 produtos');
-    }
-  };
-
   const formattedPrice = (number) => {
     return number.toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     });
+  };
+
+  // teste: corrigir isso, pois não está claro.
+  const updateStock = () => {
+    if (currentStock < 1) {
+      handleOutOfStock();
+      return;
+    }
+
+    setCurrentStock((prevStock) => {
+      const newStock = prevStock - 1;
+      if (newStock === 5) {
+        handleLowStock();
+      }
+      return newStock;
+    });
+
+    setQuantity((prevQuantity) => prevQuantity + 1);
+
+    setTotal(produtoEncontrado.price * quantity + 1);
+  };
+
+  const handleOutOfStock = () => {
+    alert('Acabou o estoque!');
+  };
+
+  const handleLowStock = () => {
+    alert('Faltam 5 produtos.');
   };
 
   return (
@@ -141,13 +149,13 @@ export const ProductDetail = () => {
         <h1>{produtoEncontrado.name}</h1>
         <p className="info-prince">{formattedPrice(produtoEncontrado.price)}</p>
         <p className="info-descricao">{produtoEncontrado.descricao}</p>
-        <p>Estoque: {estoque}</p>
+        <p>Estoque: {currentStock}</p>
         <p>Quantidade: {quantity}</p>
         <h2 className="info-total">Total: {formattedPrice(total)}</h2>
         <ButtonBuy
           handleClick={updateStock}
           text={'Comprar'}
-          isDisabled={estoque < 1}
+          isDisabled={currentStock < 1}
         />
       </div>
     </div>
