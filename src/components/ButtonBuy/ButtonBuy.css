@@ -1,5 +1,5 @@
 .btn-buy {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -13,9 +13,8 @@
   opacity: 0.9;
 }
 
-/* teste */
 .btn-buy-disabled {
-  background-color: var(--primary-color);
+  background-color: var(--secondary-color);
   color: #fff;
   font-size: 1rem;
   font-weight: bold;

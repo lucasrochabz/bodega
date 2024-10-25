@@ -6,6 +6,7 @@ export const ButtonBuy = ({ text, handleClick, isDisabled }) => {
       <button
         className={isDisabled ? 'btn-buy-disabled' : 'btn-buy'}
         onClick={handleClick}
+        disabled={isDisabled}
         aria-disabled={isDisabled}
       >
         {text}
