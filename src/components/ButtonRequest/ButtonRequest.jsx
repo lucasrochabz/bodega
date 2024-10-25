@@ -1,9 +1,10 @@
 import './ButtonRequest.css';
 
-export const ButtonRequest = ({ text }) => {
-  const handleClick = () => {
-    alert(`Clicou no botão ${text}`);
-  };
+export const ButtonRequest = ({ text, handleClick }) => {
+  //  teste ver onde tem essa função e tirar
+  // const handleClick = () => {
+  //   alert(`Clicou no botão ${text}`);
+  // };
 
   return (
     <>

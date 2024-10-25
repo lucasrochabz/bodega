@@ -6,11 +6,12 @@
 }
 
 .btn-signup {
-  color: #345;
+  color: var(--quinary-color);
   background-color: transparent;
   font-size: 1rem;
   cursor: pointer;
   border: none;
+  align-self: center;
   margin: 1rem 0;
   transition: 0.3s;
 }

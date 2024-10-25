@@ -5,11 +5,6 @@
   animation: show-down 0.3s forwards;
 }
 
-.btn-signup-modal {
-  background-color: red;
-  cursor: pointer;
-}
-
 @keyframes show-down {
   from {
     opacity: 0;

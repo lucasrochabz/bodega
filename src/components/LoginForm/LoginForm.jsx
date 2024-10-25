@@ -1,12 +1,9 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { InputField } from '../InputField/InputField';
 import { ButtonRequest } from '../ButtonRequest/ButtonRequest';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-
   const inputElement = useRef(null);
 
   const inputLogin = [
@@ -23,17 +20,26 @@ export const LoginForm = () => {
     },
   ];
 
-  // teste => função para fazer o login
-  // teste função tem que passar para o componente buttuonrequest
-  const getUser = () => {
-    alert('fez o login');
+  // teste auth
+  const isConnected = () => {
+    const getAuth = window.localStorage.getItem('auth');
+    console.log(getAuth);
 
-    // window.localStorage.setItem('login', 'login_teste');
-    // window.localStorage.setItem('senha', '123456');
+    if (getAuth) {
+      console.log('sim');
+    } else {
+      console.log('não');
+    }
+  };
+
+  const handleClick = () => {
+    console.log('clicou no botão Entrar');
+    window.localStorage.setItem('auth', 'Está conectado');
   };
 
   useEffect(() => {
     inputElement.current.focus();
+    isConnected();
   }, []);
 
   return (
@@ -50,7 +56,7 @@ export const LoginForm = () => {
         />
       ))}
 
-      <ButtonRequest text="Entrar" />
+      <ButtonRequest text="Entrar" handleClick={handleClick} />
     </div>
   );
 };

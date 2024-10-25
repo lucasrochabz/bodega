@@ -10,10 +10,13 @@
   --secondary-color: #ee8800;
   --tertiary-color: #e0e0e0;
   --quaternary-color: #ee5544;
+  --quinary-color: #334455;
 }
 
 body {
   background-color: #f4f7fc;
+  /* font-family: Arial, Helvetica, sans-serif; */
+
 }
 
 a {
