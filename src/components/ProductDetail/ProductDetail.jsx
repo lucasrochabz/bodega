@@ -57,7 +57,11 @@ export const ProductDetail = () => {
         <p>Estoque: {stock}</p>
         <p>Quantidade: {quantity}</p>
         <h2 className="info-total">Total: R$ {total}</h2>
-        <ButtonBuy handleClick={handleClick} text={'Adicionar'} />
+        <ButtonBuy
+          handleClick={handleClick}
+          isDisabled={stock <= 0}
+          text={'Adicionar'}
+        />
       </div>
     </div>
   );
