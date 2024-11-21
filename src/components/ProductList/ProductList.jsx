@@ -8,7 +8,6 @@ export const ProductList = () => {
   const getProducts = async () => {
     const response = await fetch('http://localhost:4000/products');
     const results = await response.json();
-    console.log(results.data);
     setProducts(results.data);
   };
 
