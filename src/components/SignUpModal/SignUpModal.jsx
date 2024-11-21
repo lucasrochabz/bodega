@@ -101,6 +101,7 @@ export const SignUpModal = ({ isModalOpen }) => {
 
   return (
     <div className={isModalOpen ? 'signup' : ''}>
+      {/* <form action="" className="form-teste"> */}
       {inputList.map((input) => (
         <div key={input.name}>
           <InputField
@@ -114,6 +115,7 @@ export const SignUpModal = ({ isModalOpen }) => {
           />
         </div>
       ))}
+      {/* </form> */}
 
       <ButtonRequest text="Criar" handleClick={handleSignup} />
     </div>

@@ -1,4 +1,4 @@
-import notebook from '../../assets/images/notebook-2.jpg';
+import notebook from '../../assets/images/notebook-1.jpg';
 import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
 import './ProductCard.css';
 

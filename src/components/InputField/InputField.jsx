@@ -15,6 +15,7 @@ export const InputField = forwardRef(
           onChange={onChange}
           value={value}
           ref={ref}
+          required
         />
       </div>
     );
