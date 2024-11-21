@@ -1,7 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
+import default_image from '../../assets/images/default_image.png';
 import notebook from '../../assets/images/notebook-1.jpg';
+import camera from '../../assets/images/camera-1.jpg';
+import smartphone from '../../assets/images/smartphone-1.jpg';
+import smartwatch from '../../assets/images/smartwatch-1.jpg';
+import tablet from '../../assets/images/tablet-1.jpg';
 import './ProductDetail.css';
 
 export const ProductDetail = () => {
@@ -13,6 +18,8 @@ export const ProductDetail = () => {
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
 
+  const [photoCurrent, setPhotoCurrent] = useState('');
+
   const getProduct = async () => {
     const response = await fetch(`http://localhost:4000/products/${productId}`);
     const results = await response.json();
@@ -20,11 +27,11 @@ export const ProductDetail = () => {
     setStock(results.data.stock);
     setPrice(results.data.price);
     setTotal(results.data.price);
+    setPhotoCurrent(results.data.image_path);
+    console.log(results.data.image_path);
   };
 
   const handleClick = () => {
-    console.log('Você clicou em comprar.');
-    console.log('No estoque tem:', stock);
     setStock((prevStock) => prevStock - 1);
     setQuantity((prevQuantity) => prevQuantity + 1);
   };
@@ -49,7 +56,7 @@ export const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <img src={notebook} alt={product.name} />
+      <img src={smartwatch} alt={product.name} />
       <div className="product-detail-info">
         <h1>{product.name}</h1>
         <p className="info-prince">R$ {price}</p>

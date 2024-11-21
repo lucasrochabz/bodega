@@ -1,4 +1,3 @@
-import notebook from '../../assets/images/notebook-1.jpg';
 import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
 import './ProductCard.css';
 
@@ -10,7 +9,10 @@ export const ProductCard = ({ item }) => {
 
   return (
     <div className="product-card">
-      <img src={notebook} alt={item.name} />
+      <img
+        src={`/src/assets/images/${item.image_path}-1.jpg`}
+        alt={item.name}
+      />
       <p className="price">{item.price}</p>
       <h2 className="title" key={item.id}>
         {item.name}
