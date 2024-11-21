@@ -14,7 +14,7 @@ export const ProductCard = ({ item }) => {
         alt={item.name}
       />
       <div className="div-teste">
-        <p className="price">{item.price}</p>
+        <p className="price">R$ {item.price}</p>
         <h2 className="title" key={item.id}>
           {item.name}
         </h2>
