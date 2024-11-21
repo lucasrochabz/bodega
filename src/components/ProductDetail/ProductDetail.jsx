@@ -1,12 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
-import default_image from '../../assets/images/default_image.png';
-import notebook from '../../assets/images/notebook-1.jpg';
-import camera from '../../assets/images/camera-1.jpg';
-import smartphone from '../../assets/images/smartphone-1.jpg';
-import smartwatch from '../../assets/images/smartwatch-1.jpg';
-import tablet from '../../assets/images/tablet-1.jpg';
 import './ProductDetail.css';
 
 export const ProductDetail = () => {
@@ -17,7 +11,6 @@ export const ProductDetail = () => {
   const [quantity, setQuantity] = useState(0);
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
-
   const [photoCurrent, setPhotoCurrent] = useState('');
 
   const getProduct = async () => {
@@ -28,7 +21,6 @@ export const ProductDetail = () => {
     setPrice(results.data.price);
     setTotal(results.data.price);
     setPhotoCurrent(results.data.image_path);
-    console.log(results.data.image_path);
   };
 
   const handleClick = () => {
@@ -56,7 +48,10 @@ export const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <img src={smartwatch} alt={product.name} />
+      <img
+        src={`/src/assets/images/${photoCurrent}-1.jpg`}
+        alt={product.name}
+      />
       <div className="product-detail-info">
         <h1>{product.name}</h1>
         <p className="info-prince">R$ {price}</p>

@@ -1,5 +1,5 @@
 .btn-buy {
-  background-color: var(--secondary-color);
+  background-color: var(--yellow-color);
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -14,7 +14,7 @@
 }
 
 .btn-buy-disabled {
-  background-color: var(--secondary-color);
+  background-color: var(--yellow-color);
   color: #fff;
   font-size: 1rem;
   font-weight: bold;

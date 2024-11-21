@@ -13,13 +13,15 @@ export const ProductCard = ({ item }) => {
         src={`/src/assets/images/${item.image_path}-1.jpg`}
         alt={item.name}
       />
-      <p className="price">{item.price}</p>
-      <h2 className="title" key={item.id}>
-        {item.name}
-      </h2>
-      <p className="descricao">{item.description}</p>
+      <div className="div-teste">
+        <p className="price">{item.price}</p>
+        <h2 className="title" key={item.id}>
+          {item.name}
+        </h2>
+        <p className="descricao">{item.description}</p>
 
-      <ButtonBuy handleClick={handleClick} text={'Comprar'} />
+        <ButtonBuy handleClick={handleClick} text={'Comprar'} />
+      </div>
     </div>
   );
 };

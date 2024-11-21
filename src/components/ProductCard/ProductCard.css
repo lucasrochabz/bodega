@@ -1,8 +1,7 @@
 .product-card {
-  background-color: #fff;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
-  padding: 1rem;
   max-width: 300px;
+  /* teste: retirar essa borda ou a outra */
   border-radius: 5px;
   transition: 0.3s;
 }
@@ -14,12 +13,12 @@
 .product-card img {
   display: block;
   width: 100%;
-  margin-bottom: 1rem;
+  /* teste: retirar essa borda ou a outra */
   border-radius: 5px;
 }
 
 .price {
-  color: var(--secondary-color);
+  color: var(--yellow-color);
 }
 
 .title {
@@ -32,4 +31,9 @@
   white-space: nowrap;
   text-overflow: ellipsis; */
   margin-bottom: 1rem;
+}
+
+.div-teste {
+  background-color: #fff;
+  padding: 1rem;
 }

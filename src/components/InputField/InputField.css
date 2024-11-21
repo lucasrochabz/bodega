@@ -19,6 +19,6 @@
 
 .input-field input:hover, 
 .input-field input:focus {
-  border: 1px solid var(--primary-color);
+  border: 1px solid var(--violet-color);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }

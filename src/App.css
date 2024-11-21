@@ -6,11 +6,11 @@
 }
 
 :root {
-  --primary-color: blueviolet;
-  --secondary-color: #ee8800;
-  --tertiary-color: #e0e0e0;
-  --quaternary-color: #ee5544;
-  --quinary-color: #334455;
+  --violet-color: blueviolet;
+  --yellow-color: #ee8800;
+  --gray-color: #e0e0e0;
+  --red-color: #ee5544;
+  --blue-color: #334455;
 }
 
 body {
@@ -22,5 +22,5 @@ a {
 }
 
 input[readonly] {
-  background-color: var(--tertiary-color);
+  background-color: var(--gray-color);
 }
