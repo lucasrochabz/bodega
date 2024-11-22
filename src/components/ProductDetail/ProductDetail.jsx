@@ -22,6 +22,8 @@ export const ProductDetail = () => {
 
   const handleClick = () => {
     console.log('clicou em comprar');
+    const ordersPath = `/orders`;
+    window.location.href = ordersPath;
   };
 
   useEffect(() => {

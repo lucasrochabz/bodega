@@ -1,12 +1,12 @@
 import './ProductCard.css';
 
 export const ProductCard = ({ item }) => {
-  const imagePath = `/src/assets/images/${item.image_path}`;
-
   const handleClick = () => {
-    const url = `/products/${item.id}`;
-    window.location.href = url;
+    const productPath = `/products/${item.id}`;
+    window.location.href = productPath;
   };
+
+  const imagePath = `/src/assets/images/${item.image_path}`;
 
   return (
     <div onClick={handleClick} className="product-card">
