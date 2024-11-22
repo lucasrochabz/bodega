@@ -1,6 +1,8 @@
 import './ProductCard.css';
 
 export const ProductCard = ({ item }) => {
+  const imagePath = `/src/assets/images/${item.image_path}`;
+
   const handleClick = () => {
     const url = `/products/${item.id}`;
     window.location.href = url;
@@ -8,10 +10,7 @@ export const ProductCard = ({ item }) => {
 
   return (
     <div onClick={handleClick} className="product-card">
-      <img
-        src={`/src/assets/images/${item.image_path}-1.jpg`}
-        alt={item.name}
-      />
+      <img src={`${imagePath}-1.jpg`} alt={item.name} />
       <div className="product-info">
         <p className="price">R$ {item.price}</p>
         <h2 className="title" key={item.id}>
