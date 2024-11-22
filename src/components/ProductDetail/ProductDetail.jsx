@@ -22,7 +22,7 @@ export const ProductDetail = () => {
 
   const handleClick = () => {
     console.log('clicou em comprar');
-    const ordersPath = `/orders`;
+    const ordersPath = `/orders/2`;
     window.location.href = ordersPath;
   };
 
