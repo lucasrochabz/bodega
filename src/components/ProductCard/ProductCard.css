@@ -4,6 +4,7 @@
   /* teste: retirar essa borda ou a outra */
   border-radius: 5px;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .product-card:hover {
@@ -23,6 +24,7 @@
 
 .title {
   margin-bottom: 1rem;
+  color: var(--blue-color);
 }
 
 .descricao {
@@ -31,9 +33,10 @@
   white-space: nowrap;
   text-overflow: ellipsis; */
   margin-bottom: 1rem;
+  color: var(--blue-color);
 }
 
-.div-teste {
+.product-info {
   background-color: #fff;
   padding: 1rem;
 }
