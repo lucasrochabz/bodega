@@ -10,7 +10,7 @@ export const ProductCard = ({ item }) => {
 
   return (
     <div onClick={handleClick} className="product-card">
-      <img src={`${imagePath}-1.jpg`} alt={item.name} />
+      <img src={`${imagePath}.jpg`} alt={item.name} />
       <div className="product-info">
         <p className="price">R$ {item.price}</p>
         <h2 className="title" key={item.id}>
