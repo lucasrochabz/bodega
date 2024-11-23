@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { InputField } from '../InputField/InputField';
-import { ButtonRequest } from '../ButtonRequest/ButtonRequest';
+import { InputField } from '../InputField';
+import { ButtonRequest } from '../ButtonRequest';
 import './SignUpModal.css';
 
 export const SignUpModal = ({ isModalOpen }) => {

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SignUpModal } from '../SignUpModal/SignUpModal';
+import { SignUpModal } from '../SignUpModal';
 import './SignUpForm.css';
 
 export const SignUpForm = () => {

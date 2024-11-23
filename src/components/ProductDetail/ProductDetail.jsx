@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ButtonBuy } from '../ButtonBuy/ButtonBuy';
+import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
 
 export const ProductDetail = () => {
