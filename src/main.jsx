@@ -1,9 +1,9 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { LoginPage } from './pages/LoginPage/LoginPage.jsx';
+import { LoginPage } from './pages/LoginPage/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
-import { OrderCompleted } from './pages/OrderCompleted/OrderCompleted.jsx';
+import { OrderCompleted } from './pages/OrderCompleted';
 import { App } from './App.jsx';
 
 const router = createBrowserRouter([
