@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import camera from '../../assets/images/camera-1.jpg';
 import './OrderCompleted.css';
 
 export const OrderCompleted = () => {
@@ -22,11 +23,18 @@ export const OrderCompleted = () => {
   return (
     <div>
       <Header />
-      <h1>Pedido finalizado com sucesso.</h1>
-      <h2>Agora é só aguardar...</h2>
-      <h2>O seu produto: nome_do_produto</h2>
-      <h3>Chegar em 5 dias</h3>
-      <h3>No endereço: endereço</h3>
+      <section className="section-teste">
+        <div className="order-teste">
+          <img src={camera} alt="camera" />
+        </div>
+        <div className="teste-teste-order">
+          <p>Número do pedido: #123456</p>
+          <p>R$ 2.000,00</p>
+          <h2>Câmera</h2>
+          <p>Chega em 5 dias</p>
+          <p>No endereço: Rua Sem nome</p>
+        </div>
+      </section>
       <Footer />
     </div>
   );

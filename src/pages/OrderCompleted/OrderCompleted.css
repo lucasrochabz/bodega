@@ -1,0 +1,22 @@
+.section-teste {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  min-height: calc(100vh - 216px);
+}
+
+.order-teste {
+  max-width: 100px;
+}
+
+.order-teste img {
+  width: 100%;
+  display: block;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.teste-teste-order {
+  display: flex;
+  flex-direction: column;
+}
