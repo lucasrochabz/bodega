@@ -1,0 +1,41 @@
+.orders-bg {
+  max-width: 1200px;
+  min-height: calc(100vh - 184px);
+  margin: 0 auto;
+}
+
+.order-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 2rem;
+  border: 1px solid gray;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.order-head {
+  background-color: var(--gray-color);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  object-fit: cover;
+}
+
+.order-teste {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem 0;
+}
+
+.order-teste img {
+  max-width: 100px;
+  display: block;
+  border-radius: 5px;
+}
+
+.order-info {
+  display: flex;
+  flex-direction: column;
+}
