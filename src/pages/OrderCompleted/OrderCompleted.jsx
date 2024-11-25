@@ -23,17 +23,26 @@ export const OrderCompleted = () => {
   return (
     <div>
       <Header />
-      <section className="section-teste">
-        <div className="order-teste">
-          <img src={camera} alt="camera" />
-        </div>
-        <div className="teste-teste-order">
-          <p>Número do pedido: #123456</p>
-          <p>R$ 2.000,00</p>
-          <h2>Câmera</h2>
-          <p>Chega em 5 dias</p>
-          <p>No endereço: Rua Sem nome</p>
-        </div>
+      <section className="orders-bg">
+        <h1>Seus pedidos</h1>
+
+        <section className="order-item">
+          <div className="order-head">
+            <p>Número do pedido: #123456</p>
+            <p>Pedido feito em: 25/11/2024</p>
+          </div>
+
+          <div className="order-teste">
+            <img src={camera} alt="camera" />
+
+            <div className="order-info">
+              <h2>Câmera</h2>
+              <p>R$ 2.000,00</p>
+              <p>Status: Finalizado</p>
+              <p>Vendido e entregue por: Bodega</p>
+            </div>
+          </div>
+        </section>
       </section>
       <Footer />
     </div>
