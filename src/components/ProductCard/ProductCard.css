@@ -5,6 +5,7 @@
   border-radius: 5px;
   transition: 0.3s;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .product-card:hover {
@@ -14,8 +15,6 @@
 .product-card img {
   display: block;
   width: 100%;
-  /* teste: retirar essa borda ou a outra */
-  border-radius: 5px;
 }
 
 .price {

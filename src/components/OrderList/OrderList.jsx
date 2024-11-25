@@ -24,27 +24,25 @@ export const OrderList = () => {
   // );
 
   return (
-    <>
-      <section className="orders-bg">
-        <h1>Seus pedidos</h1>
-        <section className="order-item">
-          <div className="order-head">
-            <p>Número do pedido: #123456</p>
-            <p>Pedido feito em: 25/11/2024</p>
-          </div>
+    <section className="orders-bg">
+      <h1>Seus pedidos</h1>
+      <section className="order-item">
+        <div className="order-head">
+          <p>Número do pedido: #123456</p>
+          <p>Pedido feito em: 25/11/2024</p>
+        </div>
 
-          <div className="order-teste">
-            <img src={camera} alt="camera" />
+        <div className="order-teste">
+          <img src={camera} alt="camera" />
 
-            <div className="order-info">
-              <h2>Câmera</h2>
-              <p>R$ 2.000,00</p>
-              <p>Status: Finalizado</p>
-              <p>Vendido e entregue por: Bodega</p>
-            </div>
+          <div className="order-info">
+            <h2>Câmera</h2>
+            <p>R$ 2.000,00</p>
+            <p>Status: Finalizado</p>
+            <p>Vendido e entregue por: Bodega</p>
           </div>
-        </section>
+        </div>
       </section>
-    </>
+    </section>
   );
 };

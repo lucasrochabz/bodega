@@ -24,3 +24,7 @@ a {
 input[readonly] {
   background-color: var(--gray-color);
 }
+
+h1 {
+  font-size: 2rem;
+}
