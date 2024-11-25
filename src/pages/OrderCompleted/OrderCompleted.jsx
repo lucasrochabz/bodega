@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { OrderList } from '../../components/OrderList/OrderList';
 import camera from '../../assets/images/camera-1.jpg';
 import './OrderCompleted.css';
 
@@ -23,6 +24,7 @@ export const OrderCompleted = () => {
   return (
     <div>
       <Header />
+      {/* <OrderList /> */}
       <section className="orders-bg">
         <h1>Seus pedidos</h1>
 
