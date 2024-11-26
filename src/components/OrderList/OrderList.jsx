@@ -32,6 +32,10 @@ export const OrderList = () => {
           <p>Pedido feito em: 25/11/2024</p>
         </div>
 
+        <div className="order-store">
+          <p>Vendido e entregue por: Bodega</p>
+        </div>
+
         <div className="order-teste">
           <img src={camera} alt="camera" />
 
@@ -39,7 +43,6 @@ export const OrderList = () => {
             <h2>Câmera</h2>
             <p>R$ 2.000,00</p>
             <p>Status: Finalizado</p>
-            <p>Vendido e entregue por: Bodega</p>
           </div>
         </div>
       </section>
