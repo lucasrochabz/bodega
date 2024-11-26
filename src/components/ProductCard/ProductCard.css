@@ -1,7 +1,6 @@
 .product-card {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   max-width: 300px;
-  /* teste: retirar essa borda ou a outra */
   border-radius: 5px;
   transition: 0.3s;
   cursor: pointer;
