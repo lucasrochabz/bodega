@@ -1,8 +1,8 @@
 // import { useEffect, useState } from 'react';
-import camera from '../../assets/images/camera-1.jpg';
+// import camera from '../../assets/images/camera-1.jpg';
 import './OrderList.css';
 
-export const OrderList = () => {
+export const OrderList = ({ order }) => {
   // const [orders, setOrders] = useState('');
 
   // const getOrders = async () => {
@@ -23,12 +23,14 @@ export const OrderList = () => {
   //   </div>
   // );
 
+  const imagePath = `/src/assets/images/${order.product.image_path}`;
+
   return (
     <section className="orders-bg">
       <h1>Seus pedidos</h1>
       <section className="order-item">
         <div className="order-head">
-          <p>Número do pedido: #123456</p>
+          <p>Número do pedido: #{order.id}</p>
           <p>Pedido feito em: 25/11/2024</p>
         </div>
 
@@ -37,12 +39,12 @@ export const OrderList = () => {
         </div>
 
         <div className="order-teste">
-          <img src={camera} alt="camera" />
+          <img src={`${imagePath}.jpg`} alt="camera" />
 
           <div className="order-info">
-            <h2>Câmera</h2>
-            <p>R$ 2.000,00</p>
-            <p>Status: Finalizado</p>
+            <h2>{order.product.name}</h2>
+            <p>R$ {order.product.price}</p>
+            <p>{order.status}</p>
           </div>
         </div>
       </section>

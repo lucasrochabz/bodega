@@ -23,7 +23,7 @@ export const OrderCompleted = () => {
   return (
     <div>
       <Header />
-      <OrderList />
+      <OrderList order={order} />
       <Footer />
     </div>
   );
