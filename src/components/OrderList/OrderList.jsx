@@ -1,28 +1,6 @@
-// import { useEffect, useState } from 'react';
-// import camera from '../../assets/images/camera-1.jpg';
 import './OrderList.css';
 
 export const OrderList = ({ order }) => {
-  // const [orders, setOrders] = useState('');
-
-  // const getOrders = async () => {
-  //   const response = await fetch('url');
-  //   const results = await response.json();
-  //   setOrders(results.data);
-  // };
-
-  // useEffect(() => {
-  //   getOrders();
-  // }, []);
-
-  // return (
-  //   <div>
-  //     {orders.map((order) => {
-  //       <h2>item</h2>;
-  //     })}
-  //   </div>
-  // );
-
   const imagePath = `/src/assets/images/${order.product.image_path}`;
 
   return (
