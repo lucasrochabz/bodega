@@ -21,7 +21,6 @@ export const ProductDetail = () => {
   };
 
   const handleClick = async () => {
-    console.log('fazer uma requisição post para criar pedido');
     const response = await fetch('http://localhost:4000/orders', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -33,10 +32,9 @@ export const ProductDetail = () => {
         product_id: 9,
       }),
     });
-    const data = await response.json();
-    console.log(data);
-    // const ordersPath = `/orders/2`;
-    // window.location.href = ordersPath;
+    const results = await response.json();
+    const ordersPath = `/orders/${results.data.id}`;
+    window.location.href = ordersPath;
   };
 
   useEffect(() => {
