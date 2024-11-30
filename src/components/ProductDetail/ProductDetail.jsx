@@ -29,7 +29,7 @@ export const ProductDetail = () => {
         address_id: 1,
         date: '2024-11-29',
         status: 'Aguardando Pagamento',
-        product_id: 9,
+        product_id: product.id,
       }),
     });
     const results = await response.json();
@@ -45,6 +45,7 @@ export const ProductDetail = () => {
 
   return (
     <div className="product-detail">
+      {/* {console.log(product)} */}
       <img src={`${imagePath}.jpg`} alt={product.name} />
       <div className="product-detail-info">
         <h1>{product.name}</h1>
