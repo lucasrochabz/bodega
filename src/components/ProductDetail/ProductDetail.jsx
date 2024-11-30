@@ -45,7 +45,6 @@ export const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      {/* {console.log(product)} */}
       <img src={`${imagePath}.jpg`} alt={product.name} />
       <div className="product-detail-info">
         <h1>{product.name}</h1>
