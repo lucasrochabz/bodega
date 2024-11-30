@@ -20,9 +20,23 @@ export const ProductDetail = () => {
     setPhotoCurrent(results.data.image_path);
   };
 
-  const handleClick = () => {
-    const ordersPath = `/orders/2`;
-    window.location.href = ordersPath;
+  const handleClick = async () => {
+    console.log('fazer uma requisição post para criar pedido');
+    const response = await fetch('http://localhost:4000/orders', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        user_id: 1,
+        address_id: 1,
+        date: '2024-11-29',
+        status: 'Aguardando Pagamento',
+        product_id: 9,
+      }),
+    });
+    const data = await response.json();
+    console.log(data);
+    // const ordersPath = `/orders/2`;
+    // window.location.href = ordersPath;
   };
 
   useEffect(() => {
