@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { InputField } from '../InputField';
-import { ButtonRequest } from '../ButtonRequest';
+import { RequestButton } from '../RequestButton/RequestButton';
 import './SignUpModal.css';
 
 export const SignUpModal = ({ isModalOpen }) => {
@@ -117,7 +117,7 @@ export const SignUpModal = ({ isModalOpen }) => {
       ))}
       {/* </form> */}
 
-      <ButtonRequest text="Criar" handleClick={handleSignup} />
+      <RequestButton text="Criar" handleClick={handleSignup} />
     </div>
   );
 };

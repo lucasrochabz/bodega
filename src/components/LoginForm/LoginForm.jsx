@@ -1,6 +1,5 @@
 import { useEffect, useRef } from 'react';
 import { InputField } from '../InputField';
-import { ButtonRequest } from '../ButtonRequest';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './LoginForm.css';
 
@@ -34,10 +33,10 @@ export const LoginForm = () => {
   };
 
   //teste
-  const handleLogin = () => {
-    console.log('clicou no botão Entrar');
-    window.localStorage.setItem('auth', 'Está conectado');
-  };
+  // const handleLogin = () => {
+  //   console.log('clicou no botão Entrar');
+  //   window.localStorage.setItem('auth', 'Está conectado');
+  // };
 
   useEffect(() => {
     inputElement.current.focus();
@@ -72,7 +71,6 @@ export const LoginForm = () => {
         />
       ))}
 
-      <ButtonRequest text="Entrar" handleClick={handleLogin} />
       <RequestButton handleClick={requestApi} text="Request" />
     </div>
   );
