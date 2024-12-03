@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react';
 import { InputField } from '../InputField';
 import { ButtonRequest } from '../ButtonRequest';
+import { RequestButton } from '../RequestButton/RequestButton';
 import './LoginForm.css';
 
 export const LoginForm = () => {
@@ -43,6 +44,20 @@ export const LoginForm = () => {
     isConnected();
   }, []);
 
+  const requestApi = async () => {
+    const response = await fetch('http://localhost:4000/auths/login', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        email: 'lucas@email.com',
+        password: '123456',
+      }),
+    });
+
+    const results = await response.json();
+    console.log(results);
+  };
+
   return (
     <div className="login-field">
       <h1 className="default-title">Login</h1>
@@ -58,6 +73,7 @@ export const LoginForm = () => {
       ))}
 
       <ButtonRequest text="Entrar" handleClick={handleLogin} />
+      <RequestButton handleClick={requestApi} text="Request" />
     </div>
   );
 };
