@@ -11,17 +11,22 @@ export const OrderCompleted = () => {
 
   const { startLoading, stopLoading, loading } = useLoading();
 
-  const [order, setOrder] = useState({});
+  const [order, setOrder] = useState(null);
 
   const getOrder = async () => {
     startLoading();
     try {
       const response = await fetch(`http://localhost:4000/orders/${orderId}`);
+
+      if (!response.ok) {
+        const results = await response.json();
+        throw new Error(results.message);
+      }
+
       const results = await response.json();
       setOrder(results.data);
-      stopLoading();
     } catch (error) {
-      console.error('Erro ao buscar pedido:' + error);
+      console.error('Erro na requisição:' + error.message);
     } finally {
       stopLoading();
     }
@@ -29,12 +34,12 @@ export const OrderCompleted = () => {
 
   useEffect(() => {
     getOrder();
-  }, []);
+  }, [orderId]);
 
   return (
     <div>
       <Header />
-      {loading ? 'Carregando' : <OrderList order={order} />}
+      {loading ? 'Carregando...' : order && <OrderList order={order} />}
       <Footer />
     </div>
   );

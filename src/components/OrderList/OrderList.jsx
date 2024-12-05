@@ -1,7 +1,7 @@
 import './OrderList.css';
 
 export const OrderList = ({ order }) => {
-  const imagePath = `/src/assets/images/${order.product.image_path}`;
+  const imagePath = `/src/assets/images/${order.product.image_path}.jpg`;
 
   return (
     <section className="orders-bg">
@@ -17,7 +17,7 @@ export const OrderList = ({ order }) => {
         </div>
 
         <div className="order-teste">
-          <img src={`${imagePath}.jpg`} alt="camera" />
+          <img src={imagePath} alt={order.name} />
 
           <div className="order-info">
             <h2>{order.product.name}</h2>
