@@ -4,7 +4,7 @@ import { useLoading } from '../../hooks';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { OrderList } from '../../components/OrderList';
-import { Loading } from '../../components/Loading/Loading';
+import { Loading } from '../../components/Loading';
 import './OrderCompleted.css';
 
 export const OrderCompleted = () => {
