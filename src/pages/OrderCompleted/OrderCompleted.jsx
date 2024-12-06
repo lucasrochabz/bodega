@@ -4,8 +4,8 @@ import { useLoading } from '../../hooks';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { OrderList } from '../../components/OrderList';
-import './OrderCompleted.css';
 import { Loading } from '../../components/Loading/Loading';
+import './OrderCompleted.css';
 
 export const OrderCompleted = () => {
   const { orderId } = useParams();
