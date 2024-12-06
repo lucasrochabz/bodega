@@ -6,8 +6,11 @@
 }
 
 .loading-text {
+  font-size: 2rem;
+  font-weight: bold;
   text-align: center;
   animation: pulse 2.0s infinite ease-in-out;
+  /* animation: spin 2.0s linear infinite; */
 }
 
 @keyframes pulse {
@@ -22,5 +25,14 @@
   100% {
     opacity: 0.5;
     transform: scale(0.8);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0)
+  }
+  to {
+    transform: rotate(360deg);
   }
 }

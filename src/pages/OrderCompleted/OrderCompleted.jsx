@@ -38,10 +38,12 @@ export const OrderCompleted = () => {
   }, [orderId]);
 
   return (
-    <div>
+    <>
       <Header />
-      {loading ? <Loading /> : order && <OrderList order={order} />}
+      <div className="order-container-teste">
+        {loading ? <Loading /> : order && <OrderList order={order} />}
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
