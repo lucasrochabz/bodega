@@ -5,6 +5,7 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { OrderList } from '../../components/OrderList';
 import './OrderCompleted.css';
+import { Loading } from '../../components/Loading/Loading';
 
 export const OrderCompleted = () => {
   const { orderId } = useParams();
@@ -39,7 +40,7 @@ export const OrderCompleted = () => {
   return (
     <div>
       <Header />
-      {loading ? 'Carregando...' : order && <OrderList order={order} />}
+      {loading ? <Loading /> : order && <OrderList order={order} />}
       <Footer />
     </div>
   );

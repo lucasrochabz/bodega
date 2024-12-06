@@ -1,0 +1,26 @@
+.loading-container {
+  min-height: calc(100vh - 216px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-text {
+  text-align: center;
+  animation: pulse 2.0s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1.0;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+}
