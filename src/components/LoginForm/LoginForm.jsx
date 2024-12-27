@@ -43,7 +43,7 @@ export const LoginForm = () => {
       const results = await response.json();
       console.log(results);
     } catch (error) {
-      console.error('Erro na requisição: ', error.message);
+      console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer login: ${error.message}`);
     }
   };

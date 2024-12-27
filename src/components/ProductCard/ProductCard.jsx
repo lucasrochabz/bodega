@@ -6,7 +6,7 @@ export const ProductCard = ({ item }) => {
     window.location.href = productPath;
   };
 
-  const imagePath = `/src/assets/images/${item.image_path}.jpg`;
+  const imagePath = `/src/assets/images/${item.image_path}`;
 
   return (
     <div onClick={handleClick} className="product-card">

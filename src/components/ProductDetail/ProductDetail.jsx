@@ -43,7 +43,7 @@ export const ProductDetail = () => {
       const ordersPath = `/orders/${results.data.id}`;
       window.location.href = ordersPath;
     } catch (error) {
-      console.error('Erro na requisição: ', error.message);
+      console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer pedido: ${error.message}`);
     }
   };
@@ -56,7 +56,7 @@ export const ProductDetail = () => {
 
   return (
     <div className="product-detail">
-      <img src={`${imagePath}.jpg`} alt={product.name} />
+      <img src={`${imagePath}`} alt={product.name} />
       <div className="product-detail-info">
         <h1>{product.name}</h1>
         <p className="info-prince">R$ {price}</p>
