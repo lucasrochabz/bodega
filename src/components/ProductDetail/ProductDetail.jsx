@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { BASE_API_URL } from '../../../config';
 import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
 
@@ -12,7 +13,7 @@ export const ProductDetail = () => {
   const [photoCurrent, setPhotoCurrent] = useState('');
 
   const getProduct = async () => {
-    const response = await fetch(`http://localhost:4000/products/${productId}`);
+    const response = await fetch(`${BASE_API_URL}/products/${productId}`);
     const results = await response.json();
     setProduct(results.data);
     setPrice(results.data.price);
@@ -22,7 +23,7 @@ export const ProductDetail = () => {
 
   const handleClick = async () => {
     try {
-      const response = await fetch('http://localhost:4000/orders', {
+      const response = await fetch(`${BASE_API_URL}/orders`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

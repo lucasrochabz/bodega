@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
@@ -17,7 +18,7 @@ export const OrderCompleted = () => {
   const getOrder = async () => {
     startLoading();
     try {
-      const response = await fetch(`http://localhost:4000/orders/${orderId}`);
+      const response = await fetch(`${BASE_API_URL}/orders/${orderId}`);
 
       if (!response.ok) {
         const results = await response.json();

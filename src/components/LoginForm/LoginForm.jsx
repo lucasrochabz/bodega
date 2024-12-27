@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react';
+import { BASE_API_URL } from '../../../config';
 import { InputField } from '../InputField';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './LoginForm.css';
@@ -26,7 +27,7 @@ export const LoginForm = () => {
 
   const requestApi = async () => {
     try {
-      const response = await fetch('http://localhost:4000/auths/login', {
+      const response = await fetch(`${BASE_API_URL}/auths/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
