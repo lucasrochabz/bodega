@@ -1,15 +1,33 @@
 import { useEffect, useState } from 'react';
 import { BASE_API_URL } from '../../../config';
+import { useLoading } from '../../hooks';
 import { ProductCard } from '../ProductCard/ProductCard';
 import './ProductList.css';
+import { Loading } from '../Loading';
 
 export const ProductList = () => {
   const [products, setProducts] = useState([]);
 
+  const { loading, startLoading, stopLoading } = useLoading();
+
   const getProducts = async () => {
-    const response = await fetch(`${BASE_API_URL}/products`);
-    const results = await response.json();
-    setProducts(results.data);
+    startLoading();
+    try {
+      const response = await fetch(`${BASE_API_URL}/products`);
+
+      if (!response.ok) {
+        const results = await response.json();
+        throw new Error(results.message);
+      }
+
+      const results = await response.json();
+      setProducts(results.data);
+    } catch (error) {
+      console.error('Erro na requisição', error.message);
+      alert(`Erro ao buscar produtos: ${error.message}`);
+    } finally {
+      stopLoading();
+    }
   };
 
   useEffect(() => {
@@ -18,9 +36,11 @@ export const ProductList = () => {
 
   return (
     <section className="product-list">
-      {products.map((item) => (
-        <ProductCard key={item.id} item={item} />
-      ))}
+      {loading ? (
+        <Loading />
+      ) : (
+        products.map((item) => <ProductCard key={item.id} item={item} />)
+      )}
     </section>
   );
 };

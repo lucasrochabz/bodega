@@ -11,7 +11,7 @@ import './OrderCompleted.css';
 export const OrderCompleted = () => {
   const { orderId } = useParams();
 
-  const { startLoading, stopLoading, loading } = useLoading();
+  const { loading, startLoading, stopLoading } = useLoading();
 
   const [order, setOrder] = useState(null);
 
