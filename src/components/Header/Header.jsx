@@ -4,11 +4,10 @@ import { UserContext } from '../../contexts/UserContext';
 import './Header.css';
 
 export const Header = () => {
-  const { isLoggedIn } = useContext(UserContext);
+  const { isLoggedIn, login, logout } = useContext(UserContext);
 
   return (
     <section className="header-bg">
-      {isLoggedIn ? <p>Sim</p> : <p>Não</p>}
       <div className="header">
         <Link to={'/'}>
           <h2 className="logo">Bodega</h2>
@@ -16,6 +15,9 @@ export const Header = () => {
         <Link to={'/login'} className="btn-login">
           Login
         </Link>
+        <button onClick={isLoggedIn ? logout : login}>
+          {isLoggedIn ? 'Sair' : 'Entrar'}
+        </button>
       </div>
     </section>
   );
