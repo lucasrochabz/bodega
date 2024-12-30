@@ -1,6 +1,7 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { UserProvider } from './contexts/UserContext.jsx';
 import { LoginPage } from './pages/LoginPage/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { OrderCompleted } from './pages/OrderCompleted';
@@ -27,6 +28,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <UserProvider>
+      <RouterProvider router={router} />
+    </UserProvider>
   </StrictMode>,
 );
