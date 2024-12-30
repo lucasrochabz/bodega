@@ -1,13 +1,13 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { InputField } from '../InputField';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './LoginForm.css';
-import { UserContext } from '../../contexts/UserContext';
 
 export const LoginForm = () => {
-  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext);
-  console.log(isLoggedIn);
+  const { isLoggedIn, login, logout } = useContext(UserContext);
+
   const inputElement = useRef(null);
 
   const inputLogin = [
@@ -52,18 +52,6 @@ export const LoginForm = () => {
   //   }
   // };
 
-  const toggleLogin = () => {
-    const storedLoggin = localStorage.getItem('isLoggedIn');
-
-    if (storedLoggin === 'true') {
-      localStorage.setItem('isLoggedIn', 'false');
-      setIsLoggedIn(false);
-    } else {
-      localStorage.setItem('isLoggedIn', 'true');
-      setIsLoggedIn(true);
-    }
-  };
-
   return (
     <div className="login-field">
       <h1 className="default-title">Login</h1>
@@ -78,7 +66,10 @@ export const LoginForm = () => {
         />
       ))}
 
-      <RequestButton handleClick={toggleLogin} text="Logar" />
+      <RequestButton
+        handleClick={isLoggedIn ? logout : login}
+        text={isLoggedIn ? 'Sair' : 'Entrar'}
+      />
     </div>
   );
 };

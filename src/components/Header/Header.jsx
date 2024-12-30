@@ -5,6 +5,7 @@ import './Header.css';
 
 export const Header = () => {
   const { isLoggedIn } = useContext(UserContext);
+
   return (
     <section className="header-bg">
       {isLoggedIn ? <p>Sim</p> : <p>Não</p>}

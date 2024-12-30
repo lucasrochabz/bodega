@@ -1,25 +1,10 @@
-import { useEffect } from 'react';
-import { useState } from 'react';
 import { createContext } from 'react';
+import { useAuth } from '../hooks';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const auth = useAuth();
 
-  useEffect(() => {
-    const storedLoginStatus = localStorage.getItem('isLoggedIn');
-
-    if (storedLoginStatus === 'true') {
-      setIsLoggedIn(true);
-    } else {
-      setIsLoggedIn(false);
-    }
-  }, []);
-
-  return (
-    <UserContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={auth}>{children}</UserContext.Provider>;
 };
