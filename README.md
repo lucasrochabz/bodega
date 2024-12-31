@@ -1,8 +1,25 @@
-# React + Vite
+## Bodega version 1.0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+### Sobre
 
-Currently, two official plugins are available:
+Este projeto é destinado ao estudo de front-end em JavaScript, utilizando React como principal ferramenta.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Tecnologias
+
+- **JavaScript**: Linguagem de programação utilizada no projeto.
+- **React**: Biblioteca JavaScript para criação de interfaces de usuário.
+
+### Requisitos
+
+- NPM na versão 10.9 ou superior.
+
+### Como instalar?
+
+1. Faça o clone do projeto.
+2. Abra o terminal e navegue até a pasta do projeto.
+3. Instale as dependências usando o comando: `npm install`.
+4. Inicie o servidor localmente com o comando: `npm run dev`.
+
+### Encontrou algum problema?
+
+Abra uma issue com sua sugestão ou crítica.
