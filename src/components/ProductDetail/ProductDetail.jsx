@@ -32,7 +32,7 @@ export const ProductDetail = () => {
     }
   };
 
-  const handleClick = async () => {
+  const createOrder = async () => {
     startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/orders`, {
@@ -41,9 +41,9 @@ export const ProductDetail = () => {
         body: JSON.stringify({
           user_id: 1,
           address_id: 1,
-          date: '2024-11-29',
-          status: 'Aguardando Pagamento',
-          product_id: product.id,
+          date: '2024-12-30',
+          status: 'rascunho',
+          products: [{ product_id: 1, quantity: 1 }],
         }),
       });
 
@@ -81,7 +81,7 @@ export const ProductDetail = () => {
             <p className="info-prince">R$ {price}</p>
             <p className="info-descricao">{product.description}</p>
             <h2 className="info-total">Total: R$ {total}</h2>
-            <ButtonBuy handleClick={handleClick} text={'Finalizar Pedido'} />
+            <ButtonBuy handleClick={createOrder} text={'Finalizar Pedido'} />
           </div>
         </div>
       )}
