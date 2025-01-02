@@ -1,28 +1,15 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
-import { InputField } from '../InputField';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './LoginForm.css';
 
 export const LoginForm = () => {
   const { isLoggedIn, login, logout } = useContext(UserContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const inputElement = useRef(null);
-
-  const inputLogin = [
-    {
-      name: 'email-login',
-      label: 'Email',
-      type: 'email',
-      ref: inputElement,
-    },
-    {
-      name: 'password-login',
-      label: 'Password',
-      type: 'password',
-    },
-  ];
 
   useEffect(() => {
     inputElement.current.focus();
@@ -56,15 +43,24 @@ export const LoginForm = () => {
     <div className="login-field">
       <h1 className="default-title">Login</h1>
 
-      {inputLogin.map((input) => (
-        <InputField
-          key={input.name}
-          name={input.name}
-          label={input.label}
-          type={input.type}
-          ref={input.ref}
-        />
-      ))}
+      <label htmlFor="email">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        ref={inputElement}
+      />
+
+      <label htmlFor="password">Senha</label>
+      <input
+        type="password"
+        id="password"
+        name="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
 
       <RequestButton
         handleClick={isLoggedIn ? logout : login}
