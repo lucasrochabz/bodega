@@ -2,7 +2,6 @@ import './OrderList.css';
 
 export const OrderList = ({ order }) => {
   const imagePath = `/src/assets/images/${order.product.image_path}`;
-  console.log(order);
 
   return (
     <section className="orders-bg">

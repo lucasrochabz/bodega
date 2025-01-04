@@ -11,6 +11,16 @@ export const LoginForm = () => {
 
   const inputElement = useRef(null);
 
+  const cliqueTeste = (e) => {
+    e.preventDefault();
+
+    if (email === '' || password === '') {
+      return console.log('os campos estão vazios');
+    }
+
+    return console.log('Cadastro feito');
+  };
+
   useEffect(() => {
     inputElement.current.focus();
   }, []);
@@ -43,7 +53,7 @@ export const LoginForm = () => {
     <div className="login-field">
       <h1 className="default-title">Login</h1>
 
-      <form className="login-form">
+      <form className="login-form" onSubmit={cliqueTeste}>
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -63,10 +73,12 @@ export const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <RequestButton
+        <button>Clique aqui</button>
+
+        {/* <RequestButton
           handleClick={isLoggedIn ? logout : login}
           text={isLoggedIn ? 'Sair' : 'Entrar'}
-        />
+        /> */}
       </form>
     </div>
   );

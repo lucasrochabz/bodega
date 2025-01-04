@@ -17,7 +17,6 @@ export const SignUpModal = ({ isModalOpen }) => {
   const getCep = async (cep) => {
     const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
     const dataCeps = await response.json();
-    console.log(dataCeps);
     setDataCep(dataCeps);
   };
 
@@ -60,8 +59,8 @@ export const SignUpModal = ({ isModalOpen }) => {
       onChange: handleCep,
     },
     {
-      label: 'Rua',
-      name: 'rua',
+      label: 'Endereço',
+      name: 'endereço',
       type: 'text',
       attribute: true,
       value: dataCep.logradouro || '',
