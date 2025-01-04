@@ -43,29 +43,31 @@ export const LoginForm = () => {
     <div className="login-field">
       <h1 className="default-title">Login</h1>
 
-      <label htmlFor="email">Email</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        ref={inputElement}
-      />
+      <form className="login-form">
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          ref={inputElement}
+        />
 
-      <label htmlFor="password">Senha</label>
-      <input
-        type="password"
-        id="password"
-        name="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
+        <label htmlFor="password">Senha</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
-      <RequestButton
-        handleClick={isLoggedIn ? logout : login}
-        text={isLoggedIn ? 'Sair' : 'Entrar'}
-      />
+        <RequestButton
+          handleClick={isLoggedIn ? logout : login}
+          text={isLoggedIn ? 'Sair' : 'Entrar'}
+        />
+      </form>
     </div>
   );
 };

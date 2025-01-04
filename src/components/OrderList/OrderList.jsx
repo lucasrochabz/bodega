@@ -2,13 +2,14 @@ import './OrderList.css';
 
 export const OrderList = ({ order }) => {
   const imagePath = `/src/assets/images/${order.product.image_path}`;
+  console.log(order);
 
   return (
     <section className="orders-bg">
       <h1>Seus pedidos</h1>
       <section className="order-item">
         <div className="order-head">
-          <p>Número do pedido: #{order.id}</p>
+          <p>Número do pedido: #{order.order_id}</p>
           <p>Pedido feito em: 25/11/2024</p>
         </div>
 

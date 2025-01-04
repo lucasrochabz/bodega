@@ -41,9 +41,9 @@ export const ProductDetail = () => {
         body: JSON.stringify({
           user_id: 1,
           address_id: 1,
-          date: '2024-12-30',
+          date: '2024-01-04',
           status: 'rascunho',
-          products: [{ product_id: 1, quantity: 1 }],
+          products: [{ product_id: productId, quantity: 1 }],
         }),
       });
 

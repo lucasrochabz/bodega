@@ -8,12 +8,16 @@ export const useAuth = () => {
     setIsLoggedIn(storedLogginStatus === 'true');
   }, []);
 
-  const login = () => {
+  const login = (e) => {
+    e.preventDefault();
+
     setIsLoggedIn(true);
     localStorage.setItem('isLoggedIn', 'true');
   };
 
-  const logout = () => {
+  const logout = (e) => {
+    e.preventDefault();
+
     setIsLoggedIn(false);
     localStorage.setItem('isLoggedIn', 'false');
   };
