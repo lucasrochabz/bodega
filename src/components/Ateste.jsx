@@ -6,6 +6,7 @@ export const Ateste = () => {
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [cep, setCep] = useState('');
+
   return (
     <>
       <h2>Formulário teste</h2>
