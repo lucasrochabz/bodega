@@ -12,24 +12,25 @@ export const Ateste = () => {
       <h2>Formulário teste</h2>
       <form>
         <Input
-          label={'Nome'}
-          id={'nome'}
+          label="Nome"
+          id="nome"
           value={nome}
           setValue={setNome}
           required
         />
 
         <Input
-          label={'Email'}
-          id={'email'}
+          label="Email"
+          id="email"
           value={email}
           setValue={setEmail}
+          placeholder="Digite seu email"
           required
         />
 
         <Input
-          label={'Senha'}
-          id={'senha'}
+          label="Senha"
+          id="senha"
           value={senha}
           setValue={setSenha}
           required
