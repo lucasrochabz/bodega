@@ -1,9 +1,19 @@
 import { useState } from 'react';
-import { InputField } from '../InputField';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './SignUpModal.css';
+import { Input } from '../Input';
 
 export const SignUpModal = ({ isModalOpen }) => {
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [cep, setCep] = useState('');
+  const [endereco, setEndereco] = useState('');
+  const [numero, setNumero] = useState('');
+  const [bairro, setBairro] = useState('');
+  const [cidade, setCidade] = useState('');
+  const [estado, setEstado] = useState('');
+
   const [dataCep, setDataCep] = useState({});
 
   const handleCep = (event) => {
@@ -31,91 +41,86 @@ export const SignUpModal = ({ isModalOpen }) => {
     }
   };
 
-  // teste: corrigir isso pois se mudar a posição da lista da problema na funcao cep
-  const inputList = [
-    {
-      label: 'Nome',
-      name: 'name',
-      type: 'text',
-      placeholder: 'Digite seu nome',
-    },
-    {
-      label: 'Email',
-      name: 'email',
-      type: 'email',
-      placeholder: 'Digite seu email',
-    },
-    {
-      label: 'Senha',
-      name: 'senha',
-      type: 'password',
-      placeholder: 'Digite sua senha',
-    },
-    {
-      label: 'Cep',
-      name: 'cep',
-      type: 'number',
-      placeholder: 'Digite seu cep',
-      onChange: handleCep,
-    },
-    {
-      label: 'Endereço',
-      name: 'endereço',
-      type: 'text',
-      attribute: true,
-      value: dataCep.logradouro || '',
-    },
-    {
-      label: 'Número',
-      name: 'numero',
-      type: 'number',
-      placeholder: 'Digite seu número',
-    },
-    {
-      label: 'Bairro',
-      name: 'bairro',
-      type: 'text',
-      attribute: true,
-      value: dataCep.bairro || '',
-    },
-    {
-      label: 'Cidade',
-      name: 'cidade',
-      type: 'text',
-      attribute: true,
-      value: dataCep.localidade || '',
-    },
-    {
-      label: 'Estado',
-      name: 'estado',
-      type: 'text',
-      attribute: true,
-      value: dataCep.estado || '',
-    },
-  ];
-
   const handleSignup = () => {
     console.log('Criou a conta');
   };
 
   return (
     <div className={isModalOpen ? 'signup' : ''}>
-      {/* <form action="" className="form-teste"> */}
-      {inputList.map((input) => (
-        <div key={input.name}>
-          <InputField
-            name={input.name}
-            label={input.label}
-            type={input.type}
-            placeholder={input.placeholder}
-            isReadOnly={input.attribute}
-            onChange={input.onChange}
-            value={input.value}
-          />
-        </div>
-      ))}
-      {/* </form> */}
+      <form className="signup">
+        <Input
+          label="Nome"
+          id="nome"
+          value={nome}
+          setValue={setNome}
+          required
+        />
 
+        <Input
+          label="Email"
+          id="email"
+          value={email}
+          setValue={setEmail}
+          placeholder="Digite seu email"
+          required
+        />
+
+        <Input
+          label="Senha"
+          id="password"
+          value={password}
+          setValue={setPassword}
+          required
+        />
+
+        <Input
+          label={'Cep'}
+          id={'cep'}
+          value={cep}
+          setValue={setCep}
+          required
+        />
+
+        <Input
+          label={'Endereço'}
+          id={'endereco'}
+          value={endereco}
+          setValue={setEndereco}
+          required
+        />
+
+        <Input
+          label={'Número'}
+          id={'numero'}
+          value={numero}
+          setValue={setNumero}
+          required
+        />
+
+        <Input
+          label={'Bairro'}
+          id={'bairro'}
+          value={bairro}
+          setValue={setBairro}
+          required
+        />
+
+        <Input
+          label={'Cidade'}
+          id={'cidade'}
+          value={cidade}
+          setValue={setCidade}
+          required
+        />
+
+        <Input
+          label={'Estado'}
+          id={'estado'}
+          value={estado}
+          setValue={setEstado}
+          required
+        />
+      </form>
       <RequestButton text="Criar" handleClick={handleSignup} />
     </div>
   );

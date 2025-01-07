@@ -54,20 +54,20 @@ export const LoginForm = () => {
       <h1 className="default-title">Login</h1>
 
       <form className="login-form" onSubmit={cliqueTeste}>
-        <label htmlFor="email">Email</label>
+        <label htmlFor="login-email">Email</label>
         <input
           type="email"
-          id="email"
+          id="login-email"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           ref={inputElement}
         />
 
-        <label htmlFor="password">Senha</label>
+        <label htmlFor="login-password">Senha</label>
         <input
           type="password"
-          id="password"
+          id="login-password"
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
