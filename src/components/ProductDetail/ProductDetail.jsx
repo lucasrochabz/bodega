@@ -14,7 +14,7 @@ export const ProductDetail = () => {
   const [product, setProduct] = useState({});
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
-  const [photoCurrent, setPhotoCurrent] = useState('');
+  const [imagePath, setImagePath] = useState('');
 
   const getProduct = async () => {
     startLoading();
@@ -24,7 +24,7 @@ export const ProductDetail = () => {
       setProduct(results.data);
       setPrice(results.data.price);
       setTotal(results.data.price);
-      setPhotoCurrent(results.data.image_path);
+      setImagePath(`/src/assets/images/${results.data.image_path}`);
     } catch (error) {
       console.error('Erro na requisição');
     } finally {
@@ -67,15 +67,13 @@ export const ProductDetail = () => {
     getProduct();
   }, []);
 
-  const imagePath = `/src/assets/images/${photoCurrent}`;
-
   return (
     <>
       {loading ? (
         <Loading />
       ) : (
         <div className="product-detail">
-          <img src={`${imagePath}`} alt={product.name} />
+          <img src={imagePath} alt={product.name} />
           <div className="product-detail-info">
             <h1>{product.name}</h1>
             <p className="info-prince">R$ {price}</p>
