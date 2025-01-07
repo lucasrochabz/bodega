@@ -11,49 +11,53 @@ export const LoginForm = () => {
 
   const inputElement = useRef(null);
 
-  const cliqueTeste = (e) => {
+  const validateInput = (e) => {
     e.preventDefault();
 
     if (email === '' || password === '') {
-      return console.log('os campos estão vazios');
+      console.log('os campos estão vazios');
+      return false;
+    } else {
+      console.log('Login feito');
+      return true;
     }
-
-    return console.log('Cadastro feito');
   };
 
   useEffect(() => {
     inputElement.current.focus();
   }, []);
 
-  // const requestApi = async () => {
-  //   try {
-  //     const response = await fetch(`${BASE_API_URL}/auths/login`, {
-  //       method: 'POST',
-  //       headers: { 'Content-Type': 'application/json' },
-  //       body: JSON.stringify({
-  //         email: 'lucas@email.com',
-  //         password: '123456',
-  //       }),
-  //     });
+  const requestApi = async (event) => {
+    event.preventDefault();
 
-  //     if (!response.ok) {
-  //       const results = await response.json();
-  //       throw new Error(results.message);
-  //     }
+    try {
+      const response = await fetch(`${BASE_API_URL}/auths/login`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email: email,
+          password: password,
+        }),
+      });
 
-  //     const results = await response.json();
-  //     console.log(results);
-  //   } catch (error) {
-  //     console.error('Erro na requisição:', error.message);
-  //     alert(`Erro ao fazer login: ${error.message}`);
-  //   }
-  // };
+      if (!response.ok) {
+        const results = await response.json();
+        throw new Error(results.message);
+      }
+
+      const results = await response.json();
+      alert(results.message);
+    } catch (error) {
+      console.error('Erro na requisição:', error.message);
+      alert(`Erro ao fazer login: ${error.message}`);
+    }
+  };
 
   return (
     <div className="login-field">
       <h1 className="default-title">Login</h1>
 
-      <form className="login-form" onSubmit={cliqueTeste}>
+      <form className="login-form" onSubmit={requestApi}>
         <label htmlFor="login-email">Email</label>
         <input
           type="email"
@@ -62,6 +66,7 @@ export const LoginForm = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           ref={inputElement}
+          required
         />
 
         <label htmlFor="login-password">Senha</label>
@@ -71,9 +76,10 @@ export const LoginForm = () => {
           name="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          required
         />
 
-        <button>Clique aqui</button>
+        <button>{isLoggedIn ? 'Sair' : 'Entrar'}</button>
 
         {/* <RequestButton
           handleClick={isLoggedIn ? logout : login}
