@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
+import { Input } from '../Input';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './SignUpModal.css';
-import { Input } from '../Input';
 
 export const SignUpModal = ({ isModalOpen }) => {
   const [nome, setNome] = useState('');
@@ -17,28 +17,26 @@ export const SignUpModal = ({ isModalOpen }) => {
   const getCep = async () => {
     if (cep.length === 8) {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      console.log(response);
       const cepResult = await response.json();
+      if (cepResult.erro === 'true') {
+        return alert('Cep inválido');
+      }
       setEndereco(cepResult.logradouro);
       setBairro(cepResult.bairro);
       setCidade(cepResult.localidade);
       setEstado(cepResult.estado);
+    } else {
+      setEndereco('');
+      setBairro('');
+      setCidade('');
+      setEstado('');
     }
   };
 
   useEffect(() => {
     getCep();
   }, [cep]);
-
-  // teste: saber o que isso esta fazendo
-  const handleButton = (event) => {
-    event.preventDefault();
-
-    // teste: isso aqui pode ser melhorado
-    const cepInput = document.getElementById('cep').value;
-    if (cepInput.length < 8) {
-      alert('cep invalido');
-    }
-  };
 
   const handleSignup = () => {
     console.log('Criou a conta');
