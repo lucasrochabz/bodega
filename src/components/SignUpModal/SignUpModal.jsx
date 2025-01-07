@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './SignUpModal.css';
 import { Input } from '../Input';
@@ -14,21 +14,20 @@ export const SignUpModal = ({ isModalOpen }) => {
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
 
-  const [dataCep, setDataCep] = useState({});
-
-  const handleCep = (event) => {
-    const cepValue = event.target.value;
-
-    if (cepValue.length === 8) {
-      getCep(cepValue);
+  const getCep = async () => {
+    if (cep.length === 8) {
+      const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+      const cepResult = await response.json();
+      setEndereco(cepResult.logradouro);
+      setBairro(cepResult.bairro);
+      setCidade(cepResult.localidade);
+      setEstado(cepResult.estado);
     }
   };
 
-  const getCep = async (cep) => {
-    const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    const dataCeps = await response.json();
-    setDataCep(dataCeps);
-  };
+  useEffect(() => {
+    getCep();
+  }, [cep]);
 
   // teste: saber o que isso esta fazendo
   const handleButton = (event) => {
@@ -66,6 +65,7 @@ export const SignUpModal = ({ isModalOpen }) => {
         />
 
         <Input
+          type="password"
           label="Senha"
           id="password"
           value={password}
@@ -85,7 +85,7 @@ export const SignUpModal = ({ isModalOpen }) => {
           label={'Endereço'}
           id={'endereco'}
           value={endereco}
-          setValue={setEndereco}
+          disabled
           required
         />
 
@@ -101,7 +101,7 @@ export const SignUpModal = ({ isModalOpen }) => {
           label={'Bairro'}
           id={'bairro'}
           value={bairro}
-          setValue={setBairro}
+          disabled
           required
         />
 
@@ -109,7 +109,7 @@ export const SignUpModal = ({ isModalOpen }) => {
           label={'Cidade'}
           id={'cidade'}
           value={cidade}
-          setValue={setCidade}
+          disabled
           required
         />
 
@@ -117,7 +117,7 @@ export const SignUpModal = ({ isModalOpen }) => {
           label={'Estado'}
           id={'estado'}
           value={estado}
-          setValue={setEstado}
+          disabled
           required
         />
       </form>

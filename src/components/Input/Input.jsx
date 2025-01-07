@@ -3,7 +3,7 @@ export const Input = ({ label, id, setValue, ...props }) => {
     <>
       <label htmlFor={id}>{label}</label>
       <input
-        type="text"
+        type={id === 'password' ? 'password' : 'text'}
         id={id}
         name={id}
         onChange={({ target }) => setValue(target.value)}
