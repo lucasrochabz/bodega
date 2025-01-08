@@ -15,6 +15,7 @@ export const Header = () => {
         <Link to={'/login'} className="btn-login">
           Login
         </Link>
+
         <button onClick={isLoggedIn ? logout : login}>
           {isLoggedIn ? 'Sair' : 'Entrar'}
         </button>

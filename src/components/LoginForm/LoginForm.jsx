@@ -79,7 +79,9 @@ export const LoginForm = () => {
           required
         />
 
-        <button>{isLoggedIn ? 'Sair' : 'Entrar'}</button>
+        <button className="btn-login-form">
+          {isLoggedIn ? 'Sair' : 'Entrar'}
+        </button>
 
         {/* <RequestButton
           handleClick={isLoggedIn ? logout : login}
