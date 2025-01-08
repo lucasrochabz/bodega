@@ -19,7 +19,8 @@ export const SignUpModal = ({ isModalOpen }) => {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const cepResult = await response.json();
       if (cepResult.erro) {
-        return alert('Cep inválido');
+        alert('Cep inválido');
+        return;
       }
       setEndereco(cepResult.logradouro);
       setBairro(cepResult.bairro);
