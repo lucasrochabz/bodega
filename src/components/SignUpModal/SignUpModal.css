@@ -1,7 +1,6 @@
 .signup {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   animation: show-down 0.3s forwards;
 }
 

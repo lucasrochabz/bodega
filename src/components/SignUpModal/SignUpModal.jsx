@@ -42,83 +42,52 @@ export const SignUpModal = ({ isModalOpen }) => {
   };
 
   return (
-    <div className={isModalOpen ? 'signup' : ''}>
-      <form className="signup">
-        <Input
-          label="Nome"
-          id="nome"
-          value={nome}
-          setValue={setNome}
-          required
-        />
+    <form className={isModalOpen ? 'signup' : ''}>
+      <Input label="Nome" id="nome" value={nome} setValue={setNome} required />
 
-        <Input
-          label="Email"
-          id="email"
-          value={email}
-          setValue={setEmail}
-          placeholder="Digite seu email"
-          required
-        />
+      <Input
+        label="Email"
+        id="email"
+        value={email}
+        setValue={setEmail}
+        placeholder="Digite seu email"
+        required
+      />
 
-        <Input
-          type="password"
-          label="Senha"
-          id="password"
-          value={password}
-          setValue={setPassword}
-          required
-        />
+      <Input
+        type="password"
+        label="Senha"
+        id="password"
+        value={password}
+        setValue={setPassword}
+        required
+      />
 
-        <Input
-          label={'Cep'}
-          id={'cep'}
-          value={cep}
-          setValue={setCep}
-          required
-        />
+      <Input label={'Cep'} id={'cep'} value={cep} setValue={setCep} required />
 
-        <Input
-          label={'Endereço'}
-          id={'endereco'}
-          value={endereco}
-          disabled
-          required
-        />
+      <Input
+        label={'Endereço'}
+        id={'endereco'}
+        value={endereco}
+        disabled
+        required
+      />
 
-        <Input
-          label={'Número'}
-          id={'numero'}
-          value={numero}
-          setValue={setNumero}
-          required
-        />
+      <Input
+        label={'Número'}
+        id={'numero'}
+        value={numero}
+        setValue={setNumero}
+        required
+      />
 
-        <Input
-          label={'Bairro'}
-          id={'bairro'}
-          value={bairro}
-          disabled
-          required
-        />
+      <Input label={'Bairro'} id={'bairro'} value={bairro} disabled required />
 
-        <Input
-          label={'Cidade'}
-          id={'cidade'}
-          value={cidade}
-          disabled
-          required
-        />
+      <Input label={'Cidade'} id={'cidade'} value={cidade} disabled required />
 
-        <Input
-          label={'Estado'}
-          id={'estado'}
-          value={estado}
-          disabled
-          required
-        />
-      </form>
+      <Input label={'Estado'} id={'estado'} value={estado} disabled required />
+
       <RequestButton text="Criar" handleClick={handleSignup} />
-    </div>
+    </form>
   );
 };
