@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Input } from '../Input';
+import { BASE_API_URL } from '../../../config';
 import { RequestButton } from '../RequestButton/RequestButton';
 import './SignUpModal.css';
 
@@ -19,7 +20,7 @@ export const SignUpModal = ({ isModalOpen }) => {
       const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
       const cepResult = await response.json();
       if (cepResult.erro) {
-        alert('Cep inválido');
+        alert('CEP inválido');
         return;
       }
       setEndereco(cepResult.logradouro);
@@ -38,15 +39,39 @@ export const SignUpModal = ({ isModalOpen }) => {
     getCep();
   }, [cep]);
 
-  const handleSignup = () => {
-    console.log('Criou a conta');
+  const handleSignup = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch(`${BASE_API_URL}/users`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: nome,
+          email: email,
+          password: password,
+        }),
+      });
+
+      if (!response.ok) {
+        const results = await response.json();
+        throw new Error(results.message);
+      }
+
+      const results = await response.json();
+      alert(results.message);
+    } catch (error) {
+      console.error('Erro na requisição:', error.message);
+      alert(`Erro ao cadastrar usuário: ${error.message}`);
+    }
   };
 
   return (
-    <form className={isModalOpen ? 'signup' : ''}>
+    <form className={isModalOpen ? 'signup' : ''} onSubmit={handleSignup}>
       <Input label="Nome" id="nome" value={nome} setValue={setNome} required />
 
       <Input
+        type="email"
         label="Email"
         id="email"
         value={email}
@@ -64,9 +89,17 @@ export const SignUpModal = ({ isModalOpen }) => {
         required
       />
 
-      <Input label={'Cep'} id={'cep'} value={cep} setValue={setCep} required />
+      <Input
+        type="number"
+        label={'CEP'}
+        id={'cep'}
+        value={cep}
+        setValue={setCep}
+        required
+      />
 
       <Input
+        type="text"
         label={'Endereço'}
         id={'endereco'}
         value={endereco}
@@ -75,6 +108,7 @@ export const SignUpModal = ({ isModalOpen }) => {
       />
 
       <Input
+        type="number"
         label={'Número'}
         id={'numero'}
         value={numero}
@@ -82,13 +116,35 @@ export const SignUpModal = ({ isModalOpen }) => {
         required
       />
 
-      <Input label={'Bairro'} id={'bairro'} value={bairro} disabled required />
+      <Input
+        type="text"
+        label={'Bairro'}
+        id={'bairro'}
+        value={bairro}
+        disabled
+        required
+      />
 
-      <Input label={'Cidade'} id={'cidade'} value={cidade} disabled required />
+      <Input
+        type="text"
+        label={'Cidade'}
+        id={'cidade'}
+        value={cidade}
+        disabled
+        required
+      />
 
-      <Input label={'Estado'} id={'estado'} value={estado} disabled required />
+      <Input
+        type="text"
+        label={'Estado'}
+        id={'estado'}
+        value={estado}
+        disabled
+        required
+      />
 
-      <RequestButton text="Criar" handleClick={handleSignup} />
+      {/* <RequestButton text="Criar" handleClick={handleSignup} /> */}
+      <button>Criar</button>
     </form>
   );
 };
