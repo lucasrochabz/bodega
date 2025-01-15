@@ -32,6 +32,14 @@ export const ProductDetail = () => {
     }
   };
 
+  const setDate = () => {
+    const currentDate = new Date();
+    const year = currentDate.getFullYear();
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+    const day = String(currentDate.getDate()).padStart(2, '0');
+    return `${year}/${month}/${day}`;
+  };
+
   const createOrder = async () => {
     startLoading();
     try {
@@ -41,7 +49,7 @@ export const ProductDetail = () => {
         body: JSON.stringify({
           user_id: 1,
           address_id: 1,
-          date: '2024-01-04',
+          date: setDate(),
           status: 'rascunho',
           products: [{ product_id: productId, quantity: 1 }],
         }),
