@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Input } from '../Input';
 import { BASE_API_URL } from '../../../config';
-import { RequestButton } from '../RequestButton/RequestButton';
+import { Input } from '../Input';
 import './SignUpModal.css';
 
 export const SignUpModal = ({ isModalOpen }) => {
@@ -68,7 +67,14 @@ export const SignUpModal = ({ isModalOpen }) => {
 
   return (
     <form className={isModalOpen ? 'signup' : ''} onSubmit={handleSignup}>
-      <Input label="Nome" id="nome" value={nome} setValue={setNome} required />
+      <Input
+        label="Nome"
+        id="nome"
+        value={nome}
+        setValue={setNome}
+        placeholder="Nome completo"
+        required
+      />
 
       <Input
         type="email"
@@ -76,7 +82,7 @@ export const SignUpModal = ({ isModalOpen }) => {
         id="email"
         value={email}
         setValue={setEmail}
-        placeholder="Digite seu email"
+        placeholder="exemplo@email.com"
         required
       />
 
@@ -95,6 +101,7 @@ export const SignUpModal = ({ isModalOpen }) => {
         id={'cep'}
         value={cep}
         setValue={setCep}
+        placeholder="60000000"
         required
       />
 
@@ -143,8 +150,7 @@ export const SignUpModal = ({ isModalOpen }) => {
         required
       />
 
-      {/* <RequestButton text="Criar" handleClick={handleSignup} /> */}
-      <button>Criar</button>
+      <button className="signup-btn">Criar</button>
     </form>
   );
 };

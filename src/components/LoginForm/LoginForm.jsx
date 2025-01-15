@@ -1,7 +1,6 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
-import { RequestButton } from '../RequestButton/RequestButton';
 import './LoginForm.css';
 
 export const LoginForm = () => {
@@ -82,11 +81,6 @@ export const LoginForm = () => {
         <button className="btn-login-form">
           {isLoggedIn ? 'Sair' : 'Entrar'}
         </button>
-
-        {/* <RequestButton
-          handleClick={isLoggedIn ? logout : login}
-          text={isLoggedIn ? 'Sair' : 'Entrar'}
-        /> */}
       </form>
     </div>
   );
