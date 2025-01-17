@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { Loading } from '../Loading';
@@ -15,6 +15,8 @@ export const ProductDetail = () => {
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
   const [imagePath, setImagePath] = useState('');
+
+  const navigate = useNavigate();
 
   const getProduct = async () => {
     startLoading();
@@ -61,8 +63,7 @@ export const ProductDetail = () => {
       }
 
       const results = await response.json();
-      const ordersPath = `/orders/${results.data.id}`;
-      window.location.href = ordersPath;
+      navigate(`/orders/${results.data.id}`);
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer pedido: ${error.message}`);
