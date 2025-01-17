@@ -1,9 +1,11 @@
+import { useNavigate } from 'react-router-dom';
 import './ProductCard.css';
 
 export const ProductCard = ({ item }) => {
+  const navigate = useNavigate();
+
   const handleClick = () => {
-    const productPath = `/products/${item.id}`;
-    window.location.href = productPath;
+    navigate(`products/${item.id}`);
   };
 
   const imagePath = `/src/assets/images/${item.image_path}`;

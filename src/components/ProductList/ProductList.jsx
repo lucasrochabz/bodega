@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { ProductCard } from '../ProductCard/ProductCard';
-import './ProductList.css';
 import { Loading } from '../Loading';
+import './ProductList.css';
 
 export const ProductList = () => {
   const [products, setProducts] = useState([]);
