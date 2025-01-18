@@ -7,7 +7,7 @@ import { Loading } from '../../components/Loading';
 import './ProfilePage.css';
 
 export const ProfilePage = () => {
-  const [name, setName] = useState('');
+  const [info, setInfo] = useState(null);
 
   const { loading, startLoading, stopLoading } = useLoading();
 
@@ -27,7 +27,7 @@ export const ProfilePage = () => {
       }
 
       const results = await response.json();
-      setName(results.data.name);
+      setInfo(results.data);
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao buscar detalhes do usuário: ${error.message}`);
@@ -44,11 +44,16 @@ export const ProfilePage = () => {
   return (
     <>
       <Header />
-      {loading || !name ? (
+      {loading || !info ? (
         <Loading />
       ) : (
         <section className="profile">
-          <h2>Olá {name}, seja bem-vindo ao nosso site!</h2>
+          <h2>Olá {info.name}, seja bem-vindo ao nosso site!</h2>
+          <h2>Endereço</h2>
+          <p>
+            Você mora na {info.street}, número: {info.number}, no bairro{' '}
+            {info.neighborhood}, na cidade {info.city}.
+          </p>
         </section>
       )}
       <Footer />
