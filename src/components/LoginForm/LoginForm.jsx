@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import './LoginForm.css';
@@ -9,6 +10,8 @@ export const LoginForm = () => {
   const [password, setPassword] = useState('');
 
   const inputElement = useRef(null);
+
+  const navigate = useNavigate();
 
   const validateInput = (e) => {
     e.preventDefault();
@@ -45,7 +48,9 @@ export const LoginForm = () => {
       }
 
       const results = await response.json();
-      alert(results.message);
+      console.log(results);
+      localStorage.setItem('user', results.data.id);
+      navigate('/perfil');
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer login: ${error.message}`);
