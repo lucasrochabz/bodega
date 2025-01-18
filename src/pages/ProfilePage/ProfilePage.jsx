@@ -1,15 +1,17 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../hooks';
 import { BASE_API_URL } from '../../../config';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
 import { Loading } from '../../components/Loading';
+import { Header } from '../../components/Header';
+import { Logout } from '../../components/Logout';
+import { Footer } from '../../components/Footer';
 import './ProfilePage.css';
 
 export const ProfilePage = () => {
-  const [info, setInfo] = useState(null);
-
+  const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
+  const [info, setInfo] = useState(null);
 
   const getLocalStorage = () => {
     const userStorage = localStorage.getItem('user');
@@ -38,6 +40,9 @@ export const ProfilePage = () => {
 
   useEffect(() => {
     const userId = getLocalStorage();
+    if (!userId) {
+      return navigate('/login');
+    }
     getUser(userId);
   }, []);
 
@@ -54,6 +59,7 @@ export const ProfilePage = () => {
             Você mora na {info.street}, número: {info.number}, no bairro{' '}
             {info.neighborhood}, na cidade {info.city}.
           </p>
+          <Logout />
         </section>
       )}
       <Footer />

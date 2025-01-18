@@ -48,3 +48,7 @@
   cursor: pointer;
   padding: 0.8rem 1.2rem;
 }
+
+.btn-login-form:hover {
+  opacity: 0.9;
+}

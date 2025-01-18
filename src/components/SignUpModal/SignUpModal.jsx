@@ -59,6 +59,11 @@ export const SignUpModal = ({ isModalOpen }) => {
 
       const results = await response.json();
       alert(results.message);
+      setNome('');
+      setEmail('');
+      setPassword('');
+      setCep('');
+      setNumero('');
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao cadastrar usuário: ${error.message}`);
