@@ -28,7 +28,8 @@ export const OrderCompleted = () => {
       const results = await response.json();
       setOrder(results.data);
     } catch (error) {
-      console.error('Erro na requisição:' + error.message);
+      console.error('Erro na requisição:', error.message);
+      alert(`Erro ao buscar detalhes do pedido: ${error.message}`);
     } finally {
       stopLoading();
     }
@@ -42,7 +43,7 @@ export const OrderCompleted = () => {
     <>
       <Header />
       <div className="order-container-teste">
-        {loading ? <Loading /> : order && <OrderList order={order} />}
+        {loading || !order ? <Loading /> : <OrderList order={order} />}
       </div>
       <Footer />
     </>

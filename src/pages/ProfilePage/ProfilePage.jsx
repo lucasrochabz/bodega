@@ -1,9 +1,15 @@
 import { useEffect, useState } from 'react';
+import { useLoading } from '../../hooks';
+import { BASE_API_URL } from '../../../config';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
+import { Loading } from '../../components/Loading';
+import './ProfilePage.css';
 
 export const ProfilePage = () => {
   const [name, setName] = useState('');
+
+  const { loading, startLoading, stopLoading } = useLoading();
 
   const getLocalStorage = () => {
     const userStorage = localStorage.getItem('user');
@@ -11,10 +17,23 @@ export const ProfilePage = () => {
   };
 
   const getUser = async (userId) => {
-    const response = await fetch(`http://localhost:4000/users/${userId}`);
+    startLoading();
+    try {
+      const response = await fetch(`${BASE_API_URL}/users/${userId}`);
 
-    const results = await response.json();
-    setName(results.data.name);
+      if (!response.ok) {
+        const results = await response.json();
+        throw new Error(results.message);
+      }
+
+      const results = await response.json();
+      setName(results.data.name);
+    } catch (error) {
+      console.error('Erro na requisição:', error.message);
+      alert(`Erro ao buscar detalhes do usuário: ${error.message}`);
+    } finally {
+      stopLoading();
+    }
   };
 
   useEffect(() => {
@@ -25,7 +44,13 @@ export const ProfilePage = () => {
   return (
     <>
       <Header />
-      <h2>Olá {name}, seja bem-vindo!</h2>
+      {loading || !name ? (
+        <Loading />
+      ) : (
+        <section className="profile">
+          <h2>Olá {name}, seja bem-vindo ao nosso site!</h2>
+        </section>
+      )}
       <Footer />
     </>
   );

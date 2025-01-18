@@ -36,7 +36,7 @@ export const ProductList = () => {
 
   return (
     <section className="product-list">
-      {loading ? (
+      {loading || products.length === 0 ? (
         <Loading />
       ) : (
         products.map((item) => <ProductCard key={item.id} item={item} />)

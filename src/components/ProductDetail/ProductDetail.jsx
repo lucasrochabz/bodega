@@ -11,7 +11,7 @@ export const ProductDetail = () => {
 
   const { loading, startLoading, stopLoading } = useLoading();
 
-  const [product, setProduct] = useState({});
+  const [product, setProduct] = useState(null);
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
   const [imagePath, setImagePath] = useState('');
@@ -78,7 +78,7 @@ export const ProductDetail = () => {
 
   return (
     <>
-      {loading ? (
+      {loading || !product ? (
         <Loading />
       ) : (
         <div className="product-detail">
