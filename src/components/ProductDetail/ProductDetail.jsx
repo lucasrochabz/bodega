@@ -72,6 +72,10 @@ export const ProductDetail = () => {
     }
   };
 
+  const cancelOrder = () => {
+    navigate('/');
+  };
+
   useEffect(() => {
     getProduct();
   }, []);
@@ -88,7 +92,12 @@ export const ProductDetail = () => {
             <p className="info-prince">R$ {price}</p>
             <p className="info-descricao">{product.description}</p>
             <h2 className="info-total">Total: R$ {total}</h2>
-            <ButtonBuy handleClick={createOrder} text={'Finalizar Pedido'} />
+            <div className="btn-controls">
+              <button className="btn-cancel-order" onClick={cancelOrder}>
+                Cancelar
+              </button>
+              <ButtonBuy handleClick={createOrder} text={'Finalizar Pedido'} />
+            </div>
           </div>
         </div>
       )}
