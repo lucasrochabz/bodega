@@ -13,7 +13,7 @@ export const OrderCompleted = () => {
 
   const { loading, startLoading, stopLoading } = useLoading();
 
-  const [order, setOrder] = useState(null);
+  const [order, setOrder] = useState([]);
 
   const getOrder = async () => {
     startLoading();
@@ -43,7 +43,11 @@ export const OrderCompleted = () => {
     <>
       <Header />
       <div className="order-container-teste">
-        {loading || !order ? <Loading /> : <OrderList order={order} />}
+        {loading || order.length === 0 ? (
+          <Loading />
+        ) : (
+          <OrderList order={order} />
+        )}
       </div>
       <Footer />
     </>
