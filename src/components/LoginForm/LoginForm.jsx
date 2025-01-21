@@ -5,9 +5,9 @@ import { BASE_API_URL } from '../../../config';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const { isLoggedIn, login, logout } = useContext(UserContext);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { isLoggedIn, login, logout } = useContext(UserContext);
 
   const inputElement = useRef(null);
 
@@ -48,7 +48,6 @@ export const LoginForm = () => {
       }
 
       const results = await response.json();
-      console.log(results);
       localStorage.setItem('user', results.data.id);
       navigate('/perfil');
     } catch (error) {
