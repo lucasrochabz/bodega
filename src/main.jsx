@@ -2,16 +2,17 @@ import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext.jsx';
+import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage/';
 import { ProfilePage } from './pages/ProfilePage/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { OrderCompleted } from './pages/OrderCompleted';
-import { App } from './App.jsx';
+import './App.css';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
+    element: <HomePage />,
   },
   {
     path: '/login',
