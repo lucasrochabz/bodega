@@ -2,7 +2,7 @@
 
 ### Sobre
 
-Este projeto é destinado ao estudo de front-end em JavaScript, utilizando React como principal ferramenta.
+Este projeto é destinado ao estudo de Front-end em **JavaScript**, utilizando **React** como principal ferramenta.
 
 ### Tecnologias
 

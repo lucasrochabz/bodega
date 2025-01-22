@@ -1,26 +1,43 @@
 import { useEffect, useState } from 'react';
 
 export const useAuth = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [statusUser, setStatusUser] = useState(false);
+
+  const getLocalStorage = () => {
+    const statusStoraged = localStorage.getItem('statusUser');
+    if (statusStoraged === null) {
+      setStatusUser(false);
+    } else {
+      setStatusUser(statusStoraged === 'true');
+    }
+  };
+
+  // fix: corrigir retornos
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
 
   useEffect(() => {
-    const storedLogginStatus = localStorage.getItem('isLoggedIn');
-    setIsLoggedIn(storedLogginStatus === 'true');
-  }, []);
+    if (statusUser) {
+      console.log('usuário logado');
+    } else {
+      console.log('usuário não está logado');
+    }
+  }, [statusUser]);
 
   const login = (e) => {
     e.preventDefault();
 
-    setIsLoggedIn(true);
-    localStorage.setItem('isLoggedIn', 'true');
+    setStatusUser(true);
+    localStorage.setItem('statusUser', 'true');
   };
 
   const logout = (e) => {
     e.preventDefault();
 
-    setIsLoggedIn(false);
-    localStorage.setItem('isLoggedIn', 'false');
+    setStatusUser(false);
+    localStorage.setItem('statusUser', 'false');
   };
 
-  return { isLoggedIn, login, logout };
+  return { statusUser, login, logout };
 };

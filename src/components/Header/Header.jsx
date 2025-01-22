@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import './Header.css';
 
 export const Header = () => {
-  const { isLoggedIn, login, logout } = useContext(UserContext);
+  const { statusUser, login, logout } = useContext(UserContext);
 
   return (
     <section className="header-bg">
@@ -16,8 +16,8 @@ export const Header = () => {
           Login
         </Link>
 
-        <button onClick={isLoggedIn ? logout : login}>
-          {isLoggedIn ? 'Sair' : 'Entrar'}
+        <button onClick={statusUser ? logout : login}>
+          {statusUser ? 'Sair' : 'Entrar'}
         </button>
       </div>
     </section>

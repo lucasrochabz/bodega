@@ -7,10 +7,9 @@ import './LoginForm.css';
 export const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { isLoggedIn, login, logout } = useContext(UserContext);
 
+  const { statusUser, login, logout } = useContext(UserContext);
   const inputElement = useRef(null);
-
   const navigate = useNavigate();
 
   const validateInput = (e) => {
@@ -29,7 +28,7 @@ export const LoginForm = () => {
     inputElement.current.focus();
   }, []);
 
-  const requestApi = async (event) => {
+  const verifyUser = async (event) => {
     event.preventDefault();
 
     try {
@@ -60,7 +59,7 @@ export const LoginForm = () => {
     <div className="login-field">
       <h1 className="default-title">Login</h1>
 
-      <form className="login-form" onSubmit={requestApi}>
+      <form className="login-form" onSubmit={verifyUser}>
         <label htmlFor="login-email">Email</label>
         <input
           type="email"
@@ -83,7 +82,7 @@ export const LoginForm = () => {
         />
 
         <button className="btn-login-form">
-          {isLoggedIn ? 'Sair' : 'Entrar'}
+          {statusUser ? 'Sair' : 'Entrar'}
         </button>
       </form>
     </div>
