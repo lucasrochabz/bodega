@@ -5,7 +5,7 @@
   flex-direction: column;
 }
 
-.btn-signup {
+.btn-signup-form {
   color: var(--blue-color);
   background-color: transparent;
   font-size: 1rem;
@@ -16,6 +16,6 @@
   transition: 0.3s;
 }
 
-.btn-signup:hover {
+.btn-signup-form:hover {
   text-decoration: underline;
 }

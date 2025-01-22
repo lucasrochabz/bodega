@@ -3,7 +3,7 @@ import { BASE_API_URL } from '../../../config';
 import { Input } from '../Input';
 import './SignUpModal.css';
 
-export const SignUpModal = ({ isModalOpen }) => {
+export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
   const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -64,6 +64,7 @@ export const SignUpModal = ({ isModalOpen }) => {
       setPassword('');
       setCep('');
       setNumero('');
+      setIsModalOpen();
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao cadastrar usuário: ${error.message}`);
@@ -155,7 +156,7 @@ export const SignUpModal = ({ isModalOpen }) => {
         required
       />
 
-      <button className="signup-btn">Criar</button>
+      <button className="btn-signup">Criar</button>
     </form>
   );
 };
