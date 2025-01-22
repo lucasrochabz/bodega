@@ -47,7 +47,7 @@ export const LoginForm = () => {
       }
 
       const results = await response.json();
-      localStorage.setItem('user', results.data.id);
+      login(results.data.id);
       navigate('/perfil');
     } catch (error) {
       console.error('Erro na requisição:', error.message);

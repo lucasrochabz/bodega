@@ -1,42 +1,25 @@
 import { useEffect, useState } from 'react';
 
 export const useAuth = () => {
-  const [statusUser, setStatusUser] = useState(false);
-
-  const getLocalStorage = () => {
+  const [statusUser, setStatusUser] = useState(() => {
     const statusStoraged = localStorage.getItem('statusUser');
-    if (statusStoraged === null) {
-      setStatusUser(false);
-    } else {
-      setStatusUser(statusStoraged === 'true');
-    }
-  };
-
-  // fix: corrigir retornos
-  useEffect(() => {
-    getLocalStorage();
-  }, []);
+    return statusStoraged === 'true';
+  });
 
   useEffect(() => {
-    if (statusUser) {
-      console.log('usuário logado');
-    } else {
-      console.log('usuário não está logado');
-    }
+    console.log(statusUser ? 'usuário logado' : 'usuário não está logado');
   }, [statusUser]);
 
-  const login = (e) => {
-    e.preventDefault();
-
-    setStatusUser(true);
+  const login = (userId) => {
     localStorage.setItem('statusUser', 'true');
+    localStorage.setItem('user', userId);
+    setStatusUser(true);
   };
 
-  const logout = (e) => {
-    e.preventDefault();
-
+  const logout = () => {
+    localStorage.removeItem('statusUser');
+    localStorage.removeItem('user');
     setStatusUser(false);
-    localStorage.setItem('statusUser', 'false');
   };
 
   return { statusUser, login, logout };
