@@ -22,4 +22,4 @@ Este projeto é destinado ao estudo de front-end em JavaScript, utilizando React
 
 ### Encontrou algum problema?
 
-Abra uma issue com sua sugestão ou crítica.
+Abra uma [issue](https://github.com/lucasrochabz/bodega/issues) com sua sugestão ou crítica.
