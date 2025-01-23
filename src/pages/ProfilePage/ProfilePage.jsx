@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../hooks';
 import { BASE_API_URL } from '../../../config';
 import { Loading } from '../../components/Loading';
+import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Logout } from '../../components/Logout';
 import { Footer } from '../../components/Footer';
@@ -48,6 +49,8 @@ export const ProfilePage = () => {
 
   return (
     <>
+      <Head title="Perfil" description="Descrição da página Perfil" />
+
       <Header />
       {loading || !info ? (
         <Loading />

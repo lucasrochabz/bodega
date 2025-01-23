@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
+import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { OrderList } from '../../components/OrderList';
@@ -41,6 +42,8 @@ export const OrderCompleted = () => {
 
   return (
     <>
+      <Head title="Seus pedidos" description="Descrição da página Pedidos" />
+
       <Header />
       <div className="order-container-teste">
         {loading || order.length === 0 ? (
