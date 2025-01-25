@@ -1,6 +1,8 @@
 import './OrderList.css';
 
 export const OrderList = ({ order }) => {
+  const imagePath = `/src/assets/images/${order.image_path}`;
+
   const formattedDate = (item) => {
     const date = new Date(item.date);
     const day = date.getDate().toString().padStart(2, '0');
@@ -13,37 +15,28 @@ export const OrderList = ({ order }) => {
   return (
     <section className="orders-bg">
       <h1>Seus pedidos</h1>
-      {order.map((item) => {
-        return (
-          <section key={item.id} className="order-item">
-            <div className="order-head">
-              <p>Número do pedido: #{item.id}</p>
-              <p>Pedido feito em: {formattedDate(item)}</p>
-            </div>
+      <section className="order-item">
+        <div className="order-head">
+          <p>Número do pedido: #{order.id}</p>
+          <p>Pedido feito em: {formattedDate(order)}</p>
+        </div>
 
-            <div className="order-store">
-              <p>Vendido e entregue por: Bodega</p>
-            </div>
+        <div className="order-store">
+          <p>Vendido e entregue por: Bodega</p>
+        </div>
 
-            <div className="order-teste">
-              {item.products.map((product) => {
-                const imagePath = `/src/assets/images/${product.image_path}`;
-                return (
-                  <div key={product.id}>
-                    <img src={imagePath} alt={item.products.name} />
+        <div className="order-teste">
+          <div>
+            <img src={imagePath} alt={order.name} />
 
-                    <div className="order-info">
-                      <h2>{product.name}</h2>
-                      <p>R$ {product.price}</p>
-                      {/* <p>{item.status}</p> */}
-                    </div>
-                  </div>
-                );
-              })}
+            <div className="order-info">
+              <h2>{order.name}</h2>
+              <p>R$ {order.price}</p>
+              <p>{order.status}</p>
             </div>
-          </section>
-        );
-      })}
+          </div>
+        </div>
+      </section>
     </section>
   );
 };

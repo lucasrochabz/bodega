@@ -52,7 +52,7 @@ export const ProductDetail = () => {
           user_id: 1,
           address_id: 1,
           date: setDate(),
-          status: 'rascunho',
+          status: 'aguardando pagamento',
           products: [{ product_id: productId, quantity: 1 }],
         }),
       });

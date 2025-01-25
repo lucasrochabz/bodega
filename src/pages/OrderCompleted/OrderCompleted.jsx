@@ -14,12 +14,12 @@ export const OrderCompleted = () => {
 
   const { loading, startLoading, stopLoading } = useLoading();
 
-  const [order, setOrder] = useState([]);
+  const [order, setOrder] = useState(null);
 
   const getOrder = async () => {
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/orders/${orderId}`);
+      const response = await fetch(`${BASE_API_URL}/orders/details/${orderId}`);
 
       if (!response.ok) {
         const results = await response.json();
@@ -46,11 +46,7 @@ export const OrderCompleted = () => {
 
       <Header />
       <div className="order-container-teste">
-        {loading || order.length === 0 ? (
-          <Loading />
-        ) : (
-          <OrderList order={order} />
-        )}
+        {loading || !order ? <Loading /> : <OrderList order={order} />}
       </div>
       <Footer />
     </>
