@@ -12,7 +12,7 @@ import './ProfilePage.css';
 export const ProfilePage = () => {
   const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
-  const [info, setInfo] = useState(null);
+  const [user, setUser] = useState(null);
 
   const getLocalStorage = () => {
     const userStorage = localStorage.getItem('user');
@@ -30,7 +30,7 @@ export const ProfilePage = () => {
       }
 
       const results = await response.json();
-      setInfo(results.data);
+      setUser(results.data);
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao buscar detalhes do usuário: ${error.message}`);
@@ -52,16 +52,16 @@ export const ProfilePage = () => {
       <Head title="Minha conta" description="Descrição da página Minha Conta" />
 
       <Header />
-      {loading || !info ? (
+      {loading || !user ? (
         <Loading />
       ) : (
         <section className="profile">
-          <h2>Olá {info.name}, seja bem-vindo ao nosso site!</h2>
+          <h2>Olá {user.name}, seja bem-vindo ao nosso site!</h2>
           <h2>Endereço</h2>
-          <p>
-            Você mora na {info.street}, número: {info.number}, no bairro{' '}
-            {info.neighborhood}, na cidade {info.city}.
-          </p>
+          <input type="text" readOnly value={user.street} />
+          <input type="text" readOnly value={user.number} />
+          <input type="text" readOnly value={user.neighborhood} />
+          <input type="text" readOnly value={user.city} />
           <Logout />
         </section>
       )}
