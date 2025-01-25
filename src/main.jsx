@@ -6,6 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage/';
 import { ProfilePage } from './pages/ProfilePage/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
+import { Orders } from './pages/Orders';
 import { OrderDetails } from './pages/OrderDetails';
 import './App.css';
 
@@ -19,15 +20,20 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: '/minha-conta',
+    path: '/my-account',
     element: <ProfilePage />,
   },
+
   {
     path: '/products/:productId',
     element: <ProductDetailPage />,
   },
   {
-    path: '/orders/:orderId',
+    path: '/orders/:userId',
+    element: <Orders />,
+  },
+  {
+    path: '/orders/details/:orderId',
     element: <OrderDetails />,
   },
 ]);

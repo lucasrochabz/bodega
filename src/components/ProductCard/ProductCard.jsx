@@ -5,7 +5,7 @@ export const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleClick = () => {
-    navigate(`products/${item.id}`);
+    navigate(`/products/${item.id}`);
   };
 
   const imagePath = `/src/assets/images/${item.image_path}`;
