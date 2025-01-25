@@ -14,7 +14,7 @@ export const OrderList = ({ order }) => {
 
   return (
     <section className="orders-bg">
-      <h1>Meus pedidos</h1>
+      <h1>Detalhes do pedido</h1>
       <section className="order-item">
         <div className="order-head">
           <p>Número do pedido: #{order.id}</p>

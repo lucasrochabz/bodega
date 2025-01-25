@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext.jsx';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage/';
-import { ProfilePage } from './pages/ProfilePage/';
+import { MyAccount } from './pages/MyAccount/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { Orders } from './pages/Orders';
 import { OrderDetails } from './pages/OrderDetails';
@@ -21,9 +21,8 @@ const router = createBrowserRouter([
   },
   {
     path: '/my-account',
-    element: <ProfilePage />,
+    element: <MyAccount />,
   },
-
   {
     path: '/products/:productId',
     element: <ProductDetailPage />,

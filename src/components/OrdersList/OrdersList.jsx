@@ -11,15 +11,18 @@ export const OrdersList = ({ orders }) => {
 
   return (
     <>
+      <h1>Meus pedidos</h1>
       {orders.map((order) => (
         <div
           className="order-list"
           key={order.id}
           onClick={() => handleClick(order.id)}
         >
-          <p>{order.id}</p>
-          <p>Data: {formattedDate(order.date)}</p>
+          <h2>Número do pedido: {order.id}</h2>
+          <p>Realizado em: {formattedDate(order.date)}</p>
+          <button>Ver detalhes</button>
           <p>{order.name}</p>
+          <span>{order.status}</span>
         </div>
       ))}
     </>
