@@ -7,9 +7,9 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Logout } from '../../components/Logout';
 import { Footer } from '../../components/Footer';
-import './MyAccount.css';
+import './MyAccountPage.css';
 
-export const MyAccount = () => {
+export const MyAccountPage = () => {
   const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
   const [user, setUser] = useState(null);
