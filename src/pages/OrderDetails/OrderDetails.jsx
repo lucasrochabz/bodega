@@ -7,9 +7,9 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { OrderList } from '../../components/OrderList';
 import { Loading } from '../../components/Loading';
-import './OrderCompleted.css';
+import './OrderDetails.css';
 
-export const OrderCompleted = () => {
+export const OrderDetails = () => {
   const { orderId } = useParams();
 
   const { loading, startLoading, stopLoading } = useLoading();
@@ -42,7 +42,7 @@ export const OrderCompleted = () => {
 
   return (
     <>
-      <Head title="Seus pedidos" description="Descrição da página Pedidos" />
+      <Head title="Pedidos" description="Descrição da página Pedidos" />
 
       <Header />
       <div className="order-container-teste">

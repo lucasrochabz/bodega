@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage/';
 import { ProfilePage } from './pages/ProfilePage/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
-import { OrderCompleted } from './pages/OrderCompleted';
+import { OrderDetails } from './pages/OrderDetails';
 import './App.css';
 
 const router = createBrowserRouter([
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
     element: <LoginPage />,
   },
   {
-    path: '/perfil',
+    path: '/minha-conta',
     element: <ProfilePage />,
   },
   {
@@ -28,7 +28,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/orders/:orderId',
-    element: <OrderCompleted />,
+    element: <OrderDetails />,
   },
 ]);
 

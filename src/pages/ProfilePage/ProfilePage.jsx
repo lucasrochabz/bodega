@@ -49,7 +49,7 @@ export const ProfilePage = () => {
 
   return (
     <>
-      <Head title="Perfil" description="Descrição da página Perfil" />
+      <Head title="Minha conta" description="Descrição da página Minha Conta" />
 
       <Header />
       {loading || !info ? (
