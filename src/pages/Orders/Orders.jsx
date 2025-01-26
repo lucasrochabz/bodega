@@ -6,7 +6,7 @@ import { Loading } from '../../components/Loading';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { OrdersList } from '../../components/OrdersList/OrdersList';
+import { OrdersList } from '../../components/OrdersList';
 import './Orders.css';
 
 export const Orders = () => {
