@@ -1,6 +1,6 @@
-import './OrderList.css';
+import './OrderDetails.css';
 
-export const OrderList = ({ order }) => {
+export const OrderDetails = ({ order }) => {
   const imagePath = `/src/assets/images/${order.image_path}`;
 
   const formattedDate = (item) => {
@@ -17,7 +17,7 @@ export const OrderList = ({ order }) => {
       <h1>Detalhes do pedido</h1>
       <section className="order-item">
         <div className="order-head">
-          <p>Número do pedido: #{order.id}</p>
+          <p>Número do pedido: {order.id}</p>
           <p>Pedido feito em: {formattedDate(order)}</p>
         </div>
 

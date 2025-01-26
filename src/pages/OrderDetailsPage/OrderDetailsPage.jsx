@@ -5,11 +5,11 @@ import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { OrderList } from '../../components/OrderList';
+import { OrderDetails } from '../../components/OrderDetails';
 import { Loading } from '../../components/Loading';
-import './OrderDetails.css';
+import './OrderDetailsPage.css';
 
-export const OrderDetails = () => {
+export const OrderDetailsPage = () => {
   const { orderId } = useParams();
 
   const { loading, startLoading, stopLoading } = useLoading();
@@ -46,7 +46,7 @@ export const OrderDetails = () => {
 
       <Header />
       <div className="order-container-teste">
-        {loading || !order ? <Loading /> : <OrderList order={order} />}
+        {loading || !order ? <Loading /> : <OrderDetails order={order} />}
       </div>
       <Footer />
     </>
