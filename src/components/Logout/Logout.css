@@ -1,5 +1,4 @@
 .btn-logout {
-  background-color: #fff;
   color: var(--violet-color);
   border: 2px solid var(--violet-color);
   font-size: 1rem;
@@ -12,5 +11,5 @@
 
 .btn-logout:hover {
   background-color: var(--violet-color);
-  color: #fff;
+  color: #f4f7fc;
 }

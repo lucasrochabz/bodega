@@ -1,13 +1,14 @@
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
+import { Logout } from '../Logout';
 import './Sidebar.css';
 
 export const Sidebar = () => {
   return (
     <aside className="sidebar">
       <nav className="sidebar-nav">
-        <a href="#">Meus Dados</a>
-        <Link to={'/my-account/orders/1'}>Meus Pedidos</Link>
-        <a href="#">Sair</a>
+        <NavLink to={'/my-account/my-info'}>Minhas informações</NavLink>
+        <NavLink to={'/my-account/orders/1'}>Meus Pedidos</NavLink>
+        <Logout />
       </nav>
     </aside>
   );

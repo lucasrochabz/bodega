@@ -5,6 +5,7 @@ import { UserProvider } from './contexts/UserContext.jsx';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage/';
 import { MyAccountPage } from './pages/MyAccountPage/';
+import { MyInfoPage } from './pages/MyInfoPage/MyInfoPage.jsx';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     path: '/my-account',
     element: <MyAccountPage />,
     children: [
+      {
+        path: 'my-info',
+        element: <MyInfoPage />,
+      },
       {
         path: 'orders/:userId',
         element: <OrdersPage />,

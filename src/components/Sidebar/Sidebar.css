@@ -21,3 +21,8 @@
   font-weight: bold;
   background-color: var(--violet-color);
 }
+
+.sidebar-nav .active {
+  font-weight: bold;
+  background-color: var(--violet-color);
+}
