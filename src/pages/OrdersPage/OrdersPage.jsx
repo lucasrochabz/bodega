@@ -7,9 +7,9 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { OrdersList } from '../../components/OrdersList';
-import './Orders.css';
+import './OrdersPage.css';
 
-export const Orders = () => {
+export const OrdersPage = () => {
   const { userId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
   const [orders, setOrders] = useState([]);

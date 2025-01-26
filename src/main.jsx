@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage/';
 import { MyAccountPage } from './pages/MyAccountPage/';
 import { ProductDetailPage } from './pages/ProductDetailPage';
-import { Orders } from './pages/Orders';
+import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
 import './App.css';
 
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/orders/:userId',
-    element: <Orders />,
+    element: <OrdersPage />,
   },
   {
     path: '/orders/details/:orderId',
