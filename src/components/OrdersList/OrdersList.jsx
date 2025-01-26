@@ -6,7 +6,7 @@ export const OrdersList = ({ orders }) => {
   const navigate = useNavigate();
 
   const handleClick = (orderId) => {
-    navigate(`/orders/details/${orderId}`);
+    navigate(`/my-account/orders/details/${orderId}`);
   };
 
   return (

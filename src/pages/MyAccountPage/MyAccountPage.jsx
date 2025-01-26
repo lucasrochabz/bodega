@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Outlet, useNavigate } from 'react-router-dom';
 import { useLoading } from '../../hooks';
 import { BASE_API_URL } from '../../../config';
 import { Loading } from '../../components/Loading';
@@ -59,13 +59,7 @@ export const MyAccountPage = () => {
         <main className="my-account-container">
           <Sidebar />
           <section>
-            <h2>Olá {user.name}, seja bem-vindo ao nosso site!</h2>
-            <h2>Endereço</h2>
-            <input type="text" readOnly value={user.street} />
-            <input type="text" readOnly value={user.number} />
-            <input type="text" readOnly value={user.neighborhood} />
-            <input type="text" readOnly value={user.city} />
-            <Logout />
+            <Outlet />
           </section>
         </main>
       )}

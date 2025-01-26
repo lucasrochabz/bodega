@@ -22,18 +22,20 @@ const router = createBrowserRouter([
   {
     path: '/my-account',
     element: <MyAccountPage />,
+    children: [
+      {
+        path: 'orders/:userId',
+        element: <OrdersPage />,
+      },
+      {
+        path: 'orders/details/:orderId',
+        element: <OrderDetailsPage />,
+      },
+    ],
   },
   {
     path: '/products/:productId',
     element: <ProductDetailPage />,
-  },
-  {
-    path: '/orders/:userId',
-    element: <OrdersPage />,
-  },
-  {
-    path: '/orders/details/:orderId',
-    element: <OrderDetailsPage />,
   },
 ]);
 

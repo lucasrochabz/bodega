@@ -44,11 +44,9 @@ export const OrderDetailsPage = () => {
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
 
-      <Header />
       <div className="order-container-teste">
         {loading || !order ? <Loading /> : <OrderDetails order={order} />}
       </div>
-      <Footer />
     </>
   );
 };

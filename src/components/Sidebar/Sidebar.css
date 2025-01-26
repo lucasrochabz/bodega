@@ -1,17 +1,23 @@
 .sidebar {  
   width: 200px;
-  border: 2px solid var(--violet-color);
-  padding: 1rem;
   border-radius: 5px;
   align-self: start;
 }
 
-.sidebar-list {
+.sidebar-nav {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.8rem;
 }
 
-.sidebar-list li:hover {
+.sidebar-nav a {
+  background-color: var(--gray-color);
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.sidebar-nav a:hover {
   font-weight: bold;
+  background-color: var(--violet-color);
 }
