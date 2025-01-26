@@ -19,6 +19,7 @@ body {
 
 a {
   text-decoration: none;
+  color: inherit;
 }
 
 input[readonly] {
@@ -27,4 +28,8 @@ input[readonly] {
 
 h1 {
   font-size: 2rem;
+}
+
+ul {
+  list-style: none;
 }

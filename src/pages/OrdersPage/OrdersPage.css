@@ -1,7 +1,13 @@
-.orders-bgteste {
+.orders-page-container {
+  display: flex;
   min-height: calc(100vh - 216px);
   max-width: 1200px;
   margin: 0 auto;
+  gap: 2rem;
+}
+
+.orders-page {
+  width: 100vh;
   display: flex;
   flex-direction: column;
   gap: 2rem;

@@ -1,0 +1,17 @@
+.sidebar {  
+  width: 200px;
+  border: 2px solid var(--violet-color);
+  padding: 1rem;
+  border-radius: 5px;
+  align-self: start;
+}
+
+.sidebar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-list li:hover {
+  font-weight: bold;
+}

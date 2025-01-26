@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
+import { Sidebar } from '../../components/Sidebar';
 import { Loading } from '../../components/Loading';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
@@ -36,13 +37,16 @@ export const OrdersPage = () => {
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
       <Header />
-      <section className="orders-bgteste">
-        {loading || orders.length === 0 ? (
-          <Loading />
-        ) : (
-          <OrdersList orders={orders} />
-        )}
-      </section>
+      <main className="orders-page-container">
+        <Sidebar />
+        <section className="orders-page">
+          {loading || orders.length === 0 ? (
+            <Loading />
+          ) : (
+            <OrdersList orders={orders} />
+          )}
+        </section>
+      </main>
       <Footer />
     </>
   );

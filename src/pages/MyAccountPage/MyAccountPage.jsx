@@ -5,6 +5,7 @@ import { BASE_API_URL } from '../../../config';
 import { Loading } from '../../components/Loading';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
+import { Sidebar } from '../../components/Sidebar';
 import { Logout } from '../../components/Logout';
 import { Footer } from '../../components/Footer';
 import './MyAccountPage.css';
@@ -55,15 +56,18 @@ export const MyAccountPage = () => {
       {loading || !user ? (
         <Loading />
       ) : (
-        <section className="profile">
-          <h2>Olá {user.name}, seja bem-vindo ao nosso site!</h2>
-          <h2>Endereço</h2>
-          <input type="text" readOnly value={user.street} />
-          <input type="text" readOnly value={user.number} />
-          <input type="text" readOnly value={user.neighborhood} />
-          <input type="text" readOnly value={user.city} />
-          <Logout />
-        </section>
+        <main className="my-account-container">
+          <Sidebar />
+          <section>
+            <h2>Olá {user.name}, seja bem-vindo ao nosso site!</h2>
+            <h2>Endereço</h2>
+            <input type="text" readOnly value={user.street} />
+            <input type="text" readOnly value={user.number} />
+            <input type="text" readOnly value={user.neighborhood} />
+            <input type="text" readOnly value={user.city} />
+            <Logout />
+          </section>
+        </main>
       )}
       <Footer />
     </>

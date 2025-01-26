@@ -13,7 +13,7 @@ export const OrderDetails = ({ order }) => {
   };
 
   return (
-    <section className="orders-bg">
+    <section className="order-details-bg">
       <h1>Detalhes do pedido</h1>
       <section className="order-item">
         <div className="order-head">
