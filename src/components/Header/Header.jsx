@@ -28,9 +28,11 @@ export const Header = () => {
           <h2 className="logo">Bodega</h2>
         </Link>
         {teste ? (
-          <Logout />
+          <Link to={'/my-account'} className="btn-header">
+            Olá, User
+          </Link>
         ) : (
-          <Link to={'/login'} className="btn-login">
+          <Link to={'/login'} className="btn-header">
             Login
           </Link>
         )}

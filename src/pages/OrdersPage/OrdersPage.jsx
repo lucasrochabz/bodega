@@ -33,15 +33,13 @@ export const OrdersPage = () => {
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
-      <main className="orders-page-container">
-        <section className="orders-page">
-          {loading || orders.length === 0 ? (
-            <Loading />
-          ) : (
-            <OrdersList orders={orders} />
-          )}
-        </section>
-      </main>
+      {loading || orders.length === 0 ? (
+        <Loading />
+      ) : (
+        <article className="orders-page">
+          <OrdersList orders={orders} />
+        </article>
+      )}
     </>
   );
 };
