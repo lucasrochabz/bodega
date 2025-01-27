@@ -63,7 +63,7 @@ export const ProductDetail = () => {
       }
 
       const results = await response.json();
-      navigate(`/orders/${results.data.id}`);
+      navigate(`/my-account/orders/details/${results.data.id}`);
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer pedido: ${error.message}`);
