@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { Loading } from '../../components/Loading';
@@ -8,8 +9,11 @@ import { OrdersList } from '../../components/OrdersList';
 import './OrdersPage.css';
 
 export const OrdersPage = () => {
+  const { statusUser } = useContext(UserContext);
+  const navigate = useNavigate();
   const { userId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
+
   const [orders, setOrders] = useState([]);
 
   const getOrders = async () => {
@@ -27,6 +31,10 @@ export const OrdersPage = () => {
   };
 
   useEffect(() => {
+    if (!statusUser) {
+      navigate('/login');
+      return;
+    }
     getOrders();
   }, []);
 

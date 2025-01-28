@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { Loading } from '../Loading';
@@ -7,8 +8,8 @@ import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
 
 export const ProductDetail = () => {
+  const { statusUser } = useContext(UserContext);
   const { productId } = useParams();
-
   const { loading, startLoading, stopLoading } = useLoading();
 
   const [product, setProduct] = useState(null);
@@ -34,6 +35,14 @@ export const ProductDetail = () => {
     }
   };
 
+  const isAuhenticated = (statusUser) => {
+    if (!statusUser) {
+      navigate('/login');
+      return false;
+    }
+    return true;
+  };
+
   const setDate = () => {
     const currentDate = new Date();
     const year = currentDate.getFullYear();
@@ -43,6 +52,8 @@ export const ProductDetail = () => {
   };
 
   const createOrder = async () => {
+    if (!isAuhenticated(statusUser)) return;
+
     startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/orders`, {
@@ -96,7 +107,10 @@ export const ProductDetail = () => {
               <button className="btn-cancel-order" onClick={cancelOrder}>
                 Cancelar
               </button>
-              <ButtonBuy handleClick={createOrder} text={'Finalizar Pedido'} />
+              <ButtonBuy
+                handleClick={createOrder}
+                text={statusUser ? 'Finalizar Pedido' : 'Faça o Login'}
+              />
             </div>
           </div>
         </div>

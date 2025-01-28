@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../hooks';
 import { BASE_API_URL } from '../../../config';
 import { Head } from '../../components/Head';
@@ -6,7 +7,9 @@ import { Loading } from '../../components/Loading';
 import './MyInfoPage.css';
 
 export const MyInfoPage = () => {
+  const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
+
   const [user, setUser] = useState(null);
 
   const getLocalStorage = () => {
@@ -37,7 +40,8 @@ export const MyInfoPage = () => {
   useEffect(() => {
     const userId = getLocalStorage();
     if (!userId) {
-      return navigate('/login');
+      navigate('/login');
+      return;
     }
     getUser(userId);
   }, []);

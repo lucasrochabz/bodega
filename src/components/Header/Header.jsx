@@ -1,22 +1,10 @@
+import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { UserContext } from '../../contexts/UserContext';
 import './Header.css';
 
 export const Header = () => {
-  const [teste, setTeste] = useState(false);
-
-  const getLocalStorage = () => {
-    const userStorage = localStorage.getItem('user');
-    if (userStorage) {
-      setTeste(true);
-    } else {
-      setTeste(false);
-    }
-  };
-
-  useEffect(() => {
-    getLocalStorage();
-  }, []);
+  const { statusUser } = useContext(UserContext);
 
   return (
     <section className="header-bg">
@@ -24,8 +12,8 @@ export const Header = () => {
         <Link to={'/'}>
           <h2 className="logo">Bodega</h2>
         </Link>
-        <Link to={teste ? '/my-account' : '/login'} className="btn-header">
-          {teste ? 'Olá, User' : 'Login'}
+        <Link to={statusUser ? '/my-account' : '/login'} className="btn-header">
+          {statusUser ? 'Olá, User' : 'Login'}
         </Link>
       </div>
     </section>
