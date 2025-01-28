@@ -9,10 +9,12 @@ export const OrdersList = ({ orders }) => {
     navigate(`/my-account/orders/details/${orderId}`);
   };
 
+  const orderedOrders = orders.sort((a, b) => a.id - b.id);
+
   return (
     <>
       <h1>Meus pedidos</h1>
-      {orders.map((order) => (
+      {orderedOrders.map((order) => (
         <div
           className="order-list"
           key={order.id}
