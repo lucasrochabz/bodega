@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
+import { setDate } from '../../utils/dateUtils';
 import { Loading } from '../Loading';
 import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
@@ -41,14 +42,6 @@ export const ProductDetail = () => {
       return false;
     }
     return true;
-  };
-
-  const setDate = () => {
-    const currentDate = new Date();
-    const year = currentDate.getFullYear();
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-    const day = String(currentDate.getDate()).padStart(2, '0');
-    return `${year}/${month}/${day}`;
   };
 
   const createOrder = async () => {
