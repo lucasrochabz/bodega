@@ -5,7 +5,8 @@ import './OrdersList.css';
 export const OrdersList = ({ orders }) => {
   const navigate = useNavigate();
 
-  const handleClick = (orderId) => {
+  const handleClick = (orderId, event) => {
+    event.preventDefault();
     navigate(`/my-account/orders/details/${orderId}`);
   };
 
@@ -15,14 +16,17 @@ export const OrdersList = ({ orders }) => {
     <>
       <h1>Meus pedidos</h1>
       {orderedOrders.map((order) => (
-        <div
-          className="order-list"
-          key={order.id}
-          onClick={() => handleClick(order.id)}
-        >
-          <h2>Número do pedido: {order.id}</h2>
-          <p>Realizado em: {formattedDate(order.date)}</p>
-          <button>Ver detalhes</button>
+        <div className="order-content" key={order.id}>
+          <div className="order-content-head">
+            <div>
+              <h2>Número do pedido: {order.id}</h2>
+              <p>Realizado em: {formattedDate(order.date)}</p>
+            </div>
+            <button onClick={(event) => handleClick(order.id, event)}>
+              Ver detalhes
+            </button>
+          </div>
+          <h2>Produtos:</h2>
           <p>{order.name}</p>
           <span>{order.status}</span>
         </div>
