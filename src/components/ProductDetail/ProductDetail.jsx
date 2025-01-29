@@ -55,7 +55,6 @@ export const ProductDetail = () => {
         body: JSON.stringify({
           user_id: 1,
           address_id: 1,
-          date: setDate(),
           status: 'aguardando pagamento',
           products: [{ product_id: productId, quantity: 1 }],
         }),

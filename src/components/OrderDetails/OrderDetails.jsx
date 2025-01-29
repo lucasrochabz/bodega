@@ -1,16 +1,8 @@
+import { formattedDate } from '../../utils/dateUtils';
 import './OrderDetails.css';
 
 export const OrderDetails = ({ order }) => {
   const imagePath = `/src/assets/images/${order.image_path}`;
-
-  const formattedDate = (item) => {
-    const date = new Date(item.date);
-    const day = date.getDate().toString().padStart(2, '0');
-    const month = (date.getMonth() + 1).toString().padStart(2, '0');
-    const year = date.getFullYear().toString();
-
-    return `${day}/${month}/${year}`;
-  };
 
   return (
     <section className="order-details-bg">
@@ -18,7 +10,7 @@ export const OrderDetails = ({ order }) => {
       <section className="order-item">
         <div className="order-head">
           <p>Número do pedido: {order.id}</p>
-          <p>Pedido feito em: {formattedDate(order)}</p>
+          <p>Pedido feito em: {formattedDate(order.created_at)}</p>
         </div>
 
         <div className="order-store">

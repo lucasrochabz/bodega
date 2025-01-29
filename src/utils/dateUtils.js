@@ -1,5 +1,10 @@
-const formattedDate = (itemDate) => {
-  const date = new Date(itemDate);
+const formattedDate = (rawDate) => {
+  if (!rawDate) return 'Data inválida';
+
+  const date = new Date(rawDate);
+
+  if (isNaN(date)) return 'Data inválida';
+
   const day = date.getDate().toString().padStart(2, '0');
   const month = (date.getMonth() + 1).toString().padStart(2, '0');
   const year = date.getFullYear().toString();
