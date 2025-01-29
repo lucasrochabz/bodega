@@ -4,10 +4,10 @@ import { Input } from '../Input';
 import './SignUpModal.css';
 
 export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
-  const [nome, setNome] = useState('');
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [cep, setCep] = useState('');
+  const [zipCode, setZipCode] = useState('');
   const [endereco, setEndereco] = useState('');
   const [numero, setNumero] = useState('');
   const [bairro, setBairro] = useState('');
@@ -15,8 +15,8 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
   const [estado, setEstado] = useState('');
 
   const getCep = async () => {
-    if (cep.length === 8) {
-      const response = await fetch(`https://viacep.com.br/ws/${cep}/json`);
+    if (zipCode.length === 8) {
+      const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json`);
       const cepResult = await response.json();
       if (cepResult.erro) {
         alert('CEP inválido');
@@ -25,7 +25,7 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
       setEndereco(cepResult.logradouro);
       setBairro(cepResult.bairro);
       setCidade(cepResult.localidade);
-      setEstado(cepResult.estado);
+      setEstado(cepResult.uf);
     } else {
       setEndereco('');
       setBairro('');
@@ -36,7 +36,7 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
 
   useEffect(() => {
     getCep();
-  }, [cep]);
+  }, [zipCode]);
 
   const handleSignup = async (event) => {
     event.preventDefault();
@@ -46,9 +46,15 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: nome,
+          name: name,
           email: email,
           password: password,
+          zip_code: zipCode,
+          street: endereco,
+          number: numero,
+          neighborhood: bairro,
+          city: cidade,
+          state: estado,
         }),
       });
 
@@ -59,10 +65,10 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
 
       const results = await response.json();
       alert(results.message);
-      setNome('');
+      setName('');
       setEmail('');
       setPassword('');
-      setCep('');
+      setZipCode('');
       setNumero('');
       setIsModalOpen();
     } catch (error) {
@@ -74,11 +80,11 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
   return (
     <form className={isModalOpen ? 'signup' : ''} onSubmit={handleSignup}>
       <Input
-        label="Nome"
-        id="nome"
-        value={nome}
-        setValue={setNome}
-        placeholder="Nome completo"
+        label="Name"
+        id="name"
+        value={name}
+        setValue={setName}
+        placeholder="Name completo"
         required
       />
 
@@ -105,8 +111,8 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
         type="number"
         label={'CEP'}
         id={'cep'}
-        value={cep}
-        setValue={setCep}
+        value={zipCode}
+        setValue={setZipCode}
         placeholder="60000000"
         required
       />
