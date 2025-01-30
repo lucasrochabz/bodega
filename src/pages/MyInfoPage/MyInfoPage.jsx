@@ -13,14 +13,20 @@ export const MyInfoPage = () => {
   const [user, setUser] = useState(null);
 
   const getLocalStorage = () => {
-    const userStorage = localStorage.getItem('user');
+    const userStorage = localStorage.getItem('token');
     return userStorage;
   };
 
-  const getUser = async (userId) => {
+  const getUser = async (token) => {
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/users/${userId}`);
+      const response = await fetch(`${BASE_API_URL}/users/user`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!response.ok) {
         const results = await response.json();

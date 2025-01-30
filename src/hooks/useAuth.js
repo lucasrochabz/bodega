@@ -10,15 +10,15 @@ export const useAuth = () => {
     console.log(statusUser ? 'usuário logado' : 'usuário não está logado');
   }, [statusUser]);
 
-  const login = (userId) => {
+  const login = (token) => {
     localStorage.setItem('statusUser', 'true');
-    localStorage.setItem('user', userId);
+    localStorage.setItem('token', token);
     setStatusUser(true);
   };
 
   const logout = () => {
     localStorage.removeItem('statusUser');
-    localStorage.removeItem('user');
+    localStorage.removeItem('token');
     setStatusUser(false);
   };
 
