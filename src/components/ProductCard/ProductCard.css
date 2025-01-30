@@ -1,4 +1,5 @@
 .product-card {
+  background-color: #fff;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
   max-width: 300px;
   border-radius: 5px;
@@ -26,15 +27,10 @@
 }
 
 .descricao {
-  /* max-width: 50ch;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis; */
   margin-bottom: 1rem;
   color: var(--blue-color);
 }
 
 .product-info {
-  background-color: #fff;
   padding: 1rem;
 }

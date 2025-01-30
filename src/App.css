@@ -8,13 +8,13 @@
 :root {
   --violet-color: blueviolet;
   --yellow-color: #ee8800;
-  --gray-color: #e0e0e0;
-  --red-color: #ee5544;
   --blue-color: #334455;
+  --gray-color: #e0e0e0;
+  --bg-color: #f4f7fc;
 }
 
 body {
-  background-color: #f4f7fc;
+  background-color: var(--bg-color);
 }
 
 a {

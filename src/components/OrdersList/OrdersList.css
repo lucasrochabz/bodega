@@ -14,7 +14,7 @@
 
 .order-content-head button {
   background-color: var(--violet-color);
-  color: #f4f7fc;
+  color: var(--bg-color);
   font-weight: bold;
   padding: 0.5rem 1rem;
   border-radius: 5px;

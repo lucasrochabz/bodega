@@ -11,5 +11,5 @@
 
 .btn-logout:hover {
   background-color: var(--violet-color);
-  color: #f4f7fc;
+  color: var(--bg-color);
 }
