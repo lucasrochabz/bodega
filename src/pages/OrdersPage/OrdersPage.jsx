@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
@@ -11,15 +11,25 @@ import './OrdersPage.css';
 export const OrdersPage = () => {
   const { statusUser } = useContext(UserContext);
   const navigate = useNavigate();
-  const { userId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
 
   const [orders, setOrders] = useState([]);
 
-  const getOrders = async () => {
+  const getLocalStorage = () => {
+    const userStorage = localStorage.getItem('token');
+    return userStorage;
+  };
+
+  const getOrders = async (token) => {
     try {
       startLoading();
-      const response = await fetch(`${BASE_API_URL}/orders/${userId}`);
+      const response = await fetch(`${BASE_API_URL}/orders/user`, {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
       const results = await response.json();
       setOrders(results.data);
     } catch (error) {
@@ -31,11 +41,12 @@ export const OrdersPage = () => {
   };
 
   useEffect(() => {
+    const userId = getLocalStorage();
     if (!statusUser) {
       navigate('/login');
       return;
     }
-    getOrders();
+    getOrders(userId);
   }, []);
 
   return (

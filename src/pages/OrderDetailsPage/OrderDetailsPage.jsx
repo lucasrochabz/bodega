@@ -3,8 +3,6 @@ import { useParams } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
 import { OrderDetails } from '../../components/OrderDetails';
 import { Loading } from '../../components/Loading';
 import './OrderDetailsPage.css';
