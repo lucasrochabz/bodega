@@ -20,7 +20,7 @@ export const OrdersList = ({ orders }) => {
           <div className="order-content-head">
             <div>
               <h2>Número do pedido: {order.id}</h2>
-              <p>Realizado em: {formattedDate(order.date)}</p>
+              <p>Realizado em: {formattedDate(order.created_at)}</p>
             </div>
             <button onClick={(event) => handleClick(order.id, event)}>
               Ver detalhes

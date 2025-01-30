@@ -59,11 +59,13 @@ export const MyInfoPage = () => {
           <h2>Minhas informações</h2>
           <div className="my-info-card">
             <h3>Dados de acesso</h3>
+
             <span>Email</span>
             <p>{user.email}</p>
             <span>Senha</span>
             <p>******</p>
           </div>
+
           <div className="my-info-card">
             <h3>Dados pessoais</h3>
 
@@ -73,11 +75,20 @@ export const MyInfoPage = () => {
             <span>Endereço</span>
             <p>{user.street}</p>
 
+            <span>Número</span>
+            <p>{user.number}</p>
+
             <span>Bairro</span>
             <p>{user.neighborhood}</p>
 
             <span>Cidade</span>
             <p>{user.city}</p>
+
+            <span>Estado</span>
+            <p>{user.state}</p>
+
+            <span>CEP</span>
+            <p>{user.zip_code}</p>
           </div>
         </article>
       )}
