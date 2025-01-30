@@ -122,7 +122,7 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
         label={'Endereço'}
         id={'endereco'}
         value={endereco}
-        disabled
+        readOnly
         required
       />
 
@@ -140,7 +140,7 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
         label={'Bairro'}
         id={'bairro'}
         value={bairro}
-        disabled
+        readOnly
         required
       />
 
@@ -149,7 +149,7 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
         label={'Cidade'}
         id={'cidade'}
         value={cidade}
-        disabled
+        readOnly
         required
       />
 
@@ -158,7 +158,7 @@ export const SignUpModal = ({ isModalOpen, setIsModalOpen }) => {
         label={'Estado'}
         id={'estado'}
         value={estado}
-        disabled
+        readOnly
         required
       />
 

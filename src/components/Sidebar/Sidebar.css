@@ -19,10 +19,10 @@
 
 .sidebar-nav a:hover {
   font-weight: bold;
-  background-color: var(--violet-color);
+  background-color: var(--green-color);
 }
 
 .sidebar-nav .active {
   font-weight: bold;
-  background-color: var(--violet-color);
+  background-color: var(--green-color);
 }

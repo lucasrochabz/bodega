@@ -6,11 +6,11 @@
 }
 
 :root {
-  --violet-color: blueviolet;
+  --bg-color: #fafafa;
+  --green-color: #007a33;
   --yellow-color: #ee8800;
-  --blue-color: #334455;
+  --darkgreen-color: #002b12;
   --gray-color: #e0e0e0;
-  --bg-color: #f4f7fc;
 }
 
 body {

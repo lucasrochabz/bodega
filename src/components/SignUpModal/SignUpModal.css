@@ -18,8 +18,8 @@
 }
 
 .btn-signup {
-  background-color: var(--violet-color);
-  color: #fff;
+  background-color: var(--green-color);
+  color: var(--bg-color);
   font-size: 1rem;
   font-weight: bold;
   border: none;
