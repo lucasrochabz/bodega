@@ -4,7 +4,9 @@
 
 ### Sobre
 
-Este projeto é destinado ao estudo de Front-end em **JavaScript**, utilizando **React** como principal ferramenta.
+Este projeto consiste em uma simulação de um **e-commerce** básico, permitindo que os usuários visualizem e adquiram produtos de forma eficiente. A aplicação incorpora um sistema de login, no qual os usuários são autenticados por meio de **JSON Web Tokens (JWT)**, garantindo um ambiente seguro e controlado para navegação. A proteção das senhas dos usuários é realizada com **bcrypt**, adicionando uma camada adicional de segurança.
+
+O back-end é desenvolvido em **Node.js**, proporcionando uma arquitetura robusta e escalável. Além disso, os usuários têm a capacidade de consultar seu histórico de pedidos, oferecendo uma experiência de compra online completa. O projeto visa demonstrar o desenvolvimento de um sistema interativo e seguro, utilizando **JavaScript** e **React**, com a implementação de boas práticas de autenticação, criptografia e exibição dinâmica de dados.
 
 ### Tecnologias
 
