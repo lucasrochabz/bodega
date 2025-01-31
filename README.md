@@ -4,17 +4,23 @@
 
 ### Sobre
 
-Este projeto é uma simulação de **e-commerce** com autenticação segura por **JSON Web Tokens (JWT)** e criptografia de senhas com **bcrypt**. Desenvolvido em **Node.js** com **Express** no back-end, utiliza **MySQL** como banco de dados para garantir armazenamento estruturado e eficiente. A arquitetura escalável e robusta permite aos usuários visualizar e comprar produtos, além de consultar o histórico de pedidos. Com a utilização de **JavaScript** e **React**, o projeto demonstra boas práticas de segurança, autenticação e exibição dinâmica de dados, proporcionando uma experiência de compra online completa e eficiente.
+Este projeto é uma simulação de **e-commerce** desenvolvida em **JavaScript** com **React**, oferecendo uma navegação fluida com **React Router** e consumo da API do [Bodega API](https://github.com/lucasrochabz/bodega-api) para exibição de produtos, compras e histórico de pedidos. Conta com páginas de login e criação de cadastro, garantindo acesso seguro à plataforma.
+
+O back-end, em **Node.js** com **Express**, utiliza **JSON Web Tokens (JWT)** para autenticação, **bcrypt** para criptografia de senhas e **MySQL** para armazenamento de dados.
+
+A aplicação segue boas práticas de desenvolvimento, garantindo uma experiência moderna, segura e eficiente.
 
 ### Tecnologias
 
 - **JavaScript**: Linguagem de programação utilizada no projeto.
 - **React**: Biblioteca JavaScript para criação de interfaces de usuário.
+- **React Router**: Gerenciamento de rotas na aplicação.
 - **HTML**: Linguagem de marcação utilizada para estruturar as páginas do projeto.
 - **CSS**: Linguagem de estilos utilizada para a estilização da interface.
 
 ### Requisitos
 
+- Node na versão versão 22.12 ou superior
 - NPM na versão 10.9 ou superior.
 
 ### Como instalar?
