@@ -9,7 +9,6 @@ import './OrderDetailsPage.css';
 
 export const OrderDetailsPage = () => {
   const { orderId } = useParams();
-
   const { loading, startLoading, stopLoading } = useLoading();
 
   const [order, setOrder] = useState(null);

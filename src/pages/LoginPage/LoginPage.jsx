@@ -1,9 +1,9 @@
+import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
 import { LoginForm } from '../../components/LoginForm';
 import { SignUpForm } from '../../components/SignUpForm/SignUpForm';
+import { Footer } from '../../components/Footer';
 import './LoginPage.css';
-import { Head } from '../../components/Head';
 
 export const LoginPage = () => {
   return (
@@ -12,10 +12,10 @@ export const LoginPage = () => {
 
       <Header />
 
-      <section className="login-container">
+      <main className="login-container">
         <LoginForm />
         <SignUpForm />
-      </section>
+      </main>
 
       <Footer />
     </>

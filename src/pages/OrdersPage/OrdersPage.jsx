@@ -3,8 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
-import { Loading } from '../../components/Loading';
 import { Head } from '../../components/Head';
+import { Loading } from '../../components/Loading';
 import { OrdersList } from '../../components/OrdersList';
 import './OrdersPage.css';
 
