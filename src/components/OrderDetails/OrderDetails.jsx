@@ -7,7 +7,7 @@ export const OrderDetails = ({ order }) => {
   return (
     <section className="order-details-bg">
       <h1>Detalhes do pedido</h1>
-      <section className="order-item">
+      <div className="order-item">
         <div className="order-head">
           <p>Número do pedido: {order.id}</p>
           <p>Pedido feito em: {formattedDate(order.created_at)}</p>
@@ -28,7 +28,7 @@ export const OrderDetails = ({ order }) => {
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </section>
   );
 };

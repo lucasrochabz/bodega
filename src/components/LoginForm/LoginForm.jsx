@@ -5,12 +5,12 @@ import { BASE_API_URL } from '../../../config';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  const { statusUser, login, logout } = useContext(UserContext);
+  const { statusUser, login } = useContext(UserContext);
   const inputElement = useRef(null);
   const navigate = useNavigate();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const validateInput = (e) => {
     e.preventDefault();
@@ -23,10 +23,6 @@ export const LoginForm = () => {
       return true;
     }
   };
-
-  useEffect(() => {
-    inputElement.current.focus();
-  }, []);
 
   const verifyUser = async (event) => {
     event.preventDefault();
@@ -54,6 +50,10 @@ export const LoginForm = () => {
       alert(`Erro ao fazer login: ${error.message}`);
     }
   };
+
+  useEffect(() => {
+    inputElement.current.focus();
+  }, []);
 
   return (
     <div className="login-field">

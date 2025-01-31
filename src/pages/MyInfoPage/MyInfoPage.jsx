@@ -66,35 +66,45 @@ export const MyInfoPage = () => {
           <div className="my-info-card">
             <h3>Dados de acesso</h3>
 
-            <span>Email</span>
-            <p>{user.email}</p>
-            <span>Senha</span>
-            <p>******</p>
+            <p>
+              Email: <span>{user.email}</span>
+            </p>
+
+            <p>
+              Senha: <span>******</span>
+            </p>
           </div>
 
           <div className="my-info-card">
             <h3>Dados pessoais</h3>
 
-            <span>Nome</span>
-            <p>{user.name}</p>
+            <p>
+              Nome: <span>{user.name}</span>
+            </p>
 
-            <span>Endereço</span>
-            <p>{user.street}</p>
+            <p>
+              Endereço: <span>{user.street}</span>
+            </p>
 
-            <span>Número</span>
-            <p>{user.number}</p>
+            <p>
+              Número: <span>{user.number}</span>
+            </p>
 
-            <span>Bairro</span>
-            <p>{user.neighborhood}</p>
+            <p>
+              Bairro: <span>{user.neighborhood}</span>
+            </p>
 
-            <span>Cidade</span>
-            <p>{user.city}</p>
+            <p>
+              Cidade: <span>{user.city}</span>
+            </p>
 
-            <span>Estado</span>
-            <p>{user.state}</p>
+            <p>
+              Estado: <span>{user.state}</span>
+            </p>
 
-            <span>CEP</span>
-            <p>{user.zip_code}</p>
+            <p>
+              CEP: <span>{user.zip_code}</span>
+            </p>
           </div>
         </article>
       )}

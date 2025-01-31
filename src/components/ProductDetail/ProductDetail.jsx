@@ -11,13 +11,12 @@ export const ProductDetail = () => {
   const { statusUser } = useContext(UserContext);
   const { productId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
+  const navigate = useNavigate();
 
   const [product, setProduct] = useState(null);
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
   const [imagePath, setImagePath] = useState('');
-
-  const navigate = useNavigate();
 
   const getProduct = async () => {
     startLoading();
