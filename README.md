@@ -8,6 +8,8 @@ Este projeto é destinado ao estudo de Front-end em **JavaScript**, utilizando *
 
 - **JavaScript**: Linguagem de programação utilizada no projeto.
 - **React**: Biblioteca JavaScript para criação de interfaces de usuário.
+- **HTML**: Linguagem de marcação utilizada para estruturar as páginas do projeto.
+- **CSS**: Linguagem de estilos utilizada para a estilização da interface.
 
 ### Requisitos
 
