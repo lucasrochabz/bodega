@@ -1,5 +1,7 @@
 ## Bodega version-1.0
 
+![Imagem do projeto](docs/projeto-bodega.png)
+
 ### Sobre
 
 Este projeto é destinado ao estudo de Front-end em **JavaScript**, utilizando **React** como principal ferramenta.
