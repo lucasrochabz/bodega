@@ -22,6 +22,11 @@ Este projeto é destinado ao estudo de Front-end em **JavaScript**, utilizando *
 5. Instale as dependências usando o comando: `npm install`.
 6. Inicie o servidor localmente com o comando: `npm run dev`.
 
+### Back-end do Projeto
+
+Este projeto possui um Back-end desenvolvido para fornecer os dados e funcionalidades necessárias para o funcionamento desta aplicação. Você pode acessá-lo no repositório:
+[Acesse o repositório do Back-end](https://github.com/lucasrochabz/bodega-api)
+
 ### Encontrou algum problema?
 
 Abra uma [issue](https://github.com/lucasrochabz/bodega/issues) com sua sugestão ou crítica.
