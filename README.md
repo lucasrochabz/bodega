@@ -4,9 +4,7 @@
 
 ### Sobre
 
-Este projeto consiste em uma simulação de um **e-commerce** básico, permitindo que os usuários visualizem e adquiram produtos de forma eficiente. A aplicação incorpora um sistema de login, no qual os usuários são autenticados por meio de **JSON Web Tokens (JWT)**, garantindo um ambiente seguro e controlado para navegação. A proteção das senhas dos usuários é realizada com **bcrypt**, adicionando uma camada adicional de segurança.
-
-O back-end é desenvolvido em **Node.js**, proporcionando uma arquitetura robusta e escalável. Além disso, os usuários têm a capacidade de consultar seu histórico de pedidos, oferecendo uma experiência de compra online completa. O projeto visa demonstrar o desenvolvimento de um sistema interativo e seguro, utilizando **JavaScript** e **React**, com a implementação de boas práticas de autenticação, criptografia e exibição dinâmica de dados.
+Este projeto é uma simulação de **e-commerce** com autenticação segura por **JSON Web Tokens (JWT)** e criptografia de senhas com **bcrypt**. Desenvolvido em Node.js no back-end, oferece uma arquitetura escalável e robusta. A aplicação permite aos usuários visualizar e comprar produtos, além de consultar o histórico de pedidos. Com a utilização de **JavaScript** e **React**, o projeto demonstra boas práticas de segurança, autenticação e exibição dinâmica de dados, proporcionando uma experiência de compra online completa e eficiente.
 
 ### Tecnologias
 
