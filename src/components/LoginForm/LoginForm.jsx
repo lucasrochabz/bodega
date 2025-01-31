@@ -48,7 +48,7 @@ export const LoginForm = () => {
 
       const results = await response.json();
       login(results.token);
-      navigate('/my-account/my-info');
+      navigate('/');
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer login: ${error.message}`);

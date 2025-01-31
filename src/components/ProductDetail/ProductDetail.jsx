@@ -3,7 +3,6 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
-import { setDate } from '../../utils/dateUtils';
 import { Loading } from '../Loading';
 import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
@@ -46,15 +45,17 @@ export const ProductDetail = () => {
 
   const createOrder = async () => {
     if (!isAuhenticated(statusUser)) return;
+    const token = localStorage.getItem('token');
 
     startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/orders`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
         body: JSON.stringify({
-          user_id: 1,
-          address_id: 1,
           status: 'aguardando pagamento',
           products: [{ product_id: productId, quantity: 1 }],
         }),
