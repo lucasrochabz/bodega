@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
+import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
 import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
@@ -92,9 +93,9 @@ export const ProductDetail = () => {
           <img src={imagePath} alt={product.name} />
           <div className="product-detail-info">
             <h1>{product.name}</h1>
-            <p className="info-prince">R$ {price}</p>
+            <p className="info-prince">{formattedPriceToBRL(price)}</p>
             <p className="info-descricao">{product.description}</p>
-            <h2 className="info-total">Total: R$ {total}</h2>
+            <h2 className="info-total">Total: {formattedPriceToBRL(total)}</h2>
             <div className="btn-controls">
               <button className="btn-cancel-order" onClick={cancelOrder}>
                 Cancelar

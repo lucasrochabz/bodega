@@ -26,9 +26,11 @@ export const OrdersList = ({ orders }) => {
               Ver detalhes
             </button>
           </div>
-          <h2>Produtos:</h2>
-          <p>{order.name}</p>
-          <span>{order.status}</span>
+          <div className="order-content-body">
+            <h2>Produto(s):</h2>
+            <p>{order.name}</p>
+            <span>{order.status}</span>
+          </div>
         </div>
       ))}
     </>

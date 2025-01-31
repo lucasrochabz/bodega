@@ -60,7 +60,7 @@ export const OrdersPage = () => {
       {loading || orders.length === 0 ? (
         <Loading />
       ) : (
-        <article className="orders-page">
+        <article className="orders-page-container">
           <OrdersList orders={orders} />
         </article>
       )}

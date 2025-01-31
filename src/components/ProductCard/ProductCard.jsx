@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './ProductCard.css';
 
 export const ProductCard = ({ item }) => {
@@ -14,7 +15,7 @@ export const ProductCard = ({ item }) => {
     <div onClick={handleClick} className="product-card">
       <img src={imagePath} alt={item.name} />
       <div className="product-info">
-        <p className="price">R$ {item.price}</p>
+        <p className="price">{formattedPriceToBRL(item.price)}</p>
         <h2 className="title" key={item.id}>
           {item.name}
         </h2>

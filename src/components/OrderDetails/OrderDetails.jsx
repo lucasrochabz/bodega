@@ -1,4 +1,5 @@
 import { formattedDate } from '../../utils/dateUtils';
+import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderDetails.css';
 
 export const OrderDetails = ({ order }) => {
@@ -17,13 +18,13 @@ export const OrderDetails = ({ order }) => {
           <p>Vendido e entregue por: Bodega</p>
         </div>
 
-        <div className="order-teste">
+        <div className="order-details-img">
           <div>
             <img src={imagePath} alt={order.name} />
 
             <div className="order-info">
               <h2>{order.name}</h2>
-              <p>R$ {order.price}</p>
+              <p>{formattedPriceToBRL(order.price)}</p>
               <p>{order.status}</p>
             </div>
           </div>

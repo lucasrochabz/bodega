@@ -41,7 +41,7 @@ export const OrderDetailsPage = () => {
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
 
-      <div className="order-container-teste">
+      <div className="order-details-container">
         {loading || !order ? <Loading /> : <OrderDetails order={order} />}
       </div>
     </>
