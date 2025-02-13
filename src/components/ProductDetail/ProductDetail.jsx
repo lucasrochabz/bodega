@@ -36,7 +36,7 @@ export const ProductDetail = () => {
   };
 
   const isAuhenticated = (statusUser) => {
-    if (!statusUser) {
+    if (statusUser === 'false') {
       navigate('/login');
       return false;
     }
@@ -102,7 +102,9 @@ export const ProductDetail = () => {
               </button>
               <ButtonBuy
                 handleClick={createOrder}
-                text={statusUser ? 'Finalizar Pedido' : 'Faça o Login'}
+                text={
+                  statusUser !== 'false' ? 'Finalizar Pedido' : 'Faça o Login'
+                }
               />
             </div>
           </div>

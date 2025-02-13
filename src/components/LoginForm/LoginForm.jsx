@@ -43,10 +43,10 @@ export const LoginForm = () => {
       }
 
       const results = await response.json();
-      login(results.token);
+      login(results);
       navigate('/');
     } catch (error) {
-      console.error('Erro na requisição:', error.message);
+      console.error('Erro ao fazer login:', error.message);
       alert(`Erro ao fazer login: ${error.message}`);
     }
   };
@@ -82,7 +82,7 @@ export const LoginForm = () => {
         />
 
         <button className="btn-login-form">
-          {statusUser ? 'Sair' : 'Entrar'}
+          {statusUser === 'false' ? 'Entrar' : 'Sair'}
         </button>
       </form>
     </div>
