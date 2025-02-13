@@ -9,7 +9,7 @@ import { MyInfoPage } from './pages/MyInfoPage/MyInfoPage.jsx';
 import { ProductDetailPage } from './pages/ProductDetailPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
-import './App.css';
+import './index.css';
 
 const router = createBrowserRouter([
   {

@@ -1,20 +1,11 @@
 .product-list {
   max-width: 1200px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
   gap: 2rem;
   margin: 0 auto;
 }
-
-/* .product-list {
-  max-width: 1200px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 0 auto;
-  padding-bottom: 2rem;
-} */
 
 .price {
   font-weight: 700;
