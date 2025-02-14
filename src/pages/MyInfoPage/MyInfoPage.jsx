@@ -17,7 +17,7 @@ export const MyInfoPage = () => {
     return tokenStorage;
   };
 
-  const getUser = async (token) => {
+  const getToken = async (token) => {
     startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/users/user`, {
@@ -49,7 +49,7 @@ export const MyInfoPage = () => {
       navigate('/login');
       return;
     }
-    getUser(token);
+    getToken(token);
   }, []);
 
   return (
