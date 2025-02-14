@@ -102,7 +102,9 @@ export const ProductDetail = () => {
               </button>
               <ButtonBuy
                 handleClick={createOrder}
-                text={userName ? 'Finalizar Pedido' : 'Faça o Login'}
+                text={
+                  userName ? 'Finalizar Pedido' : 'Faça login para finalizar'
+                }
               />
             </div>
           </div>
