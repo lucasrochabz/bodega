@@ -5,7 +5,7 @@ import { BASE_API_URL } from '../../../config';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const { statusUser, login } = useContext(UserContext);
+  const { userName, login } = useContext(UserContext);
   const inputElement = useRef(null);
   const navigate = useNavigate();
 
@@ -82,7 +82,7 @@ export const LoginForm = () => {
         />
 
         <button className="btn-login-form">
-          {statusUser === 'false' ? 'Entrar' : 'Sair'}
+          {userName ? 'Sair' : 'Entrar'}
         </button>
       </form>
     </div>

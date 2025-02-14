@@ -8,11 +8,11 @@ import { Footer } from '../../components/Footer';
 import './MyAccountPage.css';
 
 export const MyAccountPage = () => {
-  const { statusUser } = useContext(UserContext);
+  const { userName } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!statusUser) {
+    if (!userName) {
       navigate('/login');
       return;
     }

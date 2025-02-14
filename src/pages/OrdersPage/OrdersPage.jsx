@@ -9,7 +9,7 @@ import { OrdersList } from '../../components/OrdersList';
 import './OrdersPage.css';
 
 export const OrdersPage = () => {
-  const { statusUser } = useContext(UserContext);
+  const { userName } = useContext(UserContext);
   const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
 
@@ -47,7 +47,7 @@ export const OrdersPage = () => {
 
   useEffect(() => {
     const userId = getLocalStorage();
-    if (!statusUser) {
+    if (!userName) {
       navigate('/login');
       return;
     }

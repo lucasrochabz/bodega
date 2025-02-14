@@ -9,7 +9,7 @@ import { ButtonBuy } from '../ButtonBuy';
 import './ProductDetail.css';
 
 export const ProductDetail = () => {
-  const { statusUser } = useContext(UserContext);
+  const { userName } = useContext(UserContext);
   const { productId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
   const navigate = useNavigate();
@@ -35,8 +35,8 @@ export const ProductDetail = () => {
     }
   };
 
-  const isAuhenticated = (statusUser) => {
-    if (statusUser === 'false') {
+  const isAuhenticated = (userName) => {
+    if (!userName) {
       navigate('/login');
       return false;
     }
@@ -44,7 +44,7 @@ export const ProductDetail = () => {
   };
 
   const createOrder = async () => {
-    if (!isAuhenticated(statusUser)) return;
+    if (!isAuhenticated(userName)) return;
     const token = localStorage.getItem('token');
 
     startLoading();
@@ -102,9 +102,7 @@ export const ProductDetail = () => {
               </button>
               <ButtonBuy
                 handleClick={createOrder}
-                text={
-                  statusUser !== 'false' ? 'Finalizar Pedido' : 'Faça o Login'
-                }
+                text={userName ? 'Finalizar Pedido' : 'Faça o Login'}
               />
             </div>
           </div>
