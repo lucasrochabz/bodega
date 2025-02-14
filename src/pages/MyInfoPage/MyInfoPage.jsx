@@ -13,8 +13,8 @@ export const MyInfoPage = () => {
   const [user, setUser] = useState(null);
 
   const getLocalStorage = () => {
-    const userStorage = localStorage.getItem('token');
-    return userStorage;
+    const tokenStorage = localStorage.getItem('token');
+    return tokenStorage;
   };
 
   const getUser = async (token) => {
@@ -44,12 +44,12 @@ export const MyInfoPage = () => {
   };
 
   useEffect(() => {
-    const userId = getLocalStorage();
-    if (!userId) {
+    const token = getLocalStorage();
+    if (!token) {
       navigate('/login');
       return;
     }
-    getUser(userId);
+    getUser(token);
   }, []);
 
   return (
