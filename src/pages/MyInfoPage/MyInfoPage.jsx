@@ -12,11 +12,6 @@ export const MyInfoPage = () => {
 
   const [user, setUser] = useState(null);
 
-  const getTokenStored = () => {
-    const tokenStorage = localStorage.getItem('token');
-    return tokenStorage;
-  };
-
   const getDataUser = async (token) => {
     startLoading();
     try {
@@ -44,7 +39,7 @@ export const MyInfoPage = () => {
   };
 
   useEffect(() => {
-    const token = getTokenStored();
+    const token = localStorage.getItem('token');
     if (!token) {
       navigate('/login');
       return;
