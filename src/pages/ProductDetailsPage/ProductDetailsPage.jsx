@@ -2,9 +2,9 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ProductDetail } from '../../components/ProductDetail';
-import './ProductDetailPage.css';
+import './ProductDetailsPage.css';
 
-export const ProductDetailPage = () => {
+export const ProductDetailsPage = () => {
   return (
     <>
       <Head
