@@ -12,12 +12,12 @@ export const MyInfoPage = () => {
 
   const [user, setUser] = useState(null);
 
-  const getLocalStorage = () => {
+  const getTokenStored = () => {
     const tokenStorage = localStorage.getItem('token');
     return tokenStorage;
   };
 
-  const getToken = async (token) => {
+  const getDataUser = async (token) => {
     startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/users/user`, {
@@ -44,12 +44,12 @@ export const MyInfoPage = () => {
   };
 
   useEffect(() => {
-    const token = getLocalStorage();
+    const token = getTokenStored();
     if (!token) {
       navigate('/login');
       return;
     }
-    getToken(token);
+    getDataUser(token);
   }, []);
 
   return (
