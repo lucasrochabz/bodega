@@ -28,7 +28,7 @@ export const LoginForm = () => {
     event.preventDefault();
 
     try {
-      const response = await fetch(`${BASE_API_URL}/auths/login`, {
+      const response = await fetch(`${BASE_API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
