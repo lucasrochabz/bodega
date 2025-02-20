@@ -47,8 +47,9 @@
   border-radius: 5px;
   cursor: pointer;
   padding: 0.8rem 1.2rem;
+  transition: 0.2s;
 }
 
 .btn-login-form:hover {
-  opacity: 0.9;
+  box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--green-color);
 }

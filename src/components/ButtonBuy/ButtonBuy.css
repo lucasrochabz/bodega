@@ -7,10 +7,11 @@
   border-radius: 5px;
   cursor: pointer;
   padding: 0.8rem 1.2rem;
+  transition: 0.2s;
 }
 
 .btn-buy:hover {
-  opacity: 0.9;
+  box-shadow: 0 0 0 3px lightyellow, 0 0 0 4px var(--yellow-color);
 }
 
 .btn-buy-disabled {
