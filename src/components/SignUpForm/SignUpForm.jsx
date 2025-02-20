@@ -78,91 +78,97 @@ export const SignUpForm = ({ setFormType }) => {
   };
 
   return (
-    <form className="signup" onSubmit={handleSignup}>
-      <Input
-        label="Name"
-        id="name"
-        value={name}
-        setValue={setName}
-        placeholder="Name completo"
-        required
-      />
+    <>
+      <div className="signup-form">
+        <h2 className="default-title">Crie a sua conta</h2>
 
-      <Input
-        type="email"
-        label="Email"
-        id="email"
-        value={email}
-        setValue={setEmail}
-        placeholder="exemplo@email.com"
-        required
-      />
+        <form className="signup" onSubmit={handleSignup}>
+          <Input
+            label="Name"
+            id="name"
+            value={name}
+            setValue={setName}
+            placeholder="Name completo"
+            required
+          />
 
-      <Input
-        type="password"
-        label="Senha"
-        id="password"
-        value={password}
-        setValue={setPassword}
-        required
-      />
+          <Input
+            type="email"
+            label="Email"
+            id="email"
+            value={email}
+            setValue={setEmail}
+            placeholder="exemplo@email.com"
+            required
+          />
 
-      <Input
-        type="number"
-        label={'CEP'}
-        id={'cep'}
-        value={zipCode}
-        setValue={setZipCode}
-        placeholder="60000000"
-        required
-      />
+          <Input
+            type="password"
+            label="Senha"
+            id="password"
+            value={password}
+            setValue={setPassword}
+            required
+          />
 
-      <Input
-        type="text"
-        label={'Endereço'}
-        id={'endereco'}
-        value={endereco}
-        readOnly
-        required
-      />
+          <Input
+            type="number"
+            label={'CEP'}
+            id={'cep'}
+            value={zipCode}
+            setValue={setZipCode}
+            placeholder="60000000"
+            required
+          />
 
-      <Input
-        type="number"
-        label={'Número'}
-        id={'numero'}
-        value={numero}
-        setValue={setNumero}
-        required
-      />
+          <Input
+            type="text"
+            label={'Endereço'}
+            id={'endereco'}
+            value={endereco}
+            readOnly
+            required
+          />
 
-      <Input
-        type="text"
-        label={'Bairro'}
-        id={'bairro'}
-        value={bairro}
-        readOnly
-        required
-      />
+          <Input
+            type="number"
+            label={'Número'}
+            id={'numero'}
+            value={numero}
+            setValue={setNumero}
+            required
+          />
 
-      <Input
-        type="text"
-        label={'Cidade'}
-        id={'cidade'}
-        value={cidade}
-        readOnly
-        required
-      />
+          <Input
+            type="text"
+            label={'Bairro'}
+            id={'bairro'}
+            value={bairro}
+            readOnly
+            required
+          />
 
-      <Input
-        type="text"
-        label={'Estado'}
-        id={'estado'}
-        value={estado}
-        readOnly
-        required
-      />
+          <Input
+            type="text"
+            label={'Cidade'}
+            id={'cidade'}
+            value={cidade}
+            readOnly
+            required
+          />
 
-      <button className="btn-signup">Criar</button>
-    </form>
+          <Input
+            type="text"
+            label={'Estado'}
+            id={'estado'}
+            value={estado}
+            readOnly
+            required
+          />
+
+          <button className="btn-signup">Criar</button>
+        </form>
+      </div>
+    </>
   );
 };

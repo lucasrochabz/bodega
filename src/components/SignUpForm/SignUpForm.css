@@ -1,18 +1,14 @@
+.signup-form {
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
 .signup {
   display: flex;
   flex-direction: column;
   animation: show-down 0.3s forwards;
-}
-
-@keyframes show-down {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
 }
 
 .btn-signup {
@@ -29,4 +25,15 @@
 
 .btn-signup:hover {
   box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--green-color);
+}
+
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }

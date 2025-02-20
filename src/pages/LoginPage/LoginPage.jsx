@@ -16,18 +16,13 @@ export const LoginPage = () => {
   return (
     <>
       <Head title="Login" description="Descrição da página Login" />
-
       <Header />
 
       <main className="login-container">
         {formType === 'login' ? (
           <LoginForm />
         ) : (
-          <div className="signup-form">
-            <h2 className="default-title">Crie a sua conta</h2>
-
-            <SignUpForm setFormType={setFormType} />
-          </div>
+          <SignUpForm setFormType={setFormType} />
         )}
 
         <button className="btn-signup-form" onClick={toggleModal}>
