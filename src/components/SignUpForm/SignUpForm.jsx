@@ -3,7 +3,7 @@ import { BASE_API_URL } from '../../../config';
 import { Input } from '../Input';
 import './SignUpForm.css';
 
-export const SignUpForm = () => {
+export const SignUpForm = ({ setFormType }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -70,6 +70,7 @@ export const SignUpForm = () => {
       setPassword('');
       setZipCode('');
       setNumero('');
+      setFormType('login');
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao cadastrar usuário: ${error.message}`);

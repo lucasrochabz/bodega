@@ -26,7 +26,7 @@ export const LoginPage = () => {
           <div className="signup-form">
             <h2 className="default-title">Crie a sua conta</h2>
 
-            <SignUpForm />
+            <SignUpForm setFormType={setFormType} />
           </div>
         )}
 
