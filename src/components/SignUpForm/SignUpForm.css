@@ -1,25 +1,32 @@
-.signup-form {
-  max-width: 460px;
-  margin: 2rem auto;
+.signup {
   display: flex;
   flex-direction: column;
+  animation: show-down 0.3s forwards;
 }
 
-.btn-signup-form {
-  background-color: var(--bg-color);
-  color: var(--green-color);
-  border: 2px solid var(--green-color);
-  font-size: 1rem;
-  font-weight: bold;
-  cursor: pointer;
-  align-self: center;
-  border-radius: 5px;
-  transition: 0.3s;
-  padding: 0.8rem 1.2rem;
-  margin: 1rem 0;
+@keyframes show-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-.btn-signup-form:hover {
+.btn-signup {
   background-color: var(--green-color);
   color: var(--bg-color);
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.8rem 1.2rem;
+  transition: 0.2s;
+}
+
+.btn-signup:hover {
+  box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--green-color);
 }
