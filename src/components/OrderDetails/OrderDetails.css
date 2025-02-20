@@ -22,8 +22,6 @@
 }
 
 .order-details-img {
-  display: flex;
-  gap: 1rem;
   padding: 1rem;
 }
 
@@ -42,4 +40,25 @@
   border-bottom: 1px solid gray;
   padding: 1rem 0;
   margin: 0 1rem;
+}
+
+.delivery {
+  padding-top: 1rem;
+}
+
+.delivery::before {
+  content: '';
+  display: block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--green-color);
+  margin-bottom: 1rem;
+}
+
+.delivery li {
+  margin-top: 0.5rem;
+}
+
+.delivery span {
+  font-weight: bold;
 }

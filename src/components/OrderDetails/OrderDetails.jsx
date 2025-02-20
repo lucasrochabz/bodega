@@ -26,6 +26,27 @@ export const OrderDetails = ({ order }) => {
               <h2>{order.name}</h2>
               <p>{formattedPriceToBRL(order.price)}</p>
               <p>{order.status}</p>
+
+              <ul className="delivery">
+                <li>
+                  Endereço: <span>{order.street}</span>
+                </li>
+                <li>
+                  Número: <span>{order.number}</span>
+                </li>
+                <li>
+                  Bairro: <span>{order.neighborhood}</span>
+                </li>
+                <li>
+                  Cidade: <span>{order.city}</span>
+                </li>
+                <li>
+                  Estado: <span>{order.state}</span>
+                </li>
+                <li>
+                  CEP: <span>{order.zip_code}</span>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
