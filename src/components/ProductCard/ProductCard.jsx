@@ -9,7 +9,11 @@ export const ProductCard = ({ item }) => {
     navigate(`/products/${item.id}`);
   };
 
-  const imagePath = `/src/assets/images/${item.image_path}`;
+  const images = import.meta.glob('/src/assets/images/*', {
+    eager: true,
+  });
+
+  const imagePath = images[`/src/assets/images/${item.image_path}`].default;
 
   return (
     <div onClick={handleClick} className="product-card">
