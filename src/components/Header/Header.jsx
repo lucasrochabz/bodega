@@ -7,15 +7,15 @@ export const Header = () => {
   const { userName } = useContext(UserContext);
 
   return (
-    <section className="header-bg">
-      <div className="header">
-        <Link to={'/'}>
-          <h2 className="logo">Bodega</h2>
+    <header className="header-bg">
+      <nav className="header">
+        <Link to={'/'} aria-label="Bodega - Home">
+          <span className="logo">Bodega</span>
         </Link>
         <Link to={userName ? '/my-account' : '/login'} className="btn-header">
-          {userName ? `Olá, ${userName}` : 'Login'}
+          {userName ? `Olá, ${userName}` : 'Entre ou cadastre-se'}
         </Link>
-      </div>
-    </section>
+      </nav>
+    </header>
   );
 };
