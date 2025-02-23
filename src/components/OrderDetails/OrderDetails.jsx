@@ -6,7 +6,7 @@ export const OrderDetails = ({ order }) => {
   const imagePath = `/src/assets/images/${order.image_path}`;
 
   return (
-    <section className="order-details-bg">
+    <>
       <h1>Detalhes do pedido</h1>
       <div className="order-item">
         <div className="order-head">
@@ -51,6 +51,6 @@ export const OrderDetails = ({ order }) => {
           </div>
         </div>
       </div>
-    </section>
+    </>
   );
 };

@@ -40,10 +40,13 @@ export const OrderDetailsPage = () => {
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
-
-      <article className="order-details-container">
-        {loading || !order ? <Loading /> : <OrderDetails order={order} />}
-      </article>
+      {loading || !order ? (
+        <Loading />
+      ) : (
+        <article className="order-details-container">
+          <OrderDetails order={order} />
+        </article>
+      )}
     </>
   );
 };
