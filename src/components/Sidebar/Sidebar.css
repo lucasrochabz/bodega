@@ -1,6 +1,5 @@
 .sidebar {  
   width: 200px;
-  border-radius: 5px;
   align-self: start;
 }
 
@@ -21,7 +20,7 @@
 
 .sidebar-nav a:hover,
 .sidebar-nav .active {
-  font-weight: bold;
   background-color: var(--green-color);
   color: var(--bg-color);
+  font-weight: bold;
 }
