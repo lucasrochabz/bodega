@@ -3,7 +3,7 @@
   justify-content: center;
   gap: 2rem;
   margin-bottom: 2rem;
-  min-height: calc(100vh - 216px);
+  min-height: calc(100vh - 130px);
 }
 
 .product-detail img {
