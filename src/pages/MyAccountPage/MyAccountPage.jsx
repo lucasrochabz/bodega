@@ -14,10 +14,10 @@ export const MyAccountPage = () => {
   useEffect(() => {
     if (!userName) {
       navigate('/login');
-      return;
     }
   }, []);
 
+  if (!userName) return null;
   return (
     <>
       <Head title="Minha conta" description="Descrição da página Minha Conta" />
