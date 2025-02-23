@@ -88,7 +88,7 @@ export const SignUpForm = ({ setFormType }) => {
             id="name"
             value={name}
             setValue={setName}
-            placeholder="Name completo"
+            placeholder="Nome completo"
             required
           />
 
