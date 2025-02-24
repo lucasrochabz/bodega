@@ -5,9 +5,9 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
 import { Footer } from '../../components/Footer';
-import './MyAccountPage.css';
+import './UserPage.css';
 
-export const MyAccountPage = () => {
+export const UserPage = () => {
   const { userName } = useContext(UserContext);
   const navigate = useNavigate();
 

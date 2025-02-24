@@ -3,10 +3,10 @@ import { createRoot } from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext.jsx';
 import { HomePage } from './pages/HomePage';
-import { LoginPage } from './pages/LoginPage/';
+import { LoginPage } from './pages/LoginPage';
 import { RegisterFormPage } from './pages/RegisterFormPage';
-import { MyAccountPage } from './pages/MyAccountPage/';
-import { MyInfoPage } from './pages/MyInfoPage/MyInfoPage.jsx';
+import { UserPage } from './pages/UserPage';
+import { MyInfoPage } from './pages/MyInfoPage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
   },
   {
     path: '/my-account',
-    element: <MyAccountPage />,
+    element: <UserPage />,
     children: [
       {
         path: 'my-info',
