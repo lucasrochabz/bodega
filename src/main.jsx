@@ -29,7 +29,7 @@ const router = createBrowserRouter([
         element: <MyInfoPage />,
       },
       {
-        path: 'orders/',
+        path: 'orders',
         element: <OrdersPage />,
       },
       {
