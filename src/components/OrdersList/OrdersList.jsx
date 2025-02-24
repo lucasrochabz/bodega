@@ -5,7 +5,7 @@ import './OrdersList.css';
 export const OrdersList = ({ orders }) => {
   const navigate = useNavigate();
 
-  const handleClick = (orderId, event) => {
+  const handleNavigate = (event, orderId) => {
     event.preventDefault();
     navigate(`/my-account/orders/details/${orderId}`);
   };
@@ -22,7 +22,7 @@ export const OrdersList = ({ orders }) => {
               <h2>Número do pedido: {order.id}</h2>
               <p>Realizado em: {formattedDate(order.created_at)}</p>
             </div>
-            <button onClick={(event) => handleClick(order.id, event)}>
+            <button onClick={(event) => handleNavigate(event, order.id)}>
               Ver detalhes
             </button>
           </div>

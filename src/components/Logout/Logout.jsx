@@ -7,13 +7,13 @@ export const Logout = () => {
   const { logout } = useContext(UserContext);
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleLogout = () => {
     logout();
     navigate('/login');
   };
 
   return (
-    <button className="btn-logout" onClick={handleClick}>
+    <button className="btn-logout" onClick={handleLogout}>
       Sair
     </button>
   );
