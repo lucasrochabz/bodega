@@ -6,7 +6,7 @@ import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterFormPage } from './pages/RegisterFormPage';
 import { UserPage } from './pages/UserPage';
-import { MyInfoPage } from './pages/MyInfoPage';
+import { UserInfoPage } from './pages/UserInfoPage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     children: [
       {
         path: 'my-info',
-        element: <MyInfoPage />,
+        element: <UserInfoPage />,
       },
       {
         path: 'orders',

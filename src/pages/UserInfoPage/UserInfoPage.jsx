@@ -4,9 +4,9 @@ import { useLoading } from '../../hooks';
 import { BASE_API_URL } from '../../../config';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
-import './MyInfoPage.css';
+import './UserInfoPage.css';
 
-export const MyInfoPage = () => {
+export const UserInfoPage = () => {
   const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
 
