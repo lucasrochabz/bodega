@@ -5,7 +5,7 @@ import './ProductCard.css';
 export const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleNavigate = () => {
     navigate(`/products/${item.id}`);
   };
 
@@ -16,7 +16,7 @@ export const ProductCard = ({ item }) => {
   const imagePath = images[`/src/assets/images/${item.image_path}`].default;
 
   return (
-    <div onClick={handleClick} className="product-card">
+    <div onClick={handleNavigate} className="product-card">
       <img src={imagePath} alt={item.name} />
       <div className="product-info">
         <p className="price">{formattedPriceToBRL(item.price)}</p>
