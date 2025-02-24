@@ -6,9 +6,9 @@ import { useLoading } from '../../hooks';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
 import { ButtonBuy } from '../ButtonBuy';
-import './ProductDetail.css';
+import './ProductDetails.css';
 
-export const ProductDetail = () => {
+export const ProductDetails = () => {
   const { userName } = useContext(UserContext);
   const { productId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();

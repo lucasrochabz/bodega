@@ -1,7 +1,7 @@
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
-import { ProductDetail } from '../../components/ProductDetail';
+import { ProductDetails } from '../../components/ProductDetails';
 import './ProductDetailsPage.css';
 
 export const ProductDetailsPage = () => {
@@ -12,7 +12,7 @@ export const ProductDetailsPage = () => {
         description="Descrição da página Detalhe do Produto"
       />
       <Header />
-      <ProductDetail />
+      <ProductDetails />
       <Footer />
     </>
   );
