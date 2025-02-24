@@ -2,9 +2,9 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { SignUpForm } from '../../components/SignUpForm';
 import { Footer } from '../../components/Footer';
-import './RegisterFormPage.css';
+import './RegisterPage.css';
 
-export const RegisterFormPage = () => {
+export const RegisterPage = () => {
   return (
     <>
       <Head title="Register" description="Descrição da página Register" />

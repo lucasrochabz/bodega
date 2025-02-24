@@ -4,7 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext.jsx';
 import { HomePage } from './pages/HomePage';
 import { LoginPage } from './pages/LoginPage';
-import { RegisterFormPage } from './pages/RegisterFormPage';
+import { RegisterPage } from './pages/RegisterPage';
 import { UserPage } from './pages/UserPage';
 import { UserInfoPage } from './pages/UserInfoPage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
@@ -18,12 +18,16 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
+    path: '/products/:productId',
+    element: <ProductDetailsPage />,
+  },
+  {
     path: '/login',
     element: <LoginPage />,
   },
   {
     path: '/register',
-    element: <RegisterFormPage />,
+    element: <RegisterPage />,
   },
   {
     path: '/my-account',
@@ -42,10 +46,6 @@ const router = createBrowserRouter([
         element: <OrderDetailsPage />,
       },
     ],
-  },
-  {
-    path: '/products/:productId',
-    element: <ProductDetailsPage />,
   },
 ]);
 
