@@ -167,7 +167,7 @@ export const SignUpForm = ({ setFormType }) => {
             required
           />
 
-          <button className="btn-signup">Criar</button>
+          <button className="btn-signup">Cradastrar</button>
         </form>
       </div>
     </>
