@@ -5,7 +5,7 @@ import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
-import { OrdersList } from '../../components/OrdersList';
+import { OrderList } from '../../components/OrderList';
 import './OrdersPage.css';
 
 export const OrdersPage = () => {
@@ -61,7 +61,7 @@ export const OrdersPage = () => {
         <Loading />
       ) : (
         <article className="orders-page-container">
-          <OrdersList orders={orders} />
+          <OrderList orders={orders} />
         </article>
       )}
     </>

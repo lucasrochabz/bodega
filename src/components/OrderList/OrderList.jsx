@@ -1,8 +1,8 @@
 import { useNavigate } from 'react-router-dom';
 import { formattedDate } from '../../utils/dateUtils';
-import './OrdersList.css';
+import './OrderList.css';
 
-export const OrdersList = ({ orders }) => {
+export const OrderList = ({ orders }) => {
   const navigate = useNavigate();
 
   const handleNavigate = (event, orderId) => {
