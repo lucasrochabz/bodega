@@ -56,7 +56,7 @@ export const LoginForm = () => {
   }, []);
 
   return (
-    <div className="login-field">
+    <section className="login-field">
       <h1 className="default-title">Login</h1>
 
       <form className="login-form" onSubmit={verifyUser}>
@@ -85,6 +85,6 @@ export const LoginForm = () => {
           {userName ? 'Sair' : 'Entrar'}
         </button>
       </form>
-    </div>
+    </section>
   );
 };
