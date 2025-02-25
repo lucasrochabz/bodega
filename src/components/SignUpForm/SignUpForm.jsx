@@ -85,7 +85,7 @@ export const SignUpForm = ({ setFormType }) => {
         <form className="signup" onSubmit={handleSignup}>
           <Input
             type="text"
-            label="Name"
+            label="Nome"
             id="name"
             value={name}
             setValue={setName}

@@ -20,7 +20,7 @@ export const ProductCard = ({ item }) => {
       <img src={imagePath} alt={item.name} />
       <div className="product-info">
         <p className="price">{formattedPriceToBRL(item.price)}</p>
-        <h2 className="title" key={item.id}>
+        <h2 className="title-card" key={item.id}>
           {item.name}
         </h2>
         <p className="descricao">{item.description}</p>

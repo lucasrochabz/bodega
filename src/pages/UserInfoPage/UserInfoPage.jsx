@@ -57,7 +57,7 @@ export const UserInfoPage = () => {
         <Loading />
       ) : (
         <article className="user-info-page">
-          <h2>Minhas informações</h2>
+          <h1>Minhas informações</h1>
 
           <ul className="user-info-card">
             <li className="list-top">Dados de acesso</li>
