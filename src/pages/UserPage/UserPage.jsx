@@ -23,7 +23,7 @@ export const UserPage = () => {
       <Head title="Minha conta" description="Descrição da página Minha Conta" />
       <Header />
 
-      <main className="my-account-container">
+      <main className="user-page">
         <Sidebar />
         <Outlet />
       </main>

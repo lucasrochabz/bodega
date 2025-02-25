@@ -1,37 +1,14 @@
-import { useNavigate } from 'react-router-dom';
-import { formattedDate } from '../../utils/dateUtils';
+import { OrderCard } from '../OrderCard';
 import './OrderList.css';
 
 export const OrderList = ({ orders }) => {
-  const navigate = useNavigate();
-
-  const handleNavigate = (event, orderId) => {
-    event.preventDefault();
-    navigate(`/my-account/orders/details/${orderId}`);
-  };
-
   const orderedOrders = orders.sort((a, b) => a.id - b.id);
 
   return (
     <>
       <h1>Meus pedidos</h1>
       {orderedOrders.map((order) => (
-        <div className="order-content" key={order.id}>
-          <div className="order-content-head">
-            <div>
-              <h2>Número do pedido: {order.id}</h2>
-              <p>Realizado em: {formattedDate(order.created_at)}</p>
-            </div>
-            <button onClick={(event) => handleNavigate(event, order.id)}>
-              Ver detalhes
-            </button>
-          </div>
-          <div className="order-content-body">
-            <h2>Produto(s):</h2>
-            <p>{order.name}</p>
-            <span>{order.status}</span>
-          </div>
-        </div>
+        <OrderCard key={order.id} order={order} />
       ))}
     </>
   );

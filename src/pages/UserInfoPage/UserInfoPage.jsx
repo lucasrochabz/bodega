@@ -56,10 +56,10 @@ export const UserInfoPage = () => {
       {loading || !user ? (
         <Loading />
       ) : (
-        <article className="my-info">
+        <article className="user-info-page">
           <h2>Minhas informações</h2>
 
-          <ul className="my-info-card">
+          <ul className="user-info-card">
             <li className="list-top">Dados de acesso</li>
 
             <li>
@@ -71,7 +71,7 @@ export const UserInfoPage = () => {
             </li>
           </ul>
 
-          <ul className="my-info-card">
+          <ul className="user-info-card">
             <li className="list-top">Dados pessoais</li>
             <li>
               Nome: <span>{user.name}</span>
