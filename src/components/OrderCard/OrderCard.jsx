@@ -22,7 +22,7 @@ export const OrderCard = ({ order }) => {
         </button>
       </div>
       <div className="order-body">
-        <h2>Produto(s):</h2>
+        <h2>Produto:</h2>
         <p>{order.name}</p>
         <span>{order.status}</span>
       </div>

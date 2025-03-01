@@ -26,14 +26,3 @@
 .btn-signup:hover {
   box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--green-color);
 }
-
-@keyframes show-down {
-  from {
-    opacity: 0;
-    transform: translate3d(0, -30px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
