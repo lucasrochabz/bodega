@@ -4,6 +4,7 @@ import { useLoading } from '../../hooks';
 import { BASE_API_URL } from '../../../config';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
+import { UserUpdateForm } from '../../components/UserUpdateForm';
 import './UserInfoPage.css';
 
 export const UserInfoPage = () => {
@@ -53,50 +54,7 @@ export const UserInfoPage = () => {
         title="Informações"
         description="Descrição da página Minhas Informações"
       />
-      {loading || !user ? (
-        <Loading />
-      ) : (
-        <article className="user-info-page">
-          <h1>Minhas informações</h1>
-
-          <ul className="user-info-card">
-            <li className="list-top">Dados de acesso</li>
-
-            <li>
-              Email: <span>{user.email}</span>
-            </li>
-
-            <li>
-              Senha: <span>******</span>
-            </li>
-          </ul>
-
-          <ul className="user-info-card">
-            <li className="list-top">Dados pessoais</li>
-            <li>
-              Nome: <span>{user.name}</span>
-            </li>
-            <li>
-              Endereço: <span>{user.street}</span>
-            </li>
-            <li>
-              Número: <span>{user.number}</span>
-            </li>
-            <li>
-              Bairro: <span>{user.neighborhood}</span>
-            </li>
-            <li>
-              Cidade: <span>{user.city}</span>
-            </li>
-            <li>
-              Estado: <span>{user.state}</span>
-            </li>
-            <li>
-              CEP: <span>{user.zip_code}</span>
-            </li>
-          </ul>
-        </article>
-      )}
+      {loading || !user ? <Loading /> : <UserUpdateForm dados={user} />}
     </>
   );
 };
