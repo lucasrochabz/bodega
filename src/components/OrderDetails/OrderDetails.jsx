@@ -10,15 +10,17 @@ export const OrderDetails = ({ order }) => {
       <h1>Detalhes do pedido</h1>
       <div className="order-details">
         <div className="order-details-head">
-          <p>Número do pedido: {order.id}</p>
-          <p>Pedido realizado em: {formattedDate(order.created_at)}</p>
-        </div>
+          <ul>
+            <li>Número do pedido: {order.id}</li>
+            <li>Pedido realizado em: {formattedDate(order.created_at)}</li>
+          </ul>
 
-        <p className="order-store">Vendido e entregue por: Bodega</p>
+          <p>Vendido e entregue por: Bodega</p>
+        </div>
 
         <div className="resume">
           <img src={imagePath} alt={order.name} />
-          <ul className="resume-list">
+          <ul>
             <li>
               <h2>{order.name}</h2>
             </li>
