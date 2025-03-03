@@ -1,9 +1,10 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
 import { Input } from '../Input';
 import './SignUpForm.css';
 
-export const SignUpForm = ({ setFormType }) => {
+export const SignUpForm = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -13,6 +14,7 @@ export const SignUpForm = ({ setFormType }) => {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
+  const navigate = useNavigate();
 
   const getCep = async () => {
     if (zipCode.length === 8) {
@@ -70,7 +72,7 @@ export const SignUpForm = ({ setFormType }) => {
       setPassword('');
       setZipCode('');
       setNumero('');
-      setFormType('login');
+      navigate('/login');
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao cadastrar usuário: ${error.message}`);
