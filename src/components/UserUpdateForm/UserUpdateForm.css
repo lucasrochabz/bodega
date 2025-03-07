@@ -12,7 +12,6 @@
 .update {
   display: flex;
   flex-direction: column;
-  animation: show-down 0.3s forwards;
 }
 
 .btn-update {

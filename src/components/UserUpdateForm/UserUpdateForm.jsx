@@ -3,56 +3,80 @@ import { Input } from '../Input';
 import './UserUpdateForm.css';
 
 export const UserUpdateForm = ({ dados }) => {
-  const [name, setName] = useState(dados.name);
-  const [email, setEmail] = useState(dados.email);
-  const [password, setPassword] = useState('');
-  const [zipCode, setZipCode] = useState(dados.zip_code);
-  const [endereco, setEndereco] = useState(dados.street);
-  const [numero, setNumero] = useState(dados.number);
-  const [bairro, setBairro] = useState(dados.neighborhood);
-  const [cidade, setCidade] = useState(dados.city);
-  const [estado, setEstado] = useState(dados.state);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    password: '',
+    zipCode: '',
+    endereco: '',
+    numero: '',
+    bairro: '',
+    cidade: '',
+    estado: '',
+  });
 
   const getCep = async () => {
-    if (zipCode.length === 8) {
-      const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json`);
+    if (formData.zipCode.length === 8) {
+      const response = await fetch(
+        `https://viacep.com.br/ws/${formData.zipCode}/json`,
+      );
       const cepResult = await response.json();
       if (cepResult.erro) {
         alert('CEP inválido');
         return;
       }
-      setEndereco(cepResult.logradouro);
-      setBairro(cepResult.bairro);
-      setCidade(cepResult.localidade);
-      setEstado(cepResult.uf);
-    } else {
-      setEndereco('');
-      setBairro('');
-      setCidade('');
-      setEstado('');
+      setFormData((prev) => ({
+        ...prev,
+        endereco: cepResult.logradouro,
+        bairro: cepResult.bairro,
+        cidade: cepResult.localidade,
+        estado: cepResult.uf,
+      }));
     }
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    console.log('clicou em atualizar');
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   useEffect(() => {
+    setFormData({
+      name: dados.name,
+      email: dados.email,
+      password: '',
+      zipCode: dados.zip_code,
+      endereco: dados.street,
+      numero: dados.number,
+      bairro: dados.neighborhood,
+      cidade: dados.city,
+      estado: dados.state,
+    });
+  }, [dados]);
+
+  useEffect(() => {
     getCep();
-  }, [zipCode]);
+  }, [formData.zipCode]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(formData);
+  };
 
   return (
-    <article className="user-info-page">
+    <article className="user-info-page" onSubmit={handleSubmit}>
       <h1>Minhas informações</h1>
-      <div className="user-update" onSubmit={handleSubmit}>
+      <div className="user-update">
         <form className="update">
           <Input
             type="text"
             label="Nome"
             id="name"
-            value={name}
-            setValue={setName}
+            value={formData.name}
+            onChange={handleChange}
             placeholder="Nome completo"
             required
           />
@@ -61,8 +85,8 @@ export const UserUpdateForm = ({ dados }) => {
             type="email"
             label="Email"
             id="email"
-            value={email}
-            setValue={setEmail}
+            value={formData.email}
+            onChange={handleChange}
             placeholder="exemplo@email.com"
             required
           />
@@ -71,17 +95,17 @@ export const UserUpdateForm = ({ dados }) => {
             type="password"
             label="Senha"
             id="password"
-            value={password}
-            setValue={setPassword}
+            value={formData.password}
+            onChange={handleChange}
             required
           />
 
           <Input
             type="number"
             label={'CEP'}
-            id={'cep'}
-            value={zipCode}
-            setValue={setZipCode}
+            id={'zipCode'}
+            value={formData.zipCode}
+            onChange={handleChange}
             placeholder="60000000"
             required
           />
@@ -90,7 +114,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Endereço'}
             id={'endereco'}
-            value={endereco}
+            value={formData.endereco}
             readOnly
             required
           />
@@ -99,8 +123,8 @@ export const UserUpdateForm = ({ dados }) => {
             type="number"
             label={'Número'}
             id={'numero'}
-            value={numero}
-            setValue={setNumero}
+            value={formData.numero}
+            onChange={handleChange}
             required
           />
 
@@ -108,7 +132,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Bairro'}
             id={'bairro'}
-            value={bairro}
+            value={formData.bairro}
             readOnly
             required
           />
@@ -117,7 +141,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Cidade'}
             id={'cidade'}
-            value={cidade}
+            value={formData.cidade}
             readOnly
             required
           />
@@ -126,7 +150,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Estado'}
             id={'estado'}
-            value={estado}
+            value={formData.estado}
             readOnly
             required
           />
