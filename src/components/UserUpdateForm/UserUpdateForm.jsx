@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { BASE_API_URL } from '../../../config';
 import { Input } from '../Input';
 import './UserUpdateForm.css';
 
@@ -6,13 +7,12 @@ export const UserUpdateForm = ({ dados }) => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    password: '',
     zipCode: '',
-    endereco: '',
-    numero: '',
-    bairro: '',
-    cidade: '',
-    estado: '',
+    street: '',
+    number: '',
+    neighborhood: '',
+    city: '',
+    state: '',
   });
 
   const getCep = async () => {
@@ -25,12 +25,21 @@ export const UserUpdateForm = ({ dados }) => {
         alert('CEP inválido');
         return;
       }
+
       setFormData((prev) => ({
         ...prev,
-        endereco: cepResult.logradouro,
-        bairro: cepResult.bairro,
-        cidade: cepResult.localidade,
-        estado: cepResult.uf,
+        street: cepResult.logradouro,
+        neighborhood: cepResult.bairro,
+        city: cepResult.localidade,
+        state: cepResult.uf,
+      }));
+    } else {
+      setFormData((prev) => ({
+        ...prev,
+        street: '',
+        neighborhood: '',
+        city: '',
+        state: '',
       }));
     }
   };
@@ -49,11 +58,11 @@ export const UserUpdateForm = ({ dados }) => {
       email: dados.email,
       password: '',
       zipCode: dados.zip_code,
-      endereco: dados.street,
-      numero: dados.number,
-      bairro: dados.neighborhood,
-      cidade: dados.city,
-      estado: dados.state,
+      street: dados.street,
+      number: dados.number,
+      neighborhood: dados.neighborhood,
+      city: dados.city,
+      state: dados.state,
     });
   }, [dados]);
 
@@ -61,15 +70,38 @@ export const UserUpdateForm = ({ dados }) => {
     getCep();
   }, [formData.zipCode]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(formData);
+
+    try {
+      const token = localStorage.getItem('token');
+
+      const response = await fetch(`${BASE_API_URL}/users/update`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const results = await response.json();
+        throw new Error(results.message);
+      }
+
+      const results = await response.json();
+      alert(results.message);
+    } catch (error) {
+      console.error('Erro na requisição ao atualizar usuário:', error.message);
+      alert(`Erro na requisição ao atualizar usuário: ${error.message}`);
+    }
   };
 
   return (
     <article className="user-info-page" onSubmit={handleSubmit}>
       <h1>Minhas informações</h1>
-      <div className="user-update">
+      <section className="user-update">
         <form className="update">
           <Input
             type="text"
@@ -92,15 +124,6 @@ export const UserUpdateForm = ({ dados }) => {
           />
 
           <Input
-            type="password"
-            label="Senha"
-            id="password"
-            value={formData.password}
-            onChange={handleChange}
-            required
-          />
-
-          <Input
             type="number"
             label={'CEP'}
             id={'zipCode'}
@@ -114,7 +137,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Endereço'}
             id={'endereco'}
-            value={formData.endereco}
+            value={formData.street}
             readOnly
             required
           />
@@ -122,8 +145,8 @@ export const UserUpdateForm = ({ dados }) => {
           <Input
             type="number"
             label={'Número'}
-            id={'numero'}
-            value={formData.numero}
+            id={'number'}
+            value={formData.number}
             onChange={handleChange}
             required
           />
@@ -132,7 +155,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Bairro'}
             id={'bairro'}
-            value={formData.bairro}
+            value={formData.neighborhood}
             readOnly
             required
           />
@@ -141,7 +164,7 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Cidade'}
             id={'cidade'}
-            value={formData.cidade}
+            value={formData.city}
             readOnly
             required
           />
@@ -150,14 +173,14 @@ export const UserUpdateForm = ({ dados }) => {
             type="text"
             label={'Estado'}
             id={'estado'}
-            value={formData.estado}
+            value={formData.state}
             readOnly
             required
           />
 
           <button className="btn-update">Atualizar</button>
         </form>
-      </div>
+      </section>
     </article>
   );
 };

@@ -24,6 +24,7 @@ export const SignUpForm = () => {
         alert('CEP inválido');
         return;
       }
+
       setEndereco(cepResult.logradouro);
       setBairro(cepResult.bairro);
       setCidade(cepResult.localidade);
