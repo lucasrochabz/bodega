@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
 import { Input } from '../Input';
+import { Button } from '../Button';
 import './SignUpForm.css';
 
 export const SignUpForm = () => {
@@ -170,7 +171,7 @@ export const SignUpForm = () => {
             required
           />
 
-          <button className="btn-signup">Cradastrar</button>
+          <Button type="primary">Cradastrar</Button>
         </form>
       </div>
     </>

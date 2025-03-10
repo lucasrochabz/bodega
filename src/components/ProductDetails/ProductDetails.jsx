@@ -5,7 +5,7 @@ import { BASE_API_URL } from '../../../config';
 import { useLoading } from '../../hooks';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
-import { ButtonBuy } from '../ButtonBuy';
+import { Button } from '../Button';
 import './ProductDetails.css';
 
 export const ProductDetails = () => {
@@ -100,12 +100,10 @@ export const ProductDetails = () => {
               <button className="btn-cancel-order" onClick={cancelOrder}>
                 Cancelar
               </button>
-              <ButtonBuy
-                handleClick={createOrder}
-                text={
-                  userName ? 'Finalizar Pedido' : 'Faça login para finalizar'
-                }
-              />
+
+              <Button type="secondary" onClick={createOrder}>
+                {userName ? 'Finalizar Pedido' : 'Faça login para finalizar'}
+              </Button>
             </div>
           </div>
         </div>

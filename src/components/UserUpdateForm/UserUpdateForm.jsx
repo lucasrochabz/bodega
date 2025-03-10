@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { BASE_API_URL } from '../../../config';
 import { Input } from '../Input';
+import { Button } from '../Button';
 import './UserUpdateForm.css';
 
 export const UserUpdateForm = ({ dados }) => {
@@ -178,7 +179,7 @@ export const UserUpdateForm = ({ dados }) => {
             required
           />
 
-          <button className="btn-update">Atualizar</button>
+          <Button type="primary">Atualizar</Button>
         </form>
       </section>
     </article>

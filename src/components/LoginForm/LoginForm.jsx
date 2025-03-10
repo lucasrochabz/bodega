@@ -2,8 +2,8 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
-import './LoginForm.css';
 import { Button } from '../Button';
+import './LoginForm.css';
 
 export const LoginForm = () => {
   const { userName, login } = useContext(UserContext);
@@ -82,9 +82,7 @@ export const LoginForm = () => {
           required
         />
 
-        <Button className="btn-login-form">
-          {userName ? 'Sair' : 'Entrar'}
-        </Button>
+        <Button type="primary">{userName ? 'Sair' : 'Entrar'}</Button>
       </form>
     </section>
   );
