@@ -101,7 +101,7 @@ export const ProductDetails = () => {
                 Cancelar
               </button>
 
-              <Button type="secondary" onClick={createOrder}>
+              <Button type="secondary" disabled={loading} onClick={createOrder}>
                 {userName ? 'Finalizar Pedido' : 'Faça login para finalizar'}
               </Button>
             </div>

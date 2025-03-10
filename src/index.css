@@ -35,6 +35,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
 h1 {
   font-size: 2rem;
 }
