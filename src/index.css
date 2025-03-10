@@ -31,6 +31,10 @@ input[readonly] {
   background-color: var(--gray-color);
 }
 
+button {
+  cursor: pointer;
+}
+
 h1 {
   font-size: 2rem;
 }

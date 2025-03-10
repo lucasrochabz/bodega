@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
 import './LoginForm.css';
+import { Button } from '../Button';
 
 export const LoginForm = () => {
   const { userName, login } = useContext(UserContext);
@@ -81,9 +82,9 @@ export const LoginForm = () => {
           required
         />
 
-        <button className="btn-login-form">
+        <Button className="btn-login-form">
           {userName ? 'Sair' : 'Entrar'}
-        </button>
+        </Button>
       </form>
     </section>
   );
