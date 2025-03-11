@@ -12,7 +12,9 @@
   color: var(--bg-color);
 }
 
-.btn-primary:hover {
+.btn-primary:hover,
+.btn-primary:focus {
+  outline: none;
   box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--green-color);
 }
 
@@ -21,6 +23,8 @@
   color: var(--bg-color);
 }
 
-.btn-secondary:hover {
+.btn-secondary:hover,
+.btn-secondary:focus {
+  outline: none;
   box-shadow: 0 0 0 3px lightyellow, 0 0 0 4px var(--yellow-color);
 }

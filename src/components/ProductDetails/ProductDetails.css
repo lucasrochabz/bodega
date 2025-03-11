@@ -41,7 +41,7 @@
 }
 
 .btn-cancel-order {
-  background-color: var(var(--bg-color));
+  background-color: var(--bg-color);
   color: var(--darkgreen-color);
   border: 2px solid var(--darkgreen-color);
   font-size: 1rem;
