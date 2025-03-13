@@ -9,6 +9,7 @@ import './SignUpForm.css';
 export const SignUpForm = () => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [name, setName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [zipCode, setZipCode] = useState('');
@@ -54,6 +55,7 @@ export const SignUpForm = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           name: name,
+          last_name: lastName,
           email: email,
           password: password,
           zip_code: zipCode,
@@ -98,7 +100,16 @@ export const SignUpForm = () => {
             id="name"
             value={name}
             setValue={setName}
-            placeholder="Nome completo"
+            placeholder="Primeiro nome"
+            required
+          />
+
+          <Input
+            type="text"
+            label="Sobrenome"
+            id="last-name"
+            value={lastName}
+            setValue={setLastName}
             required
           />
 

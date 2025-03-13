@@ -6,11 +6,13 @@ import { Button } from '../Button';
 import './UserUpdateForm.css';
 
 export const UserUpdateForm = ({ dados }) => {
+  console.log(dados);
   const { loading, startLoading, stopLoading } = useLoading();
   const [formData, setFormData] = useState({
     name: '',
+    last_name: '',
     email: '',
-    zipCode: '',
+    zip_code: '',
     street: '',
     number: '',
     neighborhood: '',
@@ -19,9 +21,9 @@ export const UserUpdateForm = ({ dados }) => {
   });
 
   const getCep = async () => {
-    if (formData.zipCode.length === 8) {
+    if (formData.zip_code.length === 8) {
       const response = await fetch(
-        `https://viacep.com.br/ws/${formData.zipCode}/json`,
+        `https://viacep.com.br/ws/${formData.zip_code}/json`,
       );
       const cepResult = await response.json();
       if (cepResult.erro) {
@@ -58,9 +60,10 @@ export const UserUpdateForm = ({ dados }) => {
   useEffect(() => {
     setFormData({
       name: dados.name,
+      last_name: dados.last_name,
       email: dados.email,
       password: '',
-      zipCode: dados.zip_code,
+      zip_code: dados.zip_code,
       street: dados.street,
       number: dados.number,
       neighborhood: dados.neighborhood,
@@ -71,7 +74,7 @@ export const UserUpdateForm = ({ dados }) => {
 
   useEffect(() => {
     getCep();
-  }, [formData.zipCode]);
+  }, [formData.zip_code]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -115,7 +118,16 @@ export const UserUpdateForm = ({ dados }) => {
             id="name"
             value={formData.name}
             onChange={handleChange}
-            placeholder="Nome completo"
+            placeholder="Primeiro nome"
+            required
+          />
+
+          <Input
+            type="text"
+            label="Sobrenome"
+            id="last_name"
+            value={formData.last_name}
+            onChange={handleChange}
             required
           />
 
@@ -132,8 +144,8 @@ export const UserUpdateForm = ({ dados }) => {
           <Input
             type="number"
             label={'CEP'}
-            id={'zipCode'}
-            value={formData.zipCode}
+            id={'zip_code'}
+            value={formData.zip_code}
             onChange={handleChange}
             placeholder="60000000"
             required
