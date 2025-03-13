@@ -12,7 +12,7 @@ export const Header = () => {
         <Link to={'/'} aria-label="Bodega - Home">
           <span className="logo">Bodega</span>
         </Link>
-        <Link to={userName ? '/my-account' : '/login'} className="btn-header">
+        <Link to={userName ? '/account' : '/login'} className="btn-header">
           {userName ? `Olá, ${userName}` : 'Entre ou cadastre-se'}
         </Link>
       </nav>

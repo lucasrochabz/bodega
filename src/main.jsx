@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    path: '/my-account',
+    path: '/account',
     element: <UserPage />,
     children: [
       {

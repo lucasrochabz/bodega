@@ -7,7 +7,7 @@ export const OrderCard = ({ order }) => {
 
   const handleNavigate = (event, orderId) => {
     event.preventDefault();
-    navigate(`/my-account/orders/details/${orderId}`);
+    navigate(`/account/orders/details/${orderId}`);
   };
 
   return (
