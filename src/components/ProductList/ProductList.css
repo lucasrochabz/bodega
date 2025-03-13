@@ -10,3 +10,9 @@
 .price {
   font-weight: 700;
 }
+
+@media (max-width: 800px) {
+  .product-list {
+    grid-template-columns: 1fr;
+  }
+}

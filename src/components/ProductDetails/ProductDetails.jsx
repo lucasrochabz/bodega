@@ -89,9 +89,9 @@ export const ProductDetails = () => {
       {loading || !product ? (
         <Loading />
       ) : (
-        <div className="product-detail">
+        <section className="product-details">
           <img src={imagePath} alt={product.name} />
-          <div className="product-detail-info">
+          <div className="product-details-info">
             <h1>{product.name}</h1>
             <p className="info-prince">{formattedPriceToBRL(price)}</p>
             <p className="info-descricao">{product.description}</p>
@@ -106,7 +106,7 @@ export const ProductDetails = () => {
               </Button>
             </div>
           </div>
-        </div>
+        </section>
       )}
     </>
   );
