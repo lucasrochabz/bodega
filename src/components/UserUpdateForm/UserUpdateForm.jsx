@@ -6,7 +6,6 @@ import { Button } from '../Button';
 import './UserUpdateForm.css';
 
 export const UserUpdateForm = ({ dados }) => {
-  console.log(dados);
   const { loading, startLoading, stopLoading } = useLoading();
   const [formData, setFormData] = useState({
     name: '',
