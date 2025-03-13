@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { BASE_API_URL } from '../../../config';
+import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './UserUpdateForm.css';
 
 export const UserUpdateForm = ({ dados }) => {
+  const { loading, startLoading, stopLoading } = useLoading();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -74,6 +76,7 @@ export const UserUpdateForm = ({ dados }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
+    startLoading();
     try {
       const token = localStorage.getItem('token');
 
@@ -96,6 +99,8 @@ export const UserUpdateForm = ({ dados }) => {
     } catch (error) {
       console.error('Erro na requisição ao atualizar usuário:', error.message);
       alert(`Erro na requisição ao atualizar usuário: ${error.message}`);
+    } finally {
+      stopLoading();
     }
   };
 
@@ -179,7 +184,9 @@ export const UserUpdateForm = ({ dados }) => {
             required
           />
 
-          <Button type="primary">Atualizar</Button>
+          <Button type="primary" disabled={loading}>
+            Atualizar
+          </Button>
         </form>
       </section>
     </article>

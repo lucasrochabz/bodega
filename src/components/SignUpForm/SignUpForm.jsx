@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { BASE_API_URL } from '../../../config';
+import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './SignUpForm.css';
 
 export const SignUpForm = () => {
+  const { loading, startLoading, stopLoading } = useLoading();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,6 +47,7 @@ export const SignUpForm = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
 
+    startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/users`, {
         method: 'POST',
@@ -78,6 +81,8 @@ export const SignUpForm = () => {
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao cadastrar usuário: ${error.message}`);
+    } finally {
+      stopLoading();
     }
   };
 
@@ -171,7 +176,9 @@ export const SignUpForm = () => {
             required
           />
 
-          <Button type="primary">Cradastrar</Button>
+          <Button type="primary" disabled={loading}>
+            Cradastrar
+          </Button>
         </form>
       </div>
     </>

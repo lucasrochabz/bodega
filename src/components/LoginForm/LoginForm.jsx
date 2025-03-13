@@ -2,11 +2,13 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { BASE_API_URL } from '../../../config';
+import { useLoading } from '../../hooks/useLoading';
 import { Button } from '../Button';
 import './LoginForm.css';
 
 export const LoginForm = () => {
   const { userName, login } = useContext(UserContext);
+  const { loading, startLoading, stopLoading } = useLoading();
   const inputElement = useRef(null);
   const navigate = useNavigate();
 
@@ -28,6 +30,7 @@ export const LoginForm = () => {
   const verifyUser = async (event) => {
     event.preventDefault();
 
+    startLoading();
     try {
       const response = await fetch(`${BASE_API_URL}/auth/login`, {
         method: 'POST',
@@ -49,6 +52,8 @@ export const LoginForm = () => {
     } catch (error) {
       console.error('Erro ao fazer login:', error.message);
       alert(`Erro ao fazer login: ${error.message}`);
+    } finally {
+      stopLoading();
     }
   };
 
@@ -82,7 +87,9 @@ export const LoginForm = () => {
           required
         />
 
-        <Button type="primary">{userName ? 'Sair' : 'Entrar'}</Button>
+        <Button type="primary" disabled={loading}>
+          {userName ? 'Sair' : 'Entrar'}
+        </Button>
       </form>
     </section>
   );
