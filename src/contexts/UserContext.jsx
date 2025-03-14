@@ -5,13 +5,12 @@ import { useLoading } from '../hooks/useLoading';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const { loading, startLoading, stopLoading } = useLoading();
-  const [data, setData] = useState(null);
-  const [error, setError] = useState(null);
+  const { startLoading, stopLoading } = useLoading();
   const [login, setLogin] = useState(() => {
     const token = localStorage.getItem('token');
     return token ? true : false;
   });
+  const [data, setData] = useState(null);
 
   const getUser = async (token) => {
     startLoading();
@@ -27,9 +26,9 @@ export const UserProvider = ({ children }) => {
       const results = await response.json();
       setData(results.data);
       setLogin(true);
-    } catch {
-      console.error('Erro ao buscas dados do usuário:', error.message);
-      alert(`Erro ao buscas dados do usuário: ${error.message}`);
+    } catch (error) {
+      console.error('Erro ao buscar dados do usuário:', error.message);
+      alert(`Erro ao buscar dados do usuário: ${error.message}`);
     } finally {
       stopLoading();
     }
@@ -60,6 +59,7 @@ export const UserProvider = ({ children }) => {
   const userLogout = () => {
     localStorage.removeItem('token');
     setLogin(false);
+    setData(null);
   };
 
   useEffect(() => {
@@ -70,9 +70,7 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   return (
-    <UserContext.Provider
-      value={{ userLogin, userLogout, data, login, loading }}
-    >
+    <UserContext.Provider value={{ userLogin, userLogout, data, login }}>
       {children}
     </UserContext.Provider>
   );

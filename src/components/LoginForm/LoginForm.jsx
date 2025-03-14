@@ -1,11 +1,13 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import { useLoading } from '../../hooks/useLoading';
 import { Button } from '../Button';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const { userLogin, login, loading } = useContext(UserContext);
+  const { loading } = useLoading();
+  const { userLogin, login } = useContext(UserContext);
   const inputElement = useRef(null);
   const navigate = useNavigate();
 
