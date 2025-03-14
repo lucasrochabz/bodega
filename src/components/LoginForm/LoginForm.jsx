@@ -29,7 +29,7 @@ export const LoginForm = () => {
   const verifyUser = async (event) => {
     event.preventDefault();
 
-    userLogin(email, password);
+    await userLogin(email, password);
     navigate('/');
   };
 
