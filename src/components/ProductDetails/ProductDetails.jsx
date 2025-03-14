@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { BASE_API_URL } from '../../../config';
+import { GET_PRODUCT_ID, POST_ORDERS } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
@@ -22,7 +22,9 @@ export const ProductDetails = () => {
   const getProduct = async () => {
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/products/${productId}`);
+      const { url, options } = GET_PRODUCT_ID(productId);
+      const response = await fetch(url, options);
+
       const results = await response.json();
       setProduct(results.data);
       setPrice(results.data.price);
@@ -49,17 +51,11 @@ export const ProductDetails = () => {
 
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/orders`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify({
-          status: 'aguardando pagamento',
-          products: [{ product_id: productId, quantity: 1 }],
-        }),
+      const { url, options } = POST_ORDERS(token, {
+        status: 'aguardando pagamento',
+        products: [{ product_id: productId, quantity: 1 }],
       });
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

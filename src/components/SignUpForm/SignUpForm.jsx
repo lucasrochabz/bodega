@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { BASE_API_URL } from '../../../config';
+import { CEP_GET, POST_USERS } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -22,7 +22,9 @@ export const SignUpForm = () => {
 
   const getCep = async () => {
     if (zipCode.length === 8) {
-      const response = await fetch(`https://viacep.com.br/ws/${zipCode}/json`);
+      const { url, options } = CEP_GET(zipCode);
+      const response = await fetch(url, options);
+
       const cepResult = await response.json();
       if (cepResult.erro) {
         alert('CEP inválido');
@@ -50,22 +52,19 @@ export const SignUpForm = () => {
 
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/users`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          name: name,
-          last_name: lastName,
-          email: email,
-          password: password,
-          zip_code: zipCode,
-          street: endereco,
-          number: numero,
-          neighborhood: bairro,
-          city: cidade,
-          state: estado,
-        }),
+      const { url, options } = POST_USERS({
+        name: name,
+        last_name: lastName,
+        email: email,
+        password: password,
+        zip_code: zipCode,
+        street: endereco,
+        number: numero,
+        neighborhood: bairro,
+        city: cidade,
+        state: estado,
       });
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

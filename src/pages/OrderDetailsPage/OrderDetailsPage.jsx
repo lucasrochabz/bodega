@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { BASE_API_URL } from '../../../config';
+import { GET_ORDER_ID } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
 import { OrderDetails } from '../../components/OrderDetails';
@@ -16,7 +16,8 @@ export const OrderDetailsPage = () => {
   const getOrder = async () => {
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/orders/details/${orderId}`);
+      const { url, options } = GET_ORDER_ID(orderId);
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

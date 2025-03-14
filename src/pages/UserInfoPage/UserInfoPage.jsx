@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../hooks';
-import { BASE_API_URL } from '../../../config';
+import { GET_USER } from '../../utils/apiUtils';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
@@ -16,13 +16,8 @@ export const UserInfoPage = () => {
   const getDataUser = async (token) => {
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/users/user`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { url, options } = GET_USER(token);
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

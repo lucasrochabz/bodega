@@ -1,7 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { BASE_API_URL } from '../../../config';
+import { POST_LOGIN } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks/useLoading';
 import { Button } from '../Button';
 import './LoginForm.css';
@@ -32,14 +32,8 @@ export const LoginForm = () => {
 
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/auth/login`, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      });
+      const { url, options } = POST_LOGIN({ email, password });
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

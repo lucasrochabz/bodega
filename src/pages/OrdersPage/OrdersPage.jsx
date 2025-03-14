@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { BASE_API_URL } from '../../../config';
+import { GET_ORDERS_USER } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
@@ -23,12 +23,8 @@ export const OrdersPage = () => {
   const getOrders = async (token) => {
     try {
       startLoading();
-      const response = await fetch(`${BASE_API_URL}/orders/user`, {
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const { url, options } = GET_ORDERS_USER(token);
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

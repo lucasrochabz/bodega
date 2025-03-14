@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { BASE_API_URL } from '../../../config';
+import { CEP_GET, PUT_USER_UPDATE } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -21,9 +21,9 @@ export const UserUpdateForm = ({ dados }) => {
 
   const getCep = async () => {
     if (formData.zip_code.length === 8) {
-      const response = await fetch(
-        `https://viacep.com.br/ws/${formData.zip_code}/json`,
-      );
+      const { url, options } = CEP_GET(formData.zip_code);
+      const response = await fetch(url, options);
+
       const cepResult = await response.json();
       if (cepResult.erro) {
         alert('CEP inválido');
@@ -82,14 +82,8 @@ export const UserUpdateForm = ({ dados }) => {
     try {
       const token = localStorage.getItem('token');
 
-      const response = await fetch(`${BASE_API_URL}/users/update`, {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        },
-        body: JSON.stringify(formData),
-      });
+      const { url, options } = PUT_USER_UPDATE(token, formData);
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();

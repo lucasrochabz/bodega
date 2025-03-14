@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLoading } from '../../hooks';
-import { BASE_API_URL } from '../../../config';
+import { GET_PRODUCTS } from '../../utils/apiUtils';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Loading } from '../Loading';
 import './ProductList.css';
@@ -13,7 +13,8 @@ export const ProductList = () => {
   const getProducts = async () => {
     startLoading();
     try {
-      const response = await fetch(`${BASE_API_URL}/products`);
+      const { url, options } = GET_PRODUCTS();
+      const response = await fetch(url, options);
 
       if (!response.ok) {
         const results = await response.json();
