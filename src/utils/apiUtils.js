@@ -2,7 +2,7 @@ import { BASE_API_URL } from '../../config';
 
 const POST_LOGIN = (body) => {
   return {
-    url: BASE_API_URL + '/auth/login',
+    url: BASE_API_URL + '/api/auth/login',
     options: {
       method: 'POST',
       headers: {
@@ -15,7 +15,7 @@ const POST_LOGIN = (body) => {
 
 const GET_USER = (token) => {
   return {
-    url: BASE_API_URL + '/users/user',
+    url: BASE_API_URL + '/api/users/user',
     options: {
       method: 'GET',
       headers: {
@@ -28,7 +28,7 @@ const GET_USER = (token) => {
 
 const POST_USERS = (body) => {
   return {
-    url: BASE_API_URL + '/users',
+    url: BASE_API_URL + '/api/users',
     options: {
       method: 'POST',
       headers: {
@@ -41,7 +41,7 @@ const POST_USERS = (body) => {
 
 const PUT_USER_UPDATE = (token, body) => {
   return {
-    url: BASE_API_URL + '/users/update',
+    url: BASE_API_URL + '/api/users/update',
     options: {
       method: 'PUT',
       headers: {
@@ -55,7 +55,7 @@ const PUT_USER_UPDATE = (token, body) => {
 
 const GET_PRODUCTS = () => {
   return {
-    url: BASE_API_URL + '/products',
+    url: BASE_API_URL + '/api/products',
     options: {
       method: 'GET',
       headers: {
@@ -67,7 +67,7 @@ const GET_PRODUCTS = () => {
 
 const GET_PRODUCT_ID = (productId) => {
   return {
-    url: BASE_API_URL + '/products' + `/${productId}`,
+    url: BASE_API_URL + '/api/products' + `/${productId}`,
     options: {
       method: 'GET',
       headers: {
@@ -79,7 +79,7 @@ const GET_PRODUCT_ID = (productId) => {
 
 const GET_ORDER_ID = (orderId) => {
   return {
-    url: BASE_API_URL + '/orders/details' + `/${orderId}`,
+    url: BASE_API_URL + '/api/orders/details' + `/${orderId}`,
     options: {
       method: 'GET',
       headers: {
@@ -91,7 +91,7 @@ const GET_ORDER_ID = (orderId) => {
 
 const GET_ORDERS_USER = (token) => {
   return {
-    url: BASE_API_URL + '/orders/user',
+    url: BASE_API_URL + '/api/orders/user',
     options: {
       method: 'GET',
       headers: {
@@ -104,7 +104,7 @@ const GET_ORDERS_USER = (token) => {
 
 const POST_ORDERS = (token, body) => {
   return {
-    url: BASE_API_URL + '/orders',
+    url: BASE_API_URL + '/api/orders',
     options: {
       method: 'POST',
       headers: {
