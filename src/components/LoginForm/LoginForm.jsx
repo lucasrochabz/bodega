@@ -1,13 +1,11 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { useLoading } from '../../hooks/useLoading';
 import { Button } from '../Button';
 import './LoginForm.css';
 
 export const LoginForm = () => {
-  const { loading } = useLoading();
-  const { userLogin, login } = useContext(UserContext);
+  const { userLogin, loading } = useContext(UserContext);
   const inputElement = useRef(null);
   const navigate = useNavigate();
 
@@ -64,7 +62,7 @@ export const LoginForm = () => {
         />
 
         <Button type="primary" disabled={loading}>
-          {login ? 'Sair' : 'Entrar'}
+          Entrar
         </Button>
       </form>
     </section>

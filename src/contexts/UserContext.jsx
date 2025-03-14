@@ -5,10 +5,10 @@ import { useLoading } from '../hooks/useLoading';
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
-  const { startLoading, stopLoading } = useLoading();
+  const { loading, startLoading, stopLoading } = useLoading();
   const [login, setLogin] = useState(() => {
     const token = localStorage.getItem('token');
-    return token ? true : false;
+    return token != null;
   });
   const [data, setData] = useState(null);
 
@@ -39,15 +39,15 @@ export const UserProvider = ({ children }) => {
     try {
       const { url, options } = POST_LOGIN({ email, password });
       const response = await fetch(url, options);
+      const { token } = await response.json();
 
       if (!response.ok) {
         const results = await response.json();
         throw new Error(results.message);
       }
 
-      const { token } = await response.json();
       localStorage.setItem('token', token);
-      getUser(token);
+      await getUser(token);
     } catch (error) {
       console.error('Erro ao fazer login:', error.message);
       alert(`Erro ao fazer login: ${error.message}`);
@@ -67,10 +67,12 @@ export const UserProvider = ({ children }) => {
     if (token) {
       getUser(token);
     }
-  }, []);
+  }, [login]);
 
   return (
-    <UserContext.Provider value={{ userLogin, userLogout, data, login }}>
+    <UserContext.Provider
+      value={{ userLogin, userLogout, data, login, loading }}
+    >
       {children}
     </UserContext.Provider>
   );

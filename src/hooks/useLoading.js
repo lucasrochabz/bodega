@@ -12,8 +12,8 @@ export const useLoading = () => {
   };
 
   return {
+    loading,
     startLoading,
     stopLoading,
-    loading,
   };
 };
