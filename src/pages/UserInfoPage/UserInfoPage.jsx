@@ -5,7 +5,6 @@ import { GET_USER } from '../../utils/apiUtils';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
-import './UserInfoPage.css';
 
 export const UserInfoPage = () => {
   const navigate = useNavigate();

@@ -2,7 +2,6 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ProductDetails } from '../../components/ProductDetails';
-import './ProductDetailsPage.css';
 
 export const ProductDetailsPage = () => {
   return (
