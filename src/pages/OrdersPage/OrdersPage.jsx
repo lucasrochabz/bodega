@@ -9,7 +9,7 @@ import { OrderList } from '../../components/OrderList';
 import './OrdersPage.css';
 
 export const OrdersPage = () => {
-  const { userName } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
 
@@ -43,7 +43,7 @@ export const OrdersPage = () => {
 
   useEffect(() => {
     const userId = getLocalStorage();
-    if (!userName) {
+    if (!login) {
       navigate('/login');
       return;
     }

@@ -8,16 +8,16 @@ import { Footer } from '../../components/Footer';
 import './UserPage.css';
 
 export const UserPage = () => {
-  const { userName } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (!userName) {
+    if (!login) {
       navigate('/login');
     }
   }, []);
 
-  if (!userName) return null;
+  if (!login) return null;
   return (
     <>
       <Head title="Minha conta" description="Descrição da página Minha Conta" />

@@ -9,7 +9,7 @@ import { Button } from '../Button';
 import './ProductDetails.css';
 
 export const ProductDetails = () => {
-  const { userName } = useContext(UserContext);
+  const { login } = useContext(UserContext);
   const { productId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
   const navigate = useNavigate();
@@ -37,8 +37,8 @@ export const ProductDetails = () => {
     }
   };
 
-  const isAuhenticated = (userName) => {
-    if (!userName) {
+  const isAuhenticated = (login) => {
+    if (!login) {
       navigate('/login');
       return false;
     }
@@ -46,7 +46,7 @@ export const ProductDetails = () => {
   };
 
   const createOrder = async () => {
-    if (!isAuhenticated(userName)) return;
+    if (!isAuhenticated(login)) return;
     const token = localStorage.getItem('token');
 
     startLoading();
@@ -98,7 +98,7 @@ export const ProductDetails = () => {
               </button>
 
               <Button type="secondary" disabled={loading} onClick={createOrder}>
-                {userName ? 'Finalizar Pedido' : 'Faça login para finalizar'}
+                {login ? 'Finalizar Pedido' : 'Faça login para finalizar'}
               </Button>
             </div>
           </div>

@@ -4,11 +4,11 @@ import { UserContext } from '../../contexts/UserContext';
 import './Logout.css';
 
 export const Logout = () => {
-  const { logout } = useContext(UserContext);
+  const { userLogout } = useContext(UserContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    logout();
+    userLogout();
     navigate('/login');
   };
 
