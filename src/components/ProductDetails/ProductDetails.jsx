@@ -31,7 +31,8 @@ export const ProductDetails = () => {
       setTotal(results.data.price);
       setImagePath(`/src/assets/images/${results.data.image_path}`);
     } catch (error) {
-      console.error('Erro na requisição');
+      console.error('Erro na requisição:', error.message);
+      alert(`Erro na requisição: ${error.message}`);
     } finally {
       stopLoading();
     }

@@ -30,7 +30,7 @@ export const OrdersPage = () => {
       const results = await response.json();
       setOrders(results.data);
     } catch (error) {
-      console.error('Erro na requisição');
+      console.error('Erro ao buscar pedidos:', error.message);
       alert(`Erro ao buscar pedidos: ${error.message}`);
     } finally {
       stopLoading();

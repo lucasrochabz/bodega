@@ -29,7 +29,7 @@ export const UserInfoPage = () => {
       const results = await response.json();
       setUser(results.data);
     } catch (error) {
-      console.error('Erro na requisição:', error.message);
+      console.error('Erro ao buscar detalhes do usuário:', error.message);
       alert(`Erro ao buscar detalhes do usuário: ${error.message}`);
     } finally {
       stopLoading();

@@ -24,7 +24,7 @@ export const ProductList = () => {
       const results = await response.json();
       setProducts(results.data);
     } catch (error) {
-      console.error('Erro na requisição', error.message);
+      console.error('Erro ao buscar produtos:', error.message);
       alert(`Erro ao buscar produtos: ${error.message}`);
     } finally {
       stopLoading();
