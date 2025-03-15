@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { Navigate } from 'react-router-dom';
+import { UserContext } from '../../contexts/UserContext';
 import { useLoading } from '../../hooks';
 import { GET_USER } from '../../utils/apiUtils';
 import { Head } from '../../components/Head';
@@ -7,12 +8,14 @@ import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
 
 export const UserInfoPage = () => {
-  const navigate = useNavigate();
+  const { login } = useContext(UserContext);
   const { loading, startLoading, stopLoading } = useLoading();
 
   const [user, setUser] = useState(null);
 
-  const getDataUser = async (token) => {
+  const getDataUser = async () => {
+    const token = localStorage.getItem('token');
+
     startLoading();
     try {
       const { url, options } = GET_USER(token);
@@ -34,14 +37,10 @@ export const UserInfoPage = () => {
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (!token) {
-      navigate('/login');
-      return;
-    }
-    getDataUser(token);
+    getDataUser();
   }, []);
 
+  if (!login) return <Navigate to={'/login'} />;
   return (
     <>
       <Head

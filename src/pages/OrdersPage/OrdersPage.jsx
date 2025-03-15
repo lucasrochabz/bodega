@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { GET_ORDERS_USER } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks';
@@ -10,19 +10,15 @@ import './OrdersPage.css';
 
 export const OrdersPage = () => {
   const { login } = useContext(UserContext);
-  const navigate = useNavigate();
   const { loading, startLoading, stopLoading } = useLoading();
 
   const [orders, setOrders] = useState([]);
 
-  const getLocalStorage = () => {
-    const userStorage = localStorage.getItem('token');
-    return userStorage;
-  };
+  const getOrders = async () => {
+    const token = localStorage.getItem('token');
 
-  const getOrders = async (token) => {
+    startLoading();
     try {
-      startLoading();
       const { url, options } = GET_ORDERS_USER(token);
       const response = await fetch(url, options);
 
@@ -42,14 +38,10 @@ export const OrdersPage = () => {
   };
 
   useEffect(() => {
-    const userId = getLocalStorage();
-    if (!login) {
-      navigate('/login');
-      return;
-    }
-    getOrders(userId);
+    getOrders();
   }, []);
 
+  if (!login) return <Navigate to={'/login'} />;
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />

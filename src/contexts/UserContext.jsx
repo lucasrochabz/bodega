@@ -57,17 +57,38 @@ export const UserProvider = ({ children }) => {
   };
 
   const userLogout = () => {
-    localStorage.removeItem('token');
     setLogin(false);
     setData(null);
+    localStorage.removeItem('token');
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
-      getUser(token);
-    }
-  }, [login]);
+    const autoLogin = async () => {
+      const token = localStorage.getItem('token');
+
+      if (token) {
+        startLoading();
+        try {
+          const { url, options } = GET_USER(token);
+          const response = await fetch(url, options);
+          const results = await response.json();
+
+          if (!results.success) {
+            userLogout();
+            throw new Error(results.message);
+          }
+
+          await getUser(token);
+        } catch (error) {
+          console.error('Erro na requisição:', error.message);
+          alert(`Erro na requisição: ${error.message}`);
+        } finally {
+          stopLoading();
+        }
+      }
+    };
+    autoLogin();
+  }, []);
 
   return (
     <UserContext.Provider

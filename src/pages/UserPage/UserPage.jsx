@@ -1,5 +1,5 @@
-import { useContext, useEffect } from 'react';
-import { Outlet, useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { Navigate, Outlet } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
@@ -9,15 +9,8 @@ import './UserPage.css';
 
 export const UserPage = () => {
   const { login } = useContext(UserContext);
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!login) {
-      navigate('/login');
-    }
-  }, []);
-
-  if (!login) return null;
+  if (!login) return <Navigate to={'/login'} />;
   return (
     <>
       <Head title="Minha conta" description="Descrição da página Minha Conta" />
