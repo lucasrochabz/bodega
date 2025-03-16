@@ -28,12 +28,12 @@
 @media (max-width: 800px) {
   .sidebar {
     width: auto;
-    padding: 0 1rem;
     margin-bottom: 2rem;
   }
   .sidebar-nav {
     flex-direction: row;
-    overflow-x: auto;
+    padding: 0 1rem;
     white-space: nowrap;
+    overflow-x: auto;
   }
 }
