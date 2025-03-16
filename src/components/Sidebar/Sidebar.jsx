@@ -7,7 +7,7 @@ export const Sidebar = () => {
     <aside className="sidebar">
       <nav className="sidebar-nav">
         <NavLink to={'/account/my-info'}>Minhas informações</NavLink>
-        <NavLink to={'/account/orders/'}>Meus Pedidos</NavLink>
+        <NavLink to={'/account/orders'}>Meus Pedidos</NavLink>
         <Logout />
       </nav>
     </aside>

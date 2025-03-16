@@ -59,7 +59,7 @@ export const LoginForm = () => {
         />
 
         <Button type="primary" disabled={loading}>
-          Entrar
+          {loading ? 'Aguarde...' : 'Entrar'}
         </Button>
       </form>
     </section>

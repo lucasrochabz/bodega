@@ -109,6 +109,7 @@ export const SignUpForm = () => {
             id="last-name"
             value={lastName}
             setValue={setLastName}
+            placeholder="Sobrenome"
             required
           />
 
@@ -187,7 +188,7 @@ export const SignUpForm = () => {
           />
 
           <Button type="primary" disabled={loading}>
-            Cradastrar
+            Cadastrar
           </Button>
         </form>
       </div>
