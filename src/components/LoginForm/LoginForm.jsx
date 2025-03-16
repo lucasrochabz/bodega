@@ -1,5 +1,4 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { Button } from '../Button';
 import './LoginForm.css';
@@ -7,7 +6,6 @@ import './LoginForm.css';
 export const LoginForm = () => {
   const { userLogin, loading } = useContext(UserContext);
   const inputElement = useRef(null);
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -28,7 +26,6 @@ export const LoginForm = () => {
     event.preventDefault();
 
     await userLogin(email, password);
-    navigate('/');
   };
 
   useEffect(() => {

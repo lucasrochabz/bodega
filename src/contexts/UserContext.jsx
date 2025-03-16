@@ -39,13 +39,13 @@ export const UserProvider = ({ children }) => {
     try {
       const { url, options } = POST_LOGIN({ email, password });
       const response = await fetch(url, options);
-      const { token } = await response.json();
 
       if (!response.ok) {
         const results = await response.json();
         throw new Error(results.message);
       }
 
+      const { token } = await response.json();
       localStorage.setItem('token', token);
       await getUser(token);
     } catch (error) {

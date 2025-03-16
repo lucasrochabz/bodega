@@ -5,3 +5,9 @@
   flex: 1;
   animation: show-left 0.3s forwards;
 }
+
+@media (max-width: 800px) {
+  .orders-page {
+    padding: 0 1rem;
+  }
+}

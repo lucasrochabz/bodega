@@ -10,7 +10,7 @@ import './LoginPage.css';
 export const LoginPage = () => {
   const { login } = useContext(UserContext);
 
-  if (login) return <Navigate to={'/account'} />;
+  if (login) return <Navigate to={'/'} />;
   return (
     <>
       <Head title="Login" description="Descrição da página Login" />

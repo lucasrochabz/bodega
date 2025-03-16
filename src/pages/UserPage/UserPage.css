@@ -5,3 +5,9 @@
   gap: 2rem;
   min-height: calc(100vh - 130px);
 }
+
+@media (max-width: 800px) {
+  .user-page {
+    display: block;
+  }
+}
