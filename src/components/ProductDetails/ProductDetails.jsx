@@ -17,7 +17,7 @@ export const ProductDetails = () => {
   const [product, setProduct] = useState(null);
   const [price, setPrice] = useState(0);
   const [total, setTotal] = useState(0);
-  const [imagePath, setImagePath] = useState('');
+  const [productImage, setProductImage] = useState('');
 
   const getProduct = async () => {
     startLoading();
@@ -29,7 +29,7 @@ export const ProductDetails = () => {
       setProduct(results.data);
       setPrice(results.data.price);
       setTotal(results.data.price);
-      setImagePath(`/src/assets/images/${results.data.image_path}`);
+      setProductImage(results.data.image_path);
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro na requisição: ${error.message}`);
@@ -80,6 +80,12 @@ export const ProductDetails = () => {
   useEffect(() => {
     getProduct();
   }, []);
+
+  const images = import.meta.glob('/src/assets/images/*', {
+    eager: true,
+  });
+
+  const imagePath = images[`/src/assets/images/${productImage}`]?.default;
 
   return (
     <>

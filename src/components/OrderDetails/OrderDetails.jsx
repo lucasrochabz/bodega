@@ -3,7 +3,11 @@ import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderDetails.css';
 
 export const OrderDetails = ({ order }) => {
-  const imagePath = `/src/assets/images/${order.image_path}`;
+  const images = import.meta.glob('/src/assets/images/*', {
+    eager: true,
+  });
+
+  const imagePath = images[`/src/assets/images/${order.image_path}`].default;
 
   return (
     <>
