@@ -34,5 +34,6 @@
   .sidebar-nav {
     flex-direction: row;
     overflow-x: auto;
+    white-space: nowrap;
   }
 }
