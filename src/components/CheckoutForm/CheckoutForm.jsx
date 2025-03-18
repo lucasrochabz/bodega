@@ -1,11 +1,10 @@
-import { Button } from '../Button';
 import { Input } from '../Input';
+import { Button } from '../Button';
 import './CheckoutForm.css';
 
 export const CheckoutForm = () => {
   return (
     <section className="checkout">
-      <h2 className="default-title">Finalizar Compra</h2>
       <form className="checkout-form">
         <div className="checkout-default">
           <span>Informações Pessoais</span>

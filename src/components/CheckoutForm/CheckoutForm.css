@@ -1,13 +1,11 @@
 .checkout {
-  max-width: 500px;
-  margin: 0 auto;
+  flex: 1;
 }
 
 .checkout-form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  margin-top: 1rem;
 }
 
 .checkout-default {

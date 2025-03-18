@@ -5,6 +5,8 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { CheckoutForm } from '../../components/CheckoutForm';
 import { Footer } from '../../components/Footer';
+import { OrderSummary } from '../../components/OrderSummary';
+import './CheckoutPage.css';
 
 export const CheckoutPage = () => {
   const { login } = useContext(UserContext);
@@ -14,7 +16,11 @@ export const CheckoutPage = () => {
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
-      <CheckoutForm />
+      <h2 className="default-title">Finalizar Compra</h2>
+      <main className="checkout-page">
+        <CheckoutForm />
+        <OrderSummary />
+      </main>
 
       <Footer />
     </>
