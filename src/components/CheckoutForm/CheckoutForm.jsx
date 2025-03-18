@@ -30,6 +30,16 @@ export const CheckoutForm = () => {
 
         <div className="checkout-default">
           <span>Informações de pagamento</span>
+
+          <label htmlFor="card-brand">Marca do cartão</label>
+          <select id="card-brand">
+            <option value="" disabled selected>
+              Selecione...
+            </option>
+            <option value="mastercard">Mastercard</option>
+            <option value="visa">Visa</option>
+          </select>
+
           <Input
             type="text"
             label="Nome no cartão"
