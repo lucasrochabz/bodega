@@ -12,7 +12,7 @@ export const CheckoutPage = () => {
   if (login) return <Navigate to={'/'} />;
   return (
     <>
-      <Head title="Checkout" description="" />
+      <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
       <CheckoutForm />
 
