@@ -73,7 +73,7 @@ export const SignUpForm = () => {
 
       const results = await response.json();
       alert(results.message);
-      setName('');
+      setFirstName('');
       setEmail('');
       setPassword('');
       setZipCode('');
