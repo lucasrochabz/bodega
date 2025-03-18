@@ -116,7 +116,7 @@ const POST_ORDERS = (token, body) => {
   };
 };
 
-const CEP_GET = (zipCode) => {
+const GET_ADDRESS_DATA = (zipCode) => {
   return {
     url: `https://viacep.com.br/ws/${zipCode}/json`,
     options: {
@@ -138,5 +138,5 @@ export {
   GET_ORDER_ID,
   GET_ORDERS_USER,
   POST_ORDERS,
-  CEP_GET,
+  GET_ADDRESS_DATA,
 };

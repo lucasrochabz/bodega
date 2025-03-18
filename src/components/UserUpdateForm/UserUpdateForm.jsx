@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { CEP_GET, PUT_USER_UPDATE } from '../../utils/apiUtils';
+import { GET_ADDRESS_DATA, PUT_USER_UPDATE } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -8,7 +8,7 @@ import './UserUpdateForm.css';
 export const UserUpdateForm = ({ dados }) => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [formData, setFormData] = useState({
-    name: '',
+    first_name: '',
     last_name: '',
     email: '',
     zip_code: '',
@@ -19,9 +19,9 @@ export const UserUpdateForm = ({ dados }) => {
     state: '',
   });
 
-  const getCep = async () => {
+  const getAddressData = async () => {
     if (formData.zip_code.length === 8) {
-      const { url, options } = CEP_GET(formData.zip_code);
+      const { url, options } = GET_ADDRESS_DATA(formData.zip_code);
       const response = await fetch(url, options);
 
       const cepResult = await response.json();
@@ -58,7 +58,7 @@ export const UserUpdateForm = ({ dados }) => {
 
   useEffect(() => {
     setFormData({
-      name: dados.name,
+      first_name: dados.first_name,
       last_name: dados.last_name,
       email: dados.email,
       password: '',
@@ -72,7 +72,7 @@ export const UserUpdateForm = ({ dados }) => {
   }, [dados]);
 
   useEffect(() => {
-    getCep();
+    getAddressData();
   }, [formData.zip_code]);
 
   const handleSubmit = async (event) => {
@@ -108,8 +108,8 @@ export const UserUpdateForm = ({ dados }) => {
           <Input
             type="text"
             label="Nome"
-            id="name"
-            value={formData.name}
+            id="first_name"
+            value={formData.first_name}
             onChange={handleChange}
             placeholder="Primeiro nome"
             required
