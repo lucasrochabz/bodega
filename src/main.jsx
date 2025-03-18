@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { UserProvider } from './contexts/UserContext.jsx';
 import { HomePage } from './pages/HomePage';
 import { ProductDetailsPage } from './pages/ProductDetailsPage';
+import { CheckoutPage } from './pages/CheckoutPage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { UserPage } from './pages/UserPage';
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
   {
     path: '/products/:productId',
     element: <ProductDetailsPage />,
+  },
+  {
+    path: '/checkout',
+    element: <CheckoutPage />,
   },
   {
     path: '/login',

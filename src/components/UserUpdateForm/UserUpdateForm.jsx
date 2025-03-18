@@ -126,7 +126,7 @@ export const UserUpdateForm = ({ dados }) => {
 
           <Input
             type="email"
-            label="Email"
+            label="E-mail"
             id="email"
             value={formData.email}
             onChange={handleChange}

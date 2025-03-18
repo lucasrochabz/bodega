@@ -1,0 +1,12 @@
+.checkout-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 460px;
+  gap: 1rem;
+  margin: 0 auto;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+}

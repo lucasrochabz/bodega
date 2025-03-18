@@ -115,7 +115,7 @@ export const SignUpForm = () => {
 
           <Input
             type="email"
-            label="Email"
+            label="E-mail"
             id="email"
             value={email}
             setValue={setEmail}
