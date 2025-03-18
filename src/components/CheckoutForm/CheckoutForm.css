@@ -18,10 +18,8 @@
 
 /* Estilo do select */
 .checkout-default select {
-  width: 100%;
   padding: 0.8rem;
   font-size: 1rem;
-  color: var(--green-color);
   background-color: #fff;
   border: 1px solid gray;
   border-radius: 5px;
@@ -31,26 +29,25 @@
 
 /* Estilo do select ao focar */
 .checkout-default select:focus {
-  border-color: var(--green-color);
   outline: none;
-  box-shadow: 0 0 5px rgba(0, 122, 51, 0.3);
+  border: 1px solid var(--green-color);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilo das opções */
 .checkout-default option {
-  padding: 10px;
   font-size: 1rem;
+}
+
+/* Estilo para a opção selecionada */
+.checkout-default option:checked {
+  background-color: var(--green-color);
+  color: white;
 }
 
 /* Estilo da opção desabilitada */
 .checkout-default option[disabled] {
   color: gray;
-}
-
-/* Estilo para a opção selecionada */
-.checkout-default option[selected] {
-  background-color: var(--green-color);
-  color: white;
 }
 
 .checkout-default span {
