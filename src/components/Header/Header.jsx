@@ -13,7 +13,7 @@ export const Header = () => {
           <span className="logo">Bodega</span>
         </Link>
         <Link to={data ? '/account' : '/login'} className="btn-header">
-          {data ? `Olá, ${data.name}` : 'Entre ou cadastre-se'}
+          {data ? `Olá, ${data.first_name}` : 'Entre ou cadastre-se'}
         </Link>
       </nav>
     </header>

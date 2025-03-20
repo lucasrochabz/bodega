@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { CEP_GET, POST_USERS } from '../../utils/apiUtils';
+import { GET_ADDRESS_DATA, POST_USERS } from '../../utils/apiUtils';
 import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';
@@ -8,7 +8,7 @@ import './SignUpForm.css';
 
 export const SignUpForm = () => {
   const { loading, startLoading, stopLoading } = useLoading();
-  const [name, setName] = useState('');
+  const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -20,9 +20,9 @@ export const SignUpForm = () => {
   const [estado, setEstado] = useState('');
   const navigate = useNavigate();
 
-  const getCep = async () => {
+  const getAddressData = async () => {
     if (zipCode.length === 8) {
-      const { url, options } = CEP_GET(zipCode);
+      const { url, options } = GET_ADDRESS_DATA(zipCode);
       const response = await fetch(url, options);
 
       const cepResult = await response.json();
@@ -44,7 +44,7 @@ export const SignUpForm = () => {
   };
 
   useEffect(() => {
-    getCep();
+    getAddressData();
   }, [zipCode]);
 
   const handleSignup = async (event) => {
@@ -53,7 +53,7 @@ export const SignUpForm = () => {
     startLoading();
     try {
       const { url, options } = POST_USERS({
-        name: name,
+        first_name: firstName,
         last_name: lastName,
         email: email,
         password: password,
@@ -73,7 +73,7 @@ export const SignUpForm = () => {
 
       const results = await response.json();
       alert(results.message);
-      setName('');
+      setFirstName('');
       setEmail('');
       setPassword('');
       setZipCode('');
@@ -96,9 +96,9 @@ export const SignUpForm = () => {
           <Input
             type="text"
             label="Nome"
-            id="name"
-            value={name}
-            setValue={setName}
+            id="first-name"
+            value={firstName}
+            setValue={setFirstName}
             placeholder="Primeiro nome"
             required
           />
