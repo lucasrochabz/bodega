@@ -1,5 +1,6 @@
 .checkout-page {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 400px;
   max-width: 1200px;
   gap: 2rem;
   margin: 2rem auto;
@@ -7,6 +8,6 @@
 
 @media (max-width: 800px) {
   .checkout-page {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
 }

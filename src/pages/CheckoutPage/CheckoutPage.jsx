@@ -50,7 +50,7 @@ export const CheckoutPage = () => {
       ) : (
         <main className="checkout-page">
           <CheckoutForm userData={data} orderData={orderData} />
-          <OrderSummary />
+          <OrderSummary orderData={orderData} />
         </main>
       )}
 

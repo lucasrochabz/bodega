@@ -1,5 +1,4 @@
 .order-summary {
-  min-width: 400px;
   box-shadow: 0 0 5px var(--green-color);
   border-radius: 5px;
   padding: 1rem;
@@ -20,7 +19,7 @@
 
 @media (max-width: 800px) {
   .order-summary {
-    min-width: 350px;
     align-self: center;
+    margin: 0 1rem;
   }
 }
