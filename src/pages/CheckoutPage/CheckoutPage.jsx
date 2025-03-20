@@ -33,7 +33,9 @@ export const CheckoutPage = () => {
   };
 
   useEffect(() => {
-    getOrder();
+    if (login) {
+      getOrder();
+    }
   }, []);
 
   if (!login) return <Navigate to={'/'} />;
