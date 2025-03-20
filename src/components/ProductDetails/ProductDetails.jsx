@@ -46,14 +46,14 @@ export const ProductDetails = () => {
     return true;
   };
 
-  const createOrder = async () => {
+  const finalizeOrder = async () => {
     if (!isAuhenticated(login)) return;
     const token = localStorage.getItem('token');
 
     startLoading();
     try {
       const { url, options } = POST_ORDERS(token, {
-        status: 'aguardando pagamento',
+        status: 'rascunho',
         products: [{ product_id: productId, quantity: 1 }],
       });
       const response = await fetch(url, options);
@@ -64,7 +64,7 @@ export const ProductDetails = () => {
       }
 
       const results = await response.json();
-      navigate(`/account/orders/details/${results.data.id}`);
+      navigate(`/checkout/${results.data.id}`);
     } catch (error) {
       console.error('Erro na requisição:', error.message);
       alert(`Erro ao fazer pedido: ${error.message}`);
@@ -104,7 +104,11 @@ export const ProductDetails = () => {
                 Cancelar
               </button>
 
-              <Button type="secondary" disabled={loading} onClick={createOrder}>
+              <Button
+                type="secondary"
+                disabled={loading}
+                onClick={finalizeOrder}
+              >
                 {login ? 'Finalizar Pedido' : 'Faça login para comprar'}
               </Button>
             </div>

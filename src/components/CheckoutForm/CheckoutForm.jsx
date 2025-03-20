@@ -1,11 +1,34 @@
+import { useNavigate } from 'react-router-dom';
+import { useLoading } from '../../hooks';
+import { PUT_ORDER_UPDATE } from '../../utils/apiUtils';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';
 
-export const CheckoutForm = () => {
+export const CheckoutForm = ({ orderData }) => {
+  const { startLoading, stopLoading } = useLoading();
+  const navigate = useNavigate();
+
+  const makePayment = async (event) => {
+    event.preventDefault();
+
+    startLoading();
+    try {
+      const { url, options } = PUT_ORDER_UPDATE(orderData.id, {
+        status: 'pagamento efetuado',
+      });
+      const response = await fetch(url, options);
+      navigate(`/account/orders/details/${orderData.id}`);
+    } catch (error) {
+      console.error(error.message);
+    } finally {
+      stopLoading();
+    }
+  };
+
   return (
     <section className="checkout">
-      <form className="checkout-form">
+      <form onSubmit={makePayment} className="checkout-form">
         <div className="checkout-default">
           <span>Informações Pessoais</span>
           <Input type="text" label="Nome" id="name" />
@@ -33,7 +56,7 @@ export const CheckoutForm = () => {
 
           <label htmlFor="card-brand">Marca do cartão</label>
           <select id="card-brand">
-            <option value="" disabled selected>
+            <option value="" disabled>
               Selecione...
             </option>
             <option value="mastercard">Mastercard</option>

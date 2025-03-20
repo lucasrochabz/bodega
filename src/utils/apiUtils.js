@@ -116,6 +116,19 @@ const POST_ORDERS = (token, body) => {
   };
 };
 
+const PUT_ORDER_UPDATE = (orderId, body) => {
+  return {
+    url: BASE_API_URL + `/api/orders/${orderId}`,
+    options: {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(body),
+    },
+  };
+};
+
 const GET_ADDRESS_DATA = (zipCode) => {
   return {
     url: `https://viacep.com.br/ws/${zipCode}/json`,
@@ -137,6 +150,7 @@ export {
   GET_PRODUCT_ID,
   GET_ORDER_ID,
   GET_ORDERS_USER,
+  PUT_ORDER_UPDATE,
   POST_ORDERS,
   GET_ADDRESS_DATA,
 };
