@@ -17,3 +17,10 @@
   font-weight: bold;
   font-size: 1.2rem;
 }
+
+@media (max-width: 800px) {
+  .order-summary {
+    min-width: 350px;
+    align-self: center;
+  }
+}

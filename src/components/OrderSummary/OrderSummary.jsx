@@ -6,7 +6,7 @@ export const OrderSummary = () => {
       <h2>Resumo</h2>
       <div className="summary-item">
         <p>Subtotal:</p>
-        <span>R$ 219,00</span>
+        <span>R$ 2500,00</span>
 
         <p>Frete:</p>
         <span>R$ 10,00</span>
@@ -15,7 +15,7 @@ export const OrderSummary = () => {
         <span>R$ 15,00</span>
 
         <p className="summary-item-amount">Total:</p>
-        <span className="summary-item-amount">R$ 244,00</span>
+        <span className="summary-item-amount">R$ 2495,00</span>
       </div>
     </section>
   );

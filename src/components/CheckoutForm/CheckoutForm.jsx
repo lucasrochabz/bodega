@@ -5,7 +5,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';
 
-export const CheckoutForm = ({ orderData }) => {
+export const CheckoutForm = ({ userData, orderData }) => {
   const { startLoading, stopLoading } = useLoading();
   const navigate = useNavigate();
 
@@ -31,24 +31,69 @@ export const CheckoutForm = ({ orderData }) => {
       <form onSubmit={makePayment} className="checkout-form">
         <div className="checkout-default">
           <span>Informações Pessoais</span>
-          <Input type="text" label="Nome" id="name" />
+          <Input
+            type="text"
+            label="Nome"
+            id="name"
+            value={userData.first_name}
+          />
 
-          <Input type="email" label="E-mail" id="email" />
+          <Input
+            type="email"
+            label="E-mail"
+            id="email"
+            value={userData.email}
+          />
         </div>
 
         <div className="checkout-default">
           <span>Informações de entrega</span>
-          <Input type="number" label="CEP" id="cep" placeholder="60000000" />
+          <Input
+            type="number"
+            label="CEP"
+            id="cep"
+            value={userData.zip_code}
+            placeholder="60000000"
+          />
 
-          <Input type="text" label="Endereço" id="street" readOnly />
+          <Input
+            type="text"
+            label="Endereço"
+            id="street"
+            value={userData.street}
+            readOnly
+          />
 
-          <Input type="number" label="Número" id="number" />
+          <Input
+            type="number"
+            label="Número"
+            id="number"
+            value={userData.number}
+          />
 
-          <Input type="text" label="Bairro" id="neighborhood" readOnly />
+          <Input
+            type="text"
+            label="Bairro"
+            id="neighborhood"
+            value={userData.neighborhood}
+            readOnly
+          />
 
-          <Input type="text" label="Cidade" id="city" readOnly />
+          <Input
+            type="text"
+            label="Cidade"
+            id="city"
+            value={userData.city}
+            readOnly
+          />
 
-          <Input type="text" label="Estado" id="state" readOnly />
+          <Input
+            type="text"
+            label="Estado"
+            id="state"
+            value={userData.state}
+            readOnly
+          />
         </div>
 
         <div className="checkout-default">

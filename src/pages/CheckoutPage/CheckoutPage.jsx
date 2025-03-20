@@ -12,7 +12,7 @@ import { Footer } from '../../components/Footer';
 import './CheckoutPage.css';
 
 export const CheckoutPage = () => {
-  const { login } = useContext(UserContext);
+  const { data, login } = useContext(UserContext);
   const { orderId } = useParams();
   const { loading, startLoading, stopLoading } = useLoading();
   const [orderData, setOrderData] = useState(null);
@@ -45,11 +45,11 @@ export const CheckoutPage = () => {
       <Header />
       <h2 className="default-title">Finalizar Compra</h2>
 
-      {loading || !orderData ? (
+      {loading || !data || !orderData ? (
         <Loading />
       ) : (
         <main className="checkout-page">
-          <CheckoutForm orderData={orderData} />
+          <CheckoutForm userData={data} orderData={orderData} />
           <OrderSummary />
         </main>
       )}
