@@ -18,10 +18,6 @@ export const LoginPage = () => {
 
       <main className="login-container">
         <LoginForm />
-
-        <Link to={'/register'} className="btn-signup-form">
-          Criar conta
-        </Link>
       </main>
 
       <Footer />

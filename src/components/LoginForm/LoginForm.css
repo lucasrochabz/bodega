@@ -1,9 +1,9 @@
 .login-field {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   max-width: 460px;
   gap: 1rem;
-  margin: 0 auto;
 }
 
 .default-title {
@@ -36,4 +36,22 @@
 .login-form input:focus {
   border: 1px solid var(--green-color);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+.btn-signup-form {
+  display: block;
+  text-align: center;
+  color: var(--green-color);
+  border: 2px solid var(--green-color);
+  font-weight: bold;
+  border-radius: 5px;
+  transition: 0.3s;
+  padding: 0.8rem 1.2rem;
+  max-width: 150px;
+  margin: 1rem auto;
+}
+
+.btn-signup-form:hover {
+  background-color: var(--green-color);
+  color: var(--bg-color);
 }

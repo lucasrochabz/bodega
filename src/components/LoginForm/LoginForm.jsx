@@ -64,7 +64,13 @@ export const LoginForm = () => {
         </Button>
       </form>
 
-      <Link to="/recover-password">Perdeu a senha?</Link>
+      <Link to="/recover-password" style={{ padding: '1rem 0' }}>
+        Perdeu a senha?
+      </Link>
+
+      <Link to={'/register'} className="btn-signup-form">
+        Criar conta
+      </Link>
     </section>
   );
 };
