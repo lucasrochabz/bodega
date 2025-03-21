@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { Button } from '../Button';
 import './LoginForm.css';
@@ -62,6 +63,8 @@ export const LoginForm = () => {
           {loading ? 'Aguarde...' : 'Entrar'}
         </Button>
       </form>
+
+      <Link to="/recover-password">Perdeu a senha?</Link>
     </section>
   );
 };

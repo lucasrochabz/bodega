@@ -7,6 +7,7 @@ import { ProductDetailsPage } from './pages/ProductDetailsPage';
 import { CheckoutPage } from './pages/CheckoutPage';
 import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
+import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
 import { UserPage } from './pages/UserPage';
 import { UserInfoPage } from './pages/UserInfoPage';
 import { OrdersPage } from './pages/OrdersPage';
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
   {
     path: '/register',
     element: <RegisterPage />,
+  },
+  {
+    path: '/recover-password',
+    element: <RecoverPasswordPage />,
   },
   {
     path: '/account',
