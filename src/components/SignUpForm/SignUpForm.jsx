@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GET_ADDRESS_DATA, POST_USERS } from '../../utils/apiUtils';
+import { GET_ADDRESS_DATA, POST_USERS } from '../../helpers/apiHelper';
 import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';

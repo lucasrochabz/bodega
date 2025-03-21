@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useLoading } from '../../hooks';
-import { GET_USER } from '../../utils/apiUtils';
+import { GET_USER } from '../../helpers/apiHelper';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';

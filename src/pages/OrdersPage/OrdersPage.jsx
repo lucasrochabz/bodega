@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { GET_ORDERS_USER } from '../../utils/apiUtils';
+import { GET_ORDERS_USER } from '../../helpers/apiHelper';
 import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';

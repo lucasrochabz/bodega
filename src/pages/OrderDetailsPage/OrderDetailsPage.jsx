@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { GET_ORDER_ID } from '../../utils/apiUtils';
+import { GET_ORDER_ID } from '../../helpers/apiHelper';
 import { useLoading } from '../../hooks';
 import { Head } from '../../components/Head';
 import { OrderDetails } from '../../components/OrderDetails';

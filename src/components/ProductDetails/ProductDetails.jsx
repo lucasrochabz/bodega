@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { GET_PRODUCT_ID, POST_ORDERS } from '../../utils/apiUtils';
+import { GET_PRODUCT_ID, POST_ORDERS } from '../../helpers/apiHelper';
 import { useLoading } from '../../hooks';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';

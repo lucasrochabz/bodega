@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { GET_ADDRESS_DATA, PUT_USER_UPDATE } from '../../utils/apiUtils';
+import { GET_ADDRESS_DATA, PUT_USER_UPDATE } from '../../helpers/apiHelper';
 import { useLoading } from '../../hooks/useLoading';
 import { Input } from '../Input';
 import { Button } from '../Button';

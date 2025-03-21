@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { useLoading } from '../../hooks';
-import { PUT_ORDER_UPDATE } from '../../utils/apiUtils';
+import { PUT_ORDER_UPDATE } from '../../helpers/apiHelper';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';

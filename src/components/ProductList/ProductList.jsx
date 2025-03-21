@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLoading } from '../../hooks';
-import { GET_PRODUCTS } from '../../utils/apiUtils';
+import { GET_PRODUCTS } from '../../helpers/apiHelper';
 import { ProductCard } from '../ProductCard/ProductCard';
 import { Loading } from '../Loading';
 import './ProductList.css';
