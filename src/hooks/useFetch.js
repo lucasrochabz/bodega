@@ -12,15 +12,15 @@ export const useFetch = (url, options) => {
       const response = await fetch(url, options);
 
       if (!response.ok) {
-        const results = await response.json();
-        throw new Error(results.message);
+        const results = response.statusText;
+        throw new Error(results);
       }
 
       const results = await response.json();
       setData(results.data);
     } catch (error) {
-      console.error(error.message);
       setError(error.message);
+      console.error(error.message);
       alert(error.message);
     } finally {
       stopLoading();
