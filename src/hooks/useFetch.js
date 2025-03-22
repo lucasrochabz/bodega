@@ -12,8 +12,8 @@ export const useFetch = (url, options) => {
       const response = await fetch(url, options);
 
       if (!response.ok) {
-        const results = response.statusText;
-        throw new Error(results);
+        const results = await response.json();
+        throw new Error(results.message);
       }
 
       const results = await response.json();
@@ -29,7 +29,7 @@ export const useFetch = (url, options) => {
 
   useEffect(() => {
     if (url) {
-      fetchData(url);
+      fetchData(url, options);
     }
   }, [url, options]);
 

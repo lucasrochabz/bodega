@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { GET_PRODUCT_ID, POST_ORDERS } from '../../helpers/apiHelper';
-import { useLoading } from '../../hooks';
+import { useFetch, useLoading } from '../../hooks';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
 import { Button } from '../Button';
@@ -14,28 +14,14 @@ export const ProductDetails = () => {
   const { loading, startLoading, stopLoading } = useLoading();
   const navigate = useNavigate();
 
-  const [product, setProduct] = useState(null);
-  const [price, setPrice] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [productImage, setProductImage] = useState('');
+  const [url, setUrl] = useState('');
+  const [options, setOptions] = useState(null);
+  const { data, error } = useFetch(url, options);
 
   const getProduct = async () => {
-    startLoading();
-    try {
-      const { url, options } = GET_PRODUCT_ID(productId);
-      const response = await fetch(url, options);
-
-      const results = await response.json();
-      setProduct(results.data);
-      setPrice(results.data.price);
-      setTotal(results.data.price);
-      setProductImage(results.data.image_path);
-    } catch (error) {
-      console.error('Erro na requisição:', error.message);
-      alert(`Erro na requisição: ${error.message}`);
-    } finally {
-      stopLoading();
-    }
+    const { url, options } = GET_PRODUCT_ID(productId);
+    setUrl(url);
+    setOptions(options);
   };
 
   const isAuhenticated = (login) => {
@@ -85,20 +71,23 @@ export const ProductDetails = () => {
     eager: true,
   });
 
-  const imagePath = images[`/src/assets/images/${productImage}`]?.default;
+  const imagePath = images[`/src/assets/images/${data?.image_path}`]?.default;
 
   return (
     <>
-      {loading || !product ? (
+      {loading || !data ? (
         <Loading />
       ) : (
         <section className="product-details">
-          <img src={imagePath} alt={product.name} />
+          <img src={imagePath} alt={data.name} />
+
           <div className="product-details-info">
-            <h1>{product.name}</h1>
-            <p className="info-prince">{formattedPriceToBRL(price)}</p>
-            <p className="info-descricao">{product.description}</p>
-            <h2 className="info-total">Total: {formattedPriceToBRL(total)}</h2>
+            <h1>{data.name}</h1>
+            <p className="info-prince">{formattedPriceToBRL(data.price)}</p>
+            <p className="info-descricao">{data.description}</p>
+            <h2 className="info-total">
+              Total: {formattedPriceToBRL(data.price)}
+            </h2>
             <div className="btn-controls">
               <button className="btn-cancel-order" onClick={cancelOrder}>
                 Cancelar
