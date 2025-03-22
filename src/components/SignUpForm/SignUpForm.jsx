@@ -8,6 +8,8 @@ import './SignUpForm.css';
 
 export const SignUpForm = () => {
   const { loading, startLoading, stopLoading } = useLoading();
+  const navigate = useNavigate();
+
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
@@ -18,7 +20,6 @@ export const SignUpForm = () => {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
-  const navigate = useNavigate();
 
   const getAddressData = async () => {
     if (zipCode.length === 8) {
