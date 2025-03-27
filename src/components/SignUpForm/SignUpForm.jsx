@@ -75,7 +75,7 @@ export const SignUpForm = () => {
 
   return (
     <>
-      <div className="signup-form">
+      <section className="signup-form">
         <h2 className="default-title">Crie a sua conta</h2>
 
         <form className="signup" onSubmit={handleSignup}>
@@ -177,7 +177,7 @@ export const SignUpForm = () => {
             Cadastrar
           </Button>
         </form>
-      </div>
+      </section>
     </>
   );
 };

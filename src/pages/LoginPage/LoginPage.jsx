@@ -16,7 +16,7 @@ export const LoginPage = () => {
       <Head title="Login" description="Descrição da página Login" />
       <Header />
 
-      <main className="login-container">
+      <main className="auth-layout">
         <LoginForm />
       </main>
 

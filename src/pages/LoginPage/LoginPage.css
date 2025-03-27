@@ -1,4 +1,4 @@
-.login-container {
+.auth-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1200px;
@@ -10,21 +10,20 @@
   margin: 0 auto;
 }
 
-.login-container::before {
+.auth-layout::before {
   content: '';
   display: block;
   background: url('../../assets/images/login.jpg') no-repeat center;
-  /* background-color: var(--green-color); */
   background-size: cover;
 }
 
 @media (max-width: 800px) {
-  .login-container {
+  .auth-layout {
     grid-template-columns: 1fr;
     box-shadow: none;
     padding: 0 1rem;
   }
-  .login-container::before {
+  .auth-layout::before {
     display: none;
   }
 }

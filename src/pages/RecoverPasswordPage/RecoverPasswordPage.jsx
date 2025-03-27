@@ -13,12 +13,14 @@ export const RecoverPasswordPage = () => {
         description="Descrição da página Recover Password"
       />
       <Header />
-      <main className="recover-password">
-        <h2>Perdeu a senha?</h2>
-        <form className="recover-password-form">
-          <Input type="email" label="E-mail" required />
-          <Button type="primary">Enviar email</Button>
-        </form>
+      <main className="auth-layout">
+        <section className="recover-password">
+          <h2>Perdeu a senha?</h2>
+          <form className="recover-password-form">
+            <Input type="email" label="E-mail" required />
+            <Button type="primary">Enviar email</Button>
+          </form>
+        </section>
       </main>
       <Footer />
     </>
