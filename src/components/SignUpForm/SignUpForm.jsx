@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GET_ADDRESS_DATA, POST_USERS } from '../../helpers/apiHelper';
-import { useLoading } from '../../hooks/useLoading';
+import { useFetch } from '../../hooks/useFetch';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './SignUpForm.css';
 
 export const SignUpForm = () => {
-  const { loading, startLoading, stopLoading } = useLoading();
+  const { request, loading } = useFetch();
   const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState('');
@@ -51,41 +51,26 @@ export const SignUpForm = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    startLoading();
-    try {
-      const { url, options } = POST_USERS({
-        first_name: firstName,
-        last_name: lastName,
-        email: email,
-        password: password,
-        zip_code: zipCode,
-        street: endereco,
-        number: numero,
-        neighborhood: bairro,
-        city: cidade,
-        state: estado,
-      });
-      const response = await fetch(url, options);
+    const { url, options } = POST_USERS({
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      password: password,
+      zip_code: zipCode,
+      street: endereco,
+      number: numero,
+      neighborhood: bairro,
+      city: cidade,
+      state: estado,
+    });
+    request(url, options);
 
-      if (!response.ok) {
-        const results = await response.json();
-        throw new Error(results.message);
-      }
-
-      const results = await response.json();
-      alert(results.message);
-      setFirstName('');
-      setEmail('');
-      setPassword('');
-      setZipCode('');
-      setNumero('');
-      navigate('/login');
-    } catch (error) {
-      console.error('Erro ao cadastrar usuário:', error.message);
-      alert(`Erro ao cadastrar usuário: ${error.message}`);
-    } finally {
-      stopLoading();
-    }
+    setFirstName('');
+    setEmail('');
+    setPassword('');
+    setZipCode('');
+    setNumero('');
+    navigate('/login');
   };
 
   return (
