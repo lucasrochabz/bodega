@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { GET_ADDRESS_DATA, PUT_USER_UPDATE } from '../../utils/apiUtils';
-import { useLoading } from '../../hooks/useLoading';
+import { GET_ADDRESS_DATA, PUT_USER_UPDATE } from '../../helpers/apiHelper';
+import { useFetch } from '../../hooks/useFetch';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './UserUpdateForm.css';
 
 export const UserUpdateForm = ({ dados }) => {
-  const { loading, startLoading, stopLoading } = useLoading();
+  const { request, loading } = useFetch();
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -78,26 +78,10 @@ export const UserUpdateForm = ({ dados }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    startLoading();
-    try {
-      const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
-      const { url, options } = PUT_USER_UPDATE(token, formData);
-      const response = await fetch(url, options);
-
-      if (!response.ok) {
-        const results = await response.json();
-        throw new Error(results.message);
-      }
-
-      const results = await response.json();
-      alert(results.message);
-    } catch (error) {
-      console.error('Erro na requisição ao atualizar usuário:', error.message);
-      alert(`Erro na requisição ao atualizar usuário: ${error.message}`);
-    } finally {
-      stopLoading();
-    }
+    const { url, options } = PUT_USER_UPDATE(token, formData);
+    request(url, options);
   };
 
   return (

@@ -1,34 +1,33 @@
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useLoading } from '../../hooks';
-import { PUT_ORDER_UPDATE } from '../../utils/apiUtils';
+import { PUT_ORDER_UPDATE } from '../../helpers/apiHelper';
+import { useFetch } from '../../hooks';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';
 
 export const CheckoutForm = ({ userData, orderData }) => {
-  const { startLoading, stopLoading } = useLoading();
+  const { request, loading, data, error } = useFetch();
   const navigate = useNavigate();
 
-  const makePayment = async (event) => {
+  const handleMakePayment = async (event) => {
     event.preventDefault();
 
-    startLoading();
-    try {
-      const { url, options } = PUT_ORDER_UPDATE(orderData.id, {
-        status: 'pagamento efetuado',
-      });
-      const response = await fetch(url, options);
-      navigate(`/account/orders/details/${orderData.id}`);
-    } catch (error) {
-      console.error(error.message);
-    } finally {
-      stopLoading();
-    }
+    const { url, options } = PUT_ORDER_UPDATE(orderData.id, {
+      status: 'pagamento efetuado',
+    });
+    request(url, options);
   };
+
+  useEffect(() => {
+    if (data) {
+      navigate(`/account/orders/details/${data.id}`);
+    }
+  });
 
   return (
     <section className="checkout">
-      <form onSubmit={makePayment} className="checkout-form">
+      <form onSubmit={handleMakePayment} className="checkout-form">
         <div className="checkout-default">
           <span>Informações Pessoais</span>
           <Input

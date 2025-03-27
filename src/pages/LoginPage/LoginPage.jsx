@@ -16,12 +16,8 @@ export const LoginPage = () => {
       <Head title="Login" description="Descrição da página Login" />
       <Header />
 
-      <main className="login-container">
+      <main className="auth-layout">
         <LoginForm />
-
-        <Link to={'/register'} className="btn-signup-form">
-          Criar conta
-        </Link>
       </main>
 
       <Footer />

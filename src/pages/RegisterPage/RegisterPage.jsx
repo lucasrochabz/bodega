@@ -15,7 +15,9 @@ export const RegisterPage = () => {
       <Head title="Register" description="Descrição da página Register" />
 
       <Header />
-      <SignUpForm />
+      <main className="auth-layout">
+        <SignUpForm />
+      </main>
       <Footer />
     </>
   );

@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from 'react';
-import { GET_USER, POST_LOGIN } from '../utils/apiUtils';
+import { GET_USER, POST_LOGIN } from '../helpers/apiHelper';
 import { useLoading } from '../hooks/useLoading';
 
 export const UserContext = createContext();
