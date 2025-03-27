@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
@@ -14,15 +14,11 @@ import './CheckoutPage.css';
 export const CheckoutPage = () => {
   const { data, login } = useContext(UserContext);
   const { orderId } = useParams();
-
-  const [url, setUrl] = useState('');
-  const [options, setOptions] = useState(null);
-  const { loading, data: orderData, error } = useFetch(url, options);
+  const { request, loading, data: orderData, error } = useFetch();
 
   const getOrder = async () => {
     const { url, options } = GET_ORDER_ID(orderId);
-    setUrl(url);
-    setOptions(options);
+    request(url, options);
   };
 
   useEffect(() => {

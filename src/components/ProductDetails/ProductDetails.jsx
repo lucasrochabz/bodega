@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { GET_PRODUCT_ID, POST_ORDERS } from '../../helpers/apiHelper';
@@ -13,25 +13,21 @@ export const ProductDetails = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  const [productUrl, setProductUrl] = useState('');
-  const [productOptions, setProductOptions] = useState(null);
-  const [orderUrl, setOrderUrl] = useState('');
-  const [orderOptions, setOrderOptions] = useState(null);
-
   const {
+    request: productRequest,
     loading,
     data: productData,
     error: errorProduct,
-  } = useFetch(productUrl, productOptions);
-  const { data: orderData, error: errorOrder } = useFetch(
-    orderUrl,
-    orderOptions,
-  );
+  } = useFetch();
+  const {
+    request: orderRequest,
+    data: orderData,
+    error: errorOrder,
+  } = useFetch();
 
   const getProduct = async () => {
     const { url, options } = GET_PRODUCT_ID(productId);
-    setProductUrl(url);
-    setProductOptions(options);
+    productRequest(url, options);
   };
 
   const isAuhenticated = (login) => {
@@ -50,8 +46,7 @@ export const ProductDetails = () => {
       status: 'rascunho',
       products: [{ product_id: productId, quantity: 1 }],
     });
-    setOrderUrl(url);
-    setOrderOptions(options);
+    orderRequest(url, options);
   };
 
   const handleReturn = () => {

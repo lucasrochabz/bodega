@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { useLoading } from './useLoading';
 
-export const useFetch = (url, options) => {
+export const useFetch = () => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const fetchData = async (url, options) => {
+  const request = useCallback(async (url, options) => {
     startLoading();
     try {
       const response = await fetch(url, options);
@@ -25,13 +25,7 @@ export const useFetch = (url, options) => {
     } finally {
       stopLoading();
     }
-  };
+  }, []);
 
-  useEffect(() => {
-    if (url) {
-      fetchData(url, options);
-    }
-  }, [url, options]);
-
-  return { loading, data, error };
+  return { request, loading, data, error };
 };

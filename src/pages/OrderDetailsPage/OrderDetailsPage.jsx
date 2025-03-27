@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { GET_ORDER_ID } from '../../helpers/apiHelper';
 import { useFetch } from '../../hooks';
@@ -9,15 +9,11 @@ import './OrderDetailsPage.css';
 
 export const OrderDetailsPage = () => {
   const { orderId } = useParams();
-
-  const [url, setUrl] = useState('');
-  const [options, setOptions] = useState(null);
-  const { loading, data, error } = useFetch(url, options);
+  const { request, loading, data, error } = useFetch();
 
   const getOrder = async () => {
     const { url, options } = GET_ORDER_ID(orderId);
-    setUrl(url);
-    setOptions(options);
+    request(url, options);
   };
 
   useEffect(() => {

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { PUT_ORDER_UPDATE } from '../../helpers/apiHelper';
 import { useFetch } from '../../hooks';
@@ -7,9 +7,7 @@ import { Button } from '../Button';
 import './CheckoutForm.css';
 
 export const CheckoutForm = ({ userData, orderData }) => {
-  const [url, setUrl] = useState('');
-  const [options, setOptions] = useState(null);
-  const { loading, data, error } = useFetch(url, options);
+  const { request, loading, data, error } = useFetch();
   const navigate = useNavigate();
 
   const handleMakePayment = async (event) => {
@@ -18,8 +16,7 @@ export const CheckoutForm = ({ userData, orderData }) => {
     const { url, options } = PUT_ORDER_UPDATE(orderData.id, {
       status: 'pagamento efetuado',
     });
-    setUrl(url);
-    setOptions(options);
+    request(url, options);
   };
 
   useEffect(() => {

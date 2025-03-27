@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { GET_ORDERS_USER } from '../../helpers/apiHelper';
@@ -10,17 +10,13 @@ import './OrdersPage.css';
 
 export const OrdersPage = () => {
   const { login } = useContext(UserContext);
-
-  const [url, setUrl] = useState('');
-  const [options, setOptions] = useState(null);
-  const { loading, data, error } = useFetch(url, options);
+  const { request, loading, data, error } = useFetch();
 
   const getOrders = async () => {
     const token = localStorage.getItem('token');
 
     const { url, options } = GET_ORDERS_USER(token);
-    setUrl(url);
-    setOptions(options);
+    request(url, options);
   };
 
   useEffect(() => {
