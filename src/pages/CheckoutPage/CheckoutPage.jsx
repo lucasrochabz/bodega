@@ -1,5 +1,5 @@
 import { useContext, useEffect } from 'react';
-import { Navigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
 import { GET_ORDER_ID } from '../../helpers/apiHelper';
@@ -12,7 +12,7 @@ import { Footer } from '../../components/Footer';
 import './CheckoutPage.css';
 
 export const CheckoutPage = () => {
-  const { data, login } = useContext(UserContext);
+  const { data } = useContext(UserContext);
   const { orderId } = useParams();
   const { request, loading, data: orderData, error } = useFetch();
 
@@ -22,12 +22,9 @@ export const CheckoutPage = () => {
   };
 
   useEffect(() => {
-    if (login) {
-      getOrder();
-    }
+    getOrder();
   }, []);
 
-  if (!login) return <Navigate to={'/'} />;
   return (
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />

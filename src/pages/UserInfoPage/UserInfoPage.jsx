@@ -1,6 +1,4 @@
-import { useContext, useEffect } from 'react';
-import { Navigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
+import { useEffect } from 'react';
 import { useFetch } from '../../hooks';
 import { GET_USER } from '../../helpers/apiHelper';
 import { Head } from '../../components/Head';
@@ -8,7 +6,6 @@ import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
 
 export const UserInfoPage = () => {
-  const { login } = useContext(UserContext);
   const { request, loading, data, error } = useFetch();
 
   const getDataUser = async () => {
@@ -22,7 +19,6 @@ export const UserInfoPage = () => {
     getDataUser();
   }, []);
 
-  if (!login) return <Navigate to={'/login'} />;
   return (
     <>
       <Head
