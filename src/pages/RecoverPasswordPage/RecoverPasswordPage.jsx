@@ -15,7 +15,7 @@ export const RecoverPasswordPage = () => {
       <Header />
       <main className="auth-layout">
         <section className="recover-password">
-          <h2>Perdeu a senha?</h2>
+          <h1 className="default-title">Perdeu a senha?</h1>
           <form className="recover-password-form">
             <Input type="email" label="E-mail" required />
             <Button type="primary">Enviar email</Button>

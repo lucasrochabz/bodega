@@ -80,13 +80,11 @@ export const ProductDetails = () => {
 
           <div className="product-details-info">
             <h1>{productData.name}</h1>
-            <p className="info-prince">
+            <span className="info-price">
               {formattedPriceToBRL(productData.price)}
-            </p>
+            </span>
             <p className="info-descricao">{productData.description}</p>
-            <h2 className="info-total">
-              Total: {formattedPriceToBRL(productData.price)}
-            </h2>
+
             <div className="btn-controls">
               <button className="btn-cancel-order" onClick={handleReturn}>
                 Voltar

@@ -7,8 +7,9 @@
 }
 
 .default-title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
   color: var(--green-color);
-  font-size: 2rem;
+  font-size: 3rem;
   text-align: center;
 }
 

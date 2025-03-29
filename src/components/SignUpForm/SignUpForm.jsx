@@ -76,7 +76,7 @@ export const SignUpForm = () => {
   return (
     <>
       <section className="signup-form">
-        <h2 className="default-title">Crie a sua conta</h2>
+        <h1 className="default-title">Crie a sua conta</h1>
 
         <form className="signup" onSubmit={handleSignup}>
           <Input
