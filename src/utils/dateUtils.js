@@ -20,4 +20,4 @@ const setDate = () => {
   return `${year}/${month}/${day}`;
 };
 
-module.exports = { formattedDate, setDate };
+export { formattedDate, setDate };

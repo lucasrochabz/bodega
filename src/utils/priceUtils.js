@@ -10,4 +10,4 @@ const formattedPriceToBRL = (price) => {
   return formattedPrice;
 };
 
-module.exports = { formattedPriceToBRL };
+export { formattedPriceToBRL };
