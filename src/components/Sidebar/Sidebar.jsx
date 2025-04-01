@@ -17,7 +17,9 @@ export const Sidebar = () => {
     <aside className="sidebar">
       <nav className="sidebar-nav">
         <NavLink to={'/account/my-info'}>Minhas informações</NavLink>
-        <NavLink to={'/account/orders'}>Meus Pedidos</NavLink>
+        <NavLink to={'/account/orders'} end>
+          Meus Pedidos
+        </NavLink>
         <Button type="logout" onClick={handleLogout}>
           Sair
         </Button>
