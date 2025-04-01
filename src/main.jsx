@@ -15,6 +15,7 @@ import { UserInfoPage } from './pages/UserInfoPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
 import './index.css';
+import { AdminPage } from './pages/AdminPage/AdminPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -82,6 +83,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
 ]);
 
