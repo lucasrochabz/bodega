@@ -1,4 +1,4 @@
-.user-page {
+.user-page-layout {
   max-width: 1200px;
   display: flex;
   margin: 0 auto;
@@ -6,8 +6,19 @@
   min-height: calc(100vh - 130px);
 }
 
+.user-page {
+  flex: 1;
+}
+
+.user-page h1 {
+  margin-bottom: 2rem;
+}
+
 @media (max-width: 800px) {
-  .user-page {
+  .user-page-layout {
     display: block;
+  }
+  .user-page {
+    padding: 0 1rem;
   }
 }

@@ -11,7 +11,6 @@ export const OrderDetails = ({ order }) => {
 
   return (
     <>
-      <h1>Detalhes do pedido</h1>
       <div className="order-details">
         <div className="order-details-head">
           <ul>

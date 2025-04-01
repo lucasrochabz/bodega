@@ -26,9 +26,9 @@ export const OrdersPage = () => {
       {loading || !data ? (
         <Loading />
       ) : (
-        <article className="orders-page">
+        <section className="orders-page">
           <OrderList orders={data} />
-        </article>
+        </section>
       )}
     </>
   );

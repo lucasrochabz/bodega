@@ -1,14 +1,7 @@
 .order-details-container {
-  flex: 1;
   animation: show-left 0.3s forwards;
 }
 
 .order-details-container h1 {
   margin-bottom: 2rem;
-}
-
-@media (max-width: 800px) {
-  .order-details-container {
-    padding: 0 1rem;
-  }
 }

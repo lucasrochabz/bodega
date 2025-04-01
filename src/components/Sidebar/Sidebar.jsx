@@ -12,6 +12,7 @@ export const Sidebar = () => {
     userLogout();
     navigate('/login');
   };
+
   return (
     <aside className="sidebar">
       <nav className="sidebar-nav">

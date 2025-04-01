@@ -86,7 +86,6 @@ export const UserUpdateForm = ({ dados }) => {
 
   return (
     <article className="user-info-page" onSubmit={handleSubmit}>
-      <h1>Minhas informações</h1>
       <section className="user-update">
         <form className="update">
           <Input

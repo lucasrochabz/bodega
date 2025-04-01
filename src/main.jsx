@@ -10,6 +10,7 @@ import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
 import { UserPage } from './pages/UserPage';
+import { Teste } from './components/Teste/Teste.jsx';
 import { UserInfoPage } from './pages/UserInfoPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
       </ProtectedRoute>
     ),
     children: [
+      {
+        path: '',
+        element: <Teste />,
+      },
       {
         path: 'my-info',
         element: (
