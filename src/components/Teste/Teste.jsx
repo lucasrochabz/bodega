@@ -14,12 +14,12 @@ export const Teste = () => {
   };
 
   return (
-    <section>
+    <section className="teste-container">
       <h2>Sejá bem vindo</h2>
       {mobile && (
-        <Button type="secondary" onClick={handleMobileMenu}>
+        <button className="btn-menu-mobile" onClick={handleMobileMenu}>
           Menu
-        </Button>
+        </button>
       )}
 
       {mobile && mobileMenu && (
