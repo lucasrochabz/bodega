@@ -14,8 +14,8 @@ import { Teste } from './components/Teste/Teste.jsx';
 import { UserInfoPage } from './pages/UserInfoPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
-import './index.css';
 import { AdminPage } from './pages/AdminPage/AdminPage.jsx';
+import './index.css';
 
 const router = createBrowserRouter([
   {
