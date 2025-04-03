@@ -1,4 +1,4 @@
-.user-page {
+.user-page-layout {
   max-width: 1200px;
   display: flex;
   margin: 0 auto;
@@ -6,8 +6,47 @@
   min-height: calc(100vh - 130px);
 }
 
+.user-page {
+  flex: 1;
+}
+
+.menu-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.btn-menu-mobile {
+  background-color: #222;
+  color: var(--bg-color);
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+}
+
+.nav-menu {
+  background-color: var(--bg-color);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+}
+
 @media (max-width: 800px) {
-  .user-page {
+  .user-page-layout {
     display: block;
+  }
+  .user-page {
+    padding: 0 1rem;
   }
 }

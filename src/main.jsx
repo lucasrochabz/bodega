@@ -10,9 +10,11 @@ import { LoginPage } from './pages/LoginPage';
 import { RegisterPage } from './pages/RegisterPage';
 import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
 import { UserPage } from './pages/UserPage';
+import { Welcome } from './components/Welcome';
 import { UserInfoPage } from './pages/UserInfoPage';
 import { OrdersPage } from './pages/OrdersPage';
 import { OrderDetailsPage } from './pages/OrderDetailsPage';
+import { AdminPage } from './pages/AdminPage/AdminPage.jsx';
 import './index.css';
 
 const router = createBrowserRouter([
@@ -53,6 +55,10 @@ const router = createBrowserRouter([
     ),
     children: [
       {
+        path: '',
+        element: <Welcome />,
+      },
+      {
         path: 'my-info',
         element: (
           <ProtectedRoute>
@@ -77,6 +83,10 @@ const router = createBrowserRouter([
         ),
       },
     ],
+  },
+  {
+    path: '/admin',
+    element: <AdminPage />,
   },
 ]);
 

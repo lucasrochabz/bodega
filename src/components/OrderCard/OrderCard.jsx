@@ -12,15 +12,12 @@ export const OrderCard = ({ order }) => {
 
   return (
     <div className="order-item" key={order.id}>
-      <div className="order-head">
-        <div>
-          <h2>Número do pedido: {order.id}</h2>
-          <p>Realizado em: {formattedDate(order.created_at)}</p>
-        </div>
-        <button onClick={(event) => handleNavigate(event, order.id)}>
-          Ver detalhes
-        </button>
-      </div>
+      <h2>Número do pedido: {order.id}</h2>
+      <p>Realizado em: {formattedDate(order.created_at)}</p>
+      <button onClick={(event) => handleNavigate(event, order.id)}>
+        Ver detalhes
+      </button>
+
       <div className="order-body">
         <h2>Produto:</h2>
         <p>{order.name}</p>

@@ -29,7 +29,7 @@ export const CheckoutPage = () => {
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
-      <h2 className="default-title">Finalizar Compra</h2>
+      <h2 className="title">Finalizar Compra</h2>
 
       {loading || !data || !orderData ? (
         <Loading />

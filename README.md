@@ -28,10 +28,19 @@ A aplicação segue boas práticas de desenvolvimento, garantindo uma experiênc
 
 1. Faça o clone do projeto.
 2. Abra o terminal e navegue até a pasta do projeto.
-3. Faça uma cópia do arquivo **.env.example**: `cp .env.example .env`.
+3. Faça uma cópia do arquivo **.env.example**:
+   ```bash
+   cp .env.example .env
+   ```
 4. Edite o arquivo **.env** com os valores apropriados para o seu ambiente.
-5. Instale as dependências usando o comando: `npm install`.
-6. Inicie o servidor localmente com o comando: `npm run dev`.
+5. Instale as dependências usando o comando:
+   ```bash
+   npm install
+   ```
+6. Inicie o servidor localmente com o comando:
+   ```bash
+   npm run dev
+   ```
 
 ### Back-end do Projeto
 

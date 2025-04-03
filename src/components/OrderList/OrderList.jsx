@@ -6,7 +6,6 @@ export const OrderList = ({ orders }) => {
 
   return (
     <>
-      <h1>Meus pedidos</h1>
       {orderedOrders.map((order) => (
         <OrderCard key={order.id} order={order} />
       ))}

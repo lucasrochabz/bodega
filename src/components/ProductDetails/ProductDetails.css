@@ -20,7 +20,7 @@
   max-width: 400px;
 }
 
-.info-prince {
+.info-price {
   color: var(--yellow-color);
   font-size: 1.5rem;
   font-weight: bold;
@@ -29,10 +29,6 @@
 
 .info-descricao {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
-}
-
-.info-total {
   margin-bottom: 2rem;
 }
 

@@ -1,4 +1,4 @@
-import { useContext, useEffect } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { GET_PRODUCT_ID, POST_ORDERS } from '../../helpers/apiHelper';
@@ -6,6 +6,7 @@ import { useFetch } from '../../hooks';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
 import { Button } from '../Button';
+import { ImageModal } from '../ImageModal';
 import './ProductDetails.css';
 
 export const ProductDetails = () => {
@@ -70,23 +71,36 @@ export const ProductDetails = () => {
   const imagePath =
     images[`/src/assets/images/${productData?.image_path}`]?.default;
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const handleImageClick = (event) => {
+    event.stopPropagation();
+    setIsModalOpen(true);
+  };
+
+  const handleCloseModal = (event) => {
+    setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen);
+  };
+
   return (
     <>
       {loading || !productData ? (
         <Loading />
       ) : (
         <section className="product-details">
-          <img src={imagePath} alt={productData.name} />
+          <img
+            src={imagePath}
+            alt={productData.name}
+            onClick={handleImageClick}
+          />
 
           <div className="product-details-info">
             <h1>{productData.name}</h1>
-            <p className="info-prince">
+            <span className="info-price">
               {formattedPriceToBRL(productData.price)}
-            </p>
+            </span>
             <p className="info-descricao">{productData.description}</p>
-            <h2 className="info-total">
-              Total: {formattedPriceToBRL(productData.price)}
-            </h2>
+
             <div className="btn-controls">
               <button className="btn-cancel-order" onClick={handleReturn}>
                 Voltar
@@ -101,6 +115,10 @@ export const ProductDetails = () => {
               </Button>
             </div>
           </div>
+
+          {isModalOpen && (
+            <ImageModal imagePath={imagePath} onClose={handleCloseModal} />
+          )}
         </section>
       )}
     </>

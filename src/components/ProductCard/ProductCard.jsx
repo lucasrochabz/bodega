@@ -18,6 +18,7 @@ export const ProductCard = ({ item }) => {
   return (
     <div onClick={handleNavigate} className="product-card">
       <img src={imagePath} alt={item.name} />
+
       <div className="product-info">
         <p className="price">{formattedPriceToBRL(item.price)}</p>
         <h2 className="title-card" key={item.id}>
