@@ -7,8 +7,9 @@
 }
 
 .order-details-head {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
   background-color: var(--gray-color);
   padding: 1rem;
 }
@@ -18,14 +19,16 @@
   justify-content: space-between;
 }
 
-.order-details-head p {
-  padding-top: 1rem;
-}
-
 .resume {
   display: flex;
-  gap: 1rem;
   padding: 1rem;
+  gap: 1rem;
+}
+
+.resume div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .resume img {
@@ -49,4 +52,10 @@
 
 .delivery span {
   font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .order-details-head {
+    grid-template-columns: 1fr;
+  }
 }
