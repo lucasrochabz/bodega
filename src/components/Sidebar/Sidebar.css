@@ -27,6 +27,7 @@
 
 @media (max-width: 800px) {
   .sidebar {
+    display: none;
     width: auto;
     margin-bottom: 2rem;
   }

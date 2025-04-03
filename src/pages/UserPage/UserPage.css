@@ -10,7 +10,7 @@
   flex: 1;
 }
 
-.teste-container {
+.menu-mobile {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,14 +21,14 @@
 
 .btn-menu-mobile {
   background-color: #222;
-  color: var(--green-color);
+  color: var(--bg-color);
   font-weight: bold;
   border: none;
   border-radius: 5px;
   padding: 0.5rem 1rem;
 }
 
-.nav-teste {
+.nav-menu {
   background-color: var(--bg-color);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   display: flex;
