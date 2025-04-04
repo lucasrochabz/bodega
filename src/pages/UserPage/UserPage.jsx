@@ -3,8 +3,8 @@ import { Outlet, useLocation } from 'react-router-dom';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
-import { Footer } from '../../components/Footer';
 import { MenuMobile } from '../../components/MenuMobile';
+import { Footer } from '../../components/Footer';
 import './UserPage.css';
 
 export const UserPage = () => {
