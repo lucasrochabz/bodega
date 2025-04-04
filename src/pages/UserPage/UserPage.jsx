@@ -11,23 +11,19 @@ export const UserPage = () => {
   const location = useLocation();
   const [title, setTitle] = useState('');
 
+  const routeTitles = {
+    '/account/my-info': 'Minhas informações',
+    '/account/orders': 'Meus pedidos',
+  };
+
   useEffect(() => {
     const { pathname } = location;
 
-    if (pathname.startsWith('/account/orders/details/')) {
-      setTitle('Detalhes do pedido');
-    } else {
-      switch (pathname) {
-        case '/account/my-info':
-          setTitle('Minhas informações');
-          break;
-        case '/account/orders':
-          setTitle('Meus pedidos');
-          break;
-        default:
-          setTitle('Minha Conta');
-      }
-    }
+    setTitle(
+      pathname.startsWith('/account/orders/details/')
+        ? 'Detalhes do pedido'
+        : routeTitles[pathname] || 'Minha conta',
+    );
   }, [location]);
 
   return (
