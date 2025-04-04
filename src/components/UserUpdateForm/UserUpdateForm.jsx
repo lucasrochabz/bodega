@@ -20,24 +20,7 @@ export const UserUpdateForm = ({ dados }) => {
   });
 
   const getAddressData = async () => {
-    if (formData.zip_code.length === 8) {
-      const { url, options } = GET_ADDRESS_DATA(formData.zip_code);
-      const response = await fetch(url, options);
-
-      const cepResult = await response.json();
-      if (cepResult.erro) {
-        alert('CEP inválido');
-        return;
-      }
-
-      setFormData((prev) => ({
-        ...prev,
-        street: cepResult.logradouro,
-        neighborhood: cepResult.bairro,
-        city: cepResult.localidade,
-        state: cepResult.uf,
-      }));
-    } else {
+    if (formData.zip_code.length !== 8) {
       setFormData((prev) => ({
         ...prev,
         street: '',
@@ -45,7 +28,24 @@ export const UserUpdateForm = ({ dados }) => {
         city: '',
         state: '',
       }));
+      return;
     }
+    const { url, options } = GET_ADDRESS_DATA(formData.zip_code);
+    const response = await fetch(url, options);
+
+    const cepResult = await response.json();
+    if (cepResult.erro) {
+      alert('CEP inválido');
+      return;
+    }
+
+    setFormData((prev) => ({
+      ...prev,
+      street: cepResult.logradouro,
+      neighborhood: cepResult.bairro,
+      city: cepResult.localidade,
+      state: cepResult.uf,
+    }));
   };
 
   const handleChange = (event) => {
