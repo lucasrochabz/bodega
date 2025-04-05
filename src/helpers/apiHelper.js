@@ -53,9 +53,9 @@ const PUT_USER_UPDATE = (token, body) => {
   };
 };
 
-const GET_PRODUCTS = () => {
+const GET_PRODUCTS = (currentPage, pageSize) => {
   return {
-    url: BASE_API_URL + '/api/products',
+    url: `${BASE_API_URL}/api/products?page=${currentPage}&pageSize=${pageSize}`,
     options: {
       method: 'GET',
       headers: {

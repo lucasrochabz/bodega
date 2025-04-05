@@ -1,11 +1,8 @@
 .product-list {
-  min-height: calc(100vh - 130px);
-  max-width: 1200px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   gap: 2rem;
-  margin: 0 auto;
 }
 
 .price {
