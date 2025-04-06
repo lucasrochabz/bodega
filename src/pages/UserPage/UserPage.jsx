@@ -1,49 +1,29 @@
-import { useContext, useEffect, useState } from 'react';
-import { Link, Outlet, useLocation, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { useMedia } from '../../hooks';
+import { useEffect, useState } from 'react';
+import { Outlet, useLocation } from 'react-router-dom';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
-import { Button } from '../../components/Button';
+import { MenuMobile } from '../../components/MenuMobile';
 import { Footer } from '../../components/Footer';
 import './UserPage.css';
 
 export const UserPage = () => {
-  const { userLogout } = useContext(UserContext);
-  const navigate = useNavigate();
   const location = useLocation();
-
-  const mobile = useMedia('(max-width: 800px)');
   const [title, setTitle] = useState('');
-  const [mobileMenu, setMobileMenu] = useState(false);
 
-  const handleMobileMenu = () => {
-    setMobileMenu((prevMobileMenu) => !prevMobileMenu);
-  };
-
-  const handleLogout = () => {
-    userLogout();
-    navigate('/login');
+  const routeTitles = {
+    '/account/my-info': 'Minhas informações',
+    '/account/orders': 'Meus pedidos',
   };
 
   useEffect(() => {
     const { pathname } = location;
 
-    if (pathname.startsWith('/account/orders/details/')) {
-      setTitle('Detalhes do pedido');
-    } else {
-      switch (pathname) {
-        case '/account/my-info':
-          setTitle('Minhas informações');
-          break;
-        case '/account/orders':
-          setTitle('Meus pedidos');
-          break;
-        default:
-          setTitle('Minha Conta');
-      }
-    }
+    setTitle(
+      pathname.startsWith('/account/orders/details/')
+        ? 'Detalhes do pedido'
+        : routeTitles[pathname] || 'Minha conta',
+    );
   }, [location]);
 
   return (
@@ -56,22 +36,7 @@ export const UserPage = () => {
         <article className="user-page">
           <div className="menu-mobile">
             <h1>{title}</h1>
-            {mobile && (
-              <button className="btn-menu-mobile" onClick={handleMobileMenu}>
-                {mobileMenu ? 'Fechar' : 'Menu'}
-              </button>
-            )}
-
-            {mobile && mobileMenu && (
-              <nav className="nav-menu">
-                <Link to="/">Home</Link>
-                <Link to={'/account/my-info'}>Minhas informações</Link>
-                <Link to={'/account/orders'}>Meus pedidos</Link>
-                <Button type="logout" onClick={handleLogout}>
-                  Sair
-                </Button>
-              </nav>
-            )}
+            <MenuMobile />
           </div>
           <Outlet />
         </article>
