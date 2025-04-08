@@ -79,7 +79,7 @@ const GET_PRODUCT_ID = (productId) => {
 
 const GET_ORDER_ID = (orderId) => {
   return {
-    url: `${BASE_API_URL}/api/orders/details/${orderId}`,
+    url: `${BASE_API_URL}/api/orders/${orderId}`,
     options: {
       method: 'GET',
       headers: {
