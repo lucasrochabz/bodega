@@ -1,3 +1,4 @@
+import { Button } from '../Button';
 import './Pagination.css';
 
 export const Pagination = ({ data, currentPage, setCurrentPage }) => {
@@ -15,11 +16,15 @@ export const Pagination = ({ data, currentPage, setCurrentPage }) => {
 
   return (
     <div className="pagination">
-      <button onClick={handlePrevPage}>Anterior</button>
+      <Button type="pagination" onClick={handlePrevPage}>
+        Anterior
+      </Button>
       <span>
         Página {currentPage} de {data.totalPages}
       </span>
-      <button onClick={handleNextPage}>Próximo</button>
+      <Button type="pagination" onClick={handleNextPage}>
+        Próximo
+      </Button>
     </div>
   );
 };
