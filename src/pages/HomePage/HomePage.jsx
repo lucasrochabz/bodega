@@ -5,6 +5,7 @@ import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { Header } from '../../components/Header';
 import { ProductList } from '../../components/ProductList';
+import { Pagination } from '../../components/Pagination';
 import { Footer } from '../../components/Footer';
 import './HomePage.css';
 
@@ -16,18 +17,6 @@ export const HomePage = () => {
   const getProducts = async () => {
     const { url, options } = GET_PRODUCTS(currentPage, pageSize);
     request(url, options);
-  };
-
-  const handleNextPage = () => {
-    if (currentPage < data.totalPages) {
-      setCurrentPage((prevPage) => prevPage + 1);
-    }
-  };
-
-  const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
-    }
   };
 
   useEffect(() => {
@@ -43,13 +32,11 @@ export const HomePage = () => {
       ) : (
         <main className="home">
           <ProductList data={data} />
-          <div className="navegacao">
-            <button onClick={handlePrevPage}>Anterior</button>
-            <span>
-              Página {currentPage} de {data.totalPages}
-            </span>
-            <button onClick={handleNextPage}>Próximo</button>
-          </div>
+          <Pagination
+            data={data}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </main>
       )}
       <Footer />

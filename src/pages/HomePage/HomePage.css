@@ -5,9 +5,3 @@
   min-height: calc(100vh - 130px);
   margin: 0 auto;
 }
-
-.navegacao {
-  text-align: center;
-  margin-top: auto;
-  padding-top: 2rem;
-}
