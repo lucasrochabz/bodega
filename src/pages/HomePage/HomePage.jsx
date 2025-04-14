@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { GET_PRODUCTS } from '../../helpers/apiHelper';
+import { GET_PRODUCTS } from '../../api/products';
 import { useFetch } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';

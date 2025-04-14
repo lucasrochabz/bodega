@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PUT_ORDER_UPDATE } from '../../helpers/apiHelper';
+import { PUT_ORDER_UPDATE } from '../../api/orders';
 import { useFetch } from '../../hooks';
 import { Input } from '../Input';
 import { Button } from '../Button';

@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { GET_ORDERS_USER } from '../../helpers/apiHelper';
+import { GET_ORDERS_USER } from '../../api/orders';
 import { useFetch } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';

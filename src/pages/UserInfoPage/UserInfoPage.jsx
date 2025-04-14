@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useFetch } from '../../hooks';
-import { GET_USER } from '../../helpers/apiHelper';
+import { GET_USER } from '../../api/users';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
