@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import { GET_ADDRESS_DATA, PUT_USER_UPDATE } from '../../helpers/apiHelper';
+import { GET_ADDRESS_DATA } from '../../api/address';
+import { PUT_USER_UPDATE } from '../../api/users';
 import { useFetch } from '../../hooks/useFetch';
 import { Input } from '../Input';
 import { Button } from '../Button';

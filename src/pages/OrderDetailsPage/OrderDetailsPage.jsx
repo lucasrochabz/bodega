@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { GET_ORDER_ID } from '../../helpers/apiHelper';
+import { GET_ORDER_ID } from '../../api/orders';
 import { useFetch } from '../../hooks';
 import { Head } from '../../components/Head';
 import { OrderDetails } from '../../components/OrderDetails';

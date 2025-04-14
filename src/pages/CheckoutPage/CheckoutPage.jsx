@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
-import { GET_ORDER_ID } from '../../helpers/apiHelper';
+import { GET_ORDER_ID } from '../../api/orders';
 import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Loading } from '../../components/Loading';

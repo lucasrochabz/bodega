@@ -5,6 +5,10 @@ const typesFields = {
     regex: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     message: 'Preencha um email válido.',
   },
+  password: {
+    regex: /^.{1,15}$/,
+    message: 'A senha deve ter até 15 caracteres.',
+  },
 };
 
 export const useForm = (type) => {
@@ -20,7 +24,7 @@ export const useForm = (type) => {
       setError('Preencha um valor.');
       return false;
     } else if (typesFields[type] && !typesFields[type].regex.test(value)) {
-      setError(typesFields[type.message]);
+      setError(typesFields[type].message);
       return false;
     } else {
       setError(null);

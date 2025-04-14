@@ -7,7 +7,7 @@ import { MenuMobile } from '../../components/MenuMobile';
 import { Footer } from '../../components/Footer';
 import './UserPage.css';
 
-export const UserPage = () => {
+const UserPage = () => {
   const location = useLocation();
   const [title, setTitle] = useState('');
 
@@ -46,3 +46,5 @@ export const UserPage = () => {
     </>
   );
 };
+
+export default UserPage;
