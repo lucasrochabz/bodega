@@ -23,7 +23,6 @@
 
 .login-form input {
   border: 1px solid gray;
-  outline: none;
   font-size: 1rem;
   border-radius: 5px;
   padding: 0.8rem;
@@ -33,6 +32,7 @@
 
 .login-form input:hover, 
 .login-form input:focus {
+  outline: none;
   border: 1px solid var(--green-color);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
@@ -43,10 +43,10 @@
   color: var(--green-color);
   font-size: 1.5rem;
   font-weight: bold;
-  outline: none;
 }
 
 .btn-signup-form:hover,
 .btn-signup-form:focus {
+  outline: none;
   text-decoration: underline;
 }
