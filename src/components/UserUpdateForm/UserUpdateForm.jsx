@@ -115,6 +115,7 @@ export const UserUpdateForm = ({ dados }) => {
             value={formData.email}
             onChange={handleChange}
             placeholder="exemplo@email.com"
+            readOnly
             required
           />
 
