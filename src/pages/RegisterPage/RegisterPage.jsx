@@ -6,7 +6,7 @@ import { useContext } from 'react';
 import { UserContext } from '../../contexts/UserContext';
 import { Navigate } from 'react-router-dom';
 
-export const RegisterPage = () => {
+const RegisterPage = () => {
   const { login } = useContext(UserContext);
 
   if (login) return <Navigate to={'/account'} />;
@@ -22,3 +22,5 @@ export const RegisterPage = () => {
     </>
   );
 };
+
+export default RegisterPage;

@@ -15,7 +15,7 @@ import { AdminPage } from '../pages/AdminPage/AdminPage';
 
 const UserPage = lazy(() => import('../pages/UserPage'));
 
-export const routes = [
+const routes = [
   {
     path: '/',
     element: <HomePage />,
@@ -60,27 +60,15 @@ export const routes = [
       },
       {
         path: 'my-info',
-        element: (
-          <ProtectedRoute>
-            <UserInfoPage />
-          </ProtectedRoute>
-        ),
+        element: <UserInfoPage />,
       },
       {
         path: 'orders',
-        element: (
-          <ProtectedRoute>
-            <OrdersPage />
-          </ProtectedRoute>
-        ),
+        element: <OrdersPage />,
       },
       {
         path: 'orders/details/:orderId',
-        element: (
-          <ProtectedRoute>
-            <OrderDetailsPage />
-          </ProtectedRoute>
-        ),
+        element: <OrderDetailsPage />,
       },
     ],
   },
@@ -89,3 +77,5 @@ export const routes = [
     element: <AdminPage />,
   },
 ];
+
+export default routes;

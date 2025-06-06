@@ -3,7 +3,7 @@ import { Header } from '../../components/Header';
 import { Footer } from '../../components/Footer';
 import { ProductDetails } from '../../components/ProductDetails';
 
-export const ProductDetailsPage = () => {
+const ProductDetailsPage = () => {
   return (
     <>
       <Head
@@ -16,3 +16,5 @@ export const ProductDetailsPage = () => {
     </>
   );
 };
+
+export default ProductDetails;
