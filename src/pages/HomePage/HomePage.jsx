@@ -9,7 +9,7 @@ import { Pagination } from '../../components/Pagination';
 import { Footer } from '../../components/Footer';
 import './HomePage.css';
 
-export const HomePage = () => {
+const HomePage = () => {
   const { request, loading, data } = useFetch();
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(4);
@@ -43,3 +43,5 @@ export const HomePage = () => {
     </>
   );
 };
+
+export default HomePage;
