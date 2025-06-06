@@ -5,10 +5,12 @@ import './index.css';
 
 const router = createBrowserRouter(routes);
 
-export const App = () => {
+const App = () => {
   return (
     <UserProvider>
       <RouterProvider router={router} />
     </UserProvider>
   );
 };
+
+export default App;

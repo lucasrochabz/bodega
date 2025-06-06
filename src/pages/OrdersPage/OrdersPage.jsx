@@ -6,7 +6,7 @@ import { Loading } from '../../components/Loading';
 import { OrderList } from '../../components/OrderList';
 import './OrdersPage.css';
 
-export const OrdersPage = () => {
+const OrdersPage = () => {
   const { request, loading, data, error } = useFetch();
 
   const getOrders = async () => {
@@ -33,3 +33,5 @@ export const OrdersPage = () => {
     </>
   );
 };
+
+export default OrdersPage;

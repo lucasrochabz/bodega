@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { ProtectedRoute } from '../components/ProtectedRoute';
 import { Loading } from '../components/Loading';
-import { HomePage } from '@/pages/HomePage';
+import { HomePage } from '../pages/HomePage';
 import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { LoginPage } from '../pages/LoginPage';
