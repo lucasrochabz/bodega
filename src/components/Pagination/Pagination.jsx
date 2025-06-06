@@ -1,7 +1,7 @@
 import { Button } from '../Button';
 import './Pagination.css';
 
-export const Pagination = ({ data, currentPage, setCurrentPage }) => {
+const Pagination = ({ data, currentPage, setCurrentPage }) => {
   const handleNextPage = () => {
     if (currentPage < data.totalPages) {
       setCurrentPage((prevPage) => prevPage + 1);
@@ -28,3 +28,5 @@ export const Pagination = ({ data, currentPage, setCurrentPage }) => {
     </div>
   );
 };
+
+export default Pagination;

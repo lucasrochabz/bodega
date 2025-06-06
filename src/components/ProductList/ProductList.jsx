@@ -1,7 +1,7 @@
-import { ProductCard } from '../ProductCard/ProductCard';
+import { ProductCard } from '../ProductCard';
 import './ProductList.css';
 
-export const ProductList = ({ data }) => {
+const ProductList = ({ data }) => {
   return (
     <>
       <section className="product-list">
@@ -12,3 +12,5 @@ export const ProductList = ({ data }) => {
     </>
   );
 };
+
+export default ProductList;

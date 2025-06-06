@@ -11,7 +11,7 @@ import { Welcome } from '../components/Welcome';
 import { UserInfoPage } from '../pages/UserInfoPage';
 import { OrdersPage } from '../pages/OrdersPage';
 import { OrderDetailsPage } from '../pages/OrderDetailsPage';
-import { AdminPage } from '../pages/AdminPage/AdminPage';
+import { AdminPage } from '../pages/AdminPage';
 
 const UserPage = lazy(() => import('../pages/UserPage'));
 

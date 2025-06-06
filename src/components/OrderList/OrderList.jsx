@@ -1,7 +1,7 @@
 import { OrderCard } from '../OrderCard';
 import './OrderList.css';
 
-export const OrderList = ({ orders }) => {
+const OrderList = ({ orders }) => {
   const orderedOrders = orders.sort((a, b) => a.id - b.id);
 
   return (
@@ -12,3 +12,5 @@ export const OrderList = ({ orders }) => {
     </>
   );
 };
+
+export default OrderList;

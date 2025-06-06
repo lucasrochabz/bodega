@@ -7,7 +7,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import './SignUpForm.css';
 
-export const SignUpForm = () => {
+const SignUpForm = () => {
   const { request, loading } = useFetch();
   const navigate = useNavigate();
 
@@ -182,3 +182,5 @@ export const SignUpForm = () => {
     </>
   );
 };
+
+export default SignUpForm;

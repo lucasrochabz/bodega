@@ -1,6 +1,6 @@
 import './Input.css';
 
-export const Input = ({ label, id, setValue, onChange, ...props }) => {
+const Input = ({ label, id, setValue, onChange, ...props }) => {
   const handleChange = (event) => {
     if (setValue) {
       setValue(event.target.value);
@@ -25,3 +25,5 @@ export const Input = ({ label, id, setValue, onChange, ...props }) => {
     </>
   );
 };
+
+export default Input;

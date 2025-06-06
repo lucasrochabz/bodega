@@ -2,7 +2,7 @@ import './Image.css';
 
 import React, { useState } from 'react';
 
-export const Image = ({ alt, ...props }) => {
+const Image = ({ alt, ...props }) => {
   const [skeleton, setSkeleton] = useState(true);
 
   const handleLoad = ({ target }) => {
@@ -17,3 +17,5 @@ export const Image = ({ alt, ...props }) => {
     </div>
   );
 };
+
+export default Image;

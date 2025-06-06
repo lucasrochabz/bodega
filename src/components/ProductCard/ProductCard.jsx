@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './ProductCard.css';
 
-export const ProductCard = ({ item }) => {
+const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
@@ -29,3 +29,5 @@ export const ProductCard = ({ item }) => {
     </div>
   );
 };
+
+export default ProductCard;

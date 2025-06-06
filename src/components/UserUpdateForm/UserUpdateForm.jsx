@@ -6,7 +6,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import './UserUpdateForm.css';
 
-export const UserUpdateForm = ({ dados }) => {
+const UserUpdateForm = ({ dados }) => {
   const { request, loading } = useFetch();
   const [formData, setFormData] = useState({
     first_name: '',
@@ -182,3 +182,5 @@ export const UserUpdateForm = ({ dados }) => {
     </article>
   );
 };
+
+export default UserUpdateForm;
