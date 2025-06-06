@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react';
-import { useLoading } from './useLoading';
+import { useLoading } from './index';
 
-export const useFetch = () => {
+const useFetch = () => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -29,3 +29,5 @@ export const useFetch = () => {
 
   return { request, loading, data, error };
 };
+
+export default useFetch;
