@@ -1,19 +1,19 @@
 import { lazy, Suspense } from 'react';
-import { ProtectedRoute } from './components/ProtectedRoute';
-import { Loading } from './components/Loading';
-import { HomePage } from './pages/HomePage';
-import { ProductDetailsPage } from './pages/ProductDetailsPage';
-import { CheckoutPage } from './pages/CheckoutPage';
-import { LoginPage } from './pages/LoginPage';
-import { RegisterPage } from './pages/RegisterPage';
-import { RecoverPasswordPage } from './pages/RecoverPasswordPage';
-import { Welcome } from './components/Welcome';
-import { UserInfoPage } from './pages/UserInfoPage';
-import { OrdersPage } from './pages/OrdersPage';
-import { OrderDetailsPage } from './pages/OrderDetailsPage';
-import { AdminPage } from './pages/AdminPage/AdminPage';
+import { ProtectedRoute } from '../components/ProtectedRoute';
+import { Loading } from '../components/Loading';
+import { HomePage } from '@/pages/HomePage';
+import { ProductDetailsPage } from '../pages/ProductDetailsPage';
+import { CheckoutPage } from '../pages/CheckoutPage';
+import { LoginPage } from '../pages/LoginPage';
+import { RegisterPage } from '../pages/RegisterPage';
+import { RecoverPasswordPage } from '../pages/RecoverPasswordPage';
+import { Welcome } from '../components/Welcome';
+import { UserInfoPage } from '../pages/UserInfoPage';
+import { OrdersPage } from '../pages/OrdersPage';
+import { OrderDetailsPage } from '../pages/OrderDetailsPage';
+import { AdminPage } from '../pages/AdminPage/AdminPage';
 
-const UserPage = lazy(() => import('./pages/UserPage'));
+const UserPage = lazy(() => import('../pages/UserPage'));
 
 export const routes = [
   {

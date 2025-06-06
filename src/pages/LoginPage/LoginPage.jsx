@@ -7,7 +7,7 @@ import { LoginForm } from '../../components/LoginForm';
 import { Footer } from '../../components/Footer';
 import './LoginPage.css';
 
-export const LoginPage = () => {
+const LoginPage = () => {
   const { login } = useContext(UserContext);
 
   if (login) return <Navigate to={'/'} />;
@@ -24,3 +24,5 @@ export const LoginPage = () => {
     </>
   );
 };
+
+export default LoginPage;
