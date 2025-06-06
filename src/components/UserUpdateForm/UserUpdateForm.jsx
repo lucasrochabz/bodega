@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { GET_ADDRESS_DATA } from '../../api/address';
 import { PUT_USER_UPDATE } from '../../api/users';
-import { useFetch } from '../../hooks/useFetch';
+import { useFetch } from '../../hooks';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './UserUpdateForm.css';
 
-export const UserUpdateForm = ({ dados }) => {
+const UserUpdateForm = ({ dados }) => {
   const { request, loading } = useFetch();
   const [formData, setFormData] = useState({
     first_name: '',
@@ -182,3 +182,5 @@ export const UserUpdateForm = ({ dados }) => {
     </article>
   );
 };
+
+export default UserUpdateForm;

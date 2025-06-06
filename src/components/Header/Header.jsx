@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import './Header.css';
 
-export const Header = () => {
+const Header = () => {
   const { data } = useContext(UserContext);
 
   return (
@@ -19,3 +19,5 @@ export const Header = () => {
     </header>
   );
 };
+
+export default Header;

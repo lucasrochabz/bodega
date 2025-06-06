@@ -7,7 +7,7 @@ import { OrderDetails } from '../../components/OrderDetails';
 import { Loading } from '../../components/Loading';
 import './OrderDetailsPage.css';
 
-export const OrderDetailsPage = () => {
+const OrderDetailsPage = () => {
   const { orderId } = useParams();
   const { request, loading, data, error } = useFetch();
 
@@ -33,3 +33,5 @@ export const OrderDetailsPage = () => {
     </>
   );
 };
+
+export default OrderDetailsPage;

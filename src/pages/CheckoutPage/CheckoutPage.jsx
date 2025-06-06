@@ -11,7 +11,7 @@ import { OrderSummary } from '../../components/OrderSummary';
 import { Footer } from '../../components/Footer';
 import './CheckoutPage.css';
 
-export const CheckoutPage = () => {
+const CheckoutPage = () => {
   const { data } = useContext(UserContext);
   const { orderId } = useParams();
   const { request, loading, data: orderData, error } = useFetch();
@@ -44,3 +44,5 @@ export const CheckoutPage = () => {
     </>
   );
 };
+
+export default CheckoutPage;

@@ -5,7 +5,7 @@ import { useMedia } from '../../hooks';
 import { Button } from '../Button';
 import './MenuMobile.css';
 
-export const MenuMobile = () => {
+const MenuMobile = () => {
   const { userLogout } = useContext(UserContext);
   const navigate = useNavigate();
   const mobile = useMedia('(max-width: 800px)');
@@ -42,3 +42,5 @@ export const MenuMobile = () => {
     </>
   );
 };
+
+export default MenuMobile;

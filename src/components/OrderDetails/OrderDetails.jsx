@@ -2,7 +2,7 @@ import { formattedDate } from '../../utils/dateUtils';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderDetails.css';
 
-export const OrderDetails = ({ order }) => {
+const OrderDetails = ({ order }) => {
   const images = import.meta.glob('/src/assets/images/*', {
     eager: true,
   });
@@ -55,3 +55,5 @@ export const OrderDetails = ({ order }) => {
     </>
   );
 };
+
+export default OrderDetails;

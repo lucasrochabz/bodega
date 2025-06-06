@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { formattedDate } from '../../utils/dateUtils';
 import './OrderCard.css';
 
-export const OrderCard = ({ order }) => {
+const OrderCard = ({ order }) => {
   const navigate = useNavigate();
 
   const handleNavigate = (event, orderId) => {
@@ -26,3 +26,5 @@ export const OrderCard = ({ order }) => {
     </div>
   );
 };
+
+export default OrderCard;

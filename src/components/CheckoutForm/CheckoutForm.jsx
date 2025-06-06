@@ -6,7 +6,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';
 
-export const CheckoutForm = ({ userData, orderData }) => {
+const CheckoutForm = ({ userData, orderData }) => {
   const { request, loading, data, error } = useFetch();
   const navigate = useNavigate();
 
@@ -135,3 +135,5 @@ export const CheckoutForm = ({ userData, orderData }) => {
     </section>
   );
 };
+
+export default CheckoutForm;
