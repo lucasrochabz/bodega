@@ -5,7 +5,7 @@ import { Footer } from '../../components/Footer';
 import { Button } from '../../components/Button';
 import './RecoverPasswordPage.css';
 
-export const RecoverPasswordPage = () => {
+const RecoverPasswordPage = () => {
   return (
     <>
       <Head
@@ -26,3 +26,5 @@ export const RecoverPasswordPage = () => {
     </>
   );
 };
+
+export default RecoverPasswordPage;

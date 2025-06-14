@@ -42,6 +42,44 @@ A aplicação segue boas práticas de desenvolvimento, garantindo uma experiênc
    npm run dev
    ```
 
+### Estrutura do projeto
+
+```bash
+bodega/
+├── cypress/
+│   ├── e2e
+│   ├── fixtures/
+│   └── insertData.js
+│
+├── public/
+│   └── bodega-logo-png
+│
+├── src/
+│   ├── api/
+│   ├── assets/
+│   ├── components/
+│   ├── contexts/
+│   ├── hooks/
+│   ├── pages/
+│   ├── routes/
+│   ├── utils/
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+│
+├── .env.example
+├── .gitignore
+├── config.js
+├── cypress.config.js
+├── eslint.config.js
+├── index.html
+├── package-lock.json
+├── package.json
+├── README.md
+├── vercel.json
+└── vite.config.js
+```
+
 ### Back-end do Projeto
 
 Este projeto possui um Back-end desenvolvido para fornecer os dados e funcionalidades necessárias para o funcionamento desta aplicação. Você pode acessá-lo no repositório:

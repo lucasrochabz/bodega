@@ -3,7 +3,7 @@ import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import './AdminPage.css';
 
-export const AdminPage = () => {
+const AdminPage = () => {
   const [img, setImg] = useState({});
 
   const handleImgChange = ({ target }) => {
@@ -40,3 +40,5 @@ export const AdminPage = () => {
     </section>
   );
 };
+
+export default AdminPage;

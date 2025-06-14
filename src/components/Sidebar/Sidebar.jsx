@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { Button } from '../Button';
 import './Sidebar.css';
 
-export const Sidebar = () => {
+const Sidebar = () => {
   const { userLogout } = useContext(UserContext);
   const navigate = useNavigate();
 
@@ -27,3 +27,5 @@ export const Sidebar = () => {
     </aside>
   );
 };
+
+export default Sidebar;

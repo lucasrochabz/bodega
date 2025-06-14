@@ -10,7 +10,7 @@ import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
 import './ProductDetails.css';
 
-export const ProductDetails = () => {
+const ProductDetails = () => {
   const { login } = useContext(UserContext);
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -125,3 +125,5 @@ export const ProductDetails = () => {
     </>
   );
 };
+
+export default ProductDetails;
