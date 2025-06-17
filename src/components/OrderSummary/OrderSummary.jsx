@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderSummary.css';
 
-export const OrderSummary = ({ orderData }) => {
+const OrderSummary = ({ orderData }) => {
   const delivery = 10;
   const discount = 15;
 
@@ -36,3 +36,5 @@ export const OrderSummary = ({ orderData }) => {
     </section>
   );
 };
+
+export default OrderSummary;

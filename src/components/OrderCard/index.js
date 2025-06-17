@@ -1,1 +1,1 @@
-export { OrderCard } from './OrderCard';
+export { default as OrderCard } from './OrderCard';

@@ -1,7 +1,7 @@
 import { createContext, useEffect, useState } from 'react';
 import { GET_USER } from '../api/users';
 import { POST_LOGIN } from '../api/auth';
-import { useLoading } from '../hooks/useLoading';
+import { useLoading } from '../hooks';
 
 export const UserContext = createContext();
 

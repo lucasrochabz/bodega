@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const Head = (props) => {
+const Head = (props) => {
   useEffect(() => {
     document.title = 'Bodega | ' + props.title;
     document
@@ -10,3 +10,5 @@ export const Head = (props) => {
 
   return null;
 };
+
+export default Head;

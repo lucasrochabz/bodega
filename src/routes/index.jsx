@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { ProtectedRoute } from '../components/ProtectedRoute';
 import { Loading } from '../components/Loading';
-import { HomePage } from '@/pages/HomePage';
+import { HomePage } from '../pages/HomePage';
 import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { LoginPage } from '../pages/LoginPage';
@@ -11,11 +11,11 @@ import { Welcome } from '../components/Welcome';
 import { UserInfoPage } from '../pages/UserInfoPage';
 import { OrdersPage } from '../pages/OrdersPage';
 import { OrderDetailsPage } from '../pages/OrderDetailsPage';
-import { AdminPage } from '../pages/AdminPage/AdminPage';
+import { AdminPage } from '../pages/AdminPage';
 
 const UserPage = lazy(() => import('../pages/UserPage'));
 
-export const routes = [
+const routes = [
   {
     path: '/',
     element: <HomePage />,
@@ -60,27 +60,15 @@ export const routes = [
       },
       {
         path: 'my-info',
-        element: (
-          <ProtectedRoute>
-            <UserInfoPage />
-          </ProtectedRoute>
-        ),
+        element: <UserInfoPage />,
       },
       {
         path: 'orders',
-        element: (
-          <ProtectedRoute>
-            <OrdersPage />
-          </ProtectedRoute>
-        ),
+        element: <OrdersPage />,
       },
       {
         path: 'orders/details/:orderId',
-        element: (
-          <ProtectedRoute>
-            <OrderDetailsPage />
-          </ProtectedRoute>
-        ),
+        element: <OrderDetailsPage />,
       },
     ],
   },
@@ -89,3 +77,5 @@ export const routes = [
     element: <AdminPage />,
   },
 ];
+
+export default routes;

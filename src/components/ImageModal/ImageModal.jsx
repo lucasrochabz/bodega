@@ -1,7 +1,7 @@
 import { Button } from '../Button';
 import './ImageModal.css';
 
-export const ImageModal = ({ imagePath, onClose }) => {
+const ImageModal = ({ imagePath, onClose }) => {
   return (
     <section className="image-modal-container">
       <div className="image-modal">
@@ -11,3 +11,5 @@ export const ImageModal = ({ imagePath, onClose }) => {
     </section>
   );
 };
+
+export default ImageModal;

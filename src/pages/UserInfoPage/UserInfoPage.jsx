@@ -5,7 +5,7 @@ import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
 
-export const UserInfoPage = () => {
+const UserInfoPage = () => {
   const { request, loading, data, error } = useFetch();
 
   const getDataUser = async () => {
@@ -29,3 +29,5 @@ export const UserInfoPage = () => {
     </>
   );
 };
+
+export default UserInfoPage;

@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { Button } from '../Button';
 import './LoginForm.css';
 
-export const LoginForm = () => {
+const LoginForm = () => {
   const { userLogin, loading } = useContext(UserContext);
   const inputElement = useRef(null);
 
@@ -74,3 +74,5 @@ export const LoginForm = () => {
     </section>
   );
 };
+
+export default LoginForm;
