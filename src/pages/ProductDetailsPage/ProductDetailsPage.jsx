@@ -17,4 +17,4 @@ const ProductDetailsPage = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;
