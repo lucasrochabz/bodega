@@ -62,7 +62,6 @@ const UserUpdateForm = ({ dados }) => {
       first_name: dados.first_name,
       last_name: dados.last_name,
       email: dados.email,
-      password: '',
       zip_code: dados.zip_code,
       street: dados.street,
       number: dados.number,
