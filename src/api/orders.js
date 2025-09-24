@@ -2,7 +2,7 @@ import { BASE_API_URL } from '../../config';
 
 const GET_ORDER_ID = (orderId) => {
   return {
-    url: `${BASE_API_URL}/api/orders/${orderId}`,
+    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
     options: {
       method: 'GET',
       headers: {
@@ -14,7 +14,7 @@ const GET_ORDER_ID = (orderId) => {
 
 const GET_ORDERS_USER = (token) => {
   return {
-    url: `${BASE_API_URL}/api/orders/user`,
+    url: `${BASE_API_URL}/api/v1/orders/user`,
     options: {
       method: 'GET',
       headers: {
@@ -27,7 +27,7 @@ const GET_ORDERS_USER = (token) => {
 
 const POST_ORDERS = (token, body) => {
   return {
-    url: `${BASE_API_URL}/api/orders`,
+    url: `${BASE_API_URL}/api/v1/orders`,
     options: {
       method: 'POST',
       headers: {
@@ -41,7 +41,7 @@ const POST_ORDERS = (token, body) => {
 
 const PUT_ORDER_UPDATE = (orderId, body) => {
   return {
-    url: `${BASE_API_URL}/api/orders/${orderId}`,
+    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
     options: {
       method: 'PUT',
       headers: {

@@ -2,7 +2,7 @@ import { BASE_API_URL } from '../../config';
 
 const GET_USER = (token) => {
   return {
-    url: `${BASE_API_URL}/api/users/user`,
+    url: `${BASE_API_URL}/api/v1/users/user`,
     options: {
       method: 'GET',
       headers: {
@@ -15,7 +15,7 @@ const GET_USER = (token) => {
 
 const POST_USERS = (body) => {
   return {
-    url: `${BASE_API_URL}/api/users`,
+    url: `${BASE_API_URL}/api/v1/users`,
     options: {
       method: 'POST',
       headers: {
@@ -28,7 +28,7 @@ const POST_USERS = (body) => {
 
 const PUT_USER_UPDATE = (token, body) => {
   return {
-    url: `${BASE_API_URL}/api/users/update`,
+    url: `${BASE_API_URL}/api/v1/users/update`,
     options: {
       method: 'PUT',
       headers: {
