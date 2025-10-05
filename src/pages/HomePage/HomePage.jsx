@@ -26,20 +26,20 @@ const HomePage = () => {
   return (
     <>
       <Head title="Home" description="Descrição da página Home" />
-      <Header />
       {loading || !data ? (
         <Loading />
       ) : (
         <main className="home">
+          <Header />
           <ProductList data={data} />
           <Pagination
             data={data}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
+          <Footer />
         </main>
       )}
-      <Footer />
     </>
   );
 };

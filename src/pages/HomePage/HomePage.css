@@ -1,7 +1,6 @@
 .home {
   display: flex;
   flex-direction: column;
-  max-width: 1200px;
   min-height: calc(100vh - 130px);
   margin: 0 auto;
 }
