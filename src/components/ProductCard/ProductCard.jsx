@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/paths';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './ProductCard.css';
 
@@ -6,7 +7,7 @@ const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`/products/${item.id}`);
+    navigate(`${ROUTES.PRODUCT_DETAILS_BASE}/${item.id}`);
   };
 
   const images = import.meta.glob('/src/assets/images/*', {

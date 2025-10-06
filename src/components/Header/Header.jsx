@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import { ROUTES } from '../../routes/paths';
 import './Header.css';
 
 const Header = () => {
@@ -9,10 +10,10 @@ const Header = () => {
   return (
     <header className="header-bg">
       <nav className="header">
-        <Link to={'/'} aria-label="Bodega - Home">
+        <Link to={ROUTES.HOME} aria-label="Bodega - Home">
           <span className="logo">Bodega</span>
         </Link>
-        <Link to={data ? '/account' : '/login'} className="btn-header">
+        <Link to={data ? ROUTES.ACCOUNT : ROUTES.LOGIN} className="btn-header">
           {data ? `Olá, ${data.first_name}` : 'Entre ou cadastre-se'}
         </Link>
       </nav>

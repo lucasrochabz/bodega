@@ -4,6 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { GET_PRODUCT_ID } from '../../api/products';
 import { POST_ORDERS } from '../../api/orders';
 import { useFetch } from '../../hooks';
+import { ROUTES } from '../../routes/paths';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Loading } from '../Loading';
 import { Button } from '../Button';
@@ -34,7 +35,7 @@ const ProductDetails = () => {
 
   const isAuhenticated = (login) => {
     if (!login) {
-      navigate('/login');
+      navigate(ROUTES.LOGIN);
       return false;
     }
     return true;
@@ -52,7 +53,7 @@ const ProductDetails = () => {
   };
 
   const handleReturn = () => {
-    navigate('/');
+    navigate(ROUTES.HOME);
   };
 
   useEffect(() => {
@@ -61,7 +62,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     if (orderData) {
-      navigate(`/checkout/${orderData.id}`);
+      navigate(`${ROUTES.CHECKOUT_BASE}/${orderData.id}`);
     }
   }, [orderData]);
 

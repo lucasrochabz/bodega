@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GET_ADDRESS_DATA } from '../../api/address';
 import { POST_USERS } from '../../api/users';
 import { useFetch } from '../../hooks';
+import { ROUTES } from '../../routes/paths';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './SignUpForm.css';
@@ -71,7 +72,7 @@ const SignUpForm = () => {
     setPassword('');
     setZipCode('');
     setNumero('');
-    navigate('/login');
+    navigate(ROUTES.LOGIN);
   };
 
   return (

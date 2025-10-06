@@ -1,6 +1,7 @@
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import { ROUTES } from '../../routes/paths';
 import { Button } from '../Button';
 import './Sidebar.css';
 
@@ -10,14 +11,14 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     userLogout();
-    navigate('/login');
+    navigate(ROUTES.LOGIN);
   };
 
   return (
     <aside className="sidebar">
       <nav className="sidebar-nav">
-        <NavLink to={'/account/my-info'}>Minhas informações</NavLink>
-        <NavLink to={'/account/orders'} end>
+        <NavLink to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</NavLink>
+        <NavLink to={ROUTES.ACCOUNT_ORDERS} end>
           Meus Pedidos
         </NavLink>
         <Button type="logout" onClick={handleLogout}>

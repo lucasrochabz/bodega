@@ -1,9 +1,10 @@
 .product-list {
+  max-width: 1200px;  
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  justify-items: center;
-  align-items: start;
   gap: 2rem;
+  align-items: start;
+  margin: 0 auto;
 }
 
 .price {

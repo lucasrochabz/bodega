@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useMedia } from '../../hooks';
+import { ROUTES } from '../../routes/paths';
 import { Button } from '../Button';
 import './MenuMobile.css';
 
@@ -18,7 +19,7 @@ const MenuMobile = () => {
 
   const handleLogout = () => {
     userLogout();
-    navigate('/login');
+    navigate(ROUTES.LOGIN);
   };
 
   return (
@@ -31,9 +32,9 @@ const MenuMobile = () => {
 
       {mobile && mobileMenu && (
         <nav className="nav-menu">
-          <Link to="/">Home</Link>
-          <Link to={'/account/my-info'}>Minhas informações</Link>
-          <Link to={'/account/orders'}>Meus pedidos</Link>
+          <Link to={ROUTES.HOME}>Home</Link>
+          <Link to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</Link>
+          <Link to={ROUTES.ACCOUNT_ORDERS}>Meus pedidos</Link>
           <Button type="logout" onClick={handleLogout}>
             Sair
           </Button>

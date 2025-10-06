@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/paths';
 import { formattedDate } from '../../utils/dateUtils';
 import './OrderCard.css';
 
@@ -7,7 +8,7 @@ const OrderCard = ({ order }) => {
 
   const handleNavigate = (event, orderId) => {
     event.preventDefault();
-    navigate(`/account/orders/details/${orderId}`);
+    navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderId}`);
   };
 
   return (

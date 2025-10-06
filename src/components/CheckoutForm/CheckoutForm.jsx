@@ -1,7 +1,8 @@
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PUT_ORDER_UPDATE } from '../../api/orders';
 import { useFetch } from '../../hooks';
+import { PUT_ORDER_UPDATE } from '../../api/orders';
+import { ROUTES } from '../../routes/paths';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';
@@ -21,7 +22,7 @@ const CheckoutForm = ({ userData, orderData }) => {
 
   useEffect(() => {
     if (data) {
-      navigate(`/account/orders/details/${data.id}`);
+      navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${data.id}`);
     }
   });
 

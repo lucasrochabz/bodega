@@ -33,6 +33,7 @@ const OrdersPage = () => {
       <input
         className="search"
         type="search"
+        name="search"
         placeholder="Buscar..."
         onChange={(e) => setSearch(e.target.value)}
         value={search}
