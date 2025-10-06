@@ -6,7 +6,7 @@ import { Input } from '../Input';
 import { Button } from '../Button';
 import './UserUpdateForm.css';
 
-const UserUpdateForm = ({ dados }) => {
+const UserUpdateForm = ({ data }) => {
   const { request, loading } = useFetch();
   const [formData, setFormData] = useState({
     first_name: '',
@@ -59,17 +59,17 @@ const UserUpdateForm = ({ dados }) => {
 
   useEffect(() => {
     setFormData({
-      first_name: dados.first_name,
-      last_name: dados.last_name,
-      email: dados.email,
-      zip_code: dados.zip_code,
-      street: dados.street,
-      number: dados.number,
-      neighborhood: dados.neighborhood,
-      city: dados.city,
-      state: dados.state,
+      first_name: data.first_name,
+      last_name: data.last_name,
+      email: data.email,
+      zip_code: data.zip_code,
+      street: data.street,
+      number: data.number,
+      neighborhood: data.neighborhood,
+      city: data.city,
+      state: data.state,
     });
-  }, [dados]);
+  }, [data]);
 
   useEffect(() => {
     getAddressData();

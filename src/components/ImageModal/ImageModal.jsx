@@ -1,4 +1,3 @@
-import { Button } from '../Button';
 import './ImageModal.css';
 
 const ImageModal = ({ imagePath, onClose }) => {

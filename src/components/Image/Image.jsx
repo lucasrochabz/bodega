@@ -1,6 +1,5 @@
+import { useState } from 'react';
 import './Image.css';
-
-import React, { useState } from 'react';
 
 const Image = ({ alt, ...props }) => {
   const [skeleton, setSkeleton] = useState(true);

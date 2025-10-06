@@ -25,7 +25,7 @@ const UserInfoPage = () => {
         title="Informações"
         description="Descrição da página Minhas Informações"
       />
-      {loading || !data ? <Loading /> : <UserUpdateForm dados={data} />}
+      {loading || !data ? <Loading /> : <UserUpdateForm data={data} />}
     </>
   );
 };

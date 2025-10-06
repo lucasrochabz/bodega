@@ -15,6 +15,7 @@ const ProductDetails = () => {
   const { login } = useContext(UserContext);
   const { productId } = useParams();
   const navigate = useNavigate();
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const {
     request: productRequest,
@@ -73,14 +74,12 @@ const ProductDetails = () => {
   const imagePath =
     images[`/src/assets/images/${productData?.image_path}`]?.default;
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleImageClick = (event) => {
     event.stopPropagation();
     setIsModalOpen(true);
   };
 
-  const handleCloseModal = (event) => {
+  const handleCloseModal = () => {
     setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen);
   };
 

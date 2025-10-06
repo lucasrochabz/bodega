@@ -1,5 +1,5 @@
 .order-summary {
-  box-shadow: 0 0 5px var(--green-color);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   padding: 1rem;
   align-self: flex-start;
