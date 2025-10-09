@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './Input.css';
 
 const Input = ({ label, id, setValue, onChange, ...props }) => {
@@ -24,6 +25,14 @@ const Input = ({ label, id, setValue, onChange, ...props }) => {
       />
     </>
   );
+};
+
+Input.propTypes = {
+  label: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  setValue: PropTypes.func,
+  onChange: PropTypes.func,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
 export default Input;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import './ImageModal.css';
 
 const ImageModal = ({ imagePath, onClose }) => {
@@ -9,6 +10,11 @@ const ImageModal = ({ imagePath, onClose }) => {
       </div>
     </section>
   );
+};
+
+ImageModal.propTypes = {
+  imagePath: PropTypes.string.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ImageModal;

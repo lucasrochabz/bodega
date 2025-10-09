@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import './Image.css';
 
@@ -15,6 +16,10 @@ const Image = ({ alt, ...props }) => {
       <img onLoad={handleLoad} className="img-content" alt={alt} {...props} />
     </div>
   );
+};
+
+Image.propTypes = {
+  alt: PropTypes.string(),
 };
 
 export default Image;

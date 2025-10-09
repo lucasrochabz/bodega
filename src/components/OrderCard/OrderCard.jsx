@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../routes/paths';
 import { formattedDate } from '../../utils/dateUtils';
@@ -26,6 +27,16 @@ const OrderCard = ({ order }) => {
       </div>
     </div>
   );
+};
+
+OrderCard.propTypes = {
+  order: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image_path: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
+  }),
 };
 
 export default OrderCard;
