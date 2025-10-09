@@ -6,7 +6,7 @@ import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
-import { RecoverPasswordPage } from '../pages/RecoverPasswordPage';
+import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
 import { ResetPasswordPage } from '../pages/ResetPasswordPage';
 import { Welcome } from '../components/Welcome';
 import { UserInfoPage } from '../pages/UserInfoPage';
@@ -30,7 +30,7 @@ const routes = [
   },
   {
     path: ROUTES.FORGOT_PASSWORD,
-    element: <RecoverPasswordPage />,
+    element: <ForgotPasswordPage />,
   },
   {
     path: `${ROUTES.RESET_PASSWORD}`,
