@@ -65,7 +65,7 @@ const LoginForm = () => {
         </Button>
       </form>
 
-      <Link to={ROUTES.RECOVER_PASSWORD} style={{ padding: '1rem 0' }}>
+      <Link to={ROUTES.FORGOT_PASSWORD} style={{ padding: '1rem 0' }}>
         Perdeu a senha?
       </Link>
 

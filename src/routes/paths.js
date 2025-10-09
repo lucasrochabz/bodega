@@ -3,7 +3,8 @@ export const ROUTES = {
   HOME: '/',
   LOGIN: '/login',
   REGISTER: '/register',
-  RECOVER_PASSWORD: '/recover-password',
+  FORGOT_PASSWORD: '/forgot-password',
+  RESET_PASSWORD: '/reset-password',
 
   PRODUCT_DETAILS_BASE: '/product',
   CHECKOUT_BASE: '/checkout',

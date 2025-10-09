@@ -1,0 +1,63 @@
+import { useEffect, useState } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
+import { useFetch } from '../../hooks';
+import { POST_RESET_PASSWORD } from '../../api/auth';
+import { ROUTES } from '../../routes/paths';
+import { Head } from '../../components/Head';
+import { Header } from '../../components/Header';
+import { Footer } from '../../components/Footer';
+import { Button } from '../../components/Button';
+import './ResetPasswordPage.css';
+
+const ResetPasswordPage = () => {
+  const { request, results } = useFetch();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
+  const navigate = useNavigate();
+  const [newPassword, setNewPassword] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { url, options } = POST_RESET_PASSWORD({ token, newPassword });
+    request(url, options);
+  };
+
+  useEffect(() => {
+    if (results.success) {
+      alert('Senha redefinida com sucesso');
+      navigate(ROUTES.LOGIN);
+    }
+  }, [results, navigate]);
+
+  return (
+    <>
+      <Head
+        title="Redefinir senha"
+        description="Descrição da página Redefinir senha"
+      />
+
+      <Header />
+      <main className="auth-layout">
+        <section className="recover-password">
+          <h1 className="default-title">Redefinir senha</h1>
+          <form onSubmit={handleSubmit} className="recover-password-form">
+            <input
+              type="password"
+              id="newPassword"
+              name="newPassword"
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
+              required
+            />
+
+            <Button type="primary">Redefinir senha</Button>
+          </form>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+};
+
+export default ResetPasswordPage;

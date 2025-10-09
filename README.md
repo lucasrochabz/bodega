@@ -58,6 +58,11 @@ bodega/
 │   ├── api/
 │   ├── assets/
 │   ├── components/
+│   │   └── MyComponent/
+│   │       ├── MyComponent.jsx/
+│   │       ├── MyComponent.css/
+│   │       └── index.js/
+│   │
 │   ├── contexts/
 │   ├── hooks/
 │   ├── pages/

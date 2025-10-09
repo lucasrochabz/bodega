@@ -7,7 +7,7 @@ import { OrderList } from '../../components/OrderList';
 import './OrdersPage.css';
 
 const OrdersPage = () => {
-  const { request, loading, data, error } = useFetch();
+  const { request, loading, results, error } = useFetch();
   const [search, setSearch] = useState('');
 
   const getOrders = async () => {
@@ -17,11 +17,11 @@ const OrdersPage = () => {
     request(url, options);
   };
 
-  const filtredOrders = data?.filter((item) =>
+  const filtredOrders = results?.data.filter((item) =>
     item.id.toString().includes(search),
   );
 
-  const ordersToShow = search ? filtredOrders : data;
+  const ordersToShow = search ? filtredOrders : results?.data;
 
   useEffect(() => {
     getOrders();
@@ -38,7 +38,7 @@ const OrdersPage = () => {
         onChange={(e) => setSearch(e.target.value)}
         value={search}
       />
-      {loading || !data ? (
+      {loading || !results?.data ? (
         <Loading />
       ) : (
         <section className="orders-page">

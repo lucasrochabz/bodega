@@ -1,22 +1,19 @@
-import { lazy, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
 import { ROUTES } from './paths';
 import { ProtectedRoute } from '../components/ProtectedRoute';
-import { Loading } from '../components/Loading';
 import { HomePage } from '../pages/HomePage';
 import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
 import { RecoverPasswordPage } from '../pages/RecoverPasswordPage';
+import { ResetPasswordPage } from '../pages/ResetPasswordPage';
 import { Welcome } from '../components/Welcome';
 import { UserInfoPage } from '../pages/UserInfoPage';
 import { OrdersPage } from '../pages/OrdersPage';
 import { OrderDetailsPage } from '../pages/OrderDetailsPage';
 import { AdminPage } from '../pages/AdminPage';
 import { NotFoundPage } from '../pages/NotFoundPage';
-
-const UserPage = lazy(() => import('../pages/UserPage'));
 
 const routes = [
   {
@@ -32,8 +29,12 @@ const routes = [
     element: <RegisterPage />,
   },
   {
-    path: ROUTES.RECOVER_PASSWORD,
+    path: ROUTES.FORGOT_PASSWORD,
     element: <RecoverPasswordPage />,
+  },
+  {
+    path: `${ROUTES.RESET_PASSWORD}`,
+    element: <ResetPasswordPage />,
   },
   {
     path: `${ROUTES.PRODUCT_DETAILS_BASE}/:productId`,
@@ -49,34 +50,22 @@ const routes = [
   },
   {
     path: ROUTES.ACCOUNT,
-    element: (
-      <Suspense fallback={<Loading />}>
-        <ProtectedRoute>
-          <UserPage />
-        </ProtectedRoute>
-      </Suspense>
-    ),
+    lazy: async () => {
+      const { UserPage } = await import('../pages/UserPage');
+      return {
+        element: (
+          <ProtectedRoute>
+            <UserPage />
+          </ProtectedRoute>
+        ),
+      };
+    },
     children: [
-      {
-        path: '',
-        element: <Welcome />,
-      },
-      {
-        path: 'my-info',
-        element: <UserInfoPage />,
-      },
-      {
-        path: 'orders',
-        element: <OrdersPage />,
-      },
-      {
-        path: 'orders/details/:orderId',
-        element: <OrderDetailsPage />,
-      },
-      {
-        path: '*',
-        element: <Navigate to={ROUTES.NOT_FOUND} replace />,
-      },
+      { path: '', element: <Welcome /> },
+      { path: 'my-info', element: <UserInfoPage /> },
+      { path: 'orders', element: <OrdersPage /> },
+      { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },
+      { path: '*', element: <Navigate to={ROUTES.NOT_FOUND} replace /> },
     ],
   },
   {

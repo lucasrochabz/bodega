@@ -9,7 +9,7 @@ import './OrderDetailsPage.css';
 
 const OrderDetailsPage = () => {
   const { orderId } = useParams();
-  const { request, loading, data, error } = useFetch();
+  const { request, loading, results, error } = useFetch();
 
   const getOrder = async () => {
     const { url, options } = GET_ORDER_ID(orderId);
@@ -23,11 +23,11 @@ const OrderDetailsPage = () => {
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
-      {loading || !data ? (
+      {loading || !results?.data ? (
         <Loading />
       ) : (
         <article className="order-details-container">
-          <OrderDetails order={data} />
+          <OrderDetails order={results.data} />
         </article>
       )}
     </>

@@ -14,7 +14,7 @@ import './CheckoutPage.css';
 const CheckoutPage = () => {
   const { data } = useContext(UserContext);
   const { orderId } = useParams();
-  const { request, loading, data: orderData, error } = useFetch();
+  const { request, loading, results: orderResults, error } = useFetch();
 
   const getOrder = async () => {
     const { url, options } = GET_ORDER_ID(orderId);
@@ -31,12 +31,12 @@ const CheckoutPage = () => {
       <Header />
       <h2 className="title">Finalizar Compra</h2>
 
-      {loading || !data || !orderData ? (
+      {loading || !data || !orderResults?.data ? (
         <Loading />
       ) : (
         <main className="checkout-page">
-          <CheckoutForm userData={data} orderData={orderData} />
-          <OrderSummary orderData={orderData} />
+          <CheckoutForm userData={data} orderData={orderResults.data} />
+          <OrderSummary orderData={orderResults.data} />
         </main>
       )}
 

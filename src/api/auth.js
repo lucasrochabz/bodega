@@ -13,4 +13,15 @@ const POST_LOGIN = (body) => {
   };
 };
 
-export { POST_LOGIN };
+const POST_RESET_PASSWORD = ({ token, newPassword }) => {
+  return {
+    url: `${BASE_API_URL}/api/v1/auth/reset-password?token=${token}`,
+    options: {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ newPassword }),
+    },
+  };
+};
+
+export { POST_LOGIN, POST_RESET_PASSWORD };
