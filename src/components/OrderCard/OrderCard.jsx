@@ -33,7 +33,6 @@ OrderCard.propTypes = {
   order: PropTypes.shape({
     id: PropTypes.number.isRequired,
     name: PropTypes.string.isRequired,
-    image_path: PropTypes.string.isRequired,
     status: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
   }),

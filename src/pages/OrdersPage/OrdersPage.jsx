@@ -7,15 +7,8 @@ import { OrderList } from '../../components/OrderList';
 import './OrdersPage.css';
 
 const OrdersPage = () => {
-  const { request, loading, results, error } = useFetch();
+  const { request, loading, results } = useFetch();
   const [search, setSearch] = useState('');
-
-  const getOrders = async () => {
-    const token = localStorage.getItem('token');
-
-    const { url, options } = GET_ORDERS_USER(token);
-    request(url, options);
-  };
 
   const filtredOrders = results?.data.filter((item) =>
     item.id.toString().includes(search),
@@ -24,8 +17,15 @@ const OrdersPage = () => {
   const ordersToShow = search ? filtredOrders : results?.data;
 
   useEffect(() => {
+    const getOrders = async () => {
+      const token = localStorage.getItem('token');
+
+      const { url, options } = GET_ORDERS_USER(token);
+      request(url, options);
+    };
+
     getOrders();
-  }, []);
+  }, [request]);
 
   return (
     <>

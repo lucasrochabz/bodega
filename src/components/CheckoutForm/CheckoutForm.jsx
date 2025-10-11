@@ -9,7 +9,7 @@ import { Button } from '../Button';
 import './CheckoutForm.css';
 
 const CheckoutForm = ({ userData, orderData }) => {
-  const { request, loading, results, error } = useFetch();
+  const { request, results } = useFetch();
   const navigate = useNavigate();
 
   const handleMakePayment = async (event) => {

@@ -14,16 +14,16 @@ import './CheckoutPage.css';
 const CheckoutPage = () => {
   const { data } = useContext(UserContext);
   const { orderId } = useParams();
-  const { request, loading, results: orderResults, error } = useFetch();
-
-  const getOrder = async () => {
-    const { url, options } = GET_ORDER_ID(orderId);
-    request(url, options);
-  };
+  const { request, loading, results } = useFetch();
 
   useEffect(() => {
+    const getOrder = async () => {
+      const { url, options } = GET_ORDER_ID(orderId);
+      request(url, options);
+    };
+
     getOrder();
-  }, []);
+  }, [orderId, request]);
 
   return (
     <>
@@ -31,12 +31,12 @@ const CheckoutPage = () => {
       <Header />
       <h2 className="title">Finalizar Compra</h2>
 
-      {loading || !data || !orderResults?.data ? (
+      {loading || !data || !results?.data ? (
         <Loading />
       ) : (
         <main className="checkout-page">
-          <CheckoutForm userData={data} orderData={orderResults.data} />
-          <OrderSummary orderData={orderResults.data} />
+          <CheckoutForm userData={data} orderData={results.data} />
+          <OrderSummary orderData={results.data} />
         </main>
       )}
 

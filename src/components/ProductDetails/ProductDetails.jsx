@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { POST_ORDERS } from '../../api/orders';
@@ -92,6 +93,22 @@ const ProductDetails = ({ product, loading, isLogin }) => {
       </section>
     </>
   );
+};
+
+ProductDetails.propTypes = {
+  loading: PropTypes.bool.isRequired,
+  isLogin: PropTypes.bool.isRequired,
+  product: PropTypes.shape({
+    success: PropTypes.bool.isRequired,
+    message: PropTypes.string.isRequired,
+    data: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      image_path: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+      price: PropTypes.string.isRequired,
+      description: PropTypes.string.isRequired,
+    }),
+  }),
 };
 
 export default ProductDetails;

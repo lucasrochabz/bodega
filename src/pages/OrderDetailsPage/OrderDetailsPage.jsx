@@ -9,16 +9,16 @@ import './OrderDetailsPage.css';
 
 const OrderDetailsPage = () => {
   const { orderId } = useParams();
-  const { request, loading, results, error } = useFetch();
-
-  const getOrder = async () => {
-    const { url, options } = GET_ORDER_ID(orderId);
-    request(url, options);
-  };
+  const { request, loading, results } = useFetch();
 
   useEffect(() => {
+    const getOrder = async () => {
+      const { url, options } = GET_ORDER_ID(orderId);
+      request(url, options);
+    };
+
     getOrder();
-  }, [orderId]);
+  }, [orderId, request]);
 
   return (
     <>

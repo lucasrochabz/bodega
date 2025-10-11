@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { OrderCard } from '../OrderCard';
 import './OrderList.css';
 
@@ -11,6 +12,14 @@ const OrderList = ({ orders }) => {
       ))}
     </>
   );
+};
+
+OrderList.propTypes = {
+  orders: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+    }),
+  ).isRequired,
 };
 
 export default OrderList;

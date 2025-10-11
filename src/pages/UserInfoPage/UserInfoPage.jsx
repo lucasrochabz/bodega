@@ -6,18 +6,18 @@ import { Loading } from '../../components/Loading';
 import { UserUpdateForm } from '../../components/UserUpdateForm';
 
 const UserInfoPage = () => {
-  const { request, loading, results, error } = useFetch();
-
-  const getDataUser = async () => {
-    const token = localStorage.getItem('token');
-
-    const { url, options } = GET_USER(token);
-    request(url, options);
-  };
+  const { request, loading, results } = useFetch();
 
   useEffect(() => {
+    const getDataUser = async () => {
+      const token = localStorage.getItem('token');
+
+      const { url, options } = GET_USER(token);
+      request(url, options);
+    };
+
     getDataUser();
-  }, []);
+  }, [request]);
 
   return (
     <>

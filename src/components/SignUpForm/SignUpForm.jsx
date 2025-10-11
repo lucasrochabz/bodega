@@ -23,30 +23,30 @@ const SignUpForm = () => {
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
 
-  const getAddressData = async () => {
-    if (zipCode.length !== 8) {
-      setEndereco('');
-      setBairro('');
-      setCidade('');
-      setEstado('');
-      return;
-    }
-    const { url, options } = GET_ADDRESS_DATA(zipCode);
-    const response = await fetch(url, options);
-
-    const cepResult = await response.json();
-    if (cepResult.erro) {
-      alert('CEP inválido');
-      return;
-    }
-
-    setEndereco(cepResult.logradouro);
-    setBairro(cepResult.bairro);
-    setCidade(cepResult.localidade);
-    setEstado(cepResult.uf);
-  };
-
   useEffect(() => {
+    const getAddressData = async () => {
+      if (zipCode.length !== 8) {
+        setEndereco('');
+        setBairro('');
+        setCidade('');
+        setEstado('');
+        return;
+      }
+      const { url, options } = GET_ADDRESS_DATA(zipCode);
+      const response = await fetch(url, options);
+
+      const cepResult = await response.json();
+      if (cepResult.erro) {
+        alert('CEP inválido');
+        return;
+      }
+
+      setEndereco(cepResult.logradouro);
+      setBairro(cepResult.bairro);
+      setCidade(cepResult.localidade);
+      setEstado(cepResult.uf);
+    };
+
     getAddressData();
   }, [zipCode]);
 

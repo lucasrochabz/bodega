@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState, useEffect } from 'react';
 import { GET_ADDRESS_DATA } from '../../api/address';
 import { PUT_USER_UPDATE } from '../../api/users';
@@ -20,35 +21,6 @@ const UserUpdateForm = ({ data }) => {
     state: '',
   });
 
-  const getAddressData = async () => {
-    if (formData.zip_code.length !== 8) {
-      setFormData((prev) => ({
-        ...prev,
-        street: '',
-        neighborhood: '',
-        city: '',
-        state: '',
-      }));
-      return;
-    }
-    const { url, options } = GET_ADDRESS_DATA(formData.zip_code);
-    const response = await fetch(url, options);
-
-    const cepResult = await response.json();
-    if (cepResult.erro) {
-      alert('CEP inválido');
-      return;
-    }
-
-    setFormData((prev) => ({
-      ...prev,
-      street: cepResult.logradouro,
-      neighborhood: cepResult.bairro,
-      city: cepResult.localidade,
-      state: cepResult.uf,
-    }));
-  };
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -56,6 +28,48 @@ const UserUpdateForm = ({ data }) => {
       [name]: value,
     }));
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const token = localStorage.getItem('token');
+
+    const { url, options } = PUT_USER_UPDATE(token, formData);
+    request(url, options);
+  };
+
+  useEffect(() => {
+    const getAddressData = async () => {
+      if (formData.zip_code.length !== 8) {
+        setFormData((prev) => ({
+          ...prev,
+          street: '',
+          neighborhood: '',
+          city: '',
+          state: '',
+        }));
+        return;
+      }
+      const { url, options } = GET_ADDRESS_DATA(formData.zip_code);
+      const response = await fetch(url, options);
+
+      const cepResult = await response.json();
+      if (cepResult.erro) {
+        alert('CEP inválido');
+        return;
+      }
+
+      setFormData((prev) => ({
+        ...prev,
+        street: cepResult.logradouro,
+        neighborhood: cepResult.bairro,
+        city: cepResult.localidade,
+        state: cepResult.uf,
+      }));
+    };
+
+    getAddressData();
+  }, [formData.zip_code]);
 
   useEffect(() => {
     setFormData({
@@ -70,19 +84,6 @@ const UserUpdateForm = ({ data }) => {
       state: data.state,
     });
   }, [data]);
-
-  useEffect(() => {
-    getAddressData();
-  }, [formData.zip_code]);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const token = localStorage.getItem('token');
-
-    const { url, options } = PUT_USER_UPDATE(token, formData);
-    request(url, options);
-  };
 
   return (
     <article className="user-info-page" onSubmit={handleSubmit}>
@@ -180,6 +181,20 @@ const UserUpdateForm = ({ data }) => {
       </section>
     </article>
   );
+};
+
+UserUpdateForm.propTypes = {
+  data: PropTypes.shape({
+    first_name: PropTypes.string.isRequired,
+    last_name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    zip_code: PropTypes.string.isRequired,
+    street: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+    neighborhood: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+  }),
 };
 
 export default UserUpdateForm;
