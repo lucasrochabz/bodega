@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { GET_ORDERS_USER } from '../../api/orders';
 import { useFetch } from '../../hooks';
 import { Head } from '../../components/Head';
@@ -7,27 +7,42 @@ import { OrderList } from '../../components/OrderList';
 import './OrdersPage.css';
 
 const OrdersPage = () => {
-  const { request, loading, data, error } = useFetch();
+  const { request, loading, results } = useFetch();
+  const [search, setSearch] = useState('');
 
-  const getOrders = async () => {
-    const token = localStorage.getItem('token');
+  const filtredOrders = results?.data.filter((item) =>
+    item.id.toString().includes(search),
+  );
 
-    const { url, options } = GET_ORDERS_USER(token);
-    request(url, options);
-  };
+  const ordersToShow = search ? filtredOrders : results?.data;
 
   useEffect(() => {
+    const getOrders = async () => {
+      const token = localStorage.getItem('token');
+
+      const { url, options } = GET_ORDERS_USER(token);
+      request(url, options);
+    };
+
     getOrders();
-  }, []);
+  }, [request]);
 
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
-      {loading || !data ? (
+      <input
+        className="search"
+        type="search"
+        name="search"
+        placeholder="Buscar..."
+        onChange={(e) => setSearch(e.target.value)}
+        value={search}
+      />
+      {loading || !results?.data ? (
         <Loading />
       ) : (
         <section className="orders-page">
-          <OrderList orders={data} />
+          <OrderList orders={ordersToShow} />
         </section>
       )}
     </>

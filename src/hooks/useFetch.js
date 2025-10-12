@@ -3,21 +3,21 @@ import { useLoading } from './index';
 
 const useFetch = () => {
   const { loading, startLoading, stopLoading } = useLoading();
-  const [data, setData] = useState(null);
+  const [results, setResults] = useState(null);
   const [error, setError] = useState(null);
 
   const request = useCallback(async (url, options) => {
     startLoading();
     try {
       const response = await fetch(url, options);
+      const results = await response.json();
 
       if (!response.ok) {
-        const results = await response.json();
-        throw new Error(results.message);
+        throw new Error(results.message || 'Erro na requisição.');
       }
 
-      const results = await response.json();
-      setData(results.data);
+      setResults(results);
+      return results;
     } catch (error) {
       setError(error.message);
       console.error(error.message);
@@ -27,7 +27,7 @@ const useFetch = () => {
     }
   }, []);
 
-  return { request, loading, data, error };
+  return { request, loading, results, error };
 };
 
 export default useFetch;

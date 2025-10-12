@@ -11,13 +11,13 @@ const UserPage = () => {
   const location = useLocation();
   const [title, setTitle] = useState('');
 
-  const routeTitles = {
-    '/account/my-info': 'Minhas informações',
-    '/account/orders': 'Meus pedidos',
-  };
-
   useEffect(() => {
     const { pathname } = location;
+
+    const routeTitles = {
+      '/account/my-info': 'Minhas informações',
+      '/account/orders': 'Meus pedidos',
+    };
 
     setTitle(
       pathname.startsWith('/account/orders/details/')

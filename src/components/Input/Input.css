@@ -15,5 +15,5 @@
 .input:focus {
   outline: none;
   border: 1px solid var(--green-color);
-  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }

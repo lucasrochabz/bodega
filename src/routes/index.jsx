@@ -1,31 +1,47 @@
-import { lazy, Suspense } from 'react';
+import { Navigate } from 'react-router-dom';
+import { ROUTES } from './paths';
 import { ProtectedRoute } from '../components/ProtectedRoute';
-import { Loading } from '../components/Loading';
 import { HomePage } from '../pages/HomePage';
 import { ProductDetailsPage } from '../pages/ProductDetailsPage';
 import { CheckoutPage } from '../pages/CheckoutPage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';
-import { RecoverPasswordPage } from '../pages/RecoverPasswordPage';
+import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
+import { ResetPasswordPage } from '../pages/ResetPasswordPage';
 import { Welcome } from '../components/Welcome';
 import { UserInfoPage } from '../pages/UserInfoPage';
 import { OrdersPage } from '../pages/OrdersPage';
 import { OrderDetailsPage } from '../pages/OrderDetailsPage';
 import { AdminPage } from '../pages/AdminPage';
-
-const UserPage = lazy(() => import('../pages/UserPage'));
+import { NotFoundPage } from '../pages/NotFoundPage';
 
 const routes = [
   {
-    path: '/',
+    path: ROUTES.HOME,
     element: <HomePage />,
   },
   {
-    path: '/products/:productId',
+    path: ROUTES.LOGIN,
+    element: <LoginPage />,
+  },
+  {
+    path: ROUTES.REGISTER,
+    element: <RegisterPage />,
+  },
+  {
+    path: ROUTES.FORGOT_PASSWORD,
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: `${ROUTES.RESET_PASSWORD}`,
+    element: <ResetPasswordPage />,
+  },
+  {
+    path: `${ROUTES.PRODUCT_DETAILS_BASE}/:productId`,
     element: <ProductDetailsPage />,
   },
   {
-    path: '/checkout/:orderId',
+    path: `${ROUTES.CHECKOUT_BASE}/:orderId`,
     element: (
       <ProtectedRoute>
         <CheckoutPage />
@@ -33,48 +49,38 @@ const routes = [
     ),
   },
   {
-    path: '/login',
-    element: <LoginPage />,
-  },
-  {
-    path: '/register',
-    element: <RegisterPage />,
-  },
-  {
-    path: '/recover-password',
-    element: <RecoverPasswordPage />,
-  },
-  {
-    path: '/account',
-    element: (
-      <Suspense fallback={<Loading />}>
-        <ProtectedRoute>
-          <UserPage />
-        </ProtectedRoute>
-      </Suspense>
-    ),
+    path: ROUTES.ACCOUNT,
+    lazy: async () => {
+      const { UserPage } = await import('../pages/UserPage');
+      return {
+        element: (
+          <ProtectedRoute>
+            <UserPage />
+          </ProtectedRoute>
+        ),
+      };
+    },
     children: [
-      {
-        path: '',
-        element: <Welcome />,
-      },
-      {
-        path: 'my-info',
-        element: <UserInfoPage />,
-      },
-      {
-        path: 'orders',
-        element: <OrdersPage />,
-      },
-      {
-        path: 'orders/details/:orderId',
-        element: <OrderDetailsPage />,
-      },
+      { path: '', element: <Welcome /> },
+      { path: 'my-info', element: <UserInfoPage /> },
+      { path: 'orders', element: <OrdersPage /> },
+      { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },
+      { path: '*', element: <Navigate to={ROUTES.NOT_FOUND} replace /> },
     ],
   },
   {
-    path: '/admin',
+    path: ROUTES.ADMIN,
     element: <AdminPage />,
+  },
+
+  // Rotas não encontradas
+  {
+    path: ROUTES.NOT_FOUND,
+    element: <NotFoundPage />,
+  },
+  {
+    path: '*',
+    element: <NotFoundPage />,
   },
 ];
 

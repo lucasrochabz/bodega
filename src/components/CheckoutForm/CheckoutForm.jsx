@@ -1,13 +1,15 @@
+import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { PUT_ORDER_UPDATE } from '../../api/orders';
 import { useFetch } from '../../hooks';
+import { PUT_ORDER_UPDATE } from '../../api/orders';
+import { ROUTES } from '../../routes/paths';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './CheckoutForm.css';
 
 const CheckoutForm = ({ userData, orderData }) => {
-  const { request, loading, data, error } = useFetch();
+  const { request, results } = useFetch();
   const navigate = useNavigate();
 
   const handleMakePayment = async (event) => {
@@ -20,8 +22,8 @@ const CheckoutForm = ({ userData, orderData }) => {
   };
 
   useEffect(() => {
-    if (data) {
-      navigate(`/account/orders/details/${data.id}`);
+    if (results) {
+      navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${results.data.id}`);
     }
   });
 
@@ -134,6 +136,23 @@ const CheckoutForm = ({ userData, orderData }) => {
       </form>
     </section>
   );
+};
+
+CheckoutForm.propTypes = {
+  userData: PropTypes.shape({
+    first_name: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
+    zip_code: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    street: PropTypes.string.isRequired,
+    number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    neighborhood: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+  }).isRequired,
+
+  orderData: PropTypes.shape({
+    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+  }).isRequired,
 };
 
 export default CheckoutForm;

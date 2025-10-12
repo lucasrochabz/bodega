@@ -1,6 +1,7 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
+import { ROUTES } from '../../routes/paths';
 import { Button } from '../Button';
 import './LoginForm.css';
 
@@ -64,11 +65,11 @@ const LoginForm = () => {
         </Button>
       </form>
 
-      <Link to="/recover-password" style={{ padding: '1rem 0' }}>
+      <Link to={ROUTES.FORGOT_PASSWORD} style={{ padding: '1rem 0' }}>
         Perdeu a senha?
       </Link>
 
-      <Link to={'/register'} className="btn-signup-form">
+      <Link to={ROUTES.REGISTER} className="btn-signup-form">
         Criar conta
       </Link>
     </section>

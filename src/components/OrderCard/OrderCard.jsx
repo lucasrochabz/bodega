@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../routes/paths';
 import { formattedDate } from '../../utils/dateUtils';
 import './OrderCard.css';
 
@@ -7,7 +9,7 @@ const OrderCard = ({ order }) => {
 
   const handleNavigate = (event, orderId) => {
     event.preventDefault();
-    navigate(`/account/orders/details/${orderId}`);
+    navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderId}`);
   };
 
   return (
@@ -25,6 +27,15 @@ const OrderCard = ({ order }) => {
       </div>
     </div>
   );
+};
+
+OrderCard.propTypes = {
+  order: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
+  }),
 };
 
 export default OrderCard;

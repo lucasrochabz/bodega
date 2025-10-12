@@ -2,7 +2,7 @@ import { BASE_API_URL } from '../../config';
 
 const GET_PRODUCTS = (currentPage, pageSize) => {
   return {
-    url: `${BASE_API_URL}/api/products?page=${currentPage}&pageSize=${pageSize}`,
+    url: `${BASE_API_URL}/api/v1/products?page=${currentPage}&pageSize=${pageSize}`,
     options: {
       method: 'GET',
       headers: {
@@ -14,7 +14,7 @@ const GET_PRODUCTS = (currentPage, pageSize) => {
 
 const GET_PRODUCT_ID = (productId) => {
   return {
-    url: `${BASE_API_URL}/api/products/${productId}`,
+    url: `${BASE_API_URL}/api/v1/products/${productId}`,
     options: {
       method: 'GET',
       headers: {

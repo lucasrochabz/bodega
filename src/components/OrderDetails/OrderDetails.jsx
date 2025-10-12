@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { formattedDate } from '../../utils/dateUtils';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderDetails.css';
@@ -54,6 +55,23 @@ const OrderDetails = ({ order }) => {
       </div>
     </>
   );
+};
+
+OrderDetails.propTypes = {
+  order: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    image_path: PropTypes.string.isRequired,
+    street: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+    city: PropTypes.string.isRequired,
+    neighborhood: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zip_code: PropTypes.string.isRequired,
+    created_at: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default OrderDetails;

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderSummary.css';
@@ -35,6 +36,12 @@ const OrderSummary = ({ orderData }) => {
       </div>
     </section>
   );
+};
+
+OrderSummary.propTypes = {
+  orderData: PropTypes.shape({
+    price: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default OrderSummary;

@@ -10,36 +10,36 @@ import { Footer } from '../../components/Footer';
 import './HomePage.css';
 
 const HomePage = () => {
-  const { request, loading, data } = useFetch();
+  const { request, results, loading } = useFetch();
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize] = useState(4);
 
-  const getProducts = async () => {
-    const { url, options } = GET_PRODUCTS(currentPage, pageSize);
-    request(url, options);
-  };
-
   useEffect(() => {
+    const getProducts = async () => {
+      const { url, options } = GET_PRODUCTS(currentPage, pageSize);
+      request(url, options);
+    };
+
     getProducts();
-  }, [currentPage]);
+  }, [currentPage, pageSize, request]);
 
   return (
     <>
       <Head title="Home" description="Descrição da página Home" />
-      <Header />
-      {loading || !data ? (
+      {loading || !results ? (
         <Loading />
       ) : (
         <main className="home">
-          <ProductList data={data} />
+          <Header />
+          <ProductList data={results.data} />
           <Pagination
-            data={data}
+            data={results.data}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
+          <Footer />
         </main>
       )}
-      <Footer />
     </>
   );
 };

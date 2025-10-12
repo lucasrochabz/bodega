@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { GET_ADDRESS_DATA } from '../../api/address';
 import { POST_USERS } from '../../api/users';
 import { useFetch } from '../../hooks';
+import { ROUTES } from '../../routes/paths';
 import { Input } from '../Input';
 import { Button } from '../Button';
 import './SignUpForm.css';
@@ -22,30 +23,30 @@ const SignUpForm = () => {
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
 
-  const getAddressData = async () => {
-    if (zipCode.length !== 8) {
-      setEndereco('');
-      setBairro('');
-      setCidade('');
-      setEstado('');
-      return;
-    }
-    const { url, options } = GET_ADDRESS_DATA(zipCode);
-    const response = await fetch(url, options);
-
-    const cepResult = await response.json();
-    if (cepResult.erro) {
-      alert('CEP inválido');
-      return;
-    }
-
-    setEndereco(cepResult.logradouro);
-    setBairro(cepResult.bairro);
-    setCidade(cepResult.localidade);
-    setEstado(cepResult.uf);
-  };
-
   useEffect(() => {
+    const getAddressData = async () => {
+      if (zipCode.length !== 8) {
+        setEndereco('');
+        setBairro('');
+        setCidade('');
+        setEstado('');
+        return;
+      }
+      const { url, options } = GET_ADDRESS_DATA(zipCode);
+      const response = await fetch(url, options);
+
+      const cepResult = await response.json();
+      if (cepResult.erro) {
+        alert('CEP inválido');
+        return;
+      }
+
+      setEndereco(cepResult.logradouro);
+      setBairro(cepResult.bairro);
+      setCidade(cepResult.localidade);
+      setEstado(cepResult.uf);
+    };
+
     getAddressData();
   }, [zipCode]);
 
@@ -71,7 +72,7 @@ const SignUpForm = () => {
     setPassword('');
     setZipCode('');
     setNumero('');
-    navigate('/login');
+    navigate(ROUTES.LOGIN);
   };
 
   return (

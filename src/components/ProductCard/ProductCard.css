@@ -1,15 +1,16 @@
 .product-card {
   background-color: var(--bg-color);
-  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   max-width: 300px;
   border-radius: 5px;
-  transition: 0.3s;
   cursor: pointer;
   overflow: hidden;
+  transition: 0.3s;
 }
 
 .product-card:hover {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 1.0);
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  transform: scale(1.01);
 }
 
 .product-card img {

@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import './Pagination.css';
 
@@ -27,6 +28,14 @@ const Pagination = ({ data, currentPage, setCurrentPage }) => {
       </Button>
     </div>
   );
+};
+
+Pagination.propTypes = {
+  data: PropTypes.shape({
+    totalPages: PropTypes.number.isRequired,
+  }),
+  currentPage: PropTypes.number.isRequired,
+  setCurrentPage: PropTypes.func.isRequired,
 };
 
 export default Pagination;

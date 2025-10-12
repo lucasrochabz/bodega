@@ -1,4 +1,4 @@
-## Bodega v1.0.0
+## Bodega v1.1.0
 
 ![Imagem do projeto](docs/projeto-bodega01.png)
 ![Imagem do projeto](docs/projeto-bodega02.png)
@@ -58,6 +58,11 @@ bodega/
 │   ├── api/
 │   ├── assets/
 │   ├── components/
+│   │   └── MyComponent/
+│   │       ├── MyComponent.jsx/
+│   │       ├── MyComponent.css/
+│   │       └── index.js/
+│   │
 │   ├── contexts/
 │   ├── hooks/
 │   ├── pages/
