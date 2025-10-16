@@ -25,7 +25,7 @@ export const UserProvider = ({ children }) => {
       }
 
       const results = await response.json();
-      setData(results.data);
+      setData(results.data[0]);
       setLogin(true);
     } catch (error) {
       console.error('Erro ao buscar dados do usuário:', error.message);
