@@ -35,7 +35,11 @@ const ProductDetailsPage = () => {
         <Loading />
       ) : (
         results && (
-          <ProductDetails product={results} loading={loading} isLogin={login} />
+          <ProductDetails
+            product={results.data[0]}
+            loading={loading}
+            isLogin={login}
+          />
         )
       )}
       <Footer />

@@ -18,9 +18,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
   const { request } = useFetch();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const productData = product.data;
-  const imagePath =
-    images[`/src/assets/images/${productData.image_path}`]?.default;
+  const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
 
   const handleReturn = () => {
     navigate(ROUTES.HOME);
@@ -46,7 +44,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 
     const { url, options } = POST_ORDERS(token, {
       status: 'rascunho',
-      products: [{ product_id: product.data.id, quantity: 1 }],
+      products: [{ product_id: product.id, quantity: 1 }],
     });
 
     const response = await request(url, options);
@@ -59,18 +57,14 @@ const ProductDetails = ({ product, loading, isLogin }) => {
   return (
     <>
       <section className="product-details">
-        <img
-          src={imagePath}
-          alt={productData.name}
-          onClick={handleImageClick}
-        />
+        <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
         <div className="product-details-info">
-          <h1>{productData.name}</h1>
+          <h1>{product.name}</h1>
           <span className="info-price">
-            {formattedPriceToBRL(productData.price)}
+            {formattedPriceToBRL(product.price)}
           </span>
-          <p className="info-descricao">{productData.description}</p>
+          <p className="info-descricao">{product.description}</p>
 
           <div className="btn-controls">
             <button className="btn-cancel-order" onClick={handleReturn}>
@@ -99,15 +93,11 @@ ProductDetails.propTypes = {
   loading: PropTypes.bool.isRequired,
   isLogin: PropTypes.bool.isRequired,
   product: PropTypes.shape({
-    success: PropTypes.bool.isRequired,
-    message: PropTypes.string.isRequired,
-    data: PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      image_path: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      price: PropTypes.string.isRequired,
-      description: PropTypes.string.isRequired,
-    }),
+    id: PropTypes.number.isRequired,
+    image_path: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    price: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
   }),
 };
 
