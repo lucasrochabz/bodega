@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { productPropType } from '../../types/propTypes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { POST_ORDERS } from '../../api/orders';
@@ -92,13 +93,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 ProductDetails.propTypes = {
   loading: PropTypes.bool.isRequired,
   isLogin: PropTypes.bool.isRequired,
-  product: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    image_path: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }),
+  product: productPropType.isRequired,
 };
 
 export default ProductDetails;
