@@ -28,7 +28,7 @@ const UserInfoPage = () => {
       {loading || !results?.data ? (
         <Loading />
       ) : (
-        <UserUpdateForm data={results.data[0]} />
+        <UserUpdateForm data={results.data} />
       )}
     </>
   );
