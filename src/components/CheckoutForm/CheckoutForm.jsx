@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { addressPropType } from '../../types/propTypes';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../hooks';
@@ -53,7 +54,7 @@ const CheckoutForm = ({ userData, orderData }) => {
             type="number"
             label="CEP"
             id="cep"
-            value={userData.zip_code}
+            value={userData.address.zip_code}
             placeholder="60000000"
           />
 
@@ -61,7 +62,7 @@ const CheckoutForm = ({ userData, orderData }) => {
             type="text"
             label="Endereço"
             id="street"
-            value={userData.street}
+            value={userData.address.street}
             readOnly
           />
 
@@ -69,14 +70,14 @@ const CheckoutForm = ({ userData, orderData }) => {
             type="number"
             label="Número"
             id="number"
-            value={userData.number}
+            value={userData.address.number}
           />
 
           <Input
             type="text"
             label="Bairro"
             id="neighborhood"
-            value={userData.neighborhood}
+            value={userData.address.neighborhood}
             readOnly
           />
 
@@ -84,7 +85,7 @@ const CheckoutForm = ({ userData, orderData }) => {
             type="text"
             label="Cidade"
             id="city"
-            value={userData.city}
+            value={userData.address.city}
             readOnly
           />
 
@@ -92,7 +93,7 @@ const CheckoutForm = ({ userData, orderData }) => {
             type="text"
             label="Estado"
             id="state"
-            value={userData.state}
+            value={userData.address.state}
             readOnly
           />
         </div>
@@ -142,12 +143,7 @@ CheckoutForm.propTypes = {
   userData: PropTypes.shape({
     first_name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    zip_code: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    street: PropTypes.string.isRequired,
-    number: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-    neighborhood: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
+    address: addressPropType.isRequired,
   }).isRequired,
 
   orderData: PropTypes.shape({

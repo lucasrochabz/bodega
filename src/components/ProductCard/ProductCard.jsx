@@ -1,5 +1,5 @@
-import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
+import { productPropType } from '../../types/propTypes';
 import { ROUTES } from '../../routes/paths';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './ProductCard.css';
@@ -33,13 +33,7 @@ const ProductCard = ({ item }) => {
 };
 
 ProductCard.propTypes = {
-  item: PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    image_path: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-  }),
+  item: productPropType,
 };
 
 export default ProductCard;

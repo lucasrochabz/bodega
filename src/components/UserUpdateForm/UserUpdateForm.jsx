@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import { addressPropType } from '../../types/propTypes';
 import { useState, useEffect } from 'react';
 import { GET_ADDRESS_DATA } from '../../api/address';
 import { PUT_USER_UPDATE } from '../../api/users';
@@ -76,12 +77,12 @@ const UserUpdateForm = ({ data }) => {
       first_name: data.first_name,
       last_name: data.last_name,
       email: data.email,
-      zip_code: data.zip_code,
-      street: data.street,
-      number: data.number,
-      neighborhood: data.neighborhood,
-      city: data.city,
-      state: data.state,
+      zip_code: data.address.zip_code,
+      street: data.address.street,
+      number: data.address.number,
+      neighborhood: data.address.neighborhood,
+      city: data.address.city,
+      state: data.address.state,
     });
   }, [data]);
 
@@ -188,12 +189,7 @@ UserUpdateForm.propTypes = {
     first_name: PropTypes.string.isRequired,
     last_name: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
-    zip_code: PropTypes.string.isRequired,
-    street: PropTypes.string.isRequired,
-    number: PropTypes.number.isRequired,
-    neighborhood: PropTypes.string.isRequired,
-    city: PropTypes.string.isRequired,
-    state: PropTypes.string.isRequired,
+    address: addressPropType.isRequired,
   }),
 };
 
