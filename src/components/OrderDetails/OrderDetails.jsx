@@ -1,5 +1,4 @@
 import PropTypes from 'prop-types';
-import { addressPropType } from '../../types/propTypes';
 import { formattedDate } from '../../utils/dateUtils';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import './OrderDetails.css';
@@ -35,22 +34,22 @@ const OrderDetails = ({ order }) => {
             <h3>Informações de entrega</h3>
           </li>
           <li>
-            Endereço: <span>{order.address.street}</span>
+            Endereço: <span>{order.street}</span>
           </li>
           <li>
-            Número: <span>{order.address.number}</span>
+            Número: <span>{order.number}</span>
           </li>
           <li>
-            Bairro: <span>{order.address.neighborhood}</span>
+            Bairro: <span>{order.neighborhood}</span>
           </li>
           <li>
             Cidade:{' '}
             <span>
-              {order.address.city}, {order.address.state}
+              {order.city}, {order.state}
             </span>
           </li>
           <li>
-            CEP: <span>{order.address.zip_code}</span>
+            CEP: <span>{order.zip_code}</span>
           </li>
         </ul>
       </div>
@@ -66,7 +65,12 @@ OrderDetails.propTypes = {
     status: PropTypes.string.isRequired,
     image_path: PropTypes.string.isRequired,
     created_at: PropTypes.string.isRequired,
-    address: addressPropType.isRequired,
+    street: PropTypes.string.isRequired,
+    number: PropTypes.number.isRequired,
+    neighborhood: PropTypes.string.isRequired,
+    city: PropTypes.string.isRequired,
+    state: PropTypes.string.isRequired,
+    zip_code: PropTypes.string.isRequired,
   }).isRequired,
 };
 
