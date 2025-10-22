@@ -3,23 +3,28 @@
   align-self: start;
 }
 
-.sidebar-nav {
+.sidebar-list {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.sidebar-nav a {
+.sidebar-list a {
   background-color: var(--gray-color);
   color: var(--darkgreen-color);
+  display: block;
   font-weight: bold;
-  padding: 1rem;
   border-radius: 5px;
   cursor: pointer;
+  padding: 1rem;
 }
 
-.sidebar-nav a:hover,
-.sidebar-nav .active {
+.sidebar-list button {
+  width: 100%;
+}
+
+.sidebar-list a:hover,
+.sidebar-list a.active {
   background-color: var(--green-color);
   color: var(--bg-color);
   font-weight: bold;
@@ -31,7 +36,7 @@
     width: auto;
     margin-bottom: 2rem;
   }
-  .sidebar-nav {
+  .sidebar-list {
     flex-direction: row;
     padding: 0 1rem;
     white-space: nowrap;

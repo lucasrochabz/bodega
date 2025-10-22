@@ -16,14 +16,22 @@ const Sidebar = () => {
 
   return (
     <aside className="sidebar">
-      <nav className="sidebar-nav">
-        <NavLink to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</NavLink>
-        <NavLink to={ROUTES.ACCOUNT_ORDERS} end>
-          Meus Pedidos
-        </NavLink>
-        <Button type="logout" onClick={handleLogout}>
-          Sair
-        </Button>
+      <nav aria-label="Menu lateral">
+        <ul className="sidebar-list">
+          <li>
+            <NavLink to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</NavLink>
+          </li>
+          <li>
+            <NavLink to={ROUTES.ACCOUNT_ORDERS} end>
+              Meus Pedidos
+            </NavLink>
+          </li>
+          <li>
+            <Button type="logout" onClick={handleLogout}>
+              Sair
+            </Button>
+          </li>
+        </ul>
       </nav>
     </aside>
   );

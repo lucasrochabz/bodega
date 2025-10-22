@@ -31,13 +31,23 @@ const MenuMobile = () => {
       )}
 
       {mobile && mobileMenu && (
-        <nav className="nav-menu">
-          <Link to={ROUTES.HOME}>Home</Link>
-          <Link to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</Link>
-          <Link to={ROUTES.ACCOUNT_ORDERS}>Meus pedidos</Link>
-          <Button type="logout" onClick={handleLogout}>
-            Sair
-          </Button>
+        <nav aria-label="Menu principal">
+          <ul className="menu-list">
+            <li>
+              <Link to={ROUTES.HOME}>Home</Link>
+            </li>
+            <li>
+              <Link to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</Link>
+            </li>
+            <li>
+              <Link to={ROUTES.ACCOUNT_ORDERS}>Meus pedidos</Link>
+            </li>
+            <li>
+              <Button type="logout" onClick={handleLogout}>
+                Sair
+              </Button>
+            </li>
+          </ul>
         </nav>
       )}
     </>
