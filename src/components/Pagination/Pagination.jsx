@@ -17,13 +17,13 @@ const Pagination = ({ data, currentPage, setCurrentPage }) => {
 
   return (
     <div className="pagination">
-      <Button type="pagination" onClick={handlePrevPage}>
+      <Button variant="pagination" onClick={handlePrevPage}>
         Anterior
       </Button>
       <span>
         Página {currentPage} de {data.totalPages}
       </span>
-      <Button type="pagination" onClick={handleNextPage}>
+      <Button variant="pagination" onClick={handleNextPage}>
         Próximo
       </Button>
     </div>

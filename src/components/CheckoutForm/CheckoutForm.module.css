@@ -1,10 +1,10 @@
-.checkout-form {
+.form {
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
-.checkout-default {
+.wrapper {
   display: flex;
   flex-direction: column;
   border: 1px solid var(--green-color);
@@ -13,7 +13,7 @@
 }
 
 /* Estilo do select */
-.checkout-default select {
+.wrapper select {
   padding: 0.8rem;
   font-size: 1rem;
   background-color: #fff;
@@ -24,36 +24,36 @@
 }
 
 /* Estilo do select ao focar */
-.checkout-default select:focus {
+.wrapper select:focus {
   outline: none;
   border: 1px solid var(--green-color);
   box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
 /* Estilo das opções */
-.checkout-default option {
+.wrapper option {
   font-size: 1rem;
 }
 
 /* Estilo para a opção selecionada */
-.checkout-default option:checked {
+.wrapper option:checked {
   background-color: var(--green-color);
   color: white;
 }
 
 /* Estilo da opção desabilitada */
-.checkout-default option[disabled] {
+.wrapper option[disabled] {
   color: gray;
 }
 
-.checkout-default span {
+.wrapper span {
   margin-bottom: 1rem;
   font-size: 1.2rem;
   font-weight: bold;
 }
 
 @media (max-width: 800px) {
-  .checkout {
+  .container {
     padding: 0 1rem;
   }
 }

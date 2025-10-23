@@ -175,7 +175,7 @@ const SignUpForm = () => {
             required
           />
 
-          <Button type="primary" disabled={loading}>
+          <Button variant="primary" disabled={loading}>
             Cadastrar
           </Button>
         </form>

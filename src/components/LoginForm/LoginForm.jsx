@@ -71,7 +71,7 @@ const LoginForm = () => {
           </button>
         </div>
 
-        <Button type="primary" disabled={loading}>
+        <Button variant="primary" disabled={loading}>
           {loading ? 'Aguarde...' : 'Entrar'}
         </Button>
       </form>

@@ -73,7 +73,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
             </button>
 
             <Button
-              type="secondary"
+              variant="secondary"
               disabled={loading}
               onClick={handleFinalizeOrder}
             >

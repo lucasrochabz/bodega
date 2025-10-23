@@ -7,7 +7,7 @@ import { PUT_ORDER_UPDATE } from '../../api/orders';
 import { ROUTES } from '../../routes/paths';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import './CheckoutForm.css';
+import styles from './CheckoutForm.module.css';
 
 const CheckoutForm = ({ userData, orderData }) => {
   const { request, results } = useFetch();
@@ -29,9 +29,9 @@ const CheckoutForm = ({ userData, orderData }) => {
   });
 
   return (
-    <section className="checkout">
-      <form onSubmit={handleMakePayment} className="checkout-form">
-        <div className="checkout-default">
+    <section className={styles.container}>
+      <form className={styles.form} onSubmit={handleMakePayment}>
+        <div className={styles.wrapper}>
           <span>Informações Pessoais</span>
           <Input
             type="text"
@@ -48,7 +48,7 @@ const CheckoutForm = ({ userData, orderData }) => {
           />
         </div>
 
-        <div className="checkout-default">
+        <div className={styles.wrapper}>
           <span>Informações de entrega</span>
           <Input
             type="number"
@@ -98,7 +98,7 @@ const CheckoutForm = ({ userData, orderData }) => {
           />
         </div>
 
-        <div className="checkout-default">
+        <div className={styles.wrapper}>
           <span>Informações de pagamento</span>
 
           <label htmlFor="card-brand">Marca do cartão</label>
@@ -133,7 +133,7 @@ const CheckoutForm = ({ userData, orderData }) => {
           <Input type="number" label="CVV" id="card_value" placeholder="000" />
         </div>
 
-        <Button type="primary">Realizar Pagamento</Button>
+        <Button variant="primary">Realizar Pagamento</Button>
       </form>
     </section>
   );

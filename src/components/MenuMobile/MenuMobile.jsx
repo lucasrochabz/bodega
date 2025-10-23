@@ -43,7 +43,7 @@ const MenuMobile = () => {
               <Link to={ROUTES.ACCOUNT_ORDERS}>Meus pedidos</Link>
             </li>
             <li>
-              <Button type="logout" onClick={handleLogout}>
+              <Button variant="logout" onClick={handleLogout}>
                 Sair
               </Button>
             </li>

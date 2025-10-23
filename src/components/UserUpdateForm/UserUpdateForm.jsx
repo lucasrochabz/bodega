@@ -175,7 +175,7 @@ const UserUpdateForm = ({ data }) => {
             required
           />
 
-          <Button type="primary" disabled={loading}>
+          <Button variant="primary" disabled={loading}>
             Atualizar
           </Button>
         </form>

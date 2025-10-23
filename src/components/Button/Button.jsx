@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
-import './Button.css';
+import styles from './Button.module.css';
 
-const Button = ({ children, ...props }) => {
+const Button = ({ variant, children, ...props }) => {
   return (
-    <button {...props} className={`btn btn-${props.type}`}>
+    <button {...props} className={`${styles.btn} ${styles[variant]}`}>
       {children}
     </button>
   );
@@ -11,7 +11,7 @@ const Button = ({ children, ...props }) => {
 
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  type: PropTypes.string,
+  variant: PropTypes.oneOf(['primary', 'secondary', 'logout', 'pagination']),
 };
 
 export default Button;

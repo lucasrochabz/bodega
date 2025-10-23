@@ -55,7 +55,7 @@ const ResetPasswordPage = () => {
               className="input"
             />
 
-            <Button type="primary">Redefinir senha</Button>
+            <Button variant="primary">Redefinir senha</Button>
           </form>
         </section>
       </main>

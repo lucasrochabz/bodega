@@ -26,7 +26,7 @@ const AdminPage = () => {
           onChange={handleImgChange}
         />
 
-        <Button type="primary">Enviar</Button>
+        <Button variant="primary">Enviar</Button>
       </form>
 
       <div>

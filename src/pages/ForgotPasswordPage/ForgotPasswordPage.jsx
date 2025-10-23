@@ -50,7 +50,7 @@ const ForgotPasswordPage = () => {
               className="input"
             />
 
-            <Button type="primary">Enviar email</Button>
+            <Button variant="primary">Enviar email</Button>
           </form>
         </section>
       </main>

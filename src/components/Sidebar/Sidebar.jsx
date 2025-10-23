@@ -27,7 +27,7 @@ const Sidebar = () => {
             </NavLink>
           </li>
           <li>
-            <Button type="logout" onClick={handleLogout}>
+            <Button variant="logout" onClick={handleLogout}>
               Sair
             </Button>
           </li>
