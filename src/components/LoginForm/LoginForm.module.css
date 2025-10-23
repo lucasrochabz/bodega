@@ -1,4 +1,4 @@
-.login-field {
+.container {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -6,22 +6,22 @@
   gap: 1rem;
 }
 
-.default-title {
+.title {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: var(--green-color);
   font-size: 3rem;
 }
 
-.login-form {
+.form {
   display: flex;
   flex-direction: column;
 }
 
-.login-form label {
+.form label {
   margin-bottom: 0.4rem;
 }
 
-.login-form input {
+.form input {
   border: 1px solid gray;
   font-size: 1rem;
   border-radius: 5px;
@@ -30,14 +30,34 @@
   margin-bottom: 1rem;
 }
 
-.login-form input:hover, 
-.login-form input:focus {
+.form input:hover, 
+.form input:focus {
   outline: none;
   border: 1px solid var(--green-color);
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-.btn-signup-form {
+.wrapper  {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper input {
+  width: 100%;
+  padding-right: 90px;
+}
+
+.btnPassword {
+  position: absolute;
+  cursor: pointer;
+  background: none;
+  border: none;
+  right: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.btnSignupForm {
   align-self: flex-start;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: var(--green-color);
@@ -45,8 +65,8 @@
   font-weight: bold;
 }
 
-.btn-signup-form:hover,
-.btn-signup-form:focus {
+.btnSignupForm:hover,
+.btnSignupForm:focus {
   outline: none;
   text-decoration: underline;
 }
