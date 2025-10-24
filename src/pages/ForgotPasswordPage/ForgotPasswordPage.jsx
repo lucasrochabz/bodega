@@ -13,13 +13,11 @@ const ForgotPasswordPage = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(email);
 
     const { url, options } = POST_FORGOT_PASSWORD(email);
     const response = await request(url, options);
 
     if (response) {
-      console.log(response);
       alert('Email enviado.');
       window.location.href = response.resetUrl;
     }
