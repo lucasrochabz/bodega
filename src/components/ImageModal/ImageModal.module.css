@@ -1,4 +1,4 @@
-.image-modal-container {
+.container {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,7 +11,7 @@
   z-index: 1000;
 }
 
-.image-modal {
+.wrapper {
   background-color: #fff;
   padding: 1rem;
   border-radius: 10px;
@@ -30,10 +30,10 @@
 }
 
 @media (max-width: 800px) {
-  .image-modal {
+  .wrapper {
     margin: 0 1rem;
   }
-  .image-modal img {
+  .wrapper img {
     width: 100%;
   }
 }

@@ -4,7 +4,7 @@ import { UserContext } from '../../contexts/UserContext';
 import { useMedia } from '../../hooks';
 import { ROUTES } from '../../routes/paths';
 import { Button } from '../Button';
-import './MenuMobile.css';
+import styles from './MenuMobile.module.css';
 
 const MenuMobile = () => {
   const { userLogout } = useContext(UserContext);
@@ -25,14 +25,14 @@ const MenuMobile = () => {
   return (
     <>
       {mobile && (
-        <button className="btn-menu-mobile" onClick={handleMobileMenu}>
+        <button className={styles.btnMenuMobile} onClick={handleMobileMenu}>
           {mobileMenu ? 'Fechar' : 'Menu'}
         </button>
       )}
 
       {mobile && mobileMenu && (
         <nav aria-label="Menu principal">
-          <ul className="menu-list">
+          <ul className={styles.menuList}>
             <li>
               <Link to={ROUTES.HOME}>Home</Link>
             </li>

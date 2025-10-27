@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { formattedDate } from '../../utils/dateUtils';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
-import './OrderDetails.css';
+import styles from './OrderDetails.module.css';
 
 const OrderDetails = ({ order }) => {
   const images = import.meta.glob('/src/assets/images/*', {
@@ -12,14 +12,14 @@ const OrderDetails = ({ order }) => {
 
   return (
     <>
-      <div className="order-details">
-        <div className="order-details-head">
+      <div className={styles.orderDetails}>
+        <div className={styles.orderDetailsHead}>
           <p>Número do pedido: {order.id}</p>
           <span>Pedido realizado em: {formattedDate(order.created_at)}</span>
           <p>Vendido e entregue por: Bodega</p>
         </div>
 
-        <div className="resume">
+        <div className={styles.resume}>
           <img src={imagePath} alt={order.name} />
 
           <div>
@@ -29,7 +29,7 @@ const OrderDetails = ({ order }) => {
           </div>
         </div>
 
-        <ul className="delivery">
+        <ul className={styles.delivery}>
           <li>
             <h3>Informações de entrega</h3>
           </li>

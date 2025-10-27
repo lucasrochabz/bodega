@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../types/propTypes';
 import { ProductCard } from '../ProductCard';
-import './ProductList.css';
+import styles from './ProductList.module.css';
 
 const ProductList = ({ data }) => {
   return (
     <>
-      <section className="product-list">
+      <section className={styles.productList}>
         {data.results.map((item) => (
           <ProductCard key={item.id} item={item} />
         ))}

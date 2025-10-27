@@ -80,7 +80,7 @@ const LoginForm = () => {
         Perdeu a senha?
       </Link>
 
-      <Link to={ROUTES.REGISTER} className={styles.btnSignupForm}>
+      <Link to={ROUTES.REGISTER} className={styles.btnForm}>
         Criar conta
       </Link>
     </section>

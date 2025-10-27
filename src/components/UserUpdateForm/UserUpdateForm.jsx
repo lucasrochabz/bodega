@@ -6,7 +6,7 @@ import { PUT_USER_UPDATE } from '../../api/users';
 import { useFetch } from '../../hooks';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import './UserUpdateForm.css';
+import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
   const { request, loading } = useFetch();
@@ -87,9 +87,9 @@ const UserUpdateForm = ({ data }) => {
   }, [data]);
 
   return (
-    <article className="user-info-page" onSubmit={handleSubmit}>
-      <section className="user-update">
-        <form className="update">
+    <article className={styles.userInfoPage} onSubmit={handleSubmit}>
+      <section className={styles.userUpdate}>
+        <form className={styles.update}>
           <Input
             type="text"
             label="Nome"

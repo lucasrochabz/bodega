@@ -1,4 +1,4 @@
-.product-card {
+.productCard {
   background-color: var(--bg-color);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   max-width: 300px;
@@ -8,12 +8,12 @@
   transition: 0.3s;
 }
 
-.product-card:hover {
+.productCard:hover {
   box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
   transform: scale(1.01);
 }
 
-.product-card img {
+.productCard img {
   display: block;
   width: 100%;
 }
@@ -22,7 +22,7 @@
   color: var(--yellow-color);
 }
 
-.title-card {
+.titleCard {
   margin-bottom: 1rem;
   color: var(--darkgreen-color);
 }
@@ -32,6 +32,6 @@
   color: var(--darkgreen-color);
 }
 
-.product-info {
+.productInfo {
   padding: 1rem;
 }

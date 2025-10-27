@@ -3,13 +3,13 @@
   align-self: start;
 }
 
-.sidebar-list {
+.sidebarList {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.sidebar-list a {
+.sidebarList a {
   background-color: var(--gray-color);
   color: var(--darkgreen-color);
   display: block;
@@ -19,12 +19,12 @@
   padding: 1rem;
 }
 
-.sidebar-list button {
+.sidebarList button {
   width: 100%;
 }
 
-.sidebar-list a:hover,
-.sidebar-list a.active {
+.sidebarList a:hover,
+.sidebarList a.active {
   background-color: var(--green-color);
   color: var(--bg-color);
   font-weight: bold;
@@ -36,7 +36,7 @@
     width: auto;
     margin-bottom: 2rem;
   }
-  .sidebar-list {
+  .sidebarList {
     flex-direction: row;
     padding: 0 1rem;
     white-space: nowrap;

@@ -6,7 +6,7 @@ import { useFetch } from '../../hooks';
 import { ROUTES } from '../../routes/paths';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import './SignUpForm.css';
+import styles from './SignUpForm.module.css';
 
 const SignUpForm = () => {
   const { request, loading } = useFetch();
@@ -77,10 +77,10 @@ const SignUpForm = () => {
 
   return (
     <>
-      <section className="signup-form">
-        <h1 className="default-title">Crie a sua conta</h1>
+      <section className={styles.form}>
+        <h1 className={styles.defaultTitle}>Crie a sua conta</h1>
 
-        <form className="signup" onSubmit={handleSignup}>
+        <form className={styles.signup} onSubmit={handleSignup}>
           <Input
             type="text"
             label="Nome"

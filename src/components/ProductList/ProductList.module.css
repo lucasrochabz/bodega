@@ -1,4 +1,4 @@
-.product-list {
+.productList {
   max-width: 1200px;  
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -12,7 +12,7 @@
 }
 
 @media (max-width: 800px) {
-  .product-list {
+  .productList {
     grid-template-columns: 1fr;
   }
 }

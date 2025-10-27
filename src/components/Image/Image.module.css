@@ -11,7 +11,7 @@
   animation: skeleton 1.5s infinite linear;
 }
 
-.img-content {
+.imgContent {
   display: block;
   grid-area: 1/1;
   max-width: 600px;

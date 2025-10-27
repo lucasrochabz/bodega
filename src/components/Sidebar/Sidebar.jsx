@@ -3,7 +3,7 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { ROUTES } from '../../routes/paths';
 import { Button } from '../Button';
-import './Sidebar.css';
+import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
   const { userLogout } = useContext(UserContext);
@@ -15,9 +15,9 @@ const Sidebar = () => {
   };
 
   return (
-    <aside className="sidebar">
+    <aside className={styles.sidebar}>
       <nav aria-label="Menu lateral">
-        <ul className="sidebar-list">
+        <ul className={styles.sidebarList}>
           <li>
             <NavLink to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</NavLink>
           </li>

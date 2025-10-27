@@ -57,7 +57,7 @@
   margin-bottom: 1rem;
 }
 
-.btnSignupForm {
+.btnForm {
   align-self: flex-start;
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: var(--green-color);
@@ -65,8 +65,8 @@
   font-weight: bold;
 }
 
-.btnSignupForm:hover,
-.btnSignupForm:focus {
+.btnForm:hover,
+.btnForm:focus {
   outline: none;
   text-decoration: underline;
 }
