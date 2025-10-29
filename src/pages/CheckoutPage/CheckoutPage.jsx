@@ -9,7 +9,7 @@ import { Loading } from '../../components/Loading';
 import { CheckoutForm } from '../../components/CheckoutForm';
 import { OrderSummary } from '../../components/OrderSummary';
 import { Footer } from '../../components/Footer';
-import './CheckoutPage.css';
+import styles from './CheckoutPage.module.css';
 
 const CheckoutPage = () => {
   const { data } = useContext(UserContext);
@@ -29,12 +29,12 @@ const CheckoutPage = () => {
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
-      <h2 className="title">Finalizar Compra</h2>
+      <h2 className={styles.title}>Finalizar Compra</h2>
 
       {loading || !data || !results?.data ? (
         <Loading />
       ) : (
-        <main className="checkout-page">
+        <main className={styles.checkout}>
           <CheckoutForm userData={data} orderData={results.data} />
           <OrderSummary orderData={results.data} />
         </main>

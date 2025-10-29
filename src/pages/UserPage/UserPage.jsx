@@ -5,7 +5,7 @@ import { Header } from '../../components/Header';
 import { Sidebar } from '../../components/Sidebar';
 import { MenuMobile } from '../../components/MenuMobile';
 import { Footer } from '../../components/Footer';
-import './UserPage.css';
+import styles from './UserPage.module.css';
 
 const UserPage = () => {
   const location = useLocation();
@@ -31,10 +31,10 @@ const UserPage = () => {
       <Head title="Minha conta" description="Descrição da página Minha Conta" />
       <Header />
 
-      <main className="user-page-layout">
+      <main className={styles.container}>
         <Sidebar />
-        <article className="user-page">
-          <div className="menu-mobile">
+        <article className={styles.wrapper}>
+          <div className={styles.menuMobile}>
             <h1>{title}</h1>
             <MenuMobile />
           </div>

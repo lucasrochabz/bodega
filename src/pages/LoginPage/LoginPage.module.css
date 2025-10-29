@@ -1,4 +1,4 @@
-.auth-layout {
+.authLayout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   max-width: 1200px;
@@ -10,7 +10,7 @@
   margin: 0 auto;
 }
 
-.auth-layout::before {
+.authLayout::before {
   content: '';
   display: block;
   background: url('../../assets/images/login.jpg') no-repeat center;
@@ -18,12 +18,12 @@
 }
 
 @media (max-width: 800px) {
-  .auth-layout {
+  .authLayout {
     grid-template-columns: 1fr;
     box-shadow: none;
     padding: 0 1rem;
   }
-  .auth-layout::before {
+  .authLayout::before {
     display: none;
   }
 }

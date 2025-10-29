@@ -7,7 +7,7 @@ import { Header } from '../../components/Header';
 import { ProductList } from '../../components/ProductList';
 import { Pagination } from '../../components/Pagination';
 import { Footer } from '../../components/Footer';
-import './HomePage.css';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const { request, results, loading } = useFetch();
@@ -29,7 +29,7 @@ const HomePage = () => {
       {loading || !results ? (
         <Loading />
       ) : (
-        <main className="home">
+        <main className={styles.home}>
           <Header />
           <ProductList data={results.data} />
           <Pagination

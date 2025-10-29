@@ -5,7 +5,7 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
-import './ForgotPasswordPage.css';
+import styles from './ForgotPasswordPage.module.css';
 
 const ForgotPasswordPage = () => {
   const { request } = useFetch();
@@ -31,10 +31,10 @@ const ForgotPasswordPage = () => {
         description="Descrição da página Forgot Password"
       />
       <Header />
-      <main className="auth-layout">
-        <section className="forgot-password">
-          <h1 className="default-title">Perdeu a senha?</h1>
-          <form onSubmit={handleSubmit} className="forgot-password-form">
+      <main className={styles.authLayout}>
+        <section className={styles.container}>
+          <h1 className={styles.defaultTitle}>Perdeu a senha?</h1>
+          <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="email" className="label">
               E-mail
             </label>
@@ -45,7 +45,6 @@ const ForgotPasswordPage = () => {
               onChange={(e) => setEmail(e.target.value)}
               value={email}
               required
-              className="input"
             />
 
             <Button variant="primary">Enviar email</Button>

@@ -1,4 +1,4 @@
-.user-page-layout {
+.container {
   max-width: 1200px;
   display: flex;
   margin: 0 auto;
@@ -6,11 +6,11 @@
   min-height: calc(100vh - 130px);
 }
 
-.user-page {
+.wrapper {
   flex: 1;
 }
 
-.menu-mobile {
+.menuMobile {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
@@ -19,10 +19,10 @@
 }
 
 @media (max-width: 800px) {
-  .user-page-layout {
+  .container {
     display: block;
   }
-  .user-page {
+  .wrapper {
     padding: 0 1rem;
   }
 }

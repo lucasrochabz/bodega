@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-.checkout-page {
+.checkout {
   display: grid;
   grid-template-columns: 1fr 400px;
   max-width: 1200px;
@@ -11,7 +11,7 @@
 }
 
 @media (max-width: 800px) {
-  .checkout-page {
+  .checkout {
     grid-template-columns: 1fr;
   }
 }

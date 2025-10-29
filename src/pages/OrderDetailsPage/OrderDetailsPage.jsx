@@ -5,7 +5,7 @@ import { useFetch } from '../../hooks';
 import { Head } from '../../components/Head';
 import { OrderDetails } from '../../components/OrderDetails';
 import { Loading } from '../../components/Loading';
-import './OrderDetailsPage.css';
+import styles from './OrderDetailsPage.module.css';
 
 const OrderDetailsPage = () => {
   const { orderId } = useParams();
@@ -26,7 +26,7 @@ const OrderDetailsPage = () => {
       {loading || !results?.data ? (
         <Loading />
       ) : (
-        <article className="order-details-container">
+        <article className={styles.container}>
           <OrderDetails order={results.data} />
         </article>
       )}

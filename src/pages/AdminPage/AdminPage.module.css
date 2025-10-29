@@ -1,4 +1,4 @@
-.post-container {
+.container {
   max-width: 1200px;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -6,7 +6,7 @@
   margin: 0 auto;
 }
 
-.post-product {
+.wrapper {
   display: flex;
   flex-direction: column;
 }

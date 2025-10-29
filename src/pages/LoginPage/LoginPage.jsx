@@ -6,7 +6,7 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { LoginForm } from '../../components/LoginForm';
 import { Footer } from '../../components/Footer';
-import './LoginPage.css';
+import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
   const { login } = useContext(UserContext);
@@ -17,7 +17,7 @@ const LoginPage = () => {
       <Head title="Login" description="Descrição da página Login" />
       <Header />
 
-      <main className="auth-layout">
+      <main className={styles.authLayout}>
         <LoginForm />
       </main>
 
