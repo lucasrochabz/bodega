@@ -1,4 +1,4 @@
-.btn-menu-mobile {
+.btnMenuMobile {
   background-color: #222;
   color: var(--bg-color);
   font-weight: bold;
@@ -7,7 +7,7 @@
   padding: 0.5rem 1rem;
 }
 
-.menu-list {
+.menuList {
   background-color: var(--bg-color);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   display: flex;
@@ -18,5 +18,5 @@
   position: absolute;
   top: 100%;
   right: 0;
-  z-index: 1000;
+  z-index: 100;
 }
