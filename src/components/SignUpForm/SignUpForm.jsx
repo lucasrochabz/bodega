@@ -78,7 +78,7 @@ const SignUpForm = () => {
   return (
     <>
       <section className={styles.form}>
-        <h1 className={styles.defaultTitle}>Crie a sua conta</h1>
+        <h1 className="title">Crie a sua conta</h1>
 
         <form className={styles.signup} onSubmit={handleSignup}>
           <Input

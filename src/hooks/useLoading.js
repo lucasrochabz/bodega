@@ -8,7 +8,7 @@ const useLoading = () => {
   };
 
   const stopLoading = () => {
-    setLoading(false);
+    setLoading(true);
   };
 
   return {

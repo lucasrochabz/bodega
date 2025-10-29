@@ -40,7 +40,7 @@ const ResetPasswordPage = () => {
       <Header />
       <main className={styles.authLayout}>
         <section className={styles.wrapper}>
-          <h1 className={styles.defaultTitle}>Redefinir senha</h1>
+          <h1 className="title">Redefinir senha</h1>
           <form onSubmit={handleSubmit} className={styles.form}>
             <label htmlFor="newPassword" className="label">
               Nova senha

@@ -15,7 +15,7 @@ const NotFoundPage = () => {
 
       <Header />
       <section className={styles.notFound}>
-        <h1 className={styles.defaultTitle}>Erro: 404</h1>
+        <h1 className="title">Erro: 404</h1>
         <p>Página não encontrada.</p>
         <Link to={ROUTES.HOME} className="btn-header">
           Voltar à Home

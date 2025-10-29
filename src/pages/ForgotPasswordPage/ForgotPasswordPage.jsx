@@ -33,7 +33,7 @@ const ForgotPasswordPage = () => {
       <Header />
       <main className={styles.authLayout}>
         <section className={styles.container}>
-          <h1 className={styles.defaultTitle}>Perdeu a senha?</h1>
+          <h1 className="title">Perdeu a senha?</h1>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="email" className="label">
               E-mail

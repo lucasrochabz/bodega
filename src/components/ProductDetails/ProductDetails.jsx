@@ -57,15 +57,15 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 
   return (
     <>
-      <section className={styles.productDetails}>
+      <section className={styles.container}>
         <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
-        <div className={styles.productDetailsInfo}>
+        <div className={styles.wrapper}>
           <h1>{product.name}</h1>
-          <span className={styles.infoPrice}>
+          <span className={styles.price}>
             {formattedPriceToBRL(product.price)}
           </span>
-          <p className={styles.infoDescricao}>{product.description}</p>
+          <p className={styles.descricao}>{product.description}</p>
 
           <div className={styles.btnControls}>
             <button className={styles.btnCancelOrder} onClick={handleReturn}>

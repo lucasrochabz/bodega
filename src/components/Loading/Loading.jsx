@@ -4,6 +4,7 @@ const Loading = () => {
   return (
     <section className={styles.container}>
       <span className={styles.loading}>Carregando...</span>
+      <div className="test"></div>
     </section>
   );
 };

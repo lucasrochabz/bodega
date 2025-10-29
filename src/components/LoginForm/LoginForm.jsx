@@ -37,7 +37,7 @@ const LoginForm = () => {
 
   return (
     <section className={styles.container}>
-      <h1 className={styles.title}>Login</h1>
+      <h1 className="title">Login</h1>
 
       <form className={styles.form} onSubmit={verifyUser}>
         <label htmlFor="email">Email</label>

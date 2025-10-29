@@ -59,9 +59,9 @@ bodega/
 │   ├── assets/
 │   ├── components/
 │   │   └── MyComponent/
-│   │       ├── MyComponent.jsx/
-│   │       ├── MyComponent.css/
-│   │       └── index.js/
+│   │       ├── MyComponent.jsx
+│   │       ├── MyComponent.module.css
+│   │       └── index.js
 │   │
 │   ├── contexts/
 │   ├── hooks/

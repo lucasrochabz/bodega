@@ -1,3 +1,5 @@
+@import '../../styles/animations.css';
+
 .container {
   /* min-height: calc(100vh - 130px); */
   position: absolute;
@@ -18,27 +20,3 @@
   animation: pulse 2.0s infinite ease-in-out;
   /* animation: spin 2.0s linear infinite; */
 }
-
-@keyframes pulse {
-  0% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-  50% {
-    opacity: 1.0;
-    transform: scale(1.2);
-  }
-  100% {
-    opacity: 0.5;
-    transform: scale(0.8);
-  }
-}
-
-/* @keyframes spin {
-  from {
-    transform: rotate(0)
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
