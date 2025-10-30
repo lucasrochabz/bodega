@@ -4,7 +4,7 @@ import styles from './ImageModal.module.css';
 const ImageModal = ({ imagePath, onClose }) => {
   return (
     <section className={styles.container}>
-      <div className={styles.wrapper}>
+      <div className={`${styles.wrapper} scaleUp`}>
         <button onClick={onClose}>Fechar</button>
         <img src={imagePath} alt="" />
       </div>

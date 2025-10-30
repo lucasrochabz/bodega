@@ -67,6 +67,9 @@ bodega/
 │   ├── hooks/
 │   ├── pages/
 │   ├── routes/
+│   ├── styles/
+│   │   ├── animations/
+│   │   └── index.css
 │   ├── utils/
 │   ├── App.jsx
 │   ├── index.css

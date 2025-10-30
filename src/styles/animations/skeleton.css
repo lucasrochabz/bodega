@@ -1,0 +1,12 @@
+@keyframes skeleton-animation {
+  from {
+    background-position: 0px;
+  }
+  to {
+    background-position: -200%;
+  }
+}
+
+.skeleton {
+  animation: skeleton-animation 1.5s infinite linear;
+}

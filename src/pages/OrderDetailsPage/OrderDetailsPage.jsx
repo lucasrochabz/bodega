@@ -26,7 +26,7 @@ const OrderDetailsPage = () => {
       {loading || !results?.data ? (
         <Loading />
       ) : (
-        <article className={styles.container}>
+        <article className={`${styles.container} showLeft`}>
           <OrderDetails order={results.data} />
         </article>
       )}

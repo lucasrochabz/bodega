@@ -15,7 +15,6 @@
   background-color: #fff;
   padding: 1rem;
   border-radius: 10px;
-  animation: scaleUp 0.3s forwards;
 }
 
 @media (max-width: 800px) {

@@ -3,7 +3,7 @@ import styles from './Loading.module.css';
 const Loading = () => {
   return (
     <section className={styles.container}>
-      <span className={styles.loading}>Carregando...</span>
+      <span className={`${styles.loading} pulse`}>Carregando...</span>
       <div className="test"></div>
     </section>
   );

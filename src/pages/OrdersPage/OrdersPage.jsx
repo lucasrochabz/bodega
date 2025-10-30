@@ -41,7 +41,7 @@ const OrdersPage = () => {
       {loading || !results?.data ? (
         <Loading />
       ) : (
-        <section className={styles.orders}>
+        <section className={`${styles.orders} showLeft`}>
           <OrderList orders={ordersToShow} />
         </section>
       )}
