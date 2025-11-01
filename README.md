@@ -70,9 +70,10 @@ bodega/
 │   ├── styles/
 │   │   ├── animations/
 │   │   └── index.css
+│   │
+│   ├── types/
 │   ├── utils/
 │   ├── App.jsx
-│   ├── index.css
 │   └── main.jsx
 │
 ├── .env.example
