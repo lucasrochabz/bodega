@@ -12,7 +12,7 @@ const Image = ({ alt, ...props }) => {
 
   return (
     <div className={styles.wrapper}>
-      {skeleton && <div className={`${styles.skeleton} skeleton`}></div>}
+      {skeleton && <div className={`${styles.skeleton} anim-skeleton`}></div>}
       <img
         onLoad={handleLoad}
         className={styles.imgContent}

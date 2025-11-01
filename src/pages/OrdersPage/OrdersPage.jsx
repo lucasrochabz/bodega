@@ -41,7 +41,7 @@ const OrdersPage = () => {
       {loading || !results?.data ? (
         <Loading />
       ) : (
-        <section className={`${styles.orders} showLeft`}>
+        <section className={`${styles.orders} anim-show-left`}>
           <OrderList orders={ordersToShow} />
         </section>
       )}

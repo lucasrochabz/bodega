@@ -17,7 +17,7 @@ const Toast = ({ message, show, duration = 3000, onClose }) => {
 
   if (!show) return null;
   return (
-    <div className={`${styles.toast} toastFade`}>
+    <div className={`${styles.toast} anim-toast-fade`}>
       <p>{message}</p>
     </div>
   );

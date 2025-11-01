@@ -1,4 +1,4 @@
-@keyframes pulse-animation {
+@keyframes pulse {
   0% {
     opacity: 0.5;
     transform: scale(0.8);
@@ -13,16 +13,6 @@
   }
 }
 
-/* @keyframes spin-animation {
-  from {
-    transform: rotate(0)
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-.pulse {
-  animation: pulse-animation 2.0s infinite ease-in-out;
-  /* animation: spin 2.0s linear infinite; */
+.anim-pulse {
+  animation: pulse 2.0s infinite ease-in-out;
 }

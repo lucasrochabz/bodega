@@ -80,7 +80,10 @@ const SignUpForm = () => {
       <section className={styles.form}>
         <h1 className="title">Crie a sua conta</h1>
 
-        <form className={`${styles.signup} showLeft`} onSubmit={handleSignup}>
+        <form
+          className={`${styles.signup} anim-show-left`}
+          onSubmit={handleSignup}
+        >
           <Input
             type="text"
             label="Nome"

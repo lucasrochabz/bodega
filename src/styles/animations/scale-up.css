@@ -1,4 +1,4 @@
-@keyframes scale-up-animation {
+@keyframes scale-up {
   from {
     opacity: 0;
     transform: scale(0);
@@ -9,6 +9,6 @@
   }
 }
 
-.scaleUp {
-  animation: scale-up-animation 0.3s forwards;
+.anim-scale-up {
+  animation: scale-up 0.3s forwards;
 }
