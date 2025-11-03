@@ -1,6 +1,6 @@
 .btnMenuMobile {
   background-color: #222;
-  color: var(--bg-color);
+  color: var(--color-bg);
   font-weight: bold;
   border: none;
   border-radius: 5px;
@@ -8,7 +8,7 @@
 }
 
 .menuList {
-  background-color: var(--bg-color);
+  background-color: var(--color-bg);
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
   display: flex;
   flex-direction: column;

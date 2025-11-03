@@ -69,6 +69,7 @@ bodega/
 │   ├── routes/
 │   ├── styles/
 │   │   ├── animations/
+│   │   ├── colors/
 │   │   └── index.css
 │   │
 │   ├── types/

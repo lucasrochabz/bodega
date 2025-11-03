@@ -1,5 +1,5 @@
 .productCard {
-  background-color: var(--bg-color);
+  background-color: var(--color-bg);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   max-width: 300px;
   border-radius: 5px;
@@ -19,17 +19,17 @@
 }
 
 .price {
-  color: var(--yellow-color);
+  color: var(--color-accent);
 }
 
 .titleCard {
   margin-bottom: 1rem;
-  color: var(--darkgreen-color);
+  color: var(--color-primary-dark);
 }
 
 .descricao {
   margin-bottom: 1rem;
-  color: var(--darkgreen-color);
+  color: var(--color-primary-dark);
 }
 
 .productInfo {

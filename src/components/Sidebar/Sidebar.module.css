@@ -11,7 +11,7 @@
 
 .sidebarList a {
   background-color: var(--gray-color);
-  color: var(--darkgreen-color);
+  color: var(--color-primary-dark);
   display: block;
   font-weight: bold;
   border-radius: 5px;
@@ -25,8 +25,8 @@
 
 .sidebarList a:hover,
 .sidebarList a.active {
-  background-color: var(--green-color);
-  color: var(--bg-color);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   font-weight: bold;
 }
 

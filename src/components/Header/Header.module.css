@@ -15,7 +15,7 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--green-color);
+  color: var(--color-primary);
 }
 
 .logo:hover {
@@ -23,8 +23,8 @@
 }
 
 .btnHeader {
-  background-color: var(--green-color);
-  color: var(--bg-color);
+  background-color: var(--color-primary);
+  color: var(--color-bg);
   border-radius: 5px;
   border: none;
   padding: 0.5rem 1rem;
@@ -33,7 +33,7 @@
 }
 
 .btnHeader:hover {
-  box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--green-color);
+  box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--color-primary);
 }
 
 @media (max-width: 800px) {
