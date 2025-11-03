@@ -1,4 +1,4 @@
-## Bodega v1.1.0
+## Bodega v1.3.0
 
 ![Imagem do projeto](docs/projeto-bodega01.png)
 ![Imagem do projeto](docs/projeto-bodega02.png)
@@ -47,13 +47,7 @@ A aplicação segue boas práticas de desenvolvimento, garantindo uma experiênc
 ```bash
 bodega/
 ├── cypress/
-│   ├── e2e
-│   ├── fixtures/
-│   └── insertData.js
-│
 ├── public/
-│   └── bodega-logo-png
-│
 ├── src/
 │   ├── api/
 │   ├── assets/
