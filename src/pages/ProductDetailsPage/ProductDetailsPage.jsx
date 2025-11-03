@@ -30,19 +30,21 @@ const ProductDetailsPage = () => {
         description="Descrição da página Detalhe do Produto"
       />
 
-      <Header />
       {loading ? (
         <Loading />
       ) : (
         results && (
-          <ProductDetails
-            product={results.data[0]}
-            loading={loading}
-            isLogin={login}
-          />
+          <>
+            <Header />
+            <ProductDetails
+              product={results.data[0]}
+              loading={loading}
+              isLogin={login}
+            />
+            <Footer />
+          </>
         )
       )}
-      <Footer />
     </>
   );
 };

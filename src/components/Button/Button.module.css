@@ -1,0 +1,55 @@
+.btn {
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 0.8rem 1.2rem;
+  transition: 0.2s;
+}
+
+.primary {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.primary:hover,
+.primary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px lightgreen, 0 0 0 4px var(--color-primary);
+}
+
+.secondary {
+  background-color: var(--color-accent);
+  color: var(--color-bg);
+}
+
+.secondary:hover,
+.secondary:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px lightyellow, 0 0 0 4px var(--color-accent);
+}
+
+.logout {
+  background-color: var(--color-bg);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.logout:hover,
+.logout:focus {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+}
+
+.pagination {
+  background-color: var(--gray-color);
+  color: #000;
+}
+
+.pagination:hover,
+.pagination:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--color-bg), 0 0 0 4px #000;
+}

@@ -8,7 +8,7 @@ import { ROUTES } from '../../routes/paths';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
-import './ProductDetails.css';
+import styles from './ProductDetails.module.css';
 
 const images = import.meta.glob('/src/assets/images/*', {
   eager: true,
@@ -57,23 +57,23 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 
   return (
     <>
-      <section className="product-details">
+      <section className={styles.container}>
         <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
-        <div className="product-details-info">
+        <div className={styles.wrapper}>
           <h1>{product.name}</h1>
-          <span className="info-price">
+          <span className={styles.price}>
             {formattedPriceToBRL(product.price)}
           </span>
-          <p className="info-descricao">{product.description}</p>
+          <p className={styles.descricao}>{product.description}</p>
 
-          <div className="btn-controls">
-            <button className="btn-cancel-order" onClick={handleReturn}>
+          <div className={styles.btnControls}>
+            <button className={styles.btnCancelOrder} onClick={handleReturn}>
               Voltar
             </button>
 
             <Button
-              type="secondary"
+              variant="secondary"
               disabled={loading}
               onClick={handleFinalizeOrder}
             >

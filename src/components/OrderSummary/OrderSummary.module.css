@@ -1,0 +1,25 @@
+.orderSummary {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  padding: 1rem;
+  align-self: flex-start;
+}
+
+.summaryItem {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.summaryItemAmount {
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 800px) {
+  .orderSummary {
+    align-self: center;
+    margin: 0 1rem;
+  }
+}

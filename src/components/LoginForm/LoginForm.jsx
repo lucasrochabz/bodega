@@ -3,11 +3,12 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { ROUTES } from '../../routes/paths';
 import { Button } from '../Button';
-import './LoginForm.css';
+import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
   const { userLogin, loading } = useContext(UserContext);
   const inputElement = useRef(null);
+  const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -35,14 +36,14 @@ const LoginForm = () => {
   }, []);
 
   return (
-    <section className="login-field">
-      <h1 className="default-title">Login</h1>
+    <section className={styles.container}>
+      <h1 className="title">Login</h1>
 
-      <form className="login-form" onSubmit={verifyUser}>
-        <label htmlFor="login-email">Email</label>
+      <form className={styles.form} onSubmit={verifyUser}>
+        <label htmlFor="email">Email</label>
         <input
           type="email"
-          id="login-email"
+          id="email"
           name="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -50,17 +51,27 @@ const LoginForm = () => {
           required
         />
 
-        <label htmlFor="login-password">Senha</label>
-        <input
-          type="password"
-          id="login-password"
-          name="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <label htmlFor="password">Senha</label>
+        <div className={styles.wrapper}>
+          <input
+            type={showPassword ? 'text' : 'password'}
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
 
-        <Button type="primary" disabled={loading}>
+          <button
+            className={styles.btnPassword}
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
+          </button>
+        </div>
+
+        <Button variant="primary" disabled={loading}>
           {loading ? 'Aguarde...' : 'Entrar'}
         </Button>
       </form>
@@ -69,7 +80,7 @@ const LoginForm = () => {
         Perdeu a senha?
       </Link>
 
-      <Link to={ROUTES.REGISTER} className="btn-signup-form">
+      <Link to={ROUTES.REGISTER} className={styles.btnForm}>
         Criar conta
       </Link>
     </section>

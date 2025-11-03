@@ -1,0 +1,59 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--color-primary);
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+/* Estilo do select */
+.wrapper select {
+  padding: 0.8rem;
+  font-size: 1rem;
+  background-color: #fff;
+  border: 1px solid gray;
+  border-radius: 5px;
+  transition: border-color 0.3s ease;
+  margin-bottom: 1rem;
+}
+
+/* Estilo do select ao focar */
+.wrapper select:focus {
+  outline: none;
+  border: 1px solid var(--color-primary);
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo das opções */
+.wrapper option {
+  font-size: 1rem;
+}
+
+/* Estilo para a opção selecionada */
+.wrapper option:checked {
+  background-color: var(--color-primary);
+  color: white;
+}
+
+/* Estilo da opção desabilitada */
+.wrapper option[disabled] {
+  color: gray;
+}
+
+.wrapper span {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .container {
+    padding: 0 1rem;
+  }
+}

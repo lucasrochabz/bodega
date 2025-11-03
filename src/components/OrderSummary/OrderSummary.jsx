@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
-import './OrderSummary.css';
+import styles from './OrderSummary.module.css';
 
 const OrderSummary = ({ orderData }) => {
   const delivery = 10;
@@ -17,9 +17,9 @@ const OrderSummary = ({ orderData }) => {
   }, [orderData.price]);
 
   return (
-    <section className="order-summary">
+    <section className={styles.orderSummary}>
       <h2>Resumo</h2>
-      <div className="summary-item">
+      <div className={styles.summaryItem}>
         <p>Subtotal:</p>
         <span>{formattedPriceToBRL(productPrice)}</span>
 
@@ -29,8 +29,8 @@ const OrderSummary = ({ orderData }) => {
         <p>Desconto:</p>
         <span>{formattedPriceToBRL(discount)}</span>
 
-        <p className="summary-item-amount">Total:</p>
-        <span className="summary-item-amount">
+        <p className={styles.summaryItemAmount}>Total:</p>
+        <span className={styles.summaryItemAmount}>
           {formattedPriceToBRL(amount)}
         </span>
       </div>

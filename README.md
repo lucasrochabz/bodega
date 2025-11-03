@@ -59,17 +59,22 @@ bodega/
 │   ├── assets/
 │   ├── components/
 │   │   └── MyComponent/
-│   │       ├── MyComponent.jsx/
-│   │       ├── MyComponent.css/
-│   │       └── index.js/
+│   │       ├── MyComponent.jsx
+│   │       ├── MyComponent.module.css
+│   │       └── index.js
 │   │
 │   ├── contexts/
 │   ├── hooks/
 │   ├── pages/
 │   ├── routes/
+│   ├── styles/
+│   │   ├── animations/
+│   │   ├── colors/
+│   │   └── index.css
+│   │
+│   ├── types/
 │   ├── utils/
 │   ├── App.jsx
-│   ├── index.css
 │   └── main.jsx
 │
 ├── .env.example

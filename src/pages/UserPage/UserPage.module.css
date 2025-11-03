@@ -1,0 +1,28 @@
+.container {
+  max-width: 1200px;
+  display: flex;
+  margin: 0 auto;
+  gap: 2rem;
+  min-height: calc(100vh - 130px);
+}
+
+.wrapper {
+  flex: 1;
+}
+
+.menuMobile {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+@media (max-width: 800px) {
+  .container {
+    display: block;
+  }
+  .wrapper {
+    padding: 0 1rem;
+  }
+}

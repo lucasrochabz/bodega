@@ -1,0 +1,18 @@
+.productList {
+  max-width: 1200px;  
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin: 0 auto;
+}
+
+.price {
+  font-weight: 700;
+}
+
+@media (max-width: 800px) {
+  .productList {
+    grid-template-columns: 1fr;
+  }
+}

@@ -4,7 +4,7 @@ import { useFetch } from '../../hooks';
 import { Head } from '../../components/Head';
 import { Loading } from '../../components/Loading';
 import { OrderList } from '../../components/OrderList';
-import './OrdersPage.css';
+import styles from './OrdersPage.module.css';
 
 const OrdersPage = () => {
   const { request, loading, results } = useFetch();
@@ -31,7 +31,7 @@ const OrdersPage = () => {
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
       <input
-        className="search"
+        className={styles.search}
         type="search"
         name="search"
         placeholder="Buscar..."
@@ -41,7 +41,7 @@ const OrdersPage = () => {
       {loading || !results?.data ? (
         <Loading />
       ) : (
-        <section className="orders-page">
+        <section className={`${styles.orders} anim-show-left`}>
           <OrderList orders={ordersToShow} />
         </section>
       )}

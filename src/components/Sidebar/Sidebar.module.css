@@ -1,0 +1,45 @@
+.sidebar {  
+  width: 200px;
+  align-self: start;
+}
+
+.sidebarList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.sidebarList a {
+  background-color: var(--gray-color);
+  color: var(--color-primary-dark);
+  display: block;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.sidebarList button {
+  width: 100%;
+}
+
+.sidebarList a:hover,
+.sidebarList a.active {
+  background-color: var(--color-primary);
+  color: var(--color-bg);
+  font-weight: bold;
+}
+
+@media (max-width: 800px) {
+  .sidebar {
+    display: none;
+    width: auto;
+    margin-bottom: 2rem;
+  }
+  .sidebarList {
+    flex-direction: row;
+    padding: 0 1rem;
+    white-space: nowrap;
+    overflow-x: auto;
+  }
+}

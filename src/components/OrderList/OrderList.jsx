@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { OrderCard } from '../OrderCard';
-import './OrderList.css';
+import styles from './OrderList.module.css';
 
 const OrderList = ({ orders }) => {
   const orderedOrders = orders.sort((a, b) => a.id - b.id);

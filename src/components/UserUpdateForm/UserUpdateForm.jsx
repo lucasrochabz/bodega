@@ -6,7 +6,7 @@ import { PUT_USER_UPDATE } from '../../api/users';
 import { useFetch } from '../../hooks';
 import { Input } from '../Input';
 import { Button } from '../Button';
-import './UserUpdateForm.css';
+import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
   const { request, loading } = useFetch();
@@ -87,100 +87,96 @@ const UserUpdateForm = ({ data }) => {
   }, [data]);
 
   return (
-    <article className="user-info-page" onSubmit={handleSubmit}>
-      <section className="user-update">
-        <form className="update">
-          <Input
-            type="text"
-            label="Nome"
-            id="first_name"
-            value={formData.first_name}
-            onChange={handleChange}
-            placeholder="Primeiro nome"
-            required
-          />
+    <form className={styles.form} onSubmit={handleSubmit}>
+      <Input
+        type="text"
+        label="Nome"
+        id="first_name"
+        value={formData.first_name}
+        onChange={handleChange}
+        placeholder="Primeiro nome"
+        required
+      />
 
-          <Input
-            type="text"
-            label="Sobrenome"
-            id="last_name"
-            value={formData.last_name}
-            onChange={handleChange}
-            required
-          />
+      <Input
+        type="text"
+        label="Sobrenome"
+        id="last_name"
+        value={formData.last_name}
+        onChange={handleChange}
+        required
+      />
 
-          <Input
-            type="email"
-            label="E-mail"
-            id="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="exemplo@email.com"
-            readOnly
-            required
-          />
+      <Input
+        type="email"
+        label="E-mail"
+        id="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="exemplo@email.com"
+        readOnly
+        required
+      />
 
-          <Input
-            type="number"
-            label={'CEP'}
-            id={'zip_code'}
-            value={formData.zip_code}
-            onChange={handleChange}
-            placeholder="60000000"
-            required
-          />
+      <Input
+        type="number"
+        label={'CEP'}
+        id={'zip_code'}
+        value={formData.zip_code}
+        onChange={handleChange}
+        placeholder="60000000"
+        required
+      />
 
-          <Input
-            type="text"
-            label={'Endereço'}
-            id={'endereco'}
-            value={formData.street}
-            readOnly
-            required
-          />
+      <Input
+        type="text"
+        label={'Endereço'}
+        id={'endereco'}
+        value={formData.street}
+        readOnly
+        required
+      />
 
-          <Input
-            type="number"
-            label={'Número'}
-            id={'number'}
-            value={formData.number}
-            onChange={handleChange}
-            required
-          />
+      <Input
+        type="number"
+        label={'Número'}
+        id={'number'}
+        value={formData.number}
+        onChange={handleChange}
+        required
+      />
 
-          <Input
-            type="text"
-            label={'Bairro'}
-            id={'bairro'}
-            value={formData.neighborhood}
-            readOnly
-            required
-          />
+      <Input
+        type="text"
+        label={'Bairro'}
+        id={'bairro'}
+        value={formData.neighborhood}
+        readOnly
+        required
+      />
 
-          <Input
-            type="text"
-            label={'Cidade'}
-            id={'cidade'}
-            value={formData.city}
-            readOnly
-            required
-          />
+      <Input
+        type="text"
+        label={'Cidade'}
+        id={'cidade'}
+        value={formData.city}
+        readOnly
+        required
+      />
 
-          <Input
-            type="text"
-            label={'Estado'}
-            id={'estado'}
-            value={formData.state}
-            readOnly
-            required
-          />
+      <Input
+        type="text"
+        label={'Estado'}
+        id={'estado'}
+        value={formData.state}
+        readOnly
+        required
+      />
 
-          <Button type="primary" disabled={loading}>
-            Atualizar
-          </Button>
-        </form>
-      </section>
-    </article>
+      <Button variant="primary" disabled={loading}>
+        Atualizar
+      </Button>
+    </form>
   );
 };
 

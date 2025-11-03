@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { Button } from '../Button';
-import './Pagination.css';
+import styles from './Pagination.module.css';
 
 const Pagination = ({ data, currentPage, setCurrentPage }) => {
   const handleNextPage = () => {
@@ -16,14 +16,14 @@ const Pagination = ({ data, currentPage, setCurrentPage }) => {
   };
 
   return (
-    <div className="pagination">
-      <Button type="pagination" onClick={handlePrevPage}>
+    <div className={styles.pagination}>
+      <Button variant="pagination" onClick={handlePrevPage}>
         Anterior
       </Button>
       <span>
         Página {currentPage} de {data.totalPages}
       </span>
-      <Button type="pagination" onClick={handleNextPage}>
+      <Button variant="pagination" onClick={handleNextPage}>
         Próximo
       </Button>
     </div>

@@ -6,6 +6,7 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { SignUpForm } from '../../components/SignUpForm';
 import { Footer } from '../../components/Footer';
+import styles from './RegisterPage.module.css';
 
 const RegisterPage = () => {
   const { login } = useContext(UserContext);
@@ -16,7 +17,7 @@ const RegisterPage = () => {
       <Head title="Register" description="Descrição da página Register" />
 
       <Header />
-      <main className="auth-layout">
+      <main className={styles.authLayout}>
         <SignUpForm />
       </main>
       <Footer />

@@ -7,7 +7,7 @@ import { Head } from '../../components/Head';
 import { Header } from '../../components/Header';
 import { Button } from '../../components/Button';
 import { Footer } from '../../components/Footer';
-import './ResetPasswordPage.css';
+import styles from './ResetPasswordPage.module.css';
 
 const ResetPasswordPage = () => {
   const { request, results } = useFetch();
@@ -38,10 +38,10 @@ const ResetPasswordPage = () => {
       />
 
       <Header />
-      <main className="auth-layout">
-        <section className="reset-password">
-          <h1 className="default-title">Redefinir senha</h1>
-          <form onSubmit={handleSubmit} className="reset-password-form">
+      <main className={styles.authLayout}>
+        <section className={styles.wrapper}>
+          <h1 className="title">Redefinir senha</h1>
+          <form onSubmit={handleSubmit} className={styles.form}>
             <label htmlFor="newPassword" className="label">
               Nova senha
             </label>
@@ -55,7 +55,7 @@ const ResetPasswordPage = () => {
               className="input"
             />
 
-            <Button type="primary">Redefinir senha</Button>
+            <Button variant="primary">Redefinir senha</Button>
           </form>
         </section>
       </main>

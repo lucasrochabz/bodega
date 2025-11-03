@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import './Input.css';
+import styles from './Input.module.css';
 
 const Input = ({ label, id, setValue, onChange, ...props }) => {
   const handleChange = (event) => {
@@ -13,11 +13,11 @@ const Input = ({ label, id, setValue, onChange, ...props }) => {
 
   return (
     <>
-      <label htmlFor={id} className="label">
+      <label htmlFor={id} className={styles.label}>
         {label}
       </label>
       <input
-        className="input"
+        className={styles.input}
         id={id}
         name={id}
         onChange={handleChange}

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
-import './AdminPage.css';
+import styles from './AdminPage.module.css';
 
 const AdminPage = () => {
   const [img, setImg] = useState({});
@@ -14,8 +14,8 @@ const AdminPage = () => {
   };
 
   return (
-    <section className="post-container">
-      <form className="post-product">
+    <section className={styles.container}>
+      <form className={styles.wrapper}>
         <Input label="Nome" />
 
         <input
@@ -26,13 +26,13 @@ const AdminPage = () => {
           onChange={handleImgChange}
         />
 
-        <Button type="primary">Enviar</Button>
+        <Button variant="primary">Enviar</Button>
       </form>
 
       <div>
         {img.preview && (
           <div
-            className="preview"
+            className={styles.preview}
             style={{ backgroundImage: `url('${img.preview}')` }}
           ></div>
         )}

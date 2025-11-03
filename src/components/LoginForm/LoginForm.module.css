@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 460px;
+  gap: 1rem;
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: var(--color-primary);
+  font-size: 3rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form label {
+  margin-bottom: 0.4rem;
+}
+
+.form input {
+  border: 1px solid gray;
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 0.8rem;
+  transition: 0.3s;
+  margin-bottom: 1rem;
+}
+
+.form input:hover, 
+.form input:focus {
+  outline: none;
+  border: 1px solid var(--color-primary);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.wrapper  {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.wrapper input {
+  width: 100%;
+  padding-right: 90px;
+}
+
+.btnPassword {
+  position: absolute;
+  cursor: pointer;
+  background: none;
+  border: none;
+  right: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.btnForm {
+  align-self: flex-start;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.btnForm:hover,
+.btnForm:focus {
+  outline: none;
+  text-decoration: underline;
+}

@@ -1,0 +1,50 @@
+@import './colors/index.css';
+@import './animations/index.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: var(--color-bg);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input[readonly] {
+  background-color: var(--gray-color);
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+ul {
+  list-style: none;
+}
+
+.title {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  color: var(--color-primary);
+  font-size: 3rem;
+}

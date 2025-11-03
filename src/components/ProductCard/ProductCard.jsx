@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { productPropType } from '../../types/propTypes';
 import { ROUTES } from '../../routes/paths';
 import { formattedPriceToBRL } from '../../utils/priceUtils';
-import './ProductCard.css';
+import styles from './ProductCard.module.css';
 
 const ProductCard = ({ item }) => {
   const navigate = useNavigate();
@@ -18,15 +18,15 @@ const ProductCard = ({ item }) => {
   const imagePath = images[`/src/assets/images/${item.image_path}`].default;
 
   return (
-    <div onClick={handleNavigate} className="product-card">
+    <div onClick={handleNavigate} className={styles.productCard}>
       <img src={imagePath} alt={item.name} />
 
-      <div className="product-info">
-        <p className="price">{formattedPriceToBRL(item.price)}</p>
-        <h2 className="title-card" key={item.id}>
+      <div className={styles.productInfo}>
+        <p className={styles.price}>{formattedPriceToBRL(item.price)}</p>
+        <h2 className={styles.titleCard} key={item.id}>
           {item.name}
         </h2>
-        <p className="descricao">{item.description}</p>
+        <p className={styles.descricao}>{item.description}</p>
       </div>
     </div>
   );
