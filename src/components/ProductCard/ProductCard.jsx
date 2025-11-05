@@ -21,12 +21,12 @@ const ProductCard = ({ item }) => {
     <div onClick={handleNavigate} className={styles.productCard}>
       <img src={imagePath} alt={item.name} />
 
-      <div className={styles.productInfo}>
+      <div className={styles.wrapper}>
         <p className={styles.price}>{formattedPriceToBRL(item.price)}</p>
-        <h2 className={styles.titleCard} key={item.id}>
+        <h2 className={styles.title} key={item.id}>
           {item.name}
         </h2>
-        <p className={styles.descricao}>{item.description}</p>
+        <p>{item.description}</p>
       </div>
     </div>
   );

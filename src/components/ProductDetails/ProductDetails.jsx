@@ -65,7 +65,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
           <span className={styles.price}>
             {formattedPriceToBRL(product.price)}
           </span>
-          <p className={styles.descricao}>{product.description}</p>
+          <p className={styles.description}>{product.description}</p>
 
           <div className={styles.btnControls}>
             <button className={styles.btnCancelOrder} onClick={handleReturn}>

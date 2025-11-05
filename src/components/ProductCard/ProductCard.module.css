@@ -14,24 +14,20 @@
 }
 
 .productCard img {
-  display: block;
   width: 100%;
+  display: block;
 }
 
 .price {
   color: var(--color-accent);
+  font-weight: 700;
 }
 
-.titleCard {
+.title {
   margin-bottom: 1rem;
-  color: var(--color-primary-dark);
 }
 
-.descricao {
-  margin-bottom: 1rem;
+.wrapper {
   color: var(--color-primary-dark);
-}
-
-.productInfo {
   padding: 1rem;
 }

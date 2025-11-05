@@ -14,7 +14,7 @@ import styles from './CheckoutPage.module.css';
 const CheckoutPage = () => {
   const { data } = useContext(UserContext);
   const { orderId } = useParams();
-  const { request, loading, results } = useFetch();
+  const { loading, request, results } = useFetch();
 
   useEffect(() => {
     const getOrder = async () => {
@@ -25,20 +25,17 @@ const CheckoutPage = () => {
     getOrder();
   }, [orderId, request]);
 
+  if (loading || !data || !results?.data) return <Loading />;
   return (
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
       <h2 className="title">Finalizar Compra</h2>
 
-      {loading || !data || !results?.data ? (
-        <Loading />
-      ) : (
-        <main className={styles.checkout}>
-          <CheckoutForm userData={data} orderData={results.data} />
-          <OrderSummary orderData={results.data} />
-        </main>
-      )}
+      <main className={styles.checkout}>
+        <CheckoutForm userData={data} orderData={results.data} />
+        <OrderSummary orderData={results.data} />
+      </main>
 
       <Footer />
     </>

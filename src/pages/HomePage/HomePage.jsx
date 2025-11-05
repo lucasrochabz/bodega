@@ -7,7 +7,6 @@ import { Header } from '../../components/Header';
 import { ProductList } from '../../components/ProductList';
 import { Pagination } from '../../components/Pagination';
 import { Footer } from '../../components/Footer';
-import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const { request, results, loading } = useFetch();
@@ -23,23 +22,19 @@ const HomePage = () => {
     getProducts();
   }, [currentPage, pageSize, request]);
 
+  if (loading || !results) return <Loading />;
   return (
     <>
       <Head title="Home" description="Descrição da página Home" />
-      {loading || !results ? (
-        <Loading />
-      ) : (
-        <main className={styles.home}>
-          <Header />
-          <ProductList data={results.data} />
-          <Pagination
-            data={results.data}
-            currentPage={currentPage}
-            setCurrentPage={setCurrentPage}
-          />
-          <Footer />
-        </main>
-      )}
+
+      <Header />
+      <ProductList data={results.data} />
+      <Pagination
+        data={results.data}
+        currentPage={currentPage}
+        setCurrentPage={setCurrentPage}
+      />
+      <Footer />
     </>
   );
 };

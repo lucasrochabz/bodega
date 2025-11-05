@@ -87,7 +87,7 @@ const UserUpdateForm = ({ data }) => {
   }, [data]);
 
   return (
-    <form className={styles.form} onSubmit={handleSubmit}>
+    <form className={`${styles.form} anim-show-left`} onSubmit={handleSubmit}>
       <Input
         type="text"
         label="Nome"
