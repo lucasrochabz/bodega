@@ -60,6 +60,7 @@ bodega/
 │   ├── contexts/
 │   ├── hooks/
 │   ├── pages/
+│   ├── services/
 │   ├── routes/
 │   ├── styles/
 │   │   ├── animations/
