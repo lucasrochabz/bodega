@@ -1,8 +1,8 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { ROUTES } from '../../routes/paths';
-import { Button } from '../Button';
+import { UserContext } from '../../../contexts/UserContext';
+import { ROUTES } from '../../../routes/paths';
+import { Button } from '../../ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {

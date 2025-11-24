@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { ROUTES } from '../../routes/paths';
+import { UserContext } from '../../../contexts/UserContext';
+import { ROUTES } from '../../../routes/paths';
 import styles from './Header.module.css';
 
 const Header = () => {

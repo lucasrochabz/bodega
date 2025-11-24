@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import { formattedDate } from '../../utils/dateUtils';
-import { formattedPriceToBRL } from '../../utils/priceUtils';
+import { formattedDate } from '../../../utils/dateUtils';
+import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import styles from './OrderDetails.module.css';
 
 const OrderDetails = ({ order }) => {

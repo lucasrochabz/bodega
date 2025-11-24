@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GET_ADDRESS_DATA } from '../../api/address';
-import { POST_USERS } from '../../api/users';
-import { useFetch } from '../../hooks';
-import { ROUTES } from '../../routes/paths';
-import { Input } from '../Input';
-import { Button } from '../Button';
+import { GET_ADDRESS_DATA } from '../../../api/address';
+import { POST_USERS } from '../../../api/users';
+import { useFetch } from '../../../hooks';
+import { ROUTES } from '../../../routes/paths';
+import { Input } from '../../ui/Input';
+import { Button } from '../../ui/Button';
 import styles from './SignUpForm.module.css';
 
 const SignUpForm = () => {

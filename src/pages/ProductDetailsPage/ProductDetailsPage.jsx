@@ -3,11 +3,11 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
 import { GET_PRODUCT_ID } from '../../api/products';
-import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { ProductDetails } from '../../components/ProductDetails';
-import { Footer } from '../../components/Footer';
-import { Loading } from '../../components/Loading';
+import { Head } from '../../components//common/Head';
+import { Header } from '../../components/layout/Header';
+import { ProductDetails } from '../../components/ui/ProductDetails';
+import { Footer } from '../../components/layout/Footer';
+import { Loading } from '../../components/ui/Loading';
 
 const ProductDetailsPage = () => {
   const { login } = useContext(UserContext);

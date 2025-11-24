@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { formattedPriceToBRL } from '../../utils/priceUtils';
+import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import styles from './OrderSummary.module.css';
 
 const OrderSummary = ({ orderData }) => {

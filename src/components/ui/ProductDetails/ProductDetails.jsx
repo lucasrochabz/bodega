@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import { productPropType } from '../../types/propTypes';
+import { productPropType } from '../../../types/propTypes';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { POST_ORDERS } from '../../api/orders';
-import { useFetch } from '../../hooks';
-import { ROUTES } from '../../routes/paths';
-import { formattedPriceToBRL } from '../../utils/priceUtils';
+import { POST_ORDERS } from '../../../api/orders';
+import { useFetch } from '../../../hooks';
+import { ROUTES } from '../../../routes/paths';
+import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
 import styles from './ProductDetails.module.css';

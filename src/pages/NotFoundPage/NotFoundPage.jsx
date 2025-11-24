@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../routes/paths';
-import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { Footer } from '../../components/Footer';
+import { Head } from '../../components/common/Head';
+import { Header } from '../../components/layout/Header';
+import { Footer } from '../../components/layout/Footer';
 import styles from './NotFoundPage.module.css';
 
 const NotFoundPage = () => {

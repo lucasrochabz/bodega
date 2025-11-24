@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { Sidebar } from '../../components/Sidebar';
-import { MenuMobile } from '../../components/MenuMobile';
-import { Footer } from '../../components/Footer';
+import { Head } from '../../components/common/Head';
+import { Header } from '../../components/layout/Header';
+import { Sidebar } from '../../components/layout/Sidebar';
+import { MenuMobile } from '../../components/ui/MenuMobile';
+import { Footer } from '../../components/layout/Footer';
 import styles from './UserPage.module.css';
 
 const UserPage = () => {

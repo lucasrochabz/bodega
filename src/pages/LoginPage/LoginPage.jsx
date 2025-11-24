@@ -2,10 +2,10 @@ import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { ROUTES } from '../../routes/paths';
-import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { LoginForm } from '../../components/LoginForm';
-import { Footer } from '../../components/Footer';
+import { Head } from '../../components/common/Head';
+import { Header } from '../../components/layout/Header';
+import { LoginForm } from '../../components/forms/LoginForm';
+import { Footer } from '../../components/layout/Footer';
 import styles from './LoginPage.module.css';
 
 const LoginPage = () => {

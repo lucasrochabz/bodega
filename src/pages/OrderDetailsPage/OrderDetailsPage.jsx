@@ -2,9 +2,9 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { GET_ORDER_ID } from '../../api/orders';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/Head';
-import { OrderDetails } from '../../components/OrderDetails';
-import { Loading } from '../../components/Loading';
+import { Head } from '../../components/common/Head';
+import { OrderDetails } from '../../components/ui/OrderDetails';
+import { Loading } from '../../components/ui/Loading';
 import styles from './OrderDetailsPage.module.css';
 
 const OrderDetailsPage = () => {

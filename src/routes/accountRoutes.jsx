@@ -1,6 +1,6 @@
 import { ROUTES } from './paths';
-import { ProtectedRoute } from '../components/ProtectedRoute';
-import { Welcome } from '../components/Welcome';
+import { ProtectedRoute } from '../components/auth/ProtectedRoute';
+import { Welcome } from '../components/ui/Welcome';
 import { UserInfoPage } from '../pages/UserInfoPage';
 import { OrdersPage } from '../pages/OrdersPage';
 import { OrderDetailsPage } from '../pages/OrderDetailsPage';

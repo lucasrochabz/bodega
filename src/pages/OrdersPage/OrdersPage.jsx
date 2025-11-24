@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { GET_ORDERS_USER } from '../../api/orders';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/Head';
-import { Loading } from '../../components/Loading';
-import { OrderList } from '../../components/OrderList';
+import { Head } from '../../components/common/Head';
+import { Loading } from '../../components/ui/Loading';
+import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
 const OrdersPage = () => {

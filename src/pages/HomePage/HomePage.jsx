@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/Head';
-import { Loading } from '../../components/Loading';
-import { Header } from '../../components/Header';
-import { ProductList } from '../../components/ProductList';
-import { Pagination } from '../../components/Pagination';
-import { Footer } from '../../components/Footer';
+import { Head } from '../../components/common/Head';
+import { Loading } from '../../components/ui/Loading';
+import { Header } from '../../components/layout/Header';
+import { ProductList } from '../../components/ui/ProductList';
+import { Pagination } from '../../components/ui/Pagination';
+import { Footer } from '../../components/layout/Footer';
 import { productsService } from '../../services/productsService';
 
 const HomePage = () => {

@@ -1,7 +1,7 @@
 import { ROUTES } from './paths';
 import accountRoutes from './accountRoutes';
 import adminRoutes from './adminRoutes';
-import { ProtectedRoute } from '../components/ProtectedRoute';
+import { ProtectedRoute } from '../components/auth/ProtectedRoute';
 import { HomePage } from '../pages/HomePage';
 import { LoginPage } from '../pages/LoginPage';
 import { RegisterPage } from '../pages/RegisterPage';

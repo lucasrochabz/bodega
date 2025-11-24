@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { ROUTES } from '../../routes/paths';
-import { Button } from '../Button';
+import { UserContext } from '../../../contexts/UserContext';
+import { ROUTES } from '../../../routes/paths';
+import { Button } from '../../ui/Button';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {

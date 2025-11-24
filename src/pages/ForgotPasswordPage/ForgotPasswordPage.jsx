@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { useFetch } from '../../hooks';
 import { POST_FORGOT_PASSWORD } from '../../api/auth';
-import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { Button } from '../../components/Button';
-import { Footer } from '../../components/Footer';
+import { Head } from '../../components/common/Head';
+import { Header } from '../../components/layout/Header';
+import { Button } from '../../components/ui/Button';
+import { Footer } from '../../components/layout/Footer';
 import styles from './ForgotPasswordPage.module.css';
 
 const ForgotPasswordPage = () => {

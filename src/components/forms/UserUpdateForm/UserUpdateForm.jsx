@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import { addressPropType } from '../../types/propTypes';
+import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect } from 'react';
-import { GET_ADDRESS_DATA } from '../../api/address';
-import { PUT_USER_UPDATE } from '../../api/users';
-import { useFetch } from '../../hooks';
-import { Input } from '../Input';
-import { Button } from '../Button';
+import { GET_ADDRESS_DATA } from '../../../api/address';
+import { PUT_USER_UPDATE } from '../../../api/users';
+import { useFetch } from '../../../hooks';
+import { Input } from '../../ui/Input';
+import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {

@@ -1,8 +1,8 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../contexts/UserContext';
-import { useMedia } from '../../hooks';
-import { ROUTES } from '../../routes/paths';
+import { UserContext } from '../../../contexts/UserContext';
+import { useMedia } from '../../../hooks';
+import { ROUTES } from '../../../routes/paths';
 import { Button } from '../Button';
 import styles from './MenuMobile.module.css';
 

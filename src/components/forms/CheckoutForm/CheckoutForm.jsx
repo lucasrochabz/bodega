@@ -1,12 +1,12 @@
 import PropTypes from 'prop-types';
-import { addressPropType } from '../../types/propTypes';
+import { addressPropType } from '../../../types/propTypes';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFetch } from '../../hooks';
-import { PUT_ORDER_UPDATE } from '../../api/orders';
-import { ROUTES } from '../../routes/paths';
-import { Input } from '../Input';
-import { Button } from '../Button';
+import { useFetch } from '../../../hooks';
+import { PUT_ORDER_UPDATE } from '../../../api/orders';
+import { ROUTES } from '../../../routes/paths';
+import { Input } from '../../ui/Input';
+import { Button } from '../../ui/Button';
 import styles from './CheckoutForm.module.css';
 
 const CheckoutForm = ({ userData, orderData }) => {

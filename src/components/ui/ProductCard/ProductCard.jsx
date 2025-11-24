@@ -1,7 +1,7 @@
 import { useNavigate } from 'react-router-dom';
-import { productPropType } from '../../types/propTypes';
-import { ROUTES } from '../../routes/paths';
-import { formattedPriceToBRL } from '../../utils/priceUtils';
+import { productPropType } from '../../../types/propTypes';
+import { ROUTES } from '../../../routes/paths';
+import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import styles from './ProductCard.module.css';
 
 const ProductCard = ({ item }) => {

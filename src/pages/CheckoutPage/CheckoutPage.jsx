@@ -3,12 +3,12 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
 import { GET_ORDER_ID } from '../../api/orders';
-import { Head } from '../../components/Head';
-import { Header } from '../../components/Header';
-import { Loading } from '../../components/Loading';
-import { CheckoutForm } from '../../components/CheckoutForm';
-import { OrderSummary } from '../../components/OrderSummary';
-import { Footer } from '../../components/Footer';
+import { Head } from '../../components/common/Head';
+import { Header } from '../../components/layout/Header';
+import { Loading } from '../../components/ui/Loading';
+import { CheckoutForm } from '../../components/forms/CheckoutForm';
+import { OrderSummary } from '../../components/ui/OrderSummary';
+import { Footer } from '../../components/layout/Footer';
 import styles from './CheckoutPage.module.css';
 
 const CheckoutPage = () => {
