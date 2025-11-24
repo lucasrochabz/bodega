@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { GET_ORDER_ID } from '../../api/orders';
 import { useFetch } from '../../hooks';
+import { ordersService } from '../../services/ordersService';
 import { Head } from '../../components/common/Head';
 import { OrderDetails } from '../../components/ui/OrderDetails';
 import { Loading } from '../../components/ui/Loading';
@@ -12,12 +12,7 @@ const OrderDetailsPage = () => {
   const { request, loading, results } = useFetch();
 
   useEffect(() => {
-    const getOrder = async () => {
-      const { url, options } = GET_ORDER_ID(orderId);
-      request(url, options);
-    };
-
-    getOrder();
+    ordersService.getOrder({ orderId, request });
   }, [orderId, request]);
 
   return (

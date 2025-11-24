@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
-import { GET_PRODUCT_ID } from '../../api/products';
+import { productsService } from '../../services/productsService';
 import { Head } from '../../components//common/Head';
 import { Header } from '../../components/layout/Header';
 import { ProductDetails } from '../../components/ui/ProductDetails';
@@ -15,12 +15,7 @@ const ProductDetailsPage = () => {
   const { request, loading, results } = useFetch();
 
   useEffect(() => {
-    const getProduct = async () => {
-      const { url, options } = GET_PRODUCT_ID(productId);
-      request(url, options);
-    };
-
-    getProduct();
+    productsService.getProduct({ productId, request });
   }, [productId, request]);
 
   return (

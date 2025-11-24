@@ -52,10 +52,15 @@ bodega/
 │   ├── api/
 │   ├── assets/
 │   ├── components/
-│   │   └── MyComponent/
-│   │       ├── MyComponent.jsx
-│   │       ├── MyComponent.module.css
-│   │       └── index.js
+│   │   ├── auth/
+│   │   ├── common/
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   └── ui/
+│   │       └── MyComponent/
+│   │           ├── MyComponent.jsx
+│   │           ├── MyComponent.module.css
+│   │           └── index.js
 │   │
 │   ├── contexts/
 │   ├── hooks/

@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { GET_ADDRESS_DATA } from '../../../api/address';
 import { POST_USERS } from '../../../api/users';
 import { useFetch } from '../../../hooks';
+import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
@@ -24,30 +24,29 @@ const SignUpForm = () => {
   const [estado, setEstado] = useState('');
 
   useEffect(() => {
-    const getAddressData = async () => {
-      if (zipCode.length !== 8) {
-        setEndereco('');
-        setBairro('');
-        setCidade('');
-        setEstado('');
+    if (zipCode.length !== 8) {
+      setEndereco('');
+      setBairro('');
+      setCidade('');
+      setEstado('');
+      return;
+    }
+
+    const handleZipCode = async () => {
+      const result = await addressService.getAddressData(zipCode);
+
+      if (result.error) {
+        alert(result.error);
         return;
       }
-      const { url, options } = GET_ADDRESS_DATA(zipCode);
-      const response = await fetch(url, options);
 
-      const cepResult = await response.json();
-      if (cepResult.erro) {
-        alert('CEP inválido');
-        return;
-      }
-
-      setEndereco(cepResult.logradouro);
-      setBairro(cepResult.bairro);
-      setCidade(cepResult.localidade);
-      setEstado(cepResult.uf);
+      setEndereco(result.endereco);
+      setBairro(result.bairro);
+      setCidade(result.cidade);
+      setEstado(result.estado);
     };
 
-    getAddressData();
+    handleZipCode();
   }, [zipCode]);
 
   const handleSignup = async (event) => {

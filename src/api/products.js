@@ -1,6 +1,6 @@
 import { BASE_API_URL } from '../../config';
 
-const GET_PRODUCTS = (currentPage, pageSize) => {
+const GET_ALL_PRODUCTS = (currentPage, pageSize) => {
   return {
     url: `${BASE_API_URL}/api/v1/products?page=${currentPage}&pageSize=${pageSize}`,
     options: {
@@ -12,7 +12,7 @@ const GET_PRODUCTS = (currentPage, pageSize) => {
   };
 };
 
-const GET_PRODUCT_ID = (productId) => {
+const GET_PRODUCT = (productId) => {
   return {
     url: `${BASE_API_URL}/api/v1/products/${productId}`,
     options: {
@@ -24,4 +24,4 @@ const GET_PRODUCT_ID = (productId) => {
   };
 };
 
-export { GET_PRODUCTS, GET_PRODUCT_ID };
+export { GET_ALL_PRODUCTS, GET_PRODUCT };
