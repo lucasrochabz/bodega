@@ -2,16 +2,16 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import styles from './Pagination.module.css';
 
-const Pagination = ({ data, currentPage, setCurrentPage }) => {
+const Pagination = ({ data, page, setPage }) => {
   const handleNextPage = () => {
-    if (currentPage < data.totalPages) {
-      setCurrentPage((prevPage) => prevPage + 1);
+    if (page < data.totalPages) {
+      setPage((prevPage) => prevPage + 1);
     }
   };
 
   const handlePrevPage = () => {
-    if (currentPage > 1) {
-      setCurrentPage((prevPage) => prevPage - 1);
+    if (page > 1) {
+      setPage((prevPage) => prevPage - 1);
     }
   };
 
@@ -21,7 +21,7 @@ const Pagination = ({ data, currentPage, setCurrentPage }) => {
         Anterior
       </Button>
       <span>
-        Página {currentPage} de {data.totalPages}
+        Página {page} de {data.totalPages}
       </span>
       <Button variant="pagination" onClick={handleNextPage}>
         Próximo
@@ -34,8 +34,8 @@ Pagination.propTypes = {
   data: PropTypes.shape({
     totalPages: PropTypes.number.isRequired,
   }),
-  currentPage: PropTypes.number.isRequired,
-  setCurrentPage: PropTypes.func.isRequired,
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
 };
 
 export default Pagination;

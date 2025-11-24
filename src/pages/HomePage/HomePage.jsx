@@ -10,12 +10,12 @@ import { productsService } from '../../services/productsService';
 
 const HomePage = () => {
   const { request, loading, results } = useFetch();
-  const [currentPage, setCurrentPage] = useState(1);
+  const [page, setPage] = useState(1);
   const [pageSize] = useState(4);
 
   useEffect(() => {
-    productsService.getProducts(currentPage, pageSize, request);
-  }, [currentPage, pageSize, request]);
+    productsService.getProducts({ page, pageSize, request });
+  }, [page, pageSize, request]);
 
   if (loading || !results) return <Loading />;
   return (
@@ -24,11 +24,7 @@ const HomePage = () => {
 
       <Header />
       <ProductList data={results.data} />
-      <Pagination
-        data={results.data}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />
+      <Pagination data={results.data} page={page} setPage={setPage} />
       <Footer />
     </>
   );
