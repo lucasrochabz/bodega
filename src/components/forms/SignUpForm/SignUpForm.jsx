@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { POST_USERS } from '../../../api/users';
 import { useFetch } from '../../../hooks';
+import { usersService } from '../../../services/usersService';
 import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
@@ -52,7 +52,7 @@ const SignUpForm = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    const { url, options } = POST_USERS({
+    await usersService.signup(request, {
       first_name: firstName,
       last_name: lastName,
       email: email,
@@ -64,7 +64,6 @@ const SignUpForm = () => {
       city: cidade,
       state: estado,
     });
-    request(url, options);
 
     setFirstName('');
     setEmail('');

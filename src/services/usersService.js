@@ -1,4 +1,4 @@
-import { GET_USER } from '../api/users';
+import { GET_USER, POST_USERS } from '../api/users';
 
 const usersService = {
   getUser: (request) => {
@@ -6,6 +6,11 @@ const usersService = {
 
     const { url, options } = GET_USER(token);
     request(url, options);
+  },
+
+  signup: (request, userData) => {
+    const { url, options } = POST_USERS(userData);
+    return request(url, options);
   },
 };
 
