@@ -1,4 +1,4 @@
-import { BASE_API_URL } from '../../config';
+import { BASE_API_URL } from '../config';
 
 const GET_USER = (token) => {
   return {

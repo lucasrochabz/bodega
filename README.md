@@ -62,15 +62,16 @@ bodega/
 │   │           ├── MyComponent.module.css
 │   │           └── index.js
 │   │
+│   ├── config/
 │   ├── contexts/
 │   ├── hooks/
 │   ├── pages/
-│   ├── services/
 │   ├── routes/
+│   ├── services/
 │   ├── styles/
 │   │   ├── animations/
 │   │   ├── colors/
-│   │   └── index.css
+│   │   └── global.css
 │   │
 │   ├── types/
 │   ├── utils/
@@ -79,7 +80,6 @@ bodega/
 │
 ├── .env.example
 ├── .gitignore
-├── config.js
 ├── cypress.config.js
 ├── eslint.config.js
 ├── index.html
