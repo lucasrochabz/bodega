@@ -9,6 +9,7 @@ const OrderCard = ({ order }) => {
 
   const handleNavigate = (event, orderId) => {
     event.preventDefault();
+
     navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderId}`);
   };
 

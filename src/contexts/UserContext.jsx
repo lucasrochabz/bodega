@@ -18,13 +18,12 @@ export const UserProvider = ({ children }) => {
     try {
       const { url, options } = GET_USER(token);
       const response = await fetch(url, options);
+      const results = await response.json();
 
       if (!response.ok) {
-        const results = await response.json();
         throw new Error(results.message);
       }
 
-      const results = await response.json();
       setData(results.data);
       setLogin(true);
     } catch (error) {
@@ -40,13 +39,13 @@ export const UserProvider = ({ children }) => {
     try {
       const { url, options } = POST_LOGIN({ email, password });
       const response = await fetch(url, options);
+      const results = await response.json();
 
       if (!response.ok) {
-        const results = await response.json();
         throw new Error(results.message);
       }
 
-      const { token } = await response.json();
+      const { token } = results;
       localStorage.setItem('token', token);
       await getUser(token);
     } catch (error) {
