@@ -14,7 +14,8 @@ const ForgotPasswordPage = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const { url, options } = POST_FORGOT_PASSWORD(email);
+    const origin = window.location.origin;
+    const { url, options } = POST_FORGOT_PASSWORD({ email, origin });
     const response = await request(url, options);
 
     if (response) {

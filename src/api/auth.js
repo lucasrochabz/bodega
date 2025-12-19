@@ -13,13 +13,13 @@ const POST_LOGIN = (body) => {
   };
 };
 
-const POST_FORGOT_PASSWORD = (email) => {
+const POST_FORGOT_PASSWORD = ({ email, origin }) => {
   return {
     url: `${BASE_API_URL}/api/v1/auth/forgot-password`,
     options: {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ email }),
+      body: JSON.stringify({ email, origin }),
     },
   };
 };
