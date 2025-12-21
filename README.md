@@ -1,4 +1,4 @@
-## Bodega v1.1.0
+## Bodega v1.3.0
 
 ![Imagem do projeto](docs/projeto-bodega01.png)
 ![Imagem do projeto](docs/projeto-bodega02.png)
@@ -47,30 +47,31 @@ A aplicação segue boas práticas de desenvolvimento, garantindo uma experiênc
 ```bash
 bodega/
 ├── cypress/
-│   ├── e2e
-│   ├── fixtures/
-│   └── insertData.js
-│
 ├── public/
-│   └── bodega-logo-png
-│
 ├── src/
 │   ├── api/
 │   ├── assets/
 │   ├── components/
-│   │   └── MyComponent/
-│   │       ├── MyComponent.jsx
-│   │       ├── MyComponent.module.css
-│   │       └── index.js
+│   │   ├── auth/
+│   │   ├── common/
+│   │   ├── forms/
+│   │   ├── layout/
+│   │   └── ui/
+│   │       └── MyComponent/
+│   │           ├── MyComponent.jsx
+│   │           ├── MyComponent.module.css
+│   │           └── index.js
 │   │
+│   ├── config/
 │   ├── contexts/
 │   ├── hooks/
 │   ├── pages/
 │   ├── routes/
+│   ├── services/
 │   ├── styles/
 │   │   ├── animations/
 │   │   ├── colors/
-│   │   └── index.css
+│   │   └── global.css
 │   │
 │   ├── types/
 │   ├── utils/
@@ -79,7 +80,6 @@ bodega/
 │
 ├── .env.example
 ├── .gitignore
-├── config.js
 ├── cypress.config.js
 ├── eslint.config.js
 ├── index.html

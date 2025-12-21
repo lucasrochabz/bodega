@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
-import { GET_ORDERS_USER } from '../../api/orders';
+// import { GET_ORDERS_USER } from '../../api/orders';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/Head';
-import { Loading } from '../../components/Loading';
-import { OrderList } from '../../components/OrderList';
+import { Head } from '../../components/common/Head';
+import { Loading } from '../../components/ui/Loading';
+import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
+import { ordersService } from '../../services/ordersService';
 
 const OrdersPage = () => {
   const { request, loading, results } = useFetch();
@@ -17,14 +18,7 @@ const OrdersPage = () => {
   const ordersToShow = search ? filtredOrders : results?.data;
 
   useEffect(() => {
-    const getOrders = async () => {
-      const token = localStorage.getItem('token');
-
-      const { url, options } = GET_ORDERS_USER(token);
-      request(url, options);
-    };
-
-    getOrders();
+    ordersService.getOrders(request);
   }, [request]);
 
   return (

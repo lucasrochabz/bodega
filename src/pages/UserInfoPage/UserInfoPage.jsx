@@ -1,22 +1,15 @@
 import { useEffect } from 'react';
 import { useFetch } from '../../hooks';
-import { GET_USER } from '../../api/users';
-import { Head } from '../../components/Head';
-import { Loading } from '../../components/Loading';
-import { UserUpdateForm } from '../../components/UserUpdateForm';
+import { usersService } from '../../services/usersService';
+import { Head } from '../../components/common/Head';
+import { Loading } from '../../components/ui/Loading';
+import { UserUpdateForm } from '../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
   const { request, loading, results } = useFetch();
 
   useEffect(() => {
-    const getDataUser = async () => {
-      const token = localStorage.getItem('token');
-
-      const { url, options } = GET_USER(token);
-      request(url, options);
-    };
-
-    getDataUser();
+    usersService.getUser(request);
   }, [request]);
 
   return (

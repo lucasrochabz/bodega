@@ -1,0 +1,33 @@
+.productCard {
+  background-color: var(--color-bg);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  max-width: 300px;
+  border-radius: 5px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.productCard:hover {
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.5);
+  transform: scale(1.01);
+}
+
+.productCard img {
+  width: 100%;
+  display: block;
+}
+
+.price {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.title {
+  margin-bottom: 1rem;
+}
+
+.wrapper {
+  color: var(--color-primary-dark);
+  padding: 1rem;
+}

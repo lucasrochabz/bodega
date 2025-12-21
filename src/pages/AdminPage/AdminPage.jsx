@@ -1,6 +1,8 @@
 import { useState } from 'react';
-import { Input } from '../../components/Input';
-import { Button } from '../../components/Button';
+import { Header } from '../../components/layout/Header';
+import { Input } from '../../components/ui/Input';
+import { Button } from '../../components/ui/Button';
+import { Footer } from '../../components/layout/Footer';
 import styles from './AdminPage.module.css';
 
 const AdminPage = () => {
@@ -14,30 +16,34 @@ const AdminPage = () => {
   };
 
   return (
-    <section className={styles.container}>
-      <form className={styles.wrapper}>
-        <Input label="Nome" />
+    <>
+      <Header />
+      <section className={styles.container}>
+        <form className={styles.wrapper}>
+          <Input label="Nome" />
 
-        <input
-          className="file"
-          type="file"
-          id="img"
-          name="img"
-          onChange={handleImgChange}
-        />
+          <input
+            className="file"
+            type="file"
+            id="img"
+            name="img"
+            onChange={handleImgChange}
+          />
 
-        <Button variant="primary">Enviar</Button>
-      </form>
+          <Button variant="primary">Enviar</Button>
+        </form>
 
-      <div>
-        {img.preview && (
-          <div
-            className={styles.preview}
-            style={{ backgroundImage: `url('${img.preview}')` }}
-          ></div>
-        )}
-      </div>
-    </section>
+        <div>
+          {img.preview && (
+            <div
+              className={styles.preview}
+              style={{ backgroundImage: `url('${img.preview}')` }}
+            ></div>
+          )}
+        </div>
+      </section>
+      <Footer />
+    </>
   );
 };
 
