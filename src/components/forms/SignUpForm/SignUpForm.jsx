@@ -53,11 +53,11 @@ const SignUpForm = () => {
     event.preventDefault();
 
     await usersService.signup(request, {
-      first_name: firstName,
-      last_name: lastName,
+      firstName: firstName,
+      lastName: lastName,
       email: email,
       password: password,
-      zip_code: zipCode,
+      zipCode: zipCode,
       street: endereco,
       number: numero,
       neighborhood: bairro,
@@ -123,8 +123,8 @@ const SignUpForm = () => {
 
           <Input
             type="number"
-            label={'CEP'}
-            id={'cep'}
+            label="CEP"
+            id="cep"
             value={zipCode}
             setValue={setZipCode}
             placeholder="60000000"
@@ -133,8 +133,8 @@ const SignUpForm = () => {
 
           <Input
             type="text"
-            label={'Endereço'}
-            id={'endereco'}
+            label="Endereço"
+            id="endereco"
             value={endereco}
             readOnly
             required
@@ -142,8 +142,8 @@ const SignUpForm = () => {
 
           <Input
             type="number"
-            label={'Número'}
-            id={'numero'}
+            label="Número"
+            id="numero"
             value={numero}
             setValue={setNumero}
             required
@@ -151,8 +151,8 @@ const SignUpForm = () => {
 
           <Input
             type="text"
-            label={'Bairro'}
-            id={'bairro'}
+            label="Bairro"
+            id="bairro"
             value={bairro}
             readOnly
             required
@@ -160,8 +160,8 @@ const SignUpForm = () => {
 
           <Input
             type="text"
-            label={'Cidade'}
-            id={'cidade'}
+            label="Cidade"
+            id="cidade"
             value={cidade}
             readOnly
             required
@@ -169,8 +169,8 @@ const SignUpForm = () => {
 
           <Input
             type="text"
-            label={'Estado'}
-            id={'estado'}
+            label="Estado"
+            id="estado"
             value={estado}
             readOnly
             required

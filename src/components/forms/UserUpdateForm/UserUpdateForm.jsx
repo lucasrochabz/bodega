@@ -11,10 +11,10 @@ import styles from './UserUpdateForm.module.css';
 const UserUpdateForm = ({ data }) => {
   const { request, loading } = useFetch();
   const [formData, setFormData] = useState({
-    first_name: '',
-    last_name: '',
+    firstName: '',
+    lastName: '',
     email: '',
-    zip_code: '',
+    zipCode: '',
     street: '',
     number: '',
     neighborhood: '',
@@ -41,7 +41,7 @@ const UserUpdateForm = ({ data }) => {
 
   useEffect(() => {
     const getAddressData = async () => {
-      if (formData.zip_code.length !== 8) {
+      if (formData.zipCode.length !== 8) {
         setFormData((prev) => ({
           ...prev,
           street: '',
@@ -51,7 +51,7 @@ const UserUpdateForm = ({ data }) => {
         }));
         return;
       }
-      const { url, options } = GET_ADDRESS_DATA(formData.zip_code);
+      const { url, options } = GET_ADDRESS_DATA(formData.zipCode);
       const response = await fetch(url, options);
 
       const cepResult = await response.json();
@@ -70,14 +70,14 @@ const UserUpdateForm = ({ data }) => {
     };
 
     getAddressData();
-  }, [formData.zip_code]);
+  }, [formData.zipCode]);
 
   useEffect(() => {
     setFormData({
-      first_name: data.first_name,
-      last_name: data.last_name,
+      firstName: data.first_name,
+      lastName: data.last_name,
       email: data.email,
-      zip_code: data.address.zip_code,
+      zipCode: data.address.zip_code,
       street: data.address.street,
       number: data.address.number,
       neighborhood: data.address.neighborhood,
@@ -92,7 +92,7 @@ const UserUpdateForm = ({ data }) => {
         type="text"
         label="Nome"
         id="first_name"
-        value={formData.first_name}
+        value={formData.firstName}
         onChange={handleChange}
         placeholder="Primeiro nome"
         required
@@ -102,7 +102,7 @@ const UserUpdateForm = ({ data }) => {
         type="text"
         label="Sobrenome"
         id="last_name"
-        value={formData.last_name}
+        value={formData.lastName}
         onChange={handleChange}
         required
       />
@@ -120,9 +120,9 @@ const UserUpdateForm = ({ data }) => {
 
       <Input
         type="number"
-        label={'CEP'}
-        id={'zip_code'}
-        value={formData.zip_code}
+        label="CEP"
+        id="zipCode"
+        value={formData.zipCode}
         onChange={handleChange}
         placeholder="60000000"
         required
@@ -130,8 +130,8 @@ const UserUpdateForm = ({ data }) => {
 
       <Input
         type="text"
-        label={'Endereço'}
-        id={'endereco'}
+        label="Endereço"
+        id="endereco"
         value={formData.street}
         readOnly
         required
@@ -139,8 +139,8 @@ const UserUpdateForm = ({ data }) => {
 
       <Input
         type="number"
-        label={'Número'}
-        id={'number'}
+        label="Número"
+        id="number"
         value={formData.number}
         onChange={handleChange}
         required
@@ -148,8 +148,8 @@ const UserUpdateForm = ({ data }) => {
 
       <Input
         type="text"
-        label={'Bairro'}
-        id={'bairro'}
+        label="Bairro"
+        id="bairro"
         value={formData.neighborhood}
         readOnly
         required
@@ -157,8 +157,8 @@ const UserUpdateForm = ({ data }) => {
 
       <Input
         type="text"
-        label={'Cidade'}
-        id={'cidade'}
+        label="Cidade"
+        id="cidade"
         value={formData.city}
         readOnly
         required
@@ -166,8 +166,8 @@ const UserUpdateForm = ({ data }) => {
 
       <Input
         type="text"
-        label={'Estado'}
-        id={'estado'}
+        label="Estado"
+        id="estado"
         value={formData.state}
         readOnly
         required
