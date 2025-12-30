@@ -1,5 +1,17 @@
 import { BASE_API_URL } from '../config';
 
+const GET_ME = (token) => {
+  return {
+    url: `${BASE_API_URL}/api/v1/auth/me`,
+    options: {
+      method: 'GET',
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  };
+};
+
 const POST_LOGIN = (body) => {
   return {
     url: `${BASE_API_URL}/api/v1/auth/login`,
@@ -35,4 +47,4 @@ const POST_RESET_PASSWORD = ({ token, newPassword }) => {
   };
 };
 
-export { POST_LOGIN, POST_FORGOT_PASSWORD, POST_RESET_PASSWORD };
+export { GET_ME, POST_LOGIN, POST_FORGOT_PASSWORD, POST_RESET_PASSWORD };

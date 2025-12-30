@@ -1,16 +1,20 @@
-import { useEffect } from 'react';
-import { useFetch } from '../../hooks';
-import { usersService } from '../../services/usersService';
+import { useContext } from 'react';
+import { UserContext } from '../../contexts/UserContext';
+// import { useFetch } from '../../hooks';
+// import { authService } from '../../services/authService';
 import { Head } from '../../components/common/Head';
 import { Loading } from '../../components/ui/Loading';
 import { UserUpdateForm } from '../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
-  const { request, loading, results } = useFetch();
+  const { data, loading } = useContext(UserContext);
 
-  useEffect(() => {
-    usersService.getUser(request);
-  }, [request]);
+  // fix: apagar isso daqui e de outras páginas que fazem parecido
+  // const { request, loading, results } = useFetch();
+
+  // useEffect(() => {
+  //   authService.getMe(request);
+  // }, [request]);
 
   return (
     <>
@@ -18,11 +22,7 @@ const UserInfoPage = () => {
         title="Informações"
         description="Descrição da página Minhas Informações"
       />
-      {loading || !results?.data ? (
-        <Loading />
-      ) : (
-        <UserUpdateForm data={results.data} />
-      )}
+      {loading || !data ? <Loading /> : <UserUpdateForm data={data} />}
     </>
   );
 };

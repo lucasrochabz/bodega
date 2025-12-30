@@ -5,7 +5,7 @@ const usersService = {
     const token = localStorage.getItem('token');
 
     const { url, options } = GET_USER(token);
-    request(url, options);
+    return request(url, options);
   },
 
   signup: (request, userData) => {

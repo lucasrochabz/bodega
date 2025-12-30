@@ -1,18 +1,22 @@
+import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
+import { useFetch, useLoading } from '../hooks';
 import { GET_USER } from '../api/users';
-import { POST_LOGIN } from '../api/auth';
-import { useLoading } from '../hooks';
+import { authService } from '../services/authService';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
+  const { request } = useFetch();
+
   const [login, setLogin] = useState(() => {
     const token = localStorage.getItem('token');
     return token != null;
   });
   const [data, setData] = useState(null);
 
+  // fix: add useCallback para deixar função mais pura
   const getUser = async (token) => {
     startLoading();
     try {
@@ -21,6 +25,7 @@ export const UserProvider = ({ children }) => {
       const results = await response.json();
 
       if (!response.ok) {
+        userLogout();
         throw new Error(results.message);
       }
 
@@ -37,15 +42,9 @@ export const UserProvider = ({ children }) => {
   const userLogin = async (email, password) => {
     startLoading();
     try {
-      const { url, options } = POST_LOGIN({ email, password });
-      const response = await fetch(url, options);
-      const results = await response.json();
+      const result = await authService.login(request, { email, password });
+      const { token } = result;
 
-      if (!response.ok) {
-        throw new Error(results.message);
-      }
-
-      const { token } = results;
       localStorage.setItem('token', token);
       await getUser(token);
     } catch (error) {
@@ -63,31 +62,12 @@ export const UserProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    const autoLogin = async () => {
-      const token = localStorage.getItem('token');
+    const token = localStorage.getItem('token');
 
-      if (token) {
-        startLoading();
-        try {
-          const { url, options } = GET_USER(token);
-          const response = await fetch(url, options);
-          const results = await response.json();
-
-          if (!results.success) {
-            userLogout();
-            throw new Error(results.message);
-          }
-
-          await getUser(token);
-        } catch (error) {
-          console.error('Erro na requisição:', error.message);
-          alert(`Erro na requisição: ${error.message}`);
-        } finally {
-          stopLoading();
-        }
-      }
-    };
-    autoLogin();
+    if (token) {
+      getUser(token);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -97,4 +77,8 @@ export const UserProvider = ({ children }) => {
       {children}
     </UserContext.Provider>
   );
+};
+
+UserProvider.propTypes = {
+  children: PropTypes.node.isRequired,
 };
