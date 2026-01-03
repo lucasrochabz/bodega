@@ -32,7 +32,7 @@ const CheckoutForm = ({ userData, orderData }) => {
     <form className={styles.form} onSubmit={handleMakePayment}>
       <div className={styles.wrapper}>
         <span>Informações Pessoais</span>
-        <Input type="text" label="Nome" id="name" value={userData.first_name} />
+        <Input type="text" label="Nome" id="name" value={userData.firstName} />
 
         <Input type="email" label="E-mail" id="email" value={userData.email} />
       </div>
@@ -43,7 +43,7 @@ const CheckoutForm = ({ userData, orderData }) => {
           type="number"
           label="CEP"
           id="cep"
-          value={userData.address.zip_code}
+          value={userData.address.zipCode}
           placeholder="60000000"
         />
 
@@ -129,7 +129,7 @@ const CheckoutForm = ({ userData, orderData }) => {
 
 CheckoutForm.propTypes = {
   userData: PropTypes.shape({
-    first_name: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     address: addressPropType.isRequired,
   }).isRequired,

@@ -6,7 +6,6 @@ const GET_USER = (token) => {
     options: {
       method: 'GET',
       headers: {
-        'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
     },
