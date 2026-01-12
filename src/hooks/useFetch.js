@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { useLoading } from './index';
 
+// fix: exportar os erros onde o useFetch é utilizado
 const useFetch = () => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [results, setResults] = useState(null);
@@ -21,7 +22,7 @@ const useFetch = () => {
     } catch (error) {
       setError(error.message);
       console.error(error.message);
-      alert(error.message);
+      throw error;
     } finally {
       stopLoading();
     }
