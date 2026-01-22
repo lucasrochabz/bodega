@@ -1,5 +1,6 @@
 import { BASE_API_URL } from '../config';
 
+// fix: essa função deve ser atualizada no backend
 const GET_USER = (token) => {
   return {
     url: `${BASE_API_URL}/api/v1/users/user`,
@@ -29,7 +30,7 @@ const PUT_USER_UPDATE = (token, body) => {
   return {
     url: `${BASE_API_URL}/api/v1/users/update`,
     options: {
-      method: 'PUT',
+      method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,

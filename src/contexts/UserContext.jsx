@@ -1,14 +1,12 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
-import { useFetch, useLoading } from '../hooks';
-import { GET_USER } from '../api/users';
+import { useLoading } from '../hooks';
 import { authService } from '../services/authService';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
-  const { request } = useFetch();
 
   const [login, setLogin] = useState(() => {
     const token = localStorage.getItem('token');
@@ -20,20 +18,15 @@ export const UserProvider = ({ children }) => {
   const getUser = async (token) => {
     startLoading();
     try {
-      const { url, options } = GET_USER(token);
-      const response = await fetch(url, options);
-      const results = await response.json();
+      const result = await authService.getMe(token);
 
-      if (!response.ok) {
-        userLogout();
-        throw new Error(results.message);
-      }
-
-      setData(results.data);
+      setData(result.data);
       setLogin(true);
     } catch (error) {
-      console.error('Erro ao buscar dados do usuário:', error.message);
-      alert(`Erro ao buscar dados do usuário: ${error.message}`);
+      userLogout();
+      console.error(error.message);
+      // fix: remover o alert para throw error;
+      alert(error.message);
     } finally {
       stopLoading();
     }
@@ -42,14 +35,16 @@ export const UserProvider = ({ children }) => {
   const userLogin = async (email, password) => {
     startLoading();
     try {
-      const result = await authService.login(request, { email, password });
+      const result = await authService.login({ email, password });
       const { token } = result;
 
       localStorage.setItem('token', token);
       await getUser(token);
     } catch (error) {
-      console.error('Erro ao fazer login:', error.message);
-      alert(`Erro ao fazer login: ${error.message}`);
+      console.error(error.message);
+
+      // fix: remover o alert para throw error;
+      alert(error.message);
     } finally {
       stopLoading();
     }

@@ -1,4 +1,4 @@
-## Bodega v1.6.0
+## Bodega
 
 ![Imagem do projeto](docs/projeto-bodega01.png)
 ![Imagem do projeto](docs/projeto-bodega02.png)
