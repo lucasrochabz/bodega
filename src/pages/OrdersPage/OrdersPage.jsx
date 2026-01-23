@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks';
+import { ordersService } from '../../services/ordersService';
 import { Head } from '../../components/shared/Head';
 import { Loading } from '../../components/ui/Loading';
 import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
-import { ordersService } from '../../services/ordersService';
 
 const OrdersPage = () => {
   const { request, loading, results, error } = useFetch();
