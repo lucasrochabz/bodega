@@ -10,12 +10,12 @@ const OrdersPage = () => {
   const { request, loading, results, error } = useFetch();
   const [search, setSearch] = useState('');
 
-  const allOrdeers = results?.data || [];
-  const filtredOrders = allOrdeers.filter((item) =>
+  const allOrders = results?.data || [];
+  const filtredOrders = allOrders.filter((item) =>
     item.id.toString().includes(search),
   );
 
-  const ordersToShow = search ? filtredOrders : allOrdeers;
+  const ordersToShow = search ? filtredOrders : allOrders;
 
   useEffect(() => {
     ordersService.getOrders(request);
