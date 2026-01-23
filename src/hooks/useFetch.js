@@ -21,7 +21,7 @@ const useFetch = () => {
       return results;
     } catch (error) {
       setError(error.message);
-      console.error(error.message);
+      console.error(error);
       throw error;
     } finally {
       stopLoading();
