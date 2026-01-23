@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
 import { productsService } from '../../services/productsService';
-import { Head } from '../../components//common/Head';
+import { Head } from '../../components//shared/Head';
 import { Header } from '../../components/layout/Header';
 import { ProductDetails } from '../../components/ui/ProductDetails';
 import { Footer } from '../../components/layout/Footer';

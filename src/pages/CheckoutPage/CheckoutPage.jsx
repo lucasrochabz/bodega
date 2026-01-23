@@ -2,7 +2,7 @@ import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/common/Head';
+import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Loading } from '../../components/ui/Loading';
 import { CheckoutForm } from '../../components/forms/CheckoutForm';

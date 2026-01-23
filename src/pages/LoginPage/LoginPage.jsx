@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { ROUTES } from '../../routes/paths';
-import { Head } from '../../components/common/Head';
+import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { LoginForm } from '../../components/forms/LoginForm';
 import { Footer } from '../../components/layout/Footer';

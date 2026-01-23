@@ -53,7 +53,7 @@ bodega/
 │   ├── assets/
 │   ├── components/
 │   │   ├── auth/
-│   │   ├── common/
+│   │   ├── shared/
 │   │   ├── forms/
 │   │   ├── layout/
 │   │   └── ui/

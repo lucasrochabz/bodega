@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '../../hooks';
 import { ordersService } from '../../services/ordersService';
-import { Head } from '../../components/common/Head';
+import { Head } from '../../components/shared/Head';
 import { OrderDetails } from '../../components/ui/OrderDetails';
 import { Loading } from '../../components/ui/Loading';
 import styles from './OrderDetailsPage.module.css';

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks';
 import { productsService } from '../../services/productsService';
-import { Head } from '../../components/common/Head';
+import { Head } from '../../components/shared/Head';
 import { Loading } from '../../components/ui/Loading';
 import { Header } from '../../components/layout/Header';
 import { ProductList } from '../../components/ui/ProductList';

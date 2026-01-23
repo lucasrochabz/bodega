@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/common/Head';
+import { Head } from '../../components/shared/Head';
 import { Loading } from '../../components/ui/Loading';
 import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
