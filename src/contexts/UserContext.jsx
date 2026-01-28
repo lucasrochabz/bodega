@@ -50,6 +50,21 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const updateUser = async (body) => {
+    const token = localStorage.getItem('token');
+    startLoading();
+    try {
+      await authService.update(token, body);
+
+      await getUser(token);
+    } catch (error) {
+      console.error(error.message);
+      throw error;
+    } finally {
+      stopLoading();
+    }
+  };
+
   const userLogout = () => {
     setLogin(false);
     setData(null);
@@ -67,7 +82,14 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ userLogin, userLogout, data, login, loading }}
+      value={{
+        userLogin,
+        userLogout,
+        updateUser,
+        data,
+        login,
+        loading,
+      }}
     >
       {children}
     </UserContext.Provider>

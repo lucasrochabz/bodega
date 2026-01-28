@@ -1,15 +1,14 @@
 import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { UserContext } from '../../../contexts/UserContext';
 import { GET_ADDRESS_DATA } from '../../../api/address';
-import { PUT_USER_UPDATE } from '../../../api/users';
-import { useFetch } from '../../../hooks';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
-  const { request, loading } = useFetch();
+  const { updateUser, loading } = useContext(UserContext);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -33,10 +32,7 @@ const UserUpdateForm = ({ data }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const token = localStorage.getItem('token');
-
-    const { url, options } = PUT_USER_UPDATE(token, formData);
-    request(url, options);
+    await updateUser(formData);
   };
 
   useEffect(() => {

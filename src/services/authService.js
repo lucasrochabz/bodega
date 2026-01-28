@@ -1,5 +1,5 @@
 import { GET_ME, POST_LOGIN } from '../api/auth';
-import { POST_USERS } from '../api/users';
+import { POST_USERS, PUT_USER_UPDATE } from '../api/users';
 
 const authService = {
   getMe: async (token) => {
@@ -21,6 +21,18 @@ const authService = {
 
     if (!response.ok) {
       throw new Error(json.message || 'Erro ao fazer login.');
+    }
+
+    return json;
+  },
+
+  update: async (token, body) => {
+    const { url, options } = PUT_USER_UPDATE(token, body);
+    const response = await fetch(url, options);
+    const json = await response.json();
+
+    if (!response.ok) {
+      throw new Error(json.message || 'Erro ao atualizar o usuário.');
     }
 
     return json;
