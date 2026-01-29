@@ -7,8 +7,8 @@ export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
-
   const [token, setToken] = useLocalStorage('token', null);
+
   const [data, setData] = useState(null);
   const login = !!token;
 
@@ -77,14 +77,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{
-        userLogin,
-        userLogout,
-        updateUser,
-        data,
-        login,
-        loading,
-      }}
+      value={{ userLogin, userLogout, updateUser, loading, login, data }}
     >
       {children}
     </UserContext.Provider>

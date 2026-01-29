@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { POST_ORDERS } from '../../../api/orders';
-import { useFetch } from '../../../hooks';
+import { useFetch, useToggle } from '../../../hooks';
 import { ROUTES } from '../../../routes/paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
@@ -17,7 +16,8 @@ const images = import.meta.glob('/src/assets/images/*', {
 const ProductDetails = ({ product, loading, isLogin }) => {
   const navigate = useNavigate();
   const { request } = useFetch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const [showModal, toggleShowModal] = useToggle(false);
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
 
@@ -27,12 +27,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 
   const handleImageClick = (event) => {
     event.stopPropagation();
-
-    setIsModalOpen(true);
-  };
-
-  const handleCloseModal = () => {
-    setIsModalOpen((prevIsModalOpen) => !prevIsModalOpen);
+    toggleShowModal();
   };
 
   const handleFinalizeOrder = async () => {
@@ -82,8 +77,8 @@ const ProductDetails = ({ product, loading, isLogin }) => {
           </div>
         </div>
 
-        {isModalOpen && (
-          <ImageModal imagePath={imagePath} onClose={handleCloseModal} />
+        {showModal && (
+          <ImageModal imagePath={imagePath} onClose={toggleShowModal} />
         )}
       </section>
     </>
