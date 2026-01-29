@@ -26,7 +26,11 @@ const HomePage = () => {
 
       <Header />
       <ProductList data={results.data} />
-      <Pagination data={results.data} page={page} setPage={setPage} />
+      <Pagination
+        pagination={results.data.pagination}
+        page={page}
+        setPage={setPage}
+      />
       <Footer />
     </>
   );

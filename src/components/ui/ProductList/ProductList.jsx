@@ -7,7 +7,7 @@ const ProductList = ({ data }) => {
   return (
     <>
       <section className={styles.productList}>
-        {data.results.map((item) => (
+        {data.items.map((item) => (
           <ProductCard key={item.id} item={item} />
         ))}
       </section>
@@ -17,7 +17,7 @@ const ProductList = ({ data }) => {
 
 ProductList.propTypes = {
   data: PropTypes.shape({
-    results: PropTypes.arrayOf(productPropType),
+    items: PropTypes.arrayOf(productPropType),
   }).isRequired,
 };
 

@@ -2,9 +2,9 @@ import PropTypes from 'prop-types';
 import { Button } from '../Button';
 import styles from './Pagination.module.css';
 
-const Pagination = ({ data, page, setPage }) => {
+const Pagination = ({ pagination, page, setPage }) => {
   const handleNextPage = () => {
-    if (page < data.totalPages) {
+    if (page < pagination.totalPages) {
       setPage((prevPage) => prevPage + 1);
     }
   };
@@ -21,7 +21,7 @@ const Pagination = ({ data, page, setPage }) => {
         Anterior
       </Button>
       <span>
-        Página {page} de {data.totalPages}
+        Página {page} de {pagination.totalPages}
       </span>
       <Button variant="pagination" onClick={handleNextPage}>
         Próximo
@@ -31,7 +31,7 @@ const Pagination = ({ data, page, setPage }) => {
 };
 
 Pagination.propTypes = {
-  data: PropTypes.shape({
+  pagination: PropTypes.shape({
     totalPages: PropTypes.number.isRequired,
   }),
   page: PropTypes.number.isRequired,
