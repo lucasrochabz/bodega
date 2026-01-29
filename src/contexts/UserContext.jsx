@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
-import { useLoading } from '../hooks';
+import { useLoading, useLocalStorage } from '../hooks';
 import { authService } from '../services/authService';
 
 export const UserContext = createContext();
@@ -8,20 +8,17 @@ export const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
 
-  const [login, setLogin] = useState(() => {
-    const token = localStorage.getItem('token');
-    return token != null;
-  });
+  const [token, setToken] = useLocalStorage('token', null);
   const [data, setData] = useState(null);
+  const login = !!token;
 
   // fix: add useCallback para deixar função mais pura
-  const getUser = async (token) => {
+  const getUser = async (authToken) => {
     startLoading();
     try {
-      const result = await authService.getMe(token);
+      const result = await authService.getMe(authToken);
 
       setData(result.data);
-      setLogin(true);
     } catch (error) {
       userLogout();
       console.error(error.message);
@@ -36,10 +33,9 @@ export const UserProvider = ({ children }) => {
     startLoading();
     try {
       const result = await authService.login({ email, password });
-      const { token } = result;
 
-      localStorage.setItem('token', token);
-      await getUser(token);
+      setToken(result.token);
+      await getUser(result.token);
     } catch (error) {
       console.error(error.message);
 
@@ -51,7 +47,8 @@ export const UserProvider = ({ children }) => {
   };
 
   const updateUser = async (body) => {
-    const token = localStorage.getItem('token');
+    if (!token) return;
+
     startLoading();
     try {
       await authService.update(token, body);
@@ -66,19 +63,17 @@ export const UserProvider = ({ children }) => {
   };
 
   const userLogout = () => {
-    setLogin(false);
+    setToken(null);
     setData(null);
-    localStorage.removeItem('token');
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-
     if (token) {
       getUser(token);
     }
+    // para colocar o getUser como dependência tenho que colocar o useCallback nele
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [token]);
 
   return (
     <UserContext.Provider
