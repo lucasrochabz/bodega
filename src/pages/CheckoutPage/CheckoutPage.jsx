@@ -2,14 +2,14 @@ import { useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/common/Head';
+import { ordersService } from '../../services/ordersService';
+import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Loading } from '../../components/ui/Loading';
 import { CheckoutForm } from '../../components/forms/CheckoutForm';
 import { OrderSummary } from '../../components/ui/OrderSummary';
 import { Footer } from '../../components/layout/Footer';
 import styles from './CheckoutPage.module.css';
-import { ordersService } from '../../services/ordersService';
 
 const CheckoutPage = () => {
   const { data } = useContext(UserContext);

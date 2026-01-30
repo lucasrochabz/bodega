@@ -1,39 +1,29 @@
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
-import { useFetch, useLoading } from '../hooks';
-import { GET_USER } from '../api/users';
+import { useLoading, useLocalStorage } from '../hooks';
 import { authService } from '../services/authService';
 
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
-  const { request } = useFetch();
+  const [token, setToken] = useLocalStorage('token', null);
 
-  const [login, setLogin] = useState(() => {
-    const token = localStorage.getItem('token');
-    return token != null;
-  });
   const [data, setData] = useState(null);
+  const login = !!token;
 
   // fix: add useCallback para deixar função mais pura
-  const getUser = async (token) => {
+  const getUser = async (authToken) => {
     startLoading();
     try {
-      const { url, options } = GET_USER(token);
-      const response = await fetch(url, options);
-      const results = await response.json();
+      const result = await authService.getMe(authToken);
 
-      if (!response.ok) {
-        userLogout();
-        throw new Error(results.message);
-      }
-
-      setData(results.data);
-      setLogin(true);
+      setData(result.data);
     } catch (error) {
-      console.error('Erro ao buscar dados do usuário:', error.message);
-      alert(`Erro ao buscar dados do usuário: ${error.message}`);
+      userLogout();
+      console.error(error.message);
+      // fix: remover o alert para throw error;
+      alert(error.message);
     } finally {
       stopLoading();
     }
@@ -42,37 +32,52 @@ export const UserProvider = ({ children }) => {
   const userLogin = async (email, password) => {
     startLoading();
     try {
-      const result = await authService.login(request, { email, password });
-      const { token } = result;
+      const result = await authService.login({ email, password });
 
-      localStorage.setItem('token', token);
+      setToken(result.token);
+      await getUser(result.token);
+    } catch (error) {
+      console.error(error.message);
+
+      // fix: remover o alert para throw error;
+      alert(error.message);
+    } finally {
+      stopLoading();
+    }
+  };
+
+  const updateUser = async (body) => {
+    if (!token) return;
+
+    startLoading();
+    try {
+      await authService.update(token, body);
+
       await getUser(token);
     } catch (error) {
-      console.error('Erro ao fazer login:', error.message);
-      alert(`Erro ao fazer login: ${error.message}`);
+      console.error(error.message);
+      throw error;
     } finally {
       stopLoading();
     }
   };
 
   const userLogout = () => {
-    setLogin(false);
+    setToken(null);
     setData(null);
-    localStorage.removeItem('token');
   };
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-
     if (token) {
       getUser(token);
     }
+    // para colocar o getUser como dependência tenho que colocar o useCallback nele
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [token]);
 
   return (
     <UserContext.Provider
-      value={{ userLogin, userLogout, data, login, loading }}
+      value={{ userLogin, userLogout, updateUser, loading, login, data }}
     >
       {children}
     </UserContext.Provider>

@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
     eager: true,
   });
 
-  const imagePath = images[`/src/assets/images/${item.image_path}`].default;
+  const imagePath = images[`/src/assets/images/${item.imagePath}`].default;
 
   return (
     <div onClick={handleNavigate} className={styles.productCard}>

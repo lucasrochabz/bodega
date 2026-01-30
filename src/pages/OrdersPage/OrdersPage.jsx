@@ -1,26 +1,28 @@
 import { useEffect, useState } from 'react';
-// import { GET_ORDERS_USER } from '../../api/orders';
 import { useFetch } from '../../hooks';
-import { Head } from '../../components/common/Head';
+import { ordersService } from '../../services/ordersService';
+import { Head } from '../../components/shared/Head';
 import { Loading } from '../../components/ui/Loading';
 import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
-import { ordersService } from '../../services/ordersService';
 
 const OrdersPage = () => {
-  const { request, loading, results } = useFetch();
+  const { request, loading, results, error } = useFetch();
   const [search, setSearch] = useState('');
 
-  const filtredOrders = results?.data.filter((item) =>
+  const allOrders = results?.data || [];
+  const filtredOrders = allOrders.filter((item) =>
     item.id.toString().includes(search),
   );
 
-  const ordersToShow = search ? filtredOrders : results?.data;
+  const ordersToShow = search ? filtredOrders : allOrders;
 
   useEffect(() => {
     ordersService.getOrders(request);
   }, [request]);
 
+  if (loading) return <Loading />;
+  if (error) return <div>Erro: {error}</div>;
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
@@ -32,13 +34,13 @@ const OrdersPage = () => {
         onChange={(e) => setSearch(e.target.value)}
         value={search}
       />
-      {loading || !results?.data ? (
-        <Loading />
-      ) : (
-        <section className={`${styles.orders} anim-show-left`}>
+      <section className={`${styles.orders} anim-show-left`}>
+        {ordersToShow.length === 0 ? (
+          <div>Nenhum pedido encontrado.</div>
+        ) : (
           <OrderList orders={ordersToShow} />
-        </section>
-      )}
+        )}
+      </section>
     </>
   );
 };

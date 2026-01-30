@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useFetch } from '../../hooks';
 import { POST_FORGOT_PASSWORD } from '../../api/auth';
-import { Head } from '../../components/common/Head';
+import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Button } from '../../components/ui/Button';
 import { Footer } from '../../components/layout/Footer';
@@ -20,7 +20,7 @@ const ForgotPasswordPage = () => {
 
     if (response) {
       alert('Email enviado.');
-      window.location.href = response.resetUrl;
+      window.location.href = response.token;
     }
     setEmail('');
   };

@@ -21,11 +21,12 @@ const useFetch = () => {
       return results;
     } catch (error) {
       setError(error.message);
-      console.error(error.message);
+      console.error(error);
       throw error;
     } finally {
       stopLoading();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { request, loading, results, error };

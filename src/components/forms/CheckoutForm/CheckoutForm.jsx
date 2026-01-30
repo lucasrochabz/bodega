@@ -3,7 +3,7 @@ import { addressPropType } from '../../../types/propTypes';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFetch } from '../../../hooks';
-import { PUT_ORDER_UPDATE } from '../../../api/orders';
+import { POST_CHECKOUT } from '../../../api/orders';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
@@ -13,20 +13,22 @@ const CheckoutForm = ({ userData, orderData }) => {
   const { request, results } = useFetch();
   const navigate = useNavigate();
 
+  // fix: acho que aqui cabe um service.
   const handleMakePayment = async (event) => {
     event.preventDefault();
 
-    const { url, options } = PUT_ORDER_UPDATE(orderData.id, {
-      status: 'pagamento efetuado',
+    // fix: saber qual os dados que é melhor enviar.
+    const { url, options } = POST_CHECKOUT(orderData.id, {
+      paymentMethod: 'credit_card',
     });
     request(url, options);
   };
 
   useEffect(() => {
-    if (results) {
-      navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${results.data.id}`);
-    }
-  });
+    if (!results) return;
+
+    navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderData.id}`);
+  }, [results, navigate, orderData]);
 
   return (
     <form className={styles.form} onSubmit={handleMakePayment}>

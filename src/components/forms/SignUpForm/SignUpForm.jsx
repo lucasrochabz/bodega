@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFetch } from '../../../hooks';
+import { useFetch, useDebounce } from '../../../hooks';
 import { usersService } from '../../../services/usersService';
 import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
@@ -17,6 +17,9 @@ const SignUpForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [zipCode, setZipCode] = useState('');
+
+  const debouncedZipCode = useDebounce(zipCode, 500);
+
   const [endereco, setEndereco] = useState('');
   const [numero, setNumero] = useState('');
   const [bairro, setBairro] = useState('');
@@ -24,7 +27,7 @@ const SignUpForm = () => {
   const [estado, setEstado] = useState('');
 
   useEffect(() => {
-    if (zipCode.length !== 8) {
+    if (debouncedZipCode.length !== 8) {
       setEndereco('');
       setBairro('');
       setCidade('');
@@ -33,7 +36,7 @@ const SignUpForm = () => {
     }
 
     const handleZipCode = async () => {
-      const result = await addressService.getAddressData(zipCode);
+      const result = await addressService.getAddressData(debouncedZipCode);
 
       if (result.error) {
         alert(result.error);
@@ -47,7 +50,7 @@ const SignUpForm = () => {
     };
 
     handleZipCode();
-  }, [zipCode]);
+  }, [debouncedZipCode]);
 
   const handleSignup = async (event) => {
     event.preventDefault();

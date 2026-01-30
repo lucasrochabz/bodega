@@ -39,11 +39,11 @@ const POST_ORDERS = (token, body) => {
   };
 };
 
-const PUT_ORDER_UPDATE = (orderId, body) => {
+const POST_CHECKOUT = (orderId, body) => {
   return {
-    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
+    url: `${BASE_API_URL}/api/v1/orders/${orderId}/checkout`,
     options: {
-      method: 'PUT',
+      method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
@@ -52,4 +52,4 @@ const PUT_ORDER_UPDATE = (orderId, body) => {
   };
 };
 
-export { GET_ORDER_ID, GET_ORDERS_USER, POST_ORDERS, PUT_ORDER_UPDATE };
+export { GET_ORDER_ID, GET_ORDERS_USER, POST_ORDERS, POST_CHECKOUT };
