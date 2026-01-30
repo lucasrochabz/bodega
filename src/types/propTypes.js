@@ -11,7 +11,7 @@ export const productPropType = PropTypes.shape({
   name: PropTypes.string.isRequired,
   price: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  image_path: PropTypes.string.isRequired,
+  imagePath: PropTypes.string.isRequired,
 });
 
 export const addressPropType = PropTypes.shape({

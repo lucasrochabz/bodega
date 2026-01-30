@@ -20,7 +20,7 @@ const ForgotPasswordPage = () => {
 
     if (response) {
       alert('Email enviado.');
-      window.location.href = response.resetUrl;
+      window.location.href = response.token;
     }
     setEmail('');
   };
