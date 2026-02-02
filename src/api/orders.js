@@ -1,20 +1,21 @@
 import { BASE_API_URL } from '../config';
 
-const GET_ORDER_ID = (orderId) => {
+const GET_MY_ORDERS = (token) => {
   return {
-    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
+    url: `${BASE_API_URL}/api/v1/orders/me`,
     options: {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
       },
     },
   };
 };
 
-const GET_MY_ORDERS = (token) => {
+const GET_ORDER_ID = (token, orderId) => {
   return {
-    url: `${BASE_API_URL}/api/v1/orders/me`,
+    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
     options: {
       method: 'GET',
       headers: {
@@ -52,4 +53,4 @@ const POST_CHECKOUT = (orderId, body) => {
   };
 };
 
-export { GET_ORDER_ID, GET_MY_ORDERS, POST_ORDERS, POST_CHECKOUT };
+export { GET_MY_ORDERS, GET_ORDER_ID, POST_ORDERS, POST_CHECKOUT };
