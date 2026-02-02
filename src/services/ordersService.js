@@ -1,4 +1,4 @@
-import { GET_ORDER_ID, GET_ORDERS_USER } from '../api/orders';
+import { GET_ORDER_ID, GET_MY_ORDERS } from '../api/orders';
 
 const ordersService = {
   getOrder: ({ orderId, request }) => {
@@ -9,7 +9,7 @@ const ordersService = {
   getOrders: (request) => {
     const token = localStorage.getItem('token');
 
-    const { url, options } = GET_ORDERS_USER(token);
+    const { url, options } = GET_MY_ORDERS(token);
     return request(url, options);
   },
 };

@@ -12,9 +12,9 @@ const GET_ORDER_ID = (orderId) => {
   };
 };
 
-const GET_ORDERS_USER = (token) => {
+const GET_MY_ORDERS = (token) => {
   return {
-    url: `${BASE_API_URL}/api/v1/orders/user`,
+    url: `${BASE_API_URL}/api/v1/orders/me`,
     options: {
       method: 'GET',
       headers: {
@@ -52,4 +52,4 @@ const POST_CHECKOUT = (orderId, body) => {
   };
 };
 
-export { GET_ORDER_ID, GET_ORDERS_USER, POST_ORDERS, POST_CHECKOUT };
+export { GET_ORDER_ID, GET_MY_ORDERS, POST_ORDERS, POST_CHECKOUT };
