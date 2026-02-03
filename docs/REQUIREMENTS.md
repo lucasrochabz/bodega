@@ -17,6 +17,9 @@
 
 ### Tecnologias
 
-npm install  
-npm install --save-dev cypress  
-npm install --save-dev ntl
+npm install --save react-router-dom
+npm install --save-dev i18next
+npm install --save-dev react-i18next
+
+npm install --save-dev cypress
+npm install --save-dev ntl (pendente)
