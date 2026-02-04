@@ -17,7 +17,6 @@ const images = import.meta.glob('/src/assets/images/*', {
 const ProductDetails = ({ product, loading, isLogin }) => {
   const navigate = useNavigate();
   const { request } = useFetch();
-
   const [showModal, toggleShowModal] = useToggle(false);
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
