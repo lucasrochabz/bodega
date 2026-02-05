@@ -1,4 +1,4 @@
-import { GET_ORDER_ID, GET_MY_ORDERS } from '../api/orders';
+import { GET_ORDER_ID, GET_MY_ORDERS } from '../api/ordersApi';
 
 const ordersService = {
   getOrder: ({ orderId, request }) => {

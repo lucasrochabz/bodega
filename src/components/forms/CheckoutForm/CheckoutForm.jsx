@@ -3,7 +3,7 @@ import { addressPropType } from '../../../types/propTypes';
 import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useFetch } from '../../../hooks';
-import { POST_CHECKOUT } from '../../../api/orders';
+import { POST_CHECKOUT } from '../../../api/paymentsApi';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';

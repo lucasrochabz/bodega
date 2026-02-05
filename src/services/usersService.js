@@ -1,4 +1,4 @@
-import { POST_USERS } from '../api/users';
+import { POST_USERS } from '../api/usersApi';
 
 const usersService = {
   signup: (request, userData) => {

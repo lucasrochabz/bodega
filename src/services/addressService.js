@@ -1,4 +1,4 @@
-import { GET_ADDRESS_DATA } from '../api/address';
+import { GET_ADDRESS_DATA } from '../api/addressApi';
 
 const addressService = {
   getAddressData: async (zipCode) => {

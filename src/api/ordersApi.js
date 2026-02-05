@@ -40,31 +40,4 @@ const POST_ORDERS = (token, body) => {
   };
 };
 
-// const POST_CHECKOUT = (orderId, body) => {
-//   return {
-//     url: `${BASE_API_URL}/api/v1/orders/${orderId}/checkout`,
-//     options: {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify(body),
-//     },
-//   };
-// };
-
-// fix: criar payments.js
-const POST_CHECKOUT = (body) => {
-  return {
-    url: `${BASE_API_URL}/api/v1/payments/checkout`,
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    },
-  };
-};
-
-export { GET_MY_ORDERS, GET_ORDER_ID, POST_ORDERS, POST_CHECKOUT };
+export { GET_MY_ORDERS, GET_ORDER_ID, POST_ORDERS };

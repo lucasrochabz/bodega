@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
-import { GET_ADDRESS_DATA } from '../../../api/address';
+import { GET_ADDRESS_DATA } from '../../../api/addressApi';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';

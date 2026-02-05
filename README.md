@@ -65,6 +65,7 @@ bodega/
 │   ├── config/
 │   ├── contexts/
 │   ├── hooks/
+│   ├── http/
 │   ├── pages/
 │   ├── routes/
 │   ├── services/

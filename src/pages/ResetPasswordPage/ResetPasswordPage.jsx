@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import { useFetch } from '../../hooks';
-import { POST_RESET_PASSWORD } from '../../api/auth';
+import { POST_RESET_PASSWORD } from '../../api/authApi';
 import { ROUTES } from '../../routes/paths';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';

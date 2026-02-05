@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useFetch } from '../../hooks';
-import { POST_FORGOT_PASSWORD } from '../../api/auth';
+import { POST_FORGOT_PASSWORD } from '../../api/authApi';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Button } from '../../components/ui/Button';

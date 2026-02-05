@@ -1,22 +1,18 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { useFetch } from '../../hooks';
-import { productsService } from '../../services/productsService';
 import { Head } from '../../components//shared/Head';
 import { Header } from '../../components/layout/Header';
 import { ProductDetails } from '../../components/ui/ProductDetails';
 import { Footer } from '../../components/layout/Footer';
 import { Loading } from '../../components/ui/Loading';
+import useProduct from '../../hooks/useProduct';
 
 const ProductDetailsPage = () => {
   const { login } = useContext(UserContext);
   const { productId } = useParams();
-  const { request, loading, results } = useFetch();
 
-  useEffect(() => {
-    productsService.getProduct({ productId, request });
-  }, [productId, request]);
+  const { data, loading } = useProduct(productId);
 
   return (
     <>
@@ -28,11 +24,11 @@ const ProductDetailsPage = () => {
       {loading ? (
         <Loading />
       ) : (
-        results && (
+        data && (
           <>
             <Header />
             <ProductDetails
-              product={results.data[0]}
+              product={data.data}
               loading={loading}
               isLogin={login}
             />
