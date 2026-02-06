@@ -3,6 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../contexts/UserContext';
 import { ROUTES } from '../../../routes/paths';
+import { LanguageSwitcher } from '../../ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
 const Header = ({ hideLinks = false }) => {
@@ -14,6 +15,8 @@ const Header = ({ hideLinks = false }) => {
         <Link to={ROUTES.HOME} aria-label="Bodega - Home">
           <span className={styles.logo}>Bodega</span>
         </Link>
+
+        <LanguageSwitcher />
 
         {!hideLinks && (
           <Link

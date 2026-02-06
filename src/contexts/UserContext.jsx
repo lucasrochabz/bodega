@@ -3,6 +3,7 @@ import { createContext, useEffect, useState } from 'react';
 import { useLoading, useLocalStorage } from '../hooks';
 import { authService } from '../services/authService';
 
+// fix: mudar para AuthContext
 export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {

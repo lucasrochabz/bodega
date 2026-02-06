@@ -9,7 +9,8 @@ i18n.use(initReactI18next).init({
     'pt-BR': { translation: ptBR },
     'en-US': { translation: enUS },
   },
-  lng: 'pt-BR',
+  lng: localStorage.getItem('lang') || 'pt-BR',
+
   // lng: 'en-US',
   fallbackLng: 'pt-BR',
   interpolation: {
@@ -18,3 +19,6 @@ i18n.use(initReactI18next).init({
 });
 
 export default i18n;
+
+// fix: instalar lib em projeto maiores
+// import LanguageDetector from 'i18next-browser-languagedetector';

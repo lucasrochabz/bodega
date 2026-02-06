@@ -8,6 +8,7 @@ import { Footer } from '../../components/layout/Footer';
 import styles from './UserPage.module.css';
 
 const UserPage = () => {
+  // fix: substituir location.pathname por location.pathname.startsWith(...)
   const location = useLocation();
   const [title, setTitle] = useState('');
 
