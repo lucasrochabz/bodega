@@ -6,7 +6,7 @@ import styles from './OrderDetailsPage.module.css';
 
 const OrderDetailsPage = () => {
   const { orderId } = useParams();
-  const { data, loading, error } = useOrder(orderId);
+  const { loading, error, data } = useOrder(orderId);
 
   if (loading || !data) return <div>Carregando...</div>;
   if (error) return <div>{error}</div>;

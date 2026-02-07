@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
-
 import { useNavigate } from 'react-router-dom';
 import { POST_ORDERS } from '../../../api/ordersApi';
 import { useFetch, useToggle } from '../../../hooks';

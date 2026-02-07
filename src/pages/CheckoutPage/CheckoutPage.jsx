@@ -13,7 +13,8 @@ import styles from './CheckoutPage.module.css';
 const CheckoutPage = () => {
   const { data: userData } = useContext(UserContext);
   const { orderId } = useParams();
-  const { data: orderData, loading, error } = useOrder(orderId);
+
+  const { loading, error, data: orderData } = useOrder(orderId);
 
   if (loading || !userData || !orderData) return <Loading />;
   if (error) return <div>{error}</div>;

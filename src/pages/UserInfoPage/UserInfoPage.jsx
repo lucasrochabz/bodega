@@ -4,9 +4,10 @@ import { Head } from '../../components/shared/Head';
 import { UserUpdateForm } from '../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
-  const { data, loading } = useContext(UserContext);
+  const { loading, data } = useContext(UserContext);
 
-  if (loading || !data) return <div>Carregando...</div>;
+  if (loading) return <div>Carregando...</div>;
+  if (!data) return null;
   return (
     <>
       <Head

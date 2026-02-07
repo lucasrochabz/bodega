@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import useProducts from '../../hooks/products/useProducts';
 import { Head } from '../../components/shared/Head';
-import { Loading } from '../../components/ui/Loading';
 import { Header } from '../../components/layout/Header';
 import { ProductList } from '../../components/ui/ProductList';
 import { Pagination } from '../../components/ui/Pagination';
@@ -11,9 +10,9 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [pageSize] = useState(4);
 
-  const { data, loading, error } = useProducts({ page, pageSize });
+  const { loading, error, data } = useProducts({ page, pageSize });
 
-  if (loading) return <Loading />;
+  if (loading) return <div>Carregando...</div>;
   if (error) return <div>{error}</div>;
   if (!data) return null;
   return (

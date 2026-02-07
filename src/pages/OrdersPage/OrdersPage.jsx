@@ -5,7 +5,7 @@ import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
 const OrdersPage = () => {
-  const { data, loading, error } = useOrders();
+  const { loading, error, data } = useOrders();
   const [search, setSearch] = useState('');
 
   const allOrders = data || [];

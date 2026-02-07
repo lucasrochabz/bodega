@@ -11,6 +11,7 @@ export const UserProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage('token', null);
 
   const [data, setData] = useState(null);
+  // fix: trocar para isAuthenticated
   const login = !!token;
 
   // fix: add useCallback para deixar função mais pura
@@ -78,6 +79,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider
+      // fix: saber porque devo usar useMemo no value
       value={{ userLogin, userLogout, updateUser, loading, login, data }}
     >
       {children}

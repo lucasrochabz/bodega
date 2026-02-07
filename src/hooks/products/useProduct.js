@@ -13,7 +13,7 @@ const useProduct = (productId) => {
 
       try {
         const result = await productsService.getProduct(productId);
-        setData(result);
+        setData(result.data);
       } catch (err) {
         setError(err.message);
       } finally {
