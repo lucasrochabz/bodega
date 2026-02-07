@@ -1,27 +1,21 @@
-import { useEffect, useState } from 'react';
-import { useFetch } from '../../hooks';
-import { ordersService } from '../../services/ordersService';
+import { useState } from 'react';
+import useOrders from '../../hooks/useOrders';
 import { Head } from '../../components/shared/Head';
-import { Loading } from '../../components/ui/Loading';
 import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
 const OrdersPage = () => {
-  const { request, loading, results, error } = useFetch();
+  const { data, loading, error } = useOrders();
   const [search, setSearch] = useState('');
 
-  const allOrders = results?.data || [];
+  const allOrders = data || [];
   const filtredOrders = allOrders.filter((item) =>
     item.id.toString().includes(search),
   );
 
   const ordersToShow = search ? filtredOrders : allOrders;
 
-  useEffect(() => {
-    ordersService.getOrders(request);
-  }, [request]);
-
-  if (loading) return <Loading />;
+  if (loading) return <div>Carregando...</div>;
   if (error) return <div>Erro: {error}</div>;
   return (
     <>

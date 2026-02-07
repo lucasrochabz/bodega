@@ -1,8 +1,7 @@
-import { useContext, useEffect } from 'react';
+import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '../../contexts/UserContext';
-import { useFetch } from '../../hooks';
-import { ordersService } from '../../services/ordersService';
+import useOrder from '../../hooks/useOrder';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Loading } from '../../components/ui/Loading';
@@ -12,15 +11,12 @@ import { Footer } from '../../components/layout/Footer';
 import styles from './CheckoutPage.module.css';
 
 const CheckoutPage = () => {
-  const { data } = useContext(UserContext);
+  const { data: userData } = useContext(UserContext);
   const { orderId } = useParams();
-  const { loading, request, results } = useFetch();
+  const { data: orderData, loading, error } = useOrder(orderId);
 
-  useEffect(() => {
-    ordersService.getOrder({ orderId, request });
-  }, [orderId, request]);
-
-  if (loading || !data || !results?.data) return <Loading />;
+  if (loading || !userData || !orderData) return <Loading />;
+  if (error) return <div>{error}</div>;
   return (
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
@@ -28,8 +24,8 @@ const CheckoutPage = () => {
       <h2 className="title">Finalizar Compra</h2>
 
       <main className={styles.checkout}>
-        <CheckoutForm userData={data} orderData={results.data} />
-        <OrderSummary orderData={results.data} />
+        <CheckoutForm userData={userData} orderData={orderData} />
+        <OrderSummary orderData={orderData} />
       </main>
 
       <Footer />

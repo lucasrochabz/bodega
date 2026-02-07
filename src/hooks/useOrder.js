@@ -1,18 +1,19 @@
 import { useEffect, useState } from 'react';
-import { productsService } from '../services/productsService';
+import { ordersService } from '../services/ordersService';
 
-const useProducts = ({ page, pageSize }) => {
+const useOrder = (orderId) => {
   const [data, setData] = useState(null);
+  // fix: mudar para isLoading
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchOrder = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const result = await productsService.getAllProducts({ page, pageSize });
+        const result = await ordersService.getOrder(orderId);
         setData(result.data);
       } catch (err) {
         setError(err.message);
@@ -21,10 +22,10 @@ const useProducts = ({ page, pageSize }) => {
       }
     };
 
-    if (page && pageSize) fetchProducts();
-  }, [page, pageSize]);
+    if (orderId) fetchOrder();
+  }, [orderId]);
 
   return { data, loading, error };
 };
 
-export default useProducts;
+export default useOrder;

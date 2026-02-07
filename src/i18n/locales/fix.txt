@@ -1,6 +1,0 @@
-add erros:
-{
-  "errors": {
-    "PRODUCT_NOT_FOUND": "Product not found"
-  }
-}
