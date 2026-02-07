@@ -1,4 +1,4 @@
-import { GET_ORDER_ID, GET_MY_ORDERS } from '../api/ordersApi';
+import { GET_ORDER_ID, GET_MY_ORDERS, POST_ORDERS } from '../api/ordersApi';
 import { request } from '../http/request';
 
 const ordersService = {
@@ -13,6 +13,13 @@ const ordersService = {
     const token = localStorage.getItem('token');
 
     const { url, options } = GET_MY_ORDERS(token);
+    return request(url, options);
+  },
+
+  createOrder: (body) => {
+    const token = localStorage.getItem('token');
+    const { url, options } = POST_ORDERS(token, body);
+
     return request(url, options);
   },
 };

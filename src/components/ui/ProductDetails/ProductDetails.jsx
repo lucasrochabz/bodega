@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
-import { POST_ORDERS } from '../../../api/ordersApi';
-import { useFetch, useToggle } from '../../../hooks';
+import { useToggle } from '../../../hooks';
+import { ordersService } from '../../../services/ordersService';
 import { ROUTES } from '../../../routes/paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
@@ -15,7 +15,6 @@ const images = import.meta.glob('/src/assets/images/*', {
 
 const ProductDetails = ({ product, loading, isLogin }) => {
   const navigate = useNavigate();
-  const { request } = useFetch();
   const [showModal, toggleShowModal] = useToggle(false);
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
@@ -29,20 +28,22 @@ const ProductDetails = ({ product, loading, isLogin }) => {
     toggleShowModal();
   };
 
-  const handleFinalizeOrder = async () => {
+  const createDraftOrder = () => {
+    return ordersService.createOrder({
+      status: 'rascunho',
+      products: [{ product_id: product.id, quantity: 1 }],
+    });
+  };
+
+  const redirectUser = () => {
     if (!isLogin) {
       navigate(ROUTES.LOGIN);
       return;
     }
+  };
 
-    const token = localStorage.getItem('token');
-
-    const { url, options } = POST_ORDERS(token, {
-      status: 'rascunho',
-      products: [{ product_id: product.id, quantity: 1 }],
-    });
-
-    const response = await request(url, options);
+  const handleFinalizeOrder = async () => {
+    const response = await createDraftOrder();
 
     if (response?.data?.id) {
       navigate(`${ROUTES.CHECKOUT_BASE}/${response.data.id}`);
@@ -69,7 +70,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
             <Button
               variant="secondary"
               disabled={loading}
-              onClick={handleFinalizeOrder}
+              onClick={isLogin ? handleFinalizeOrder : redirectUser}
             >
               {isLogin ? 'Finalizar Pedido' : 'Faça login para comprar'}
             </Button>
