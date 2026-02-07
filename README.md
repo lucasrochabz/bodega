@@ -65,6 +65,11 @@ bodega/
 │   ├── config/
 │   ├── contexts/
 │   ├── hooks/
+│   │   ├── orders/
+│   │   ├── products/
+│   │   ├── shared/
+│   │   └── index.js
+│   │
 │   ├── http/
 │   ├── pages/
 │   ├── routes/

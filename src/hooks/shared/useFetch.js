@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { useLoading } from './index';
+import { useLoading } from '../index';
 
 // fix: exportar os erros onde o useFetch é utilizado
 const useFetch = () => {

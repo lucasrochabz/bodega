@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import useOrders from '../../hooks/useOrders';
+import useOrders from '../../hooks/orders/useOrders';
 import { Head } from '../../components/shared/Head';
 import { OrderList } from '../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';

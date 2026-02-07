@@ -1,18 +1,18 @@
 import { useEffect, useState } from 'react';
-import { ordersService } from '../services/ordersService';
+import { productsService } from '../../services/productsService';
 
-const useOrders = () => {
+const useProducts = ({ page, pageSize }) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchOrders = async () => {
+    const fetchProducts = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const result = await ordersService.getOrders();
+        const result = await productsService.getAllProducts({ page, pageSize });
         setData(result.data);
       } catch (err) {
         setError(err.message);
@@ -21,10 +21,10 @@ const useOrders = () => {
       }
     };
 
-    fetchOrders();
-  }, []);
+    if (page && pageSize) fetchProducts();
+  }, [page, pageSize]);
 
   return { data, loading, error };
 };
 
-export default useOrders;
+export default useProducts;

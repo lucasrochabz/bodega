@@ -1,19 +1,19 @@
 import { useEffect, useState } from 'react';
-import { productsService } from '../services/productsService';
+import { productsService } from '../../services/productsService';
 
-const useProducts = ({ page, pageSize }) => {
+const useProduct = (productId) => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchProducts = async () => {
+    const fetchProduct = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const result = await productsService.getAllProducts({ page, pageSize });
-        setData(result.data);
+        const result = await productsService.getProduct(productId);
+        setData(result);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -21,10 +21,10 @@ const useProducts = ({ page, pageSize }) => {
       }
     };
 
-    if (page && pageSize) fetchProducts();
-  }, [page, pageSize]);
+    if (productId) fetchProduct();
+  }, [productId]);
 
   return { data, loading, error };
 };
 
-export default useProducts;
+export default useProduct;

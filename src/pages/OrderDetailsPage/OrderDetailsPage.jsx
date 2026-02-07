@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import useOrder from '../../hooks/useOrder';
+import useOrder from '../../hooks/orders/useOrder';
 import { Head } from '../../components/shared/Head';
 import { OrderDetails } from '../../components/ui/OrderDetails';
 import styles from './OrderDetailsPage.module.css';

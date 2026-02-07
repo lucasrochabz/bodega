@@ -1,19 +1,18 @@
 import { useEffect, useState } from 'react';
-import { ordersService } from '../services/ordersService';
+import { ordersService } from '../../services/ordersService';
 
-const useOrder = (orderId) => {
+const useOrders = () => {
   const [data, setData] = useState(null);
-  // fix: mudar para isLoading
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchOrder = async () => {
+    const fetchOrders = async () => {
       setLoading(true);
       setError(null);
 
       try {
-        const result = await ordersService.getOrder(orderId);
+        const result = await ordersService.getOrders();
         setData(result.data);
       } catch (err) {
         setError(err.message);
@@ -22,10 +21,10 @@ const useOrder = (orderId) => {
       }
     };
 
-    if (orderId) fetchOrder();
-  }, [orderId]);
+    fetchOrders();
+  }, []);
 
   return { data, loading, error };
 };
 
-export default useOrder;
+export default useOrders;
