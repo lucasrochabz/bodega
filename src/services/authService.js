@@ -1,6 +1,5 @@
 import { GET_ME, POST_LOGIN } from '../api/authApi';
 import { POST_USERS, PUT_USER_UPDATE } from '../api/usersApi';
-
 import { request } from '../http/request';
 
 const authService = {

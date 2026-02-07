@@ -1,5 +1,6 @@
 import styles from './Loading.module.css';
 
+// fix: mudar para não preencher a tela toda
 const Loading = () => {
   return (
     <section className={styles.container}>

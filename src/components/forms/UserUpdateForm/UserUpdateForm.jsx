@@ -2,10 +2,10 @@ import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '../../../contexts/UserContext';
+import useAddress from '../../../hooks/useAddress';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
-import useAddress from '../../../hooks/useAddress';
 
 const UserUpdateForm = ({ data }) => {
   const { updateUser, loading } = useContext(UserContext);
@@ -20,7 +20,7 @@ const UserUpdateForm = ({ data }) => {
     city: '',
     state: '',
   });
-  const { address } = useAddress(formData.zipCode);
+  const { address, error } = useAddress(formData.zipCode);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -61,6 +61,12 @@ const UserUpdateForm = ({ data }) => {
       state: data.address.state,
     });
   }, [data]);
+
+  useEffect(() => {
+    if (!error) return;
+
+    alert('CEP inválido');
+  }, [error]);
 
   return (
     <form className={`${styles.form} anim-show-left`} onSubmit={handleSubmit}>

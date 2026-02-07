@@ -19,6 +19,12 @@ const useAddress = (zipCode) => {
       try {
         const result = await addressService.newgetAddress(zipCode);
 
+        if (result.erro) {
+          setError(result.erro);
+          setAddress(null);
+          return;
+        }
+
         setAddress(result);
       } catch (err) {
         setError(err.message);
