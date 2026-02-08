@@ -25,7 +25,7 @@ const CheckoutPage = () => {
       <h2 className="title">Finalizar Compra</h2>
 
       <main className={styles.checkout}>
-        <CheckoutForm userData={userData} orderData={orderData} />
+        <CheckoutForm userData={userData} />
         <OrderSummary orderData={orderData} />
       </main>
 

@@ -1,39 +1,32 @@
 import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
-import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { useFetch } from '../../../hooks';
-import { POST_CHECKOUT } from '../../../api/paymentsApi';
 import { ROUTES } from '../../../routes/paths';
+import useCreatePayment from '../../../hooks/payments/useCreatePayment';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './CheckoutForm.module.css';
 
-const CheckoutForm = ({ userData, orderData }) => {
-  const { request, results } = useFetch();
+const CheckoutForm = ({ userData }) => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
-  // fix: acho que aqui cabe um service.
+  const { createPayment, loading } = useCreatePayment();
+
   const handleMakePayment = async (event) => {
     event.preventDefault();
 
-    // fix: simulação de envio para gateway de pgto.
-    // payment_token é o que o gateway me enviaria.
-    const { url, options } = POST_CHECKOUT({
+    const response = await createPayment({
       order_id: Number(orderId),
       payment_method: 'credit_card',
       gateway: 'stripe',
       payment_token: crypto.randomUUID(),
     });
-    request(url, options);
+
+    if (response) {
+      navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderId}`);
+    }
   };
-
-  useEffect(() => {
-    if (!results) return;
-
-    navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderData.id}`);
-  }, [results, navigate, orderData]);
 
   return (
     <form className={styles.form} onSubmit={handleMakePayment}>
@@ -139,10 +132,6 @@ CheckoutForm.propTypes = {
     firstName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     address: addressPropType.isRequired,
-  }).isRequired,
-
-  orderData: PropTypes.shape({
-    id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
   }).isRequired,
 };
 

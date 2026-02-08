@@ -12,7 +12,7 @@ const GET_ME = (token) => {
   };
 };
 
-const POST_LOGIN = (body) => {
+const POST_LOGIN = (payload) => {
   return {
     url: `${BASE_API_URL}/api/v1/auth/login`,
     options: {
@@ -20,7 +20,7 @@ const POST_LOGIN = (body) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     },
   };
 };

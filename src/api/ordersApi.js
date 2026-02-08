@@ -26,7 +26,7 @@ const GET_ORDER_ID = (token, orderId) => {
   };
 };
 
-const POST_ORDERS = (token, body) => {
+const POST_ORDERS = (token, payload) => {
   return {
     url: `${BASE_API_URL}/api/v1/orders`,
     options: {
@@ -35,7 +35,7 @@ const POST_ORDERS = (token, body) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     },
   };
 };

@@ -1,6 +1,6 @@
 import { BASE_API_URL } from '../config';
 
-const POST_CHECKOUT = (body) => {
+const POST_CHECKOUT = (payload) => {
   return {
     url: `${BASE_API_URL}/api/v1/payments/checkout`,
     options: {
@@ -8,7 +8,7 @@ const POST_CHECKOUT = (body) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     },
   };
 };

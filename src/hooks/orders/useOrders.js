@@ -12,7 +12,7 @@ const useOrders = () => {
       setError(null);
 
       try {
-        const result = await ordersService.getOrders();
+        const result = await ordersService.getMyOrders();
         setData(result.data);
       } catch (err) {
         setError(err.message);

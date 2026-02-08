@@ -1,6 +1,6 @@
 import { BASE_API_URL } from '../config';
 
-const POST_USERS = (body) => {
+const POST_USERS = (payload) => {
   return {
     url: `${BASE_API_URL}/api/v1/users`,
     options: {
@@ -8,12 +8,12 @@ const POST_USERS = (body) => {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     },
   };
 };
 
-const PUT_USER_UPDATE = (token, body) => {
+const PATCH_USER_UPDATE = (token, payload) => {
   return {
     url: `${BASE_API_URL}/api/v1/users/update`,
     options: {
@@ -22,9 +22,9 @@ const PUT_USER_UPDATE = (token, body) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     },
   };
 };
 
-export { POST_USERS, PUT_USER_UPDATE };
+export { POST_USERS, PATCH_USER_UPDATE };

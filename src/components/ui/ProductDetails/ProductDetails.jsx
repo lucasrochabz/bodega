@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
 import { useToggle } from '../../../hooks';
-import { ordersService } from '../../../services/ordersService';
+import useCreateOrder from '../../../hooks/orders/useCreateOrder';
 import { ROUTES } from '../../../routes/paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
@@ -17,6 +17,8 @@ const ProductDetails = ({ product, loading, isLogin }) => {
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
 
+  const { createOrder } = useCreateOrder();
+
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
 
   const handleReturn = () => {
@@ -28,13 +30,6 @@ const ProductDetails = ({ product, loading, isLogin }) => {
     toggleShowModal();
   };
 
-  const createDraftOrder = () => {
-    return ordersService.createOrder({
-      status: 'rascunho',
-      products: [{ product_id: product.id, quantity: 1 }],
-    });
-  };
-
   const redirectUser = () => {
     if (!isLogin) {
       navigate(ROUTES.LOGIN);
@@ -43,10 +38,13 @@ const ProductDetails = ({ product, loading, isLogin }) => {
   };
 
   const handleFinalizeOrder = async () => {
-    const response = await createDraftOrder();
+    const response = await createOrder({
+      status: 'rascunho',
+      products: [{ product_id: product.id, quantity: 1 }],
+    });
 
-    if (response?.data?.id) {
-      navigate(`${ROUTES.CHECKOUT_BASE}/${response.data.id}`);
+    if (response?.id) {
+      navigate(`${ROUTES.CHECKOUT_BASE}/${response.id}`);
     }
   };
 

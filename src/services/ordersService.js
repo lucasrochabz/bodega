@@ -9,16 +9,16 @@ const ordersService = {
     return request(url, options);
   },
 
-  getOrders: () => {
+  getMyOrders: () => {
     const token = localStorage.getItem('token');
 
     const { url, options } = GET_MY_ORDERS(token);
     return request(url, options);
   },
 
-  createOrder: (body) => {
+  createOrder: (payload) => {
     const token = localStorage.getItem('token');
-    const { url, options } = POST_ORDERS(token, body);
+    const { url, options } = POST_ORDERS(token, payload);
 
     return request(url, options);
   },
