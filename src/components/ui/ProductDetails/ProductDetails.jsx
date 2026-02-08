@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
-
 import { useNavigate } from 'react-router-dom';
-import { POST_ORDERS } from '../../../api/orders';
-import { useFetch, useToggle } from '../../../hooks';
+import { useToggle } from '../../../hooks';
+import useCreateOrder from '../../../hooks/orders/useCreateOrder';
 import { ROUTES } from '../../../routes/paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
@@ -14,11 +13,11 @@ const images = import.meta.glob('/src/assets/images/*', {
   eager: true,
 });
 
-const ProductDetails = ({ product, loading, isLogin }) => {
+const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
   const navigate = useNavigate();
-  const { request } = useFetch();
-
   const [showModal, toggleShowModal] = useToggle(false);
+
+  const { createOrder, isLoading: orderIsLoading } = useCreateOrder();
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
 
@@ -31,23 +30,21 @@ const ProductDetails = ({ product, loading, isLogin }) => {
     toggleShowModal();
   };
 
-  const handleFinalizeOrder = async () => {
-    if (!isLogin) {
+  const redirectUser = () => {
+    if (!isAuthenticated) {
       navigate(ROUTES.LOGIN);
       return;
     }
+  };
 
-    const token = localStorage.getItem('token');
-
-    const { url, options } = POST_ORDERS(token, {
+  const handleFinalizeOrder = async () => {
+    const response = await createOrder({
       status: 'rascunho',
       products: [{ product_id: product.id, quantity: 1 }],
     });
 
-    const response = await request(url, options);
-
-    if (response?.data?.id) {
-      navigate(`${ROUTES.CHECKOUT_BASE}/${response.data.id}`);
+    if (response?.id) {
+      navigate(`${ROUTES.CHECKOUT_BASE}/${response.id}`);
     }
   };
 
@@ -70,10 +67,10 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 
             <Button
               variant="secondary"
-              disabled={loading}
-              onClick={handleFinalizeOrder}
+              disabled={isLoading}
+              onClick={isAuthenticated ? handleFinalizeOrder : redirectUser}
             >
-              {isLogin ? 'Finalizar Pedido' : 'Faça login para comprar'}
+              {isAuthenticated ? 'Finalizar Pedido' : 'Faça login para comprar'}
             </Button>
           </div>
         </div>
@@ -87,8 +84,8 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 };
 
 ProductDetails.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  isLogin: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   product: productPropType.isRequired,
 };
 

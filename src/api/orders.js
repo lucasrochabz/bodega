@@ -1,20 +1,8 @@
 import { BASE_API_URL } from '../config';
 
-const GET_ORDER_ID = (orderId) => {
+const GET_MY_ORDERS = (token) => {
   return {
-    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
-    options: {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    },
-  };
-};
-
-const GET_ORDERS_USER = (token) => {
-  return {
-    url: `${BASE_API_URL}/api/v1/orders/user`,
+    url: `${BASE_API_URL}/api/v1/orders/me`,
     options: {
       method: 'GET',
       headers: {
@@ -25,7 +13,20 @@ const GET_ORDERS_USER = (token) => {
   };
 };
 
-const POST_ORDERS = (token, body) => {
+const GET_ORDER_ID = (token, orderId) => {
+  return {
+    url: `${BASE_API_URL}/api/v1/orders/${orderId}`,
+    options: {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+    },
+  };
+};
+
+const POST_ORDERS = (token, payload) => {
   return {
     url: `${BASE_API_URL}/api/v1/orders`,
     options: {
@@ -34,22 +35,9 @@ const POST_ORDERS = (token, body) => {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`,
       },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     },
   };
 };
 
-const POST_CHECKOUT = (orderId, body) => {
-  return {
-    url: `${BASE_API_URL}/api/v1/orders/${orderId}/checkout`,
-    options: {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    },
-  };
-};
-
-export { GET_ORDER_ID, GET_ORDERS_USER, POST_ORDERS, POST_CHECKOUT };
+export { GET_MY_ORDERS, GET_ORDER_ID, POST_ORDERS };

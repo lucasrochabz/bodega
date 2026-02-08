@@ -65,7 +65,27 @@ bodega/
 │   ├── config/
 │   ├── contexts/
 │   ├── hooks/
+│   │   ├── orders/
+│   │   ├── payments/
+│   │   ├── products/
+│   │   ├── shared/
+│   │   └── index.js
+│   │
+│   ├── http/
+│   ├── i18n/
 │   ├── pages/
+│   │   ├── AdminPage/
+│   │   └── auth/
+│   │   │   ├── MyPage/
+│   │   │   └── index.js
+│   │   │
+│   │   ├── HomePage/
+│   │   ├── NotFoundPage/
+│   │   ├── orders/
+│   │   ├── products/
+│   │   ├── users/
+│   │   └── index.js
+│   │
 │   ├── routes/
 │   ├── services/
 │   ├── styles/

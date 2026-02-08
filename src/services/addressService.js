@@ -1,4 +1,5 @@
 import { GET_ADDRESS_DATA } from '../api/address';
+import { request } from '../http/request';
 
 const addressService = {
   getAddressData: async (zipCode) => {
@@ -16,6 +17,12 @@ const addressService = {
       cidade: cepResult.localidade,
       estado: cepResult.uf,
     };
+  },
+
+  // fix: acho que dá para colocar a camada http/request.js aqui
+  newgetAddress: async (zipCode) => {
+    const { url, options } = GET_ADDRESS_DATA(zipCode);
+    return request(url, options);
   },
 };
 

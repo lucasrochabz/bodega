@@ -1,6 +1,6 @@
 {
   "name": "bodega",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -12,8 +12,10 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "i18next": "^25.8.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
+    "react-i18next": "^16.5.4",
     "react-router-dom": "^6.27.0"
   },
   "devDependencies": {

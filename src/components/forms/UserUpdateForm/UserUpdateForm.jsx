@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect, useContext } from 'react';
-import { UserContext } from '../../../contexts/UserContext';
-import { GET_ADDRESS_DATA } from '../../../api/address';
+import { AuthContext } from '../../../contexts/AuthContext';
+import useAddress from '../../../hooks/shared/useAddress';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
-  const { updateUser, loading } = useContext(UserContext);
+  const { updateUser, loading } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -20,6 +20,7 @@ const UserUpdateForm = ({ data }) => {
     city: '',
     state: '',
   });
+  const { address, error } = useAddress(formData.zipCode);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -36,37 +37,16 @@ const UserUpdateForm = ({ data }) => {
   };
 
   useEffect(() => {
-    const getAddressData = async () => {
-      if (formData.zipCode.length !== 8) {
-        setFormData((prev) => ({
-          ...prev,
-          street: '',
-          neighborhood: '',
-          city: '',
-          state: '',
-        }));
-        return;
-      }
-      const { url, options } = GET_ADDRESS_DATA(formData.zipCode);
-      const response = await fetch(url, options);
+    if (!address) return;
 
-      const cepResult = await response.json();
-      if (cepResult.erro) {
-        alert('CEP inválido');
-        return;
-      }
-
-      setFormData((prev) => ({
-        ...prev,
-        street: cepResult.logradouro,
-        neighborhood: cepResult.bairro,
-        city: cepResult.localidade,
-        state: cepResult.uf,
-      }));
-    };
-
-    getAddressData();
-  }, [formData.zipCode]);
+    setFormData((prev) => ({
+      ...prev,
+      street: address.logradouro,
+      neighborhood: address.bairro,
+      city: address.localidade,
+      state: address.uf,
+    }));
+  }, [address]);
 
   useEffect(() => {
     setFormData({
@@ -81,6 +61,12 @@ const UserUpdateForm = ({ data }) => {
       state: data.address.state,
     });
   }, [data]);
+
+  useEffect(() => {
+    if (!error) return;
+
+    alert('CEP inválido');
+  }, [error]);
 
   return (
     <form className={`${styles.form} anim-show-left`} onSubmit={handleSubmit}>

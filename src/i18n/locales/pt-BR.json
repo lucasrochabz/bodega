@@ -1,0 +1,10 @@
+{
+  "login": {
+    "title": "Entrar",
+    "success": "Login realizado com sucesso"
+  },
+  "forgot": {
+    "title": "Perdeu a senha?",
+    "success": "Login realizado com sucesso"
+  }
+}

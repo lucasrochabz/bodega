@@ -1,12 +1,12 @@
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../../contexts/UserContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../routes/paths';
 import { Button } from '../../ui/Button';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
-  const { userLogout } = useContext(UserContext);
+  const { userLogout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {

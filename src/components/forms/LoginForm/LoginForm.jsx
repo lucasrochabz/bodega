@@ -1,17 +1,20 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../contexts/UserContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../routes/paths';
+import { useTranslation } from 'react-i18next';
 import { Button } from '../../ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
-  const { userLogin, loading } = useContext(UserContext);
+  const { userLogin, loading } = useContext(AuthContext);
   const inputElement = useRef(null);
   const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
+  const { t } = useTranslation();
 
   const validateInput = (e) => {
     e.preventDefault();
@@ -37,7 +40,7 @@ const LoginForm = () => {
 
   return (
     <section className={styles.container}>
-      <h1 className="title">Login</h1>
+      <h1 className="title">{t('login.title')}</h1>
 
       <form className={styles.form} onSubmit={verifyUser}>
         <label htmlFor="email">Email</label>

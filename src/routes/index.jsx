@@ -3,12 +3,14 @@ import accountRoutes from './accountRoutes';
 import adminRoutes from './adminRoutes';
 import { ProtectedRoute } from '../components/auth/ProtectedRoute';
 import { HomePage } from '../pages/HomePage';
-import { LoginPage } from '../pages/LoginPage';
-import { RegisterPage } from '../pages/RegisterPage';
-import { ForgotPasswordPage } from '../pages/ForgotPasswordPage';
-import { ResetPasswordPage } from '../pages/ResetPasswordPage';
-import { ProductDetailsPage } from '../pages/ProductDetailsPage';
-import { CheckoutPage } from '../pages/CheckoutPage';
+import {
+  LoginPage,
+  RegisterPage,
+  ForgotPasswordPage,
+  ResetPasswordPage,
+} from '../pages/auth';
+import { ProductDetailsPage } from '../pages/products';
+import { OrderCheckoutPage } from '../pages/orders';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
 const routes = [
@@ -25,7 +27,7 @@ const routes = [
     path: `${ROUTES.CHECKOUT_BASE}/:orderId`,
     element: (
       <ProtectedRoute>
-        <CheckoutPage />
+        <OrderCheckoutPage />
       </ProtectedRoute>
     ),
   },

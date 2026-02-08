@@ -1,45 +1,25 @@
 import { GET_ME, POST_LOGIN } from '../api/auth';
-import { POST_USERS, PUT_USER_UPDATE } from '../api/users';
+import { POST_USERS, PATCH_USER_UPDATE } from '../api/users';
+import { request } from '../http/request';
 
 const authService = {
   getMe: async (token) => {
     const { url, options } = GET_ME(token);
-    const response = await fetch(url, options);
-    const json = await response.json();
-
-    if (!response.ok) {
-      throw new Error(json.message || 'Erro ao buscar usuário.');
-    }
-
-    return json;
+    return request(url, options);
   },
 
-  login: async (body) => {
-    const { url, options } = POST_LOGIN(body);
-    const response = await fetch(url, options);
-    const json = await response.json();
-
-    if (!response.ok) {
-      throw new Error(json.message || 'Erro ao fazer login.');
-    }
-
-    return json;
+  login: async (payload) => {
+    const { url, options } = POST_LOGIN(payload);
+    return request(url, options);
   },
 
-  update: async (token, body) => {
-    const { url, options } = PUT_USER_UPDATE(token, body);
-    const response = await fetch(url, options);
-    const json = await response.json();
-
-    if (!response.ok) {
-      throw new Error(json.message || 'Erro ao atualizar o usuário.');
-    }
-
-    return json;
+  update: async (token, payload) => {
+    const { url, options } = PATCH_USER_UPDATE(token, payload);
+    return request(url, options);
   },
 
   // fix: acho que essa função tem que ir para usersService
-  signup: (request, userData) => {
+  signup: (userData) => {
     const { url, options } = POST_USERS(userData);
     return request(url, options);
   },
