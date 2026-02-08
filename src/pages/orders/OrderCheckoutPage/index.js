@@ -1,1 +1,1 @@
-export { default as OrderCheckoutPage } from './OrderCheckoutPage';
+export { default } from './OrderCheckoutPage';

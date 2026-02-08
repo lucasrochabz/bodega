@@ -1,15 +1,14 @@
 import { ROUTES } from './paths';
 import { ProtectedRoute } from '../components/auth/ProtectedRoute';
 import { Welcome } from '../components/ui/Welcome';
-import { UserInfoPage } from '../pages/users/UserInfoPage';
-import { OrdersPage } from '../pages/orders/OrdersPage';
-import { OrderDetailsPage } from '../pages/orders/OrderDetailsPage';
+import { UserInfoPage } from '../pages/users';
+import { OrdersPage, OrderDetailsPage } from '../pages/orders';
 
 const accountRoutes = [
   {
     path: ROUTES.ACCOUNT,
     lazy: async () => {
-      const { UserPage } = await import('../pages/users/UserPage');
+      const { UserPage } = await import('../pages/users');
       return {
         element: (
           <ProtectedRoute>

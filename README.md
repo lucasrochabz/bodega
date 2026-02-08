@@ -74,6 +74,18 @@ bodega/
 │   ├── http/
 │   ├── i18n/
 │   ├── pages/
+│   │   ├── AdminPage/
+│   │   └── auth/
+│   │   │   ├── FolderPage/
+│   │   │   └── index.js
+│   │   │
+│   │   ├── HomePage/
+│   │   ├── NotFoundPage/
+│   │   ├── orders/
+│   │   ├── products/
+│   │   ├── users/
+│   │   └── index.js
+│   │
 │   ├── routes/
 │   ├── services/
 │   ├── styles/

@@ -3,12 +3,14 @@ import accountRoutes from './accountRoutes';
 import adminRoutes from './adminRoutes';
 import { ProtectedRoute } from '../components/auth/ProtectedRoute';
 import { HomePage } from '../pages/HomePage';
-import { LoginPage } from '../pages/auth/LoginPage';
-import { RegisterPage } from '../pages/auth/RegisterPage';
-import { ForgotPasswordPage } from '../pages/auth/ForgotPasswordPage';
-import { ResetPasswordPage } from '../pages/auth/ResetPasswordPage';
-import { ProductDetailsPage } from '../pages/products/ProductDetailsPage';
-import { OrderCheckoutPage } from '../pages/orders/OrderCheckoutPage';
+import {
+  LoginPage,
+  RegisterPage,
+  ForgotPasswordPage,
+  ResetPasswordPage,
+} from '../pages/auth';
+import { ProductDetailsPage } from '../pages/products';
+import { OrderCheckoutPage } from '../pages/orders';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
 const routes = [
