@@ -9,9 +9,9 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
-  const { login } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
 
-  if (login) return <Navigate to={ROUTES.HOME} />;
+  if (isAuthenticated) return <Navigate to={ROUTES.HOME} />;
   return (
     <>
       <Head title="Login" description="Descrição da página Login" />

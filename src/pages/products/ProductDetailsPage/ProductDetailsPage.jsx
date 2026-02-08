@@ -8,7 +8,7 @@ import { ProductDetails } from '../../../components/ui/ProductDetails';
 import { Footer } from '../../../components/layout/Footer';
 
 const ProductDetailsPage = () => {
-  const { login } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   const { productId } = useParams();
 
   const { loading, data, error } = useProduct(productId);
@@ -24,7 +24,11 @@ const ProductDetailsPage = () => {
       />
 
       <Header />
-      <ProductDetails product={data} loading={loading} isLogin={login} />
+      <ProductDetails
+        product={data}
+        loading={loading}
+        isLogin={isAuthenticated}
+      />
       <Footer />
     </>
   );

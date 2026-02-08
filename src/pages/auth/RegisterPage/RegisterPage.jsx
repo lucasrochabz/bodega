@@ -9,9 +9,9 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './RegisterPage.module.css';
 
 const RegisterPage = () => {
-  const { login } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
 
-  if (login) return <Navigate to={ROUTES.ACCOUNT} />;
+  if (isAuthenticated) return <Navigate to={ROUTES.ACCOUNT} />;
   return (
     <>
       <Head title="Register" description="Descrição da página Register" />

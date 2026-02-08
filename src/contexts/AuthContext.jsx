@@ -8,10 +8,9 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [token, setToken] = useLocalStorage('token', null);
-
   const [data, setData] = useState(null);
-  // fix: trocar para isAuthenticated
-  const login = !!token;
+
+  const isAuthenticated = !!token;
 
   // fix: add useCallback para deixar função mais pura
   const getUser = async (authToken) => {
@@ -79,7 +78,14 @@ export const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider
       // fix: saber porque devo usar useMemo no value
-      value={{ userLogin, userLogout, updateUser, loading, login, data }}
+      value={{
+        userLogin,
+        userLogout,
+        updateUser,
+        loading,
+        isAuthenticated,
+        data,
+      }}
     >
       {children}
     </AuthContext.Provider>
