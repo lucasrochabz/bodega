@@ -2,14 +2,13 @@ import { useEffect, useState } from 'react';
 import { ordersService } from '../../services/ordersService';
 
 const useOrder = (orderId) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
-  // fix: mudar para isLoading
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchOrder = async () => {
-      setLoading(true);
+      setIsLoading(true);
       setError(null);
 
       try {
@@ -18,14 +17,14 @@ const useOrder = (orderId) => {
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     if (orderId) fetchOrder();
   }, [orderId]);
 
-  return { data, loading, error };
+  return { isLoading, data, error };
 };
 
 export default useOrder;

@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { ordersService } from '../../services/ordersService';
 
 const useCreateOrder = () => {
-  const [loading, setLoading] = useState(false);
+  const [isloading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
 
   const createOrder = async (payload) => {
-    setLoading(true);
+    setIsloading(true);
     setError(null);
 
     try {
@@ -16,11 +16,11 @@ const useCreateOrder = () => {
       setError(err.message);
       throw err;
     } finally {
-      setLoading(false);
+      setIsloading(false);
     }
   };
 
-  return { createOrder, loading, error };
+  return { createOrder, isloading, error };
 };
 
 export default useCreateOrder;

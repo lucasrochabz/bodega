@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { paymentsService } from '../../services/paymentsService';
 
 const useCreatePayment = () => {
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const createPayment = async (payload) => {
-    setLoading(true);
+    setIsLoading(true);
     setError(null);
 
     try {
@@ -16,11 +16,11 @@ const useCreatePayment = () => {
       setError(err.message);
       throw err;
     } finally {
-      setLoading(false);
+      setIsLoading(false);
     }
   };
 
-  return { createPayment, loading, error };
+  return { createPayment, isLoading, error };
 };
 
 export default useCreatePayment;

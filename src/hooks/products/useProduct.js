@@ -2,13 +2,13 @@ import { useEffect, useState } from 'react';
 import { productsService } from '../../services/productsService';
 
 const useProduct = (productId) => {
+  const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProduct = async () => {
-      setLoading(true);
+      setIsLoading(true);
       setError(null);
 
       try {
@@ -17,14 +17,14 @@ const useProduct = (productId) => {
       } catch (err) {
         setError(err.message);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
 
     if (productId) fetchProduct();
   }, [productId]);
 
-  return { data, loading, error };
+  return { data, isLoading, error };
 };
 
 export default useProduct;

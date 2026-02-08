@@ -11,9 +11,9 @@ const ProductDetailsPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
   const { productId } = useParams();
 
-  const { loading, data, error } = useProduct(productId);
+  const { isLoading, data, error } = useProduct(productId);
 
-  if (loading) return <div>Carregando...</div>;
+  if (isLoading) return <div>Carregando...</div>;
   if (error) return <div>{error}</div>;
   if (!data) return <div>Produto não encontrado.</div>;
   return (
@@ -26,8 +26,8 @@ const ProductDetailsPage = () => {
       <Header />
       <ProductDetails
         product={data}
-        loading={loading}
-        isLogin={isAuthenticated}
+        isLoading={isLoading}
+        isAuthenticated={isAuthenticated}
       />
       <Footer />
     </>

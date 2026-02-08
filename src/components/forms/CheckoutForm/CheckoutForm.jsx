@@ -11,7 +11,7 @@ const CheckoutForm = ({ userData }) => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
-  const { createPayment, loading } = useCreatePayment();
+  const { createPayment, isLoading } = useCreatePayment();
 
   const handleMakePayment = async (event) => {
     event.preventDefault();

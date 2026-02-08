@@ -10,9 +10,9 @@ const HomePage = () => {
   const [page, setPage] = useState(1);
   const [pageSize] = useState(4);
 
-  const { loading, error, data } = useProducts({ page, pageSize });
+  const { isLoading, error, data } = useProducts({ page, pageSize });
 
-  if (loading) return <div>Carregando...</div>;
+  if (isLoading) return <div>Carregando...</div>;
   if (error) return <div>{error}</div>;
   if (!data) return null;
   return (

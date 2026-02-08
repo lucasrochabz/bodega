@@ -5,7 +5,7 @@ import { OrderList } from '../../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
 const OrdersPage = () => {
-  const { loading, error, data } = useOrders();
+  const { isLoading, error, data } = useOrders();
   const [search, setSearch] = useState('');
 
   const allOrders = data || [];
@@ -15,7 +15,7 @@ const OrdersPage = () => {
 
   const ordersToShow = search ? filtredOrders : allOrders;
 
-  if (loading) return <div>Carregando...</div>;
+  if (isLoading) return <div>Carregando...</div>;
   if (error) return <div>Erro: {error}</div>;
   return (
     <>

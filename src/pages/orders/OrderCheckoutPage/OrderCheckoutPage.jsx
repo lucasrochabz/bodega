@@ -14,9 +14,9 @@ const OrderCheckoutPage = () => {
   const { data: userData } = useContext(AuthContext);
   const { orderId } = useParams();
 
-  const { loading, error, data: orderData } = useOrder(orderId);
+  const { isLoading, error, data: orderData } = useOrder(orderId);
 
-  if (loading || !userData || !orderData) return <Loading />;
+  if (isLoading || !userData || !orderData) return <Loading />;
   if (error) return <div>{error}</div>;
   return (
     <>

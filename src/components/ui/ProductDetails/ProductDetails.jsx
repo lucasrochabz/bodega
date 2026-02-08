@@ -13,11 +13,11 @@ const images = import.meta.glob('/src/assets/images/*', {
   eager: true,
 });
 
-const ProductDetails = ({ product, loading, isLogin }) => {
+const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
 
-  const { createOrder } = useCreateOrder();
+  const { createOrder, isLoading: orderIsLoading } = useCreateOrder();
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
 
@@ -31,7 +31,7 @@ const ProductDetails = ({ product, loading, isLogin }) => {
   };
 
   const redirectUser = () => {
-    if (!isLogin) {
+    if (!isAuthenticated) {
       navigate(ROUTES.LOGIN);
       return;
     }
@@ -67,10 +67,10 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 
             <Button
               variant="secondary"
-              disabled={loading}
-              onClick={isLogin ? handleFinalizeOrder : redirectUser}
+              disabled={isLoading}
+              onClick={isAuthenticated ? handleFinalizeOrder : redirectUser}
             >
-              {isLogin ? 'Finalizar Pedido' : 'Faça login para comprar'}
+              {isAuthenticated ? 'Finalizar Pedido' : 'Faça login para comprar'}
             </Button>
           </div>
         </div>
@@ -84,8 +84,8 @@ const ProductDetails = ({ product, loading, isLogin }) => {
 };
 
 ProductDetails.propTypes = {
-  loading: PropTypes.bool.isRequired,
-  isLogin: PropTypes.bool.isRequired,
+  isLoading: PropTypes.bool.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
   product: productPropType.isRequired,
 };
 
