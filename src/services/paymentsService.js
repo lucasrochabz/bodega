@@ -1,4 +1,4 @@
-import { POST_CHECKOUT } from '../api/paymentsApi';
+import { POST_CHECKOUT } from '../api/payments';
 import { request } from '../http/request';
 
 const paymentsService = {

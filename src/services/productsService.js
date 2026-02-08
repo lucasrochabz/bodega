@@ -1,4 +1,4 @@
-import { GET_ALL_PRODUCTS, GET_PRODUCT } from '../api/productsApi';
+import { GET_ALL_PRODUCTS, GET_PRODUCT } from '../api/products';
 import { request } from '../http/request';
 
 const productsService = {

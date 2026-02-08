@@ -1,4 +1,4 @@
-import { GET_ADDRESS_DATA } from '../api/addressApi';
+import { GET_ADDRESS_DATA } from '../api/address';
 import { request } from '../http/request';
 
 const addressService = {

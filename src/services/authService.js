@@ -1,5 +1,5 @@
-import { GET_ME, POST_LOGIN } from '../api/authApi';
-import { POST_USERS, PATCH_USER_UPDATE } from '../api/usersApi';
+import { GET_ME, POST_LOGIN } from '../api/auth';
+import { POST_USERS, PATCH_USER_UPDATE } from '../api/users';
 import { request } from '../http/request';
 
 const authService = {

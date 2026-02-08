@@ -66,11 +66,13 @@ bodega/
 │   ├── contexts/
 │   ├── hooks/
 │   │   ├── orders/
+│   │   ├── payments/
 │   │   ├── products/
 │   │   ├── shared/
 │   │   └── index.js
 │   │
 │   ├── http/
+│   ├── i18n/
 │   ├── pages/
 │   ├── routes/
 │   ├── services/

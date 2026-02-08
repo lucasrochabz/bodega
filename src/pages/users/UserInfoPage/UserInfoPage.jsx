@@ -1,7 +1,7 @@
 import { useContext } from 'react';
-import { UserContext } from '../../contexts/UserContext';
-import { Head } from '../../components/shared/Head';
-import { UserUpdateForm } from '../../components/forms/UserUpdateForm';
+import { UserContext } from '../../../contexts/UserContext';
+import { Head } from '../../../components/shared/Head';
+import { UserUpdateForm } from '../../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
   const { loading, data } = useContext(UserContext);

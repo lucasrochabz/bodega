@@ -1,4 +1,4 @@
-import { GET_ORDER_ID, GET_MY_ORDERS, POST_ORDERS } from '../api/ordersApi';
+import { GET_ORDER_ID, GET_MY_ORDERS, POST_ORDERS } from '../api/orders';
 import { request } from '../http/request';
 
 const ordersService = {

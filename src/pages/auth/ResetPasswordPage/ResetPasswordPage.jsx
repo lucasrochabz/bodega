@@ -1,12 +1,12 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { useFetch } from '../../hooks';
-import { POST_RESET_PASSWORD } from '../../api/authApi';
-import { ROUTES } from '../../routes/paths';
-import { Head } from '../../components/shared/Head';
-import { Header } from '../../components/layout/Header';
-import { Button } from '../../components/ui/Button';
-import { Footer } from '../../components/layout/Footer';
+import { useFetch } from '../../../hooks';
+import { POST_RESET_PASSWORD } from '../../../api/auth';
+import { ROUTES } from '../../../routes/paths';
+import { Head } from '../../../components/shared/Head';
+import { Header } from '../../../components/layout/Header';
+import { Button } from '../../../components/ui/Button';
+import { Footer } from '../../../components/layout/Footer';
 import styles from './ResetPasswordPage.module.css';
 
 const ResetPasswordPage = () => {
