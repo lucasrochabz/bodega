@@ -1,13 +1,13 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../contexts/UserContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../routes/paths';
 import { useTranslation } from 'react-i18next';
 import { Button } from '../../ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
-  const { userLogin, loading } = useContext(UserContext);
+  const { userLogin, loading } = useContext(AuthContext);
   const inputElement = useRef(null);
   const [showPassword, setShowPassword] = useState(false);
 

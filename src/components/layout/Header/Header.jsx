@@ -1,13 +1,13 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../contexts/UserContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../routes/paths';
 import { LanguageSwitcher } from '../../ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
 const Header = ({ hideLinks = false }) => {
-  const { data } = useContext(UserContext);
+  const { data } = useContext(AuthContext);
 
   return (
     <header className={styles.bg}>

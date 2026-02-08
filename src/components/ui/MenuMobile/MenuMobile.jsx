@@ -1,13 +1,13 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { UserContext } from '../../../contexts/UserContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { useMedia } from '../../../hooks';
 import { ROUTES } from '../../../routes/paths';
 import { Button } from '../Button';
 import styles from './MenuMobile.module.css';
 
 const MenuMobile = () => {
-  const { userLogout } = useContext(UserContext);
+  const { userLogout } = useContext(AuthContext);
   const navigate = useNavigate();
   const mobile = useMedia('(max-width: 800px)');
 

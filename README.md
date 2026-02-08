@@ -76,7 +76,7 @@ bodega/
 │   ├── pages/
 │   │   ├── AdminPage/
 │   │   └── auth/
-│   │   │   ├── FolderPage/
+│   │   │   ├── MyPage/
 │   │   │   └── index.js
 │   │   │
 │   │   ├── HomePage/

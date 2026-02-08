@@ -3,10 +3,9 @@ import { createContext, useEffect, useState } from 'react';
 import { useLoading, useLocalStorage } from '../hooks';
 import { authService } from '../services/authService';
 
-// fix: mudar para AuthContext
-export const UserContext = createContext();
+export const AuthContext = createContext();
 
-export const UserProvider = ({ children }) => {
+export const AuthProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [token, setToken] = useLocalStorage('token', null);
 
@@ -78,15 +77,15 @@ export const UserProvider = ({ children }) => {
   }, [token]);
 
   return (
-    <UserContext.Provider
+    <AuthContext.Provider
       // fix: saber porque devo usar useMemo no value
       value={{ userLogin, userLogout, updateUser, loading, login, data }}
     >
       {children}
-    </UserContext.Provider>
+    </AuthContext.Provider>
   );
 };
 
-UserProvider.propTypes = {
+AuthProvider.propTypes = {
   children: PropTypes.node.isRequired,
 };

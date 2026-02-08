@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { UserContext } from '../../../contexts/UserContext';
+import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../routes/paths';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
@@ -9,7 +9,7 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './RegisterPage.module.css';
 
 const RegisterPage = () => {
-  const { login } = useContext(UserContext);
+  const { login } = useContext(AuthContext);
 
   if (login) return <Navigate to={ROUTES.ACCOUNT} />;
   return (
