@@ -7,7 +7,7 @@ import { Button } from '../../ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
-  const { userLogin, loading } = useContext(AuthContext);
+  const { login, loading, error, clearError } = useContext(AuthContext);
   const inputElement = useRef(null);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -31,12 +31,19 @@ const LoginForm = () => {
   const verifyUser = async (event) => {
     event.preventDefault();
 
-    await userLogin(email, password);
+    await login(email, password);
   };
 
   useEffect(() => {
     inputElement.current.focus();
   }, []);
+
+  useEffect(() => {
+    if (error) {
+      alert(error);
+      clearError();
+    }
+  }, [error, clearError]);
 
   return (
     <section className={styles.container}>

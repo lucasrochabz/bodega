@@ -11,7 +11,7 @@ import styles from './LoginPage.module.css';
 const LoginPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
 
-  if (isAuthenticated) return <Navigate to={ROUTES.HOME} />;
+  if (isAuthenticated) return <Navigate to={ROUTES.HOME} replace />;
   return (
     <>
       <Head title="Login" description="Descrição da página Login" />

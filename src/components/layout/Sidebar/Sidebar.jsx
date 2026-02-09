@@ -6,11 +6,11 @@ import { Button } from '../../ui/Button';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {
-  const { userLogout } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    userLogout();
+    logout();
     navigate(ROUTES.LOGIN);
   };
 

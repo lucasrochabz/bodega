@@ -8,7 +8,7 @@ import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
-  const { updateUser, loading } = useContext(AuthContext);
+  const { update, loading } = useContext(AuthContext);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -33,7 +33,7 @@ const UserUpdateForm = ({ data }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    await updateUser(formData);
+    await update(formData);
   };
 
   useEffect(() => {
