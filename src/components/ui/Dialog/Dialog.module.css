@@ -21,6 +21,14 @@
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.nonModalContainer {
+  position: fixed;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+}
+
 .btnClose {
   position: absolute;
   top: 12px;

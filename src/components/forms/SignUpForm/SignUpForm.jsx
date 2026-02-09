@@ -77,114 +77,112 @@ const SignUpForm = () => {
   };
 
   return (
-    <>
-      <section className={styles.form}>
-        <h1 className="title">Crie a sua conta</h1>
+    <section className={styles.form}>
+      <h1 className="title">Crie a sua conta</h1>
 
-        <form
-          className={`${styles.signup} anim-show-left`}
-          onSubmit={handleSignup}
-        >
-          <Input
-            type="text"
-            label="Nome"
-            id="first-name"
-            value={firstName}
-            setValue={setFirstName}
-            placeholder="Primeiro nome"
-            required
-          />
+      <form
+        className={`${styles.signup} anim-show-left`}
+        onSubmit={handleSignup}
+      >
+        <Input
+          type="text"
+          label="Nome"
+          id="first-name"
+          value={firstName}
+          setValue={setFirstName}
+          placeholder="Primeiro nome"
+          required
+        />
 
-          <Input
-            type="text"
-            label="Sobrenome"
-            id="last-name"
-            value={lastName}
-            setValue={setLastName}
-            placeholder="Sobrenome"
-            required
-          />
+        <Input
+          type="text"
+          label="Sobrenome"
+          id="last-name"
+          value={lastName}
+          setValue={setLastName}
+          placeholder="Sobrenome"
+          required
+        />
 
-          <Input
-            type="email"
-            label="E-mail"
-            id="email"
-            value={email}
-            setValue={setEmail}
-            placeholder="exemplo@email.com"
-            required
-          />
+        <Input
+          type="email"
+          label="E-mail"
+          id="email"
+          value={email}
+          setValue={setEmail}
+          placeholder="exemplo@email.com"
+          required
+        />
 
-          <Input
-            type="password"
-            label="Senha"
-            id="password"
-            value={password}
-            setValue={setPassword}
-            required
-          />
+        <Input
+          type="password"
+          label="Senha"
+          id="password"
+          value={password}
+          setValue={setPassword}
+          required
+        />
 
-          <Input
-            type="number"
-            label="CEP"
-            id="cep"
-            value={zipCode}
-            setValue={setZipCode}
-            placeholder="60000000"
-            required
-          />
+        <Input
+          type="number"
+          label="CEP"
+          id="cep"
+          value={zipCode}
+          setValue={setZipCode}
+          placeholder="60000000"
+          required
+        />
 
-          <Input
-            type="text"
-            label="Endereço"
-            id="endereco"
-            value={endereco}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Endereço"
+          id="endereco"
+          value={endereco}
+          readOnly
+          required
+        />
 
-          <Input
-            type="number"
-            label="Número"
-            id="numero"
-            value={numero}
-            setValue={setNumero}
-            required
-          />
+        <Input
+          type="number"
+          label="Número"
+          id="numero"
+          value={numero}
+          setValue={setNumero}
+          required
+        />
 
-          <Input
-            type="text"
-            label="Bairro"
-            id="bairro"
-            value={bairro}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Bairro"
+          id="bairro"
+          value={bairro}
+          readOnly
+          required
+        />
 
-          <Input
-            type="text"
-            label="Cidade"
-            id="cidade"
-            value={cidade}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Cidade"
+          id="cidade"
+          value={cidade}
+          readOnly
+          required
+        />
 
-          <Input
-            type="text"
-            label="Estado"
-            id="estado"
-            value={estado}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Estado"
+          id="estado"
+          value={estado}
+          readOnly
+          required
+        />
 
-          <Button variant="primary" disabled={loading}>
-            Cadastrar
-          </Button>
-        </form>
-      </section>
-    </>
+        <Button variant="primary" disabled={loading}>
+          Cadastrar
+        </Button>
+      </form>
+    </section>
   );
 };
 

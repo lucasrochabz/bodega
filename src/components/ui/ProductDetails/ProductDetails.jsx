@@ -49,37 +49,35 @@ const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
   };
 
   return (
-    <>
-      <section className={styles.container}>
-        <img src={imagePath} alt={product.name} onClick={handleImageClick} />
+    <section className={styles.container}>
+      <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
-        <div className={styles.wrapper}>
-          <h1>{product.name}</h1>
-          <span className={styles.price}>
-            {formattedPriceToBRL(product.price)}
-          </span>
-          <p className={styles.description}>{product.description}</p>
+      <div className={styles.wrapper}>
+        <h1>{product.name}</h1>
+        <span className={styles.price}>
+          {formattedPriceToBRL(product.price)}
+        </span>
+        <p className={styles.description}>{product.description}</p>
 
-          <div className={styles.btnControls}>
-            <button className={styles.btnCancelOrder} onClick={handleReturn}>
-              Voltar
-            </button>
+        <div className={styles.btnControls}>
+          <button className={styles.btnCancelOrder} onClick={handleReturn}>
+            Voltar
+          </button>
 
-            <Button
-              variant="secondary"
-              disabled={isLoading}
-              onClick={isAuthenticated ? handleFinalizeOrder : redirectUser}
-            >
-              {isAuthenticated ? 'Finalizar Pedido' : 'Faça login para comprar'}
-            </Button>
-          </div>
+          <Button
+            variant="secondary"
+            disabled={isLoading}
+            onClick={isAuthenticated ? handleFinalizeOrder : redirectUser}
+          >
+            {isAuthenticated ? 'Finalizar Pedido' : 'Faça login para comprar'}
+          </Button>
         </div>
+      </div>
 
-        {showModal && (
-          <ImageModal imagePath={imagePath} onClose={toggleShowModal} />
-        )}
-      </section>
-    </>
+      {showModal && (
+        <ImageModal imagePath={imagePath} onClose={toggleShowModal} />
+      )}
+    </section>
   );
 };
 
