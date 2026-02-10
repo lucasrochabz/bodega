@@ -17,7 +17,8 @@ const Toast = ({ show, message, onClose, duration = 3000 }) => {
     return () => clearTimeout(timer);
   }, [show, duration, onClose]);
 
-  if (!show) return null;
+  if (!show || !message) return null;
+
   return (
     <section className={`${styles.toast} anim-toast-fade`}>
       <div className={styles.toastHeader}>
