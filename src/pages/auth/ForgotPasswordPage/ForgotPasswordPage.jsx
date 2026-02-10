@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useFetch } from '../../../hooks';
 import { POST_FORGOT_PASSWORD } from '../../../api/auth';
 import { Head } from '../../../components/shared/Head';
@@ -10,6 +11,8 @@ import styles from './ForgotPasswordPage.module.css';
 const ForgotPasswordPage = () => {
   const { request } = useFetch();
   const [email, setEmail] = useState('');
+
+  const { t } = useTranslation();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +37,7 @@ const ForgotPasswordPage = () => {
       <Header />
       <main className={styles.authLayout}>
         <section className={styles.container}>
-          <h1 className="title">Perdeu a senha?</h1>
+          <h1 className="title">{t('forgot.title')}</h1>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="email" className="label">
               E-mail

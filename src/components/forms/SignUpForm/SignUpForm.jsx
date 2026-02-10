@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useFetch, useDebounce } from '../../../hooks';
 import { usersService } from '../../../services/usersService';
 import { addressService } from '../../../services/addressService';
@@ -25,6 +26,8 @@ const SignUpForm = () => {
   const [bairro, setBairro] = useState('');
   const [cidade, setCidade] = useState('');
   const [estado, setEstado] = useState('');
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (debouncedZipCode.length !== 8) {
@@ -78,7 +81,7 @@ const SignUpForm = () => {
 
   return (
     <section className={styles.form}>
-      <h1 className="title">Crie a sua conta</h1>
+      <h1 className="title">{t('register.title')}</h1>
 
       <form
         className={`${styles.signup} anim-show-left`}
