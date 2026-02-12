@@ -1,4 +1,4 @@
-import { GET_ME, POST_LOGIN } from '../api/auth';
+import { GET_ME, POST_FORGOT_PASSWORD, POST_LOGIN } from '../api/auth';
 import { POST_USERS, PATCH_USER_UPDATE } from '../api/users';
 import { request } from '../http/request';
 
@@ -15,6 +15,13 @@ const authService = {
 
   update: async (token, payload) => {
     const { url, options } = PATCH_USER_UPDATE(token, payload);
+    return request(url, options);
+  },
+
+  forgotPassword: (email) => {
+    const origin = window.location.origin;
+    const { url, options } = POST_FORGOT_PASSWORD({ email, origin });
+
     return request(url, options);
   },
 
