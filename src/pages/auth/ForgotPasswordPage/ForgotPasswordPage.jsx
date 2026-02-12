@@ -23,7 +23,7 @@ const ForgotPasswordPage = () => {
 
     if (response) {
       alert('Email enviado.');
-      window.location.href = response.token;
+      window.location.href = response.data;
     }
     setEmail('');
   };

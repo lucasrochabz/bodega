@@ -34,7 +34,7 @@ const Toast = ({ show, message, onClose, duration = 3000 }) => {
 };
 
 Toast.propTypes = {
-  message: PropTypes.string.isRequired,
+  message: PropTypes.string,
   show: PropTypes.bool.isRequired,
   duration: PropTypes.number,
   onClose: PropTypes.func.isRequired,

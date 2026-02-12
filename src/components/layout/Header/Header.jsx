@@ -7,7 +7,8 @@ import { LanguageSwitcher } from '../../ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
 const Header = ({ hideLinks = false }) => {
-  const { data } = useContext(AuthContext);
+  const { data, isAuthenticated } = useContext(AuthContext);
+  const userName = data?.firstName;
 
   return (
     <header className={styles.bg}>
@@ -20,10 +21,10 @@ const Header = ({ hideLinks = false }) => {
 
         {!hideLinks && (
           <Link
-            to={data ? ROUTES.ACCOUNT : ROUTES.LOGIN}
+            to={isAuthenticated ? ROUTES.ACCOUNT : ROUTES.LOGIN}
             className={styles.btnHeader}
           >
-            {data ? `Olá, ${data.first_name}` : 'Entre ou cadastre-se'}
+            {isAuthenticated ? `Olá, ${userName}` : 'Entre ou cadastre-se'}
           </Link>
         )}
       </nav>

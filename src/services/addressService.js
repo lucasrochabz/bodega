@@ -12,10 +12,10 @@ const addressService = {
     }
 
     return {
-      endereco: cepResult.logradouro,
-      bairro: cepResult.bairro,
-      cidade: cepResult.localidade,
-      estado: cepResult.uf,
+      street: cepResult.logradouro,
+      neighborhood: cepResult.bairro,
+      city: cepResult.localidade,
+      state: cepResult.uf,
     };
   },
 

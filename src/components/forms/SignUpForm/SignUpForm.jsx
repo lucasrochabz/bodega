@@ -9,6 +9,7 @@ import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './SignUpForm.module.css';
 
+// fix: usar forma melhor para não repetir tanto useState
 const SignUpForm = () => {
   const { request, loading } = useFetch();
   const navigate = useNavigate();
@@ -21,20 +22,20 @@ const SignUpForm = () => {
 
   const debouncedZipCode = useDebounce(zipCode, 500);
 
-  const [endereco, setEndereco] = useState('');
-  const [numero, setNumero] = useState('');
-  const [bairro, setBairro] = useState('');
-  const [cidade, setCidade] = useState('');
-  const [estado, setEstado] = useState('');
+  const [street, setStreet] = useState('');
+  const [number, setNumber] = useState('');
+  const [neighborhood, setNeighborhood] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
 
   const { t } = useTranslation();
 
   useEffect(() => {
     if (debouncedZipCode.length !== 8) {
-      setEndereco('');
-      setBairro('');
-      setCidade('');
-      setEstado('');
+      setStreet('');
+      setNeighborhood('');
+      setCity('');
+      setState('');
       return;
     }
 
@@ -46,10 +47,10 @@ const SignUpForm = () => {
         return;
       }
 
-      setEndereco(result.endereco);
-      setBairro(result.bairro);
-      setCidade(result.cidade);
-      setEstado(result.estado);
+      setStreet(result.street);
+      setNeighborhood(result.neighborhood);
+      setCity(result.city);
+      setState(result.state);
     };
 
     handleZipCode();
@@ -64,18 +65,18 @@ const SignUpForm = () => {
       email: email,
       password: password,
       zipCode: zipCode,
-      street: endereco,
-      number: numero,
-      neighborhood: bairro,
-      city: cidade,
-      state: estado,
+      street: street,
+      number: number,
+      neighborhood: neighborhood,
+      city: city,
+      state: state,
     });
 
     setFirstName('');
     setEmail('');
     setPassword('');
     setZipCode('');
-    setNumero('');
+    setNumber('');
     navigate(ROUTES.LOGIN);
   };
 
@@ -140,7 +141,7 @@ const SignUpForm = () => {
           type="text"
           label="Endereço"
           id="endereco"
-          value={endereco}
+          value={street}
           readOnly
           required
         />
@@ -149,8 +150,8 @@ const SignUpForm = () => {
           type="number"
           label="Número"
           id="numero"
-          value={numero}
-          setValue={setNumero}
+          value={number}
+          setValue={setNumber}
           required
         />
 
@@ -158,7 +159,7 @@ const SignUpForm = () => {
           type="text"
           label="Bairro"
           id="bairro"
-          value={bairro}
+          value={neighborhood}
           readOnly
           required
         />
@@ -167,7 +168,7 @@ const SignUpForm = () => {
           type="text"
           label="Cidade"
           id="cidade"
-          value={cidade}
+          value={city}
           readOnly
           required
         />
@@ -176,7 +177,7 @@ const SignUpForm = () => {
           type="text"
           label="Estado"
           id="estado"
-          value={estado}
+          value={state}
           readOnly
           required
         />

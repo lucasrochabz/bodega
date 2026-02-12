@@ -40,8 +40,8 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await authService.login({ email, password });
 
-      setToken(result.token);
-      await getMe(result.token);
+      setToken(result.data);
+      await getMe(result.data);
     } catch (err) {
       console.error(err.message);
       setError(err.message);

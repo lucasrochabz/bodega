@@ -50,10 +50,10 @@ const UserUpdateForm = ({ data }) => {
 
   useEffect(() => {
     setFormData({
-      firstName: data.first_name,
-      lastName: data.last_name,
+      firstName: data.firstName,
+      lastName: data.lastName,
       email: data.email,
-      zipCode: data.address.zip_code,
+      zipCode: data.address.zipCode,
       street: data.address.street,
       number: data.address.number,
       neighborhood: data.address.neighborhood,
@@ -73,7 +73,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Nome"
-        id="first_name"
+        id="firstName"
         value={formData.firstName}
         onChange={handleChange}
         placeholder="Primeiro nome"
@@ -83,7 +83,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Sobrenome"
-        id="last_name"
+        id="lastName"
         value={formData.lastName}
         onChange={handleChange}
         required
@@ -164,8 +164,8 @@ const UserUpdateForm = ({ data }) => {
 
 UserUpdateForm.propTypes = {
   data: PropTypes.shape({
-    first_name: PropTypes.string.isRequired,
-    last_name: PropTypes.string.isRequired,
+    firstName: PropTypes.string.isRequired,
+    lastName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,
     address: addressPropType.isRequired,
   }),
