@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { authService } from '../../services/authService';
 
-const useForgotPassword = () => {
+const useResetPassword = () => {
   const [isloading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
 
-  const sendEmail = async (email) => {
+  const sendNewPassword = async ({ token, newPassword }) => {
     setIsloading(true);
     setError(null);
 
     try {
-      const response = await authService.forgotPassword(email);
-      return response.data;
+      const response = await authService.resetPassword({ token, newPassword });
+      return response;
     } catch (err) {
       setError(err.message);
       throw err;
@@ -20,7 +20,7 @@ const useForgotPassword = () => {
     }
   };
 
-  return { sendEmail, isloading, error };
+  return { sendNewPassword, isloading, error };
 };
 
-export default useForgotPassword;
+export default useResetPassword;

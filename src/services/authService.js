@@ -1,5 +1,10 @@
-import { GET_ME, POST_FORGOT_PASSWORD, POST_LOGIN } from '../api/auth';
-import { POST_USERS, PATCH_USER_UPDATE } from '../api/users';
+import {
+  GET_ME,
+  POST_LOGIN,
+  POST_FORGOT_PASSWORD,
+  POST_RESET_PASSWORD,
+} from '../api/auth';
+import { PATCH_USER_UPDATE, POST_USERS } from '../api/users';
 import { request } from '../http/request';
 
 const authService = {
@@ -19,8 +24,15 @@ const authService = {
   },
 
   forgotPassword: (email) => {
+    // fix: receber origin por parâmetro
     const origin = window.location.origin;
     const { url, options } = POST_FORGOT_PASSWORD({ email, origin });
+
+    return request(url, options);
+  },
+
+  resetPassword: ({ token, newPassword }) => {
+    const { url, options } = POST_RESET_PASSWORD({ token, newPassword });
 
     return request(url, options);
   },
