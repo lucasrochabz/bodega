@@ -17,7 +17,10 @@ const authService = {
   forgotPassword: (email) => {
     return apiClient('/api/v1/auth/forgot-password', {
       method: 'POST',
-      body: JSON.stringify({ email, origin }),
+      body: JSON.stringify({
+        email,
+        origin: window.location.origin,
+      }),
     });
   },
 

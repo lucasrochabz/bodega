@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { authService } from '../../services/authService';
 
 const useForgotPassword = () => {
-  const [isloading, setIsloading] = useState(false);
+  const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
 
   const sendEmail = async (email) => {
@@ -20,7 +20,7 @@ const useForgotPassword = () => {
     }
   };
 
-  return { sendEmail, isloading, error };
+  return { sendEmail, isLoading, error };
 };
 
 export default useForgotPassword;
