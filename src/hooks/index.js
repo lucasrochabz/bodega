@@ -1,3 +1,4 @@
+// fix: colocar isso dentro de um arquivo index.js dentro de shared/
 export { default as useDebounce } from './shared/useDebounce';
 export { default as useFetch } from './shared/useFetch';
 export { default as useForm } from './shared/useForm';
