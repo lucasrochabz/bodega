@@ -49,7 +49,6 @@ bodega/
 ├── cypress/
 ├── public/
 ├── src/
-│   ├── api/
 │   ├── assets/
 │   ├── components/
 │   │   ├── auth/
@@ -81,17 +80,18 @@ bodega/
 │   │   └── index.js
 │   │
 │   ├── pages/
-│   │   ├── AdminPage/
-│   │   └── auth/
-│   │   │   ├── MyPage/
-│   │   │   └── index.js
-│   │   │
 │   │   ├── HomePage/
 │   │   ├── NotFoundPage/
+│   │   ├── admin/
+│   │   └── auth/
+│   │   │   └── LoginPage/
+│   │   │       ├── LoginPage.jsx
+│   │   │       ├── LoginPage.module.css
+│   │   │       └── index.js
+│   │   │
 │   │   ├── orders/
 │   │   ├── products/
-│   │   ├── users/
-│   │   └── index.js
+│   │   └── users/
 │   │
 │   ├── routes/
 │   ├── services/

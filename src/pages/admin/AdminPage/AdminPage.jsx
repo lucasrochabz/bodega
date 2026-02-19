@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Header } from '../../components/layout/Header';
-import { Input } from '../../components/ui/Input';
-import { Button } from '../../components/ui/Button';
-import { Footer } from '../../components/layout/Footer';
+import { Header } from '../../../components/layout/Header';
+import { Input } from '../../../components/ui/Input';
+import { Button } from '../../../components/ui/Button';
+import { Footer } from '../../../components/layout/Footer';
 import styles from './AdminPage.module.css';
 
 const AdminPage = () => {
