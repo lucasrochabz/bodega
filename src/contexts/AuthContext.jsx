@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import { useLoading, useLocalStorage } from '../hooks';
 import { authService } from '../services/authService';
+import { usersService } from '../services/usersService';
 
 export const AuthContext = createContext();
 
@@ -16,12 +17,12 @@ export const AuthProvider = ({ children }) => {
   const clearError = () => setError(null);
 
   // fix: add useCallback para deixar função mais pura
-  const getMe = async (authToken) => {
+  const getMe = async () => {
     startLoading();
     setError(null);
 
     try {
-      const result = await authService.getMe(authToken);
+      const result = await authService.getMe();
 
       setData(result.data);
     } catch (err) {
@@ -41,7 +42,6 @@ export const AuthProvider = ({ children }) => {
       const result = await authService.login({ email, password });
 
       setToken(result.data);
-      await getMe(result.data);
     } catch (err) {
       console.error(err.message);
       setError(err.message);
@@ -57,9 +57,9 @@ export const AuthProvider = ({ children }) => {
     setError(null);
 
     try {
-      await authService.update(token, body);
+      await usersService.update(body);
 
-      await getMe(token);
+      await getMe();
     } catch (err) {
       console.error(err.message);
       setError(err.message);
@@ -76,7 +76,7 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      getMe(token);
+      getMe();
     }
     // para colocar o getUser como dependência tenho que colocar o useCallback nele
     // eslint-disable-next-line react-hooks/exhaustive-deps

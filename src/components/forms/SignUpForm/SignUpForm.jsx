@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { useFetch, useDebounce } from '../../../hooks';
+import { useDebounce } from '../../../hooks';
 import { usersService } from '../../../services/usersService';
 import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
@@ -9,9 +9,9 @@ import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './SignUpForm.module.css';
 
+// fix usar hook mutation de user aqui
 // fix: usar forma melhor para não repetir tanto useState
 const SignUpForm = () => {
-  const { request, loading } = useFetch();
   const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState('');
@@ -59,7 +59,7 @@ const SignUpForm = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    await usersService.signup(request, {
+    await usersService.signup({
       firstName: firstName,
       lastName: lastName,
       email: email,
@@ -182,9 +182,7 @@ const SignUpForm = () => {
           required
         />
 
-        <Button variant="primary" disabled={loading}>
-          Cadastrar
-        </Button>
+        <Button variant="primary">Cadastrar</Button>
       </form>
     </section>
   );
