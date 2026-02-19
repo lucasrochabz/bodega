@@ -1,11 +1,14 @@
-import { GET_ADDRESS_DATA } from '../api/address';
-import { request } from '../http/request';
+import { apiClient } from '../http/client';
 
 const addressService = {
+  // fix: atualizar isso para deixar igual a de baixo
   getAddressData: async (zipCode) => {
-    const { url, options } = GET_ADDRESS_DATA(zipCode);
-    const response = await fetch(url, options);
-    const cepResult = await response.json();
+    const cepResult = await apiClient(
+      `https://viacep.com.br/ws/${zipCode}/json`,
+      {
+        method: 'GET',
+      },
+    );
 
     if (cepResult.erro) {
       return { error: 'CEP não encontrado.' };
@@ -19,10 +22,10 @@ const addressService = {
     };
   },
 
-  // fix: acho que dá para colocar a camada http/request.js aqui
-  newgetAddress: async (zipCode) => {
-    const { url, options } = GET_ADDRESS_DATA(zipCode);
-    return request(url, options);
+  newgetAddress: (zipCode) => {
+    return apiClient(`https://viacep.com.br/ws/${zipCode}/json`, {
+      method: 'GET',
+    });
   },
 };
 

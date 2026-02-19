@@ -13,5 +13,8 @@ export const apiClient = (endpoint, options = {}) => {
     },
   };
 
-  return request(`${BASE_API_URL}${endpoint}`, config);
+  const isAbsoluteUrl = endpoint.startsWith('http');
+  const url = isAbsoluteUrl ? endpoint : `${BASE_API_URL}${endpoint}`;
+
+  return request(url, config);
 };
