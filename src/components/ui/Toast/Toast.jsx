@@ -19,10 +19,11 @@ const Toast = ({ show, message, onClose, duration = 3000 }) => {
 
   if (!show || !message) return null;
 
+  // fix add type: success ou erro (azul: #e0eefb #5dafea)
   return (
     <section className={`${styles.toast} anim-toast-fade`}>
       <div className={styles.toastHeader}>
-        <strong>Bodega</strong>
+        <strong>Erro</strong>
         <small>Agora</small>
       </div>
 
