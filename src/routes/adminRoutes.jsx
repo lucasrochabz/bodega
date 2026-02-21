@@ -1,5 +1,5 @@
 import { ROUTES } from './paths';
-import { AdminPage } from '../pages/AdminPage';
+import { AdminPage } from '../pages/admin/AdminPage';
 
 const adminRoutes = [{ path: ROUTES.ADMIN, element: <AdminPage /> }];
 

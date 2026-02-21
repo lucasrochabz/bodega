@@ -49,13 +49,12 @@ bodega/
 ├── cypress/
 ├── public/
 ├── src/
-│   ├── api/
 │   ├── assets/
 │   ├── components/
 │   │   ├── auth/
-│   │   ├── shared/
 │   │   ├── forms/
 │   │   ├── layout/
+│   │   ├── shared/
 │   │   └── ui/
 │   │       └── MyComponent/
 │   │           ├── MyComponent.jsx
@@ -65,6 +64,7 @@ bodega/
 │   ├── config/
 │   ├── contexts/
 │   ├── hooks/
+│   │   ├── auth/
 │   │   ├── orders/
 │   │   ├── payments/
 │   │   ├── products/
@@ -72,19 +72,26 @@ bodega/
 │   │   └── index.js
 │   │
 │   ├── http/
+│   │   ├── client.js
+│   │   └── request.js
+│   │
 │   ├── i18n/
+│   │   ├── locales/
+│   │   └── index.js
+│   │
 │   ├── pages/
-│   │   ├── AdminPage/
-│   │   └── auth/
-│   │   │   ├── MyPage/
-│   │   │   └── index.js
-│   │   │
 │   │   ├── HomePage/
 │   │   ├── NotFoundPage/
+│   │   ├── admin/
+│   │   └── auth/
+│   │   │   └── LoginPage/
+│   │   │       ├── LoginPage.jsx
+│   │   │       ├── LoginPage.module.css
+│   │   │       └── index.js
+│   │   │
 │   │   ├── orders/
 │   │   ├── products/
-│   │   ├── users/
-│   │   └── index.js
+│   │   └── users/
 │   │
 │   ├── routes/
 │   ├── services/

@@ -5,13 +5,11 @@ import styles from './ProductList.module.css';
 
 const ProductList = ({ data }) => {
   return (
-    <>
-      <section className={styles.productList}>
-        {data.items.map((item) => (
-          <ProductCard key={item.id} item={item} />
-        ))}
-      </section>
-    </>
+    <section className={styles.productList}>
+      {data.items.map((item) => (
+        <ProductCard key={item.id} item={item} />
+      ))}
+    </section>
   );
 };
 

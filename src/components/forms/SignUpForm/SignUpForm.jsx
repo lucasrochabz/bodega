@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFetch, useDebounce } from '../../../hooks';
+import { useTranslation } from 'react-i18next';
+import { useDebounce } from '../../../hooks';
 import { usersService } from '../../../services/usersService';
 import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
@@ -8,8 +9,9 @@ import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './SignUpForm.module.css';
 
+// fix usar hook mutation de user aqui
+// fix: usar forma melhor para não repetir tanto useState
 const SignUpForm = () => {
-  const { request, loading } = useFetch();
   const navigate = useNavigate();
 
   const [firstName, setFirstName] = useState('');
@@ -20,18 +22,20 @@ const SignUpForm = () => {
 
   const debouncedZipCode = useDebounce(zipCode, 500);
 
-  const [endereco, setEndereco] = useState('');
-  const [numero, setNumero] = useState('');
-  const [bairro, setBairro] = useState('');
-  const [cidade, setCidade] = useState('');
-  const [estado, setEstado] = useState('');
+  const [street, setStreet] = useState('');
+  const [number, setNumber] = useState('');
+  const [neighborhood, setNeighborhood] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+
+  const { t } = useTranslation();
 
   useEffect(() => {
     if (debouncedZipCode.length !== 8) {
-      setEndereco('');
-      setBairro('');
-      setCidade('');
-      setEstado('');
+      setStreet('');
+      setNeighborhood('');
+      setCity('');
+      setState('');
       return;
     }
 
@@ -43,10 +47,10 @@ const SignUpForm = () => {
         return;
       }
 
-      setEndereco(result.endereco);
-      setBairro(result.bairro);
-      setCidade(result.cidade);
-      setEstado(result.estado);
+      setStreet(result.street);
+      setNeighborhood(result.neighborhood);
+      setCity(result.city);
+      setState(result.state);
     };
 
     handleZipCode();
@@ -55,136 +59,132 @@ const SignUpForm = () => {
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    await usersService.signup(request, {
+    await usersService.signup({
       firstName: firstName,
       lastName: lastName,
       email: email,
       password: password,
       zipCode: zipCode,
-      street: endereco,
-      number: numero,
-      neighborhood: bairro,
-      city: cidade,
-      state: estado,
+      street: street,
+      number: number,
+      neighborhood: neighborhood,
+      city: city,
+      state: state,
     });
 
     setFirstName('');
     setEmail('');
     setPassword('');
     setZipCode('');
-    setNumero('');
+    setNumber('');
     navigate(ROUTES.LOGIN);
   };
 
   return (
-    <>
-      <section className={styles.form}>
-        <h1 className="title">Crie a sua conta</h1>
+    <section className={styles.form}>
+      <h1 className="title">{t('register.title')}</h1>
 
-        <form
-          className={`${styles.signup} anim-show-left`}
-          onSubmit={handleSignup}
-        >
-          <Input
-            type="text"
-            label="Nome"
-            id="first-name"
-            value={firstName}
-            setValue={setFirstName}
-            placeholder="Primeiro nome"
-            required
-          />
+      <form
+        className={`${styles.signup} anim-show-left`}
+        onSubmit={handleSignup}
+      >
+        <Input
+          type="text"
+          label="Nome"
+          id="first-name"
+          value={firstName}
+          setValue={setFirstName}
+          placeholder="Primeiro nome"
+          required
+        />
 
-          <Input
-            type="text"
-            label="Sobrenome"
-            id="last-name"
-            value={lastName}
-            setValue={setLastName}
-            placeholder="Sobrenome"
-            required
-          />
+        <Input
+          type="text"
+          label="Sobrenome"
+          id="last-name"
+          value={lastName}
+          setValue={setLastName}
+          placeholder="Sobrenome"
+          required
+        />
 
-          <Input
-            type="email"
-            label="E-mail"
-            id="email"
-            value={email}
-            setValue={setEmail}
-            placeholder="exemplo@email.com"
-            required
-          />
+        <Input
+          type="email"
+          label="E-mail"
+          id="email"
+          value={email}
+          setValue={setEmail}
+          placeholder="exemplo@email.com"
+          required
+        />
 
-          <Input
-            type="password"
-            label="Senha"
-            id="password"
-            value={password}
-            setValue={setPassword}
-            required
-          />
+        <Input
+          type="password"
+          label="Senha"
+          id="password"
+          value={password}
+          setValue={setPassword}
+          required
+        />
 
-          <Input
-            type="number"
-            label="CEP"
-            id="cep"
-            value={zipCode}
-            setValue={setZipCode}
-            placeholder="60000000"
-            required
-          />
+        <Input
+          type="number"
+          label="CEP"
+          id="cep"
+          value={zipCode}
+          setValue={setZipCode}
+          placeholder="60000000"
+          required
+        />
 
-          <Input
-            type="text"
-            label="Endereço"
-            id="endereco"
-            value={endereco}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Endereço"
+          id="endereco"
+          value={street}
+          readOnly
+          required
+        />
 
-          <Input
-            type="number"
-            label="Número"
-            id="numero"
-            value={numero}
-            setValue={setNumero}
-            required
-          />
+        <Input
+          type="number"
+          label="Número"
+          id="numero"
+          value={number}
+          setValue={setNumber}
+          required
+        />
 
-          <Input
-            type="text"
-            label="Bairro"
-            id="bairro"
-            value={bairro}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Bairro"
+          id="bairro"
+          value={neighborhood}
+          readOnly
+          required
+        />
 
-          <Input
-            type="text"
-            label="Cidade"
-            id="cidade"
-            value={cidade}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Cidade"
+          id="cidade"
+          value={city}
+          readOnly
+          required
+        />
 
-          <Input
-            type="text"
-            label="Estado"
-            id="estado"
-            value={estado}
-            readOnly
-            required
-          />
+        <Input
+          type="text"
+          label="Estado"
+          id="estado"
+          value={state}
+          readOnly
+          required
+        />
 
-          <Button variant="primary" disabled={loading}>
-            Cadastrar
-          </Button>
-        </form>
-      </section>
-    </>
+        <Button variant="primary">Cadastrar</Button>
+      </form>
+    </section>
   );
 };
 

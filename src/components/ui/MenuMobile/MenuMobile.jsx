@@ -7,7 +7,7 @@ import { Button } from '../Button';
 import styles from './MenuMobile.module.css';
 
 const MenuMobile = () => {
-  const { userLogout } = useContext(AuthContext);
+  const { logout } = useContext(AuthContext);
   const navigate = useNavigate();
   const mobile = useMedia('(max-width: 800px)');
 
@@ -18,7 +18,7 @@ const MenuMobile = () => {
   };
 
   const handleLogout = () => {
-    userLogout();
+    logout();
     navigate(ROUTES.LOGIN);
   };
 

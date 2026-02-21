@@ -2,5 +2,14 @@
   "login": {
     "title": "Login",
     "success": "Login successful"
+  },
+  "register": {
+    "title": "Create your account",
+    "success": "Account created successfully.",
+    "button": "Sign up"
+  },
+  "forgot": {
+    "title": "Forgot your password?",
+    "success": "If an account exists, a password reset link has been sent."
   }
 }
