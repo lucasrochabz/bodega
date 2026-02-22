@@ -13,28 +13,40 @@ const images = import.meta.glob('/src/assets/images/*', {
   eager: true,
 });
 
-const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
+const ProductDetails = ({ product, isAuthenticated }) => {
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
+  const { createOrder, isLoading } = useCreateOrder();
 
-  const { createOrder, isLoading: orderIsLoading } = useCreateOrder();
+  const hasStock = product.stock > 0;
+  const isButtonDisabled = isLoading || !hasStock;
+
+  const buttonLabel = !hasStock
+    ? 'Esgotado'
+    : isAuthenticated
+      ? 'Finalizar Pedido'
+      : 'Faça login para comprar';
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
-
-  const handleReturn = () => {
-    navigate(ROUTES.HOME);
-  };
 
   const handleImageClick = (event) => {
     event.stopPropagation();
     toggleShowModal();
   };
 
-  const redirectUser = () => {
+  const handleReturn = () => {
+    navigate(ROUTES.HOME);
+  };
+
+  const handleButtonClick = () => {
+    if (!hasStock) return;
+
     if (!isAuthenticated) {
       navigate(ROUTES.LOGIN);
       return;
     }
+
+    handleFinalizeOrder();
   };
 
   const handleFinalizeOrder = async () => {
@@ -66,10 +78,10 @@ const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
 
           <Button
             variant="secondary"
-            disabled={isLoading}
-            onClick={isAuthenticated ? handleFinalizeOrder : redirectUser}
+            disabled={isButtonDisabled}
+            onClick={handleButtonClick}
           >
-            {isAuthenticated ? 'Finalizar Pedido' : 'Faça login para comprar'}
+            {buttonLabel}
           </Button>
         </div>
       </div>
@@ -82,9 +94,8 @@ const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
 };
 
 ProductDetails.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
   product: productPropType.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default ProductDetails;

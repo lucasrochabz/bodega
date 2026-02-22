@@ -24,11 +24,7 @@ const ProductDetailsPage = () => {
       />
 
       <Header />
-      <ProductDetails
-        product={data}
-        isLoading={isLoading}
-        isAuthenticated={isAuthenticated}
-      />
+      <ProductDetails product={data} isAuthenticated={isAuthenticated} />
       <Footer />
     </>
   );

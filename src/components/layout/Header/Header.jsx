@@ -8,7 +8,13 @@ import styles from './Header.module.css';
 
 const Header = ({ hideLinks = false }) => {
   const { data, isAuthenticated } = useContext(AuthContext);
+
   const userName = data?.firstName;
+
+  const authRoute = isAuthenticated ? ROUTES.ACCOUNT : ROUTES.LOGIN;
+  const authLinkLabel = isAuthenticated
+    ? `Olá, ${userName}`
+    : 'Entre ou cadastre-se';
 
   return (
     <header className={styles.bg}>
@@ -20,11 +26,8 @@ const Header = ({ hideLinks = false }) => {
         <LanguageSwitcher />
 
         {!hideLinks && (
-          <Link
-            to={isAuthenticated ? ROUTES.ACCOUNT : ROUTES.LOGIN}
-            className={styles.btnHeader}
-          >
-            {isAuthenticated ? `Olá, ${userName}` : 'Entre ou cadastre-se'}
+          <Link to={authRoute} className={styles.btnHeader}>
+            {authLinkLabel}
           </Link>
         )}
       </nav>
