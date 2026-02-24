@@ -14,6 +14,9 @@ const images = import.meta.glob('/src/assets/images/*', {
 });
 
 const ProductDetails = ({ product, isAuthenticated }) => {
+  const imageModule = images[`/src/assets/images/${product.image_path}`];
+  const imagePath = imageModule?.default;
+
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
   const { createOrder, isLoading } = useCreateOrder();
@@ -26,8 +29,6 @@ const ProductDetails = ({ product, isAuthenticated }) => {
     : isAuthenticated
       ? 'Finalizar Pedido'
       : 'Faça login para comprar';
-
-  const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
 
   const handleImageClick = (event) => {
     event.stopPropagation();
