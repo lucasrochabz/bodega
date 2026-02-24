@@ -1,16 +1,17 @@
-import { GET_ALL_PRODUCTS, GET_PRODUCT } from '../api/products';
-import { request } from '../http/request';
+import { apiClient } from '../http/client';
 
 const productsService = {
   // fix: simular error na api para ver o que acontece
   getAllProducts: ({ page, pageSize }) => {
-    const { url, options } = GET_ALL_PRODUCTS(page, pageSize);
-    return request(url, options);
+    return apiClient(`/api/v1/products?page=${page}&pageSize=${pageSize}`, {
+      method: 'GET',
+    });
   },
 
   getProduct: (productId) => {
-    const { url, options } = GET_PRODUCT(productId);
-    return request(url, options);
+    return apiClient(`/api/v1/products/${productId}`, {
+      method: 'GET',
+    });
   },
 };
 

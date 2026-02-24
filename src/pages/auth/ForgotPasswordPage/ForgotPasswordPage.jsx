@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { useFetch } from '../../../hooks';
-import { POST_FORGOT_PASSWORD } from '../../../api/auth';
+import { useTranslation } from 'react-i18next';
+import useForgotPassword from '../../../hooks/auth/useForgotPassword';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { Button } from '../../../components/ui/Button';
@@ -8,19 +8,19 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './ForgotPasswordPage.module.css';
 
 const ForgotPasswordPage = () => {
-  const { request } = useFetch();
   const [email, setEmail] = useState('');
+  const { sendEmail, isLoading } = useForgotPassword();
+
+  const { t } = useTranslation();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    const origin = window.location.origin;
-    const { url, options } = POST_FORGOT_PASSWORD({ email, origin });
-    const response = await request(url, options);
+    const response = await sendEmail(email);
 
     if (response) {
       alert('Email enviado.');
-      window.location.href = response.token;
+      window.location.href = response;
     }
     setEmail('');
   };
@@ -34,7 +34,7 @@ const ForgotPasswordPage = () => {
       <Header />
       <main className={styles.authLayout}>
         <section className={styles.container}>
-          <h1 className="title">Perdeu a senha?</h1>
+          <h1 className="title">{t('forgot.title')}</h1>
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="email" className="label">
               E-mail

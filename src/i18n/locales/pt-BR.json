@@ -3,6 +3,10 @@
     "title": "Entrar",
     "success": "Login realizado com sucesso"
   },
+  "register": {
+    "title": "Crie a sua conta",
+    "success": "Conta criada com sucesso."
+  },
   "forgot": {
     "title": "Perdeu a senha?",
     "success": "Login realizado com sucesso"

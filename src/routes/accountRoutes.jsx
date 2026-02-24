@@ -18,7 +18,7 @@ const accountRoutes = [
       };
     },
     children: [
-      { path: '', element: <Welcome /> },
+      { index: true, element: <Welcome /> },
       { path: 'my-info', element: <UserInfoPage /> },
       { path: 'orders', element: <OrdersPage /> },
       { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },

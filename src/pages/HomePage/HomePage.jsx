@@ -8,13 +8,17 @@ import { Footer } from '../../components/layout/Footer';
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
-  const [pageSize] = useState(4);
+  const pageSize = 4;
 
   const { isLoading, error, data } = useProducts({ page, pageSize });
 
   if (isLoading) return <div>Carregando...</div>;
   if (error) return <div>{error}</div>;
-  if (!data) return null;
+
+  // fix: data.items.length acho que isso é melhor
+  if (!data) return <div>Produto não encontrado.</div>;
+
+  // fix: acho que tenho que passar data.items
   return (
     <>
       <Head title="Home" description="Descrição da página Home" />

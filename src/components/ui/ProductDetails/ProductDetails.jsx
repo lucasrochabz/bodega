@@ -13,28 +13,40 @@ const images = import.meta.glob('/src/assets/images/*', {
   eager: true,
 });
 
-const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
+const ProductDetails = ({ product, isAuthenticated }) => {
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
+  const { createOrder, isLoading } = useCreateOrder();
 
-  const { createOrder, isLoading: orderIsLoading } = useCreateOrder();
+  const hasStock = product.stock > 0;
+  const isButtonDisabled = isLoading || !hasStock;
+
+  const buttonLabel = !hasStock
+    ? 'Esgotado'
+    : isAuthenticated
+      ? 'Finalizar Pedido'
+      : 'Faça login para comprar';
 
   const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
-
-  const handleReturn = () => {
-    navigate(ROUTES.HOME);
-  };
 
   const handleImageClick = (event) => {
     event.stopPropagation();
     toggleShowModal();
   };
 
-  const redirectUser = () => {
+  const handleReturn = () => {
+    navigate(ROUTES.HOME);
+  };
+
+  const handleButtonClick = () => {
+    if (!hasStock) return;
+
     if (!isAuthenticated) {
       navigate(ROUTES.LOGIN);
       return;
     }
+
+    handleFinalizeOrder();
   };
 
   const handleFinalizeOrder = async () => {
@@ -49,44 +61,41 @@ const ProductDetails = ({ product, isLoading, isAuthenticated }) => {
   };
 
   return (
-    <>
-      <section className={styles.container}>
-        <img src={imagePath} alt={product.name} onClick={handleImageClick} />
+    <section className={styles.container}>
+      <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
-        <div className={styles.wrapper}>
-          <h1>{product.name}</h1>
-          <span className={styles.price}>
-            {formattedPriceToBRL(product.price)}
-          </span>
-          <p className={styles.description}>{product.description}</p>
+      <div className={styles.wrapper}>
+        <h1>{product.name}</h1>
+        <span className={styles.price}>
+          {formattedPriceToBRL(product.price)}
+        </span>
+        <p className={styles.description}>{product.description}</p>
 
-          <div className={styles.btnControls}>
-            <button className={styles.btnCancelOrder} onClick={handleReturn}>
-              Voltar
-            </button>
+        <div className={styles.btnControls}>
+          <button className={styles.btnCancelOrder} onClick={handleReturn}>
+            Voltar
+          </button>
 
-            <Button
-              variant="secondary"
-              disabled={isLoading}
-              onClick={isAuthenticated ? handleFinalizeOrder : redirectUser}
-            >
-              {isAuthenticated ? 'Finalizar Pedido' : 'Faça login para comprar'}
-            </Button>
-          </div>
+          <Button
+            variant="secondary"
+            disabled={isButtonDisabled}
+            onClick={handleButtonClick}
+          >
+            {buttonLabel}
+          </Button>
         </div>
+      </div>
 
-        {showModal && (
-          <ImageModal imagePath={imagePath} onClose={toggleShowModal} />
-        )}
-      </section>
-    </>
+      {showModal && (
+        <ImageModal imagePath={imagePath} onClose={toggleShowModal} />
+      )}
+    </section>
   );
 };
 
 ProductDetails.propTypes = {
-  isLoading: PropTypes.bool.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
   product: productPropType.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 export default ProductDetails;

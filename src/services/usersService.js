@@ -1,9 +1,18 @@
-import { POST_USERS } from '../api/users';
+import { apiClient } from '../http/client';
 
 const usersService = {
-  signup: (request, userData) => {
-    const { url, options } = POST_USERS(userData);
-    return request(url, options);
+  signup: (payload) => {
+    return apiClient('/api/v1/users', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
+  },
+
+  update: (payload) => {
+    return apiClient('/api/v1/users/update', {
+      method: 'PATCH',
+      body: JSON.stringify(payload),
+    });
   },
 };
 

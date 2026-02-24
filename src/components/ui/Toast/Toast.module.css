@@ -1,10 +1,23 @@
 .toast {
-  background-color: #333;
-  color: #fff;
+  max-width: 300px;
   position: fixed;
   top: 1.5rem;
   right: 1.5rem;
-  padding: 0.5rem 1rem;
+  background-color: #ffe7e1;
+  border-left: 4px solid #ff8664;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  z-index: 100;
+}
+
+.toastHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.toastBody {
+  padding: 0.5rem;
 }

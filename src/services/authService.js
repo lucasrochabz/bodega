@@ -1,27 +1,34 @@
-import { GET_ME, POST_LOGIN } from '../api/auth';
-import { POST_USERS, PATCH_USER_UPDATE } from '../api/users';
-import { request } from '../http/request';
+import { apiClient } from '../http/client';
 
 const authService = {
-  getMe: async (token) => {
-    const { url, options } = GET_ME(token);
-    return request(url, options);
+  getMe: () => {
+    return apiClient('/api/v1/auth/me', {
+      method: 'GET',
+    });
   },
 
-  login: async (payload) => {
-    const { url, options } = POST_LOGIN(payload);
-    return request(url, options);
+  login: (payload) => {
+    return apiClient('/api/v1/auth/login', {
+      method: 'POST',
+      body: JSON.stringify(payload),
+    });
   },
 
-  update: async (token, payload) => {
-    const { url, options } = PATCH_USER_UPDATE(token, payload);
-    return request(url, options);
+  forgotPassword: (email) => {
+    return apiClient('/api/v1/auth/forgot-password', {
+      method: 'POST',
+      body: JSON.stringify({
+        email,
+        origin: window.location.origin,
+      }),
+    });
   },
 
-  // fix: acho que essa função tem que ir para usersService
-  signup: (userData) => {
-    const { url, options } = POST_USERS(userData);
-    return request(url, options);
+  resetPassword: ({ token, newPassword }) => {
+    return apiClient(`/api/v1/auth/reset-password?token=${token}`, {
+      method: 'POST',
+      body: JSON.stringify({ newPassword }),
+    });
   },
 };
 
