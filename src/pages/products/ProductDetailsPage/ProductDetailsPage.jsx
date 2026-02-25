@@ -13,9 +13,16 @@ const ProductDetailsPage = () => {
 
   const { isLoading, data, error } = useProduct(productId);
 
-  if (isLoading) return <div>Carregando...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>Produto não encontrado.</div>;
+  let content;
+  if (isLoading) content = <div>Carregando...</div>;
+  else if (error) content = <div>{error}</div>;
+  else if (!data) content = <div>Produto não encontrado.</div>;
+  else {
+    content = (
+      <ProductDetails product={data} isAuthenticated={isAuthenticated} />
+    );
+  }
+
   return (
     <>
       <Head
@@ -24,7 +31,7 @@ const ProductDetailsPage = () => {
       />
 
       <Header />
-      <ProductDetails product={data} isAuthenticated={isAuthenticated} />
+      {content}
       <Footer />
     </>
   );

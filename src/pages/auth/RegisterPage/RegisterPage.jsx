@@ -21,11 +21,11 @@ const RegisterPage = () => {
       <Header />
 
       <main className={styles.authLayout}>
-        <section className={styles.form}>
+        <section className={styles.wrapper}>
           <h1 className="title">{t('register.title')}</h1>
-        </section>
 
-        <SignUpForm />
+          <SignUpForm />
+        </section>
       </main>
       <Footer />
     </>

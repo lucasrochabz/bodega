@@ -15,26 +15,34 @@ const OrdersPage = () => {
 
   const ordersToShow = search ? filtredOrders : allOrders;
 
-  if (isLoading) return <div>Carregando...</div>;
-  if (error) return <div>Erro: {error}</div>;
+  let content;
+  if (isLoading) content = <div>Carregando...</div>;
+  else if (error) content = <div>Erro: {error}</div>;
+  else if (ordersToShow.length === 0) {
+    content = <div>Nenhum pedido encontrado.</div>;
+  } else {
+    content = (
+      <>
+        <input
+          className={styles.search}
+          type="search"
+          name="search"
+          placeholder="Buscar..."
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+
+        <section className={`${styles.orders} anim-show-left`}>
+          <OrderList orders={ordersToShow} />
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
-      <input
-        className={styles.search}
-        type="search"
-        name="search"
-        placeholder="Buscar..."
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-      />
-      <section className={`${styles.orders} anim-show-left`}>
-        {ordersToShow.length === 0 ? (
-          <div>Nenhum pedido encontrado.</div>
-        ) : (
-          <OrderList orders={ordersToShow} />
-        )}
-      </section>
+      {content}
     </>
   );
 };

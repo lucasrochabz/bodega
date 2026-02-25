@@ -8,14 +8,20 @@ const OrderDetailsPage = () => {
   const { orderId } = useParams();
   const { isLoading, error, data } = useOrder(orderId);
 
-  if (isLoading || !data) return <div>Carregando...</div>;
-  if (error) return <div>{error}</div>;
+  let content;
+  if (isLoading) content = <div>Carregando...</div>;
+  else if (error) content = <div>{error}</div>;
+  else if (!data) content = <div>Pedido não encontrado.</div>;
+  else {
+    content = <OrderDetails order={data} />;
+  }
+
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
 
       <article className={`${styles.container} anim-show-left`}>
-        <OrderDetails order={data} />
+        {content}
       </article>
     </>
   );
