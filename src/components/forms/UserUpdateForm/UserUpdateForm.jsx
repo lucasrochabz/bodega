@@ -156,7 +156,7 @@ const UserUpdateForm = ({ data }) => {
       />
 
       <Button variant="primary" disabled={loading}>
-        Atualizar
+        {loading ? 'Atualizando...' : 'Atualizar'}
       </Button>
     </form>
   );

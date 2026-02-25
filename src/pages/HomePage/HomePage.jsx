@@ -9,23 +9,34 @@ import { Footer } from '../../components/layout/Footer';
 const HomePage = () => {
   const [page, setPage] = useState(1);
   const pageSize = 4;
-
   const { isLoading, error, data } = useProducts({ page, pageSize });
 
-  if (isLoading) return <div>Carregando...</div>;
-  if (error) return <div>{error}</div>;
+  let content;
+  if (isLoading) {
+    content = <div>Carregando...</div>;
+  } else if (error) {
+    content = <div>{error}</div>;
+  } else if (!data?.items.length) {
+    content = <div>Produtos não encontrados.</div>;
+  } else {
+    content = (
+      <>
+        <ProductList data={data.items} />
+        <Pagination
+          pagination={data.pagination}
+          page={page}
+          setPage={setPage}
+        />
+      </>
+    );
+  }
 
-  // fix: data.items.length acho que isso é melhor
-  if (!data) return <div>Produto não encontrado.</div>;
-
-  // fix: acho que tenho que passar data.items
   return (
     <>
       <Head title="Home" description="Descrição da página Home" />
 
       <Header />
-      <ProductList data={data} />
-      <Pagination pagination={data.pagination} page={page} setPage={setPage} />
+      {content}
       <Footer />
     </>
   );
