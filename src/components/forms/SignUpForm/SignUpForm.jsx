@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { useDebounce } from '../../../hooks';
 import { usersService } from '../../../services/usersService';
 import { addressService } from '../../../services/addressService';
@@ -10,32 +9,133 @@ import { Button } from '../../ui/Button';
 import styles from './SignUpForm.module.css';
 
 // fix usar hook mutation de user aqui
-// fix: usar forma melhor para não repetir tanto useState
 const SignUpForm = () => {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [zipCode, setZipCode] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    zipCode: '',
+    street: '',
+    number: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+  });
 
-  const debouncedZipCode = useDebounce(zipCode, 500);
+  const fields = [
+    {
+      type: 'text',
+      label: 'Nome',
+      name: 'firstName',
+      id: 'first-name',
+      value: formData.firstName,
+      placeholder: 'Primeiro nome',
+      required: true,
+    },
+    {
+      type: 'text',
+      label: 'Sobrenome',
+      name: 'lastName',
+      id: 'last-name',
+      value: formData.lastName,
+      placeholder: 'Sobrenome',
+      required: true,
+    },
 
-  const [street, setStreet] = useState('');
-  const [number, setNumber] = useState('');
-  const [neighborhood, setNeighborhood] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
+    {
+      type: 'email',
+      label: 'E-mail',
+      name: 'email',
+      id: 'email',
+      value: formData.email,
+      placeholder: 'exemplo@email.com',
+      required: true,
+    },
+    {
+      type: 'password',
+      label: 'Senha',
+      name: 'password',
+      id: 'password',
+      value: formData.password,
+      required: true,
+    },
+    {
+      type: 'number',
+      label: 'CEP',
+      name: 'zipCode',
+      id: 'zip-code',
+      value: formData.zipCode,
+      placeholder: '60000000',
+      required: true,
+    },
+    {
+      type: 'text',
+      label: 'Endereço',
+      name: 'street',
+      id: 'street',
+      value: formData.street,
+      required: true,
+      readOnly: true,
+    },
+    {
+      type: 'number',
+      label: 'Número',
+      name: 'number',
+      id: 'number',
+      value: formData.number,
+      required: true,
+    },
+    {
+      type: 'text',
+      label: 'Bairro',
+      name: 'neighborhood',
+      id: 'neighborhood',
+      value: formData.neighborhood,
+      required: true,
+      readOnly: true,
+    },
+    {
+      type: 'text',
+      label: 'Cidade',
+      name: 'city',
+      id: 'city',
+      value: formData.city,
+      required: true,
+      readOnly: true,
+    },
+    {
+      type: 'text',
+      label: 'Estado',
+      name: 'state',
+      id: 'state',
+      value: formData.state,
+      required: true,
+      readOnly: true,
+    },
+  ];
 
-  const { t } = useTranslation();
+  const debouncedZipCode = useDebounce(formData.zipCode, 500);
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   useEffect(() => {
     if (debouncedZipCode.length !== 8) {
-      setStreet('');
-      setNeighborhood('');
-      setCity('');
-      setState('');
+      setFormData((prev) => ({
+        ...prev,
+        street: '',
+        neighborhood: '',
+        city: '',
+        state: '',
+      }));
       return;
     }
 
@@ -47,10 +147,13 @@ const SignUpForm = () => {
         return;
       }
 
-      setStreet(result.street);
-      setNeighborhood(result.neighborhood);
-      setCity(result.city);
-      setState(result.state);
+      setFormData((prev) => ({
+        ...prev,
+        street: result.street,
+        neighborhood: result.neighborhood,
+        city: result.city,
+        state: result.state,
+      }));
     };
 
     handleZipCode();
@@ -60,131 +163,39 @@ const SignUpForm = () => {
     event.preventDefault();
 
     await usersService.signup({
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-      zipCode: zipCode,
-      street: street,
-      number: number,
-      neighborhood: neighborhood,
-      city: city,
-      state: state,
+      firstName: '',
+      lastName: '',
+      email: '',
+      password: '',
+      zipCode: '',
+      street: '',
+      number: '',
+      neighborhood: '',
+      city: '',
+      state: '',
     });
 
-    setFirstName('');
-    setEmail('');
-    setPassword('');
-    setZipCode('');
-    setNumber('');
     navigate(ROUTES.LOGIN);
   };
 
   return (
-    <section className={styles.form}>
-      <h1 className="title">{t('register.title')}</h1>
-
-      <form
-        className={`${styles.signup} anim-show-left`}
-        onSubmit={handleSignup}
-      >
+    <form className={`${styles.signup} anim-show-left`} onSubmit={handleSignup}>
+      {fields.map((field) => (
         <Input
-          type="text"
-          label="Nome"
-          id="first-name"
-          value={firstName}
-          setValue={setFirstName}
-          placeholder="Primeiro nome"
-          required
+          key={field.id}
+          type={field.type}
+          label={field.label}
+          name={field.name}
+          id={field.id}
+          value={field.value}
+          onChange={handleChange}
+          placeholder={field.placeholder}
+          readOnly={field.readOnly}
+          required={field.required}
         />
-
-        <Input
-          type="text"
-          label="Sobrenome"
-          id="last-name"
-          value={lastName}
-          setValue={setLastName}
-          placeholder="Sobrenome"
-          required
-        />
-
-        <Input
-          type="email"
-          label="E-mail"
-          id="email"
-          value={email}
-          setValue={setEmail}
-          placeholder="exemplo@email.com"
-          required
-        />
-
-        <Input
-          type="password"
-          label="Senha"
-          id="password"
-          value={password}
-          setValue={setPassword}
-          required
-        />
-
-        <Input
-          type="number"
-          label="CEP"
-          id="cep"
-          value={zipCode}
-          setValue={setZipCode}
-          placeholder="60000000"
-          required
-        />
-
-        <Input
-          type="text"
-          label="Endereço"
-          id="endereco"
-          value={street}
-          readOnly
-          required
-        />
-
-        <Input
-          type="number"
-          label="Número"
-          id="numero"
-          value={number}
-          setValue={setNumber}
-          required
-        />
-
-        <Input
-          type="text"
-          label="Bairro"
-          id="bairro"
-          value={neighborhood}
-          readOnly
-          required
-        />
-
-        <Input
-          type="text"
-          label="Cidade"
-          id="cidade"
-          value={city}
-          readOnly
-          required
-        />
-
-        <Input
-          type="text"
-          label="Estado"
-          id="estado"
-          value={state}
-          readOnly
-          required
-        />
-
-        <Button variant="primary">Cadastrar</Button>
-      </form>
-    </section>
+      ))}
+      <Button variant="primary">Cadastrar</Button>
+    </form>
   );
 };
 
