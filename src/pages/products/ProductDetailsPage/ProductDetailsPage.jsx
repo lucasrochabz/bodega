@@ -7,6 +7,7 @@ import { Header } from '../../../components/layout/Header';
 import { Loading } from '../../../components/ui/Loading';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
 import { Footer } from '../../../components/layout/Footer';
+import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -32,7 +33,7 @@ const ProductDetailsPage = () => {
       />
 
       <Header />
-      {content}
+      <main className={styles.wrapper}>{content}</main>
       <Footer />
     </>
   );
