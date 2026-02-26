@@ -4,6 +4,7 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import useProduct from '../../../hooks/products/useProduct';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
+import { Loading } from '../../../components/ui/Loading';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
 import { Footer } from '../../../components/layout/Footer';
 
@@ -14,7 +15,7 @@ const ProductDetailsPage = () => {
   const { isLoading, data, error } = useProduct(productId);
 
   let content;
-  if (isLoading) content = <div>Carregando...</div>;
+  if (isLoading) content = <Loading />;
   else if (error) content = <div>{error}</div>;
   else if (!data) content = <div>Produto não encontrado.</div>;
   else {

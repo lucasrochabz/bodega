@@ -2,6 +2,7 @@ import { useState } from 'react';
 import useProducts from '../../hooks/products/useProducts';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
+import { Loading } from '../../components/ui/Loading';
 import { ProductList } from '../../components/ui/ProductList';
 import { Pagination } from '../../components/ui/Pagination';
 import { Footer } from '../../components/layout/Footer';
@@ -13,7 +14,7 @@ const HomePage = () => {
 
   let content;
   if (isLoading) {
-    content = <div>Carregando...</div>;
+    content = <Loading />;
   } else if (error) {
     content = <div>{error}</div>;
   } else if (!data?.items.length) {
