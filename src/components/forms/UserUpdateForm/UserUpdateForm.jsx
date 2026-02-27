@@ -41,10 +41,10 @@ const UserUpdateForm = ({ data }) => {
 
     setFormData((prev) => ({
       ...prev,
-      street: address.logradouro,
-      neighborhood: address.bairro,
-      city: address.localidade,
-      state: address.uf,
+      street: address.street,
+      neighborhood: address.neighborhood,
+      city: address.city,
+      state: address.state,
     }));
   }, [address]);
 
@@ -65,15 +65,17 @@ const UserUpdateForm = ({ data }) => {
   useEffect(() => {
     if (!error) return;
 
-    alert('CEP inválido');
+    alert(error);
   }, [error]);
 
   return (
+    // fix: corrigir name dos inputs
     <form className={`${styles.form} anim-show-left`} onSubmit={handleSubmit}>
       <Input
         type="text"
         label="Nome"
-        id="firstName"
+        name="firstName"
+        id="first-name"
         value={formData.firstName}
         onChange={handleChange}
         placeholder="Primeiro nome"
@@ -83,7 +85,8 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Sobrenome"
-        id="lastName"
+        name="lastName"
+        id="last-name"
         value={formData.lastName}
         onChange={handleChange}
         required
@@ -92,6 +95,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="email"
         label="E-mail"
+        name="email"
         id="email"
         value={formData.email}
         onChange={handleChange}
@@ -103,7 +107,8 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="number"
         label="CEP"
-        id="zipCode"
+        name="zipCode"
+        id="zip-code"
         value={formData.zipCode}
         onChange={handleChange}
         placeholder="60000000"
@@ -113,6 +118,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Endereço"
+        name="endereco"
         id="endereco"
         value={formData.street}
         readOnly
@@ -122,6 +128,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="number"
         label="Número"
+        name="number"
         id="number"
         value={formData.number}
         onChange={handleChange}
@@ -131,6 +138,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Bairro"
+        name="neighborhood"
         id="bairro"
         value={formData.neighborhood}
         readOnly
@@ -140,6 +148,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Cidade"
+        name="cidade"
         id="cidade"
         value={formData.city}
         readOnly
@@ -149,6 +158,7 @@ const UserUpdateForm = ({ data }) => {
       <Input
         type="text"
         label="Estado"
+        name="estado"
         id="estado"
         value={formData.state}
         readOnly
