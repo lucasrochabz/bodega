@@ -1,27 +1,33 @@
 import { apiClient } from '../http/client';
 
 const authService = {
-  getMe: () => {
-    return apiClient('/api/v1/auth/me', {
+  getMe: async () => {
+    const response = await apiClient('/api/v1/auth/me', {
       method: 'GET',
     });
+
+    return response.data;
   },
 
-  login: (payload) => {
-    return apiClient('/api/v1/auth/login', {
+  login: async (payload) => {
+    const response = await apiClient('/api/v1/auth/login', {
       method: 'POST',
       body: JSON.stringify(payload),
     });
+
+    return response.data;
   },
 
-  forgotPassword: (email) => {
-    return apiClient('/api/v1/auth/forgot-password', {
+  forgotPassword: async (email) => {
+    const response = await apiClient('/api/v1/auth/forgot-password', {
       method: 'POST',
       body: JSON.stringify({
         email,
         origin: window.location.origin,
       }),
     });
+
+    return response.data;
   },
 
   resetPassword: ({ token, newPassword }) => {

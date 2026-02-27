@@ -11,7 +11,7 @@ const useCreatePayment = () => {
 
     try {
       const response = await paymentsService.checkout(payload);
-      return response.data;
+      return response;
     } catch (err) {
       setError(err.message);
       throw err;

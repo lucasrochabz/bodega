@@ -24,7 +24,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await authService.getMe();
 
-      setData(result.data);
+      setData(result);
     } catch (err) {
       console.error(err.message);
       setError(err.message);
@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     try {
       const result = await authService.login({ email, password });
 
-      setToken(result.data);
+      setToken(result);
     } catch (err) {
       console.error(err.message);
       setError(err.message);

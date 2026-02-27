@@ -11,7 +11,7 @@ const useCreateOrder = () => {
 
     try {
       const response = await ordersService.createOrder(payload);
-      return response.data;
+      return response;
     } catch (err) {
       setError(err.message);
       throw err;
