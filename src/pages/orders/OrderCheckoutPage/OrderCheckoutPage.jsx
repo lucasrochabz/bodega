@@ -23,10 +23,10 @@ const OrderCheckoutPage = () => {
   else if (!orderData) content = <div>Dados do pedido não encontrado</div>;
   else {
     content = (
-      <>
+      <div className={styles.checkout}>
         <CheckoutForm userData={userData} />
         <OrderSummary orderData={orderData} />
-      </>
+      </div>
     );
   }
 
@@ -35,8 +35,10 @@ const OrderCheckoutPage = () => {
       <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
 
-      <h2 className="title">Finalizar Compra</h2>
-      <main className={styles.checkout}>{content}</main>
+      <main className={styles.container}>
+        <h2 className="title">Finalizar Compra</h2>
+        {content}
+      </main>
 
       <Footer />
     </>
