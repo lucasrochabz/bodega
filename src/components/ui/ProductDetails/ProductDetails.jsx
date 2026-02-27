@@ -62,10 +62,10 @@ const ProductDetails = ({ product, isAuthenticated }) => {
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.wrapper}>
       <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
-      <div className={styles.wrapper}>
+      <div className={styles.content}>
         <h1>{product.name}</h1>
         <span className={styles.price}>
           {formattedPriceToBRL(product.price)}

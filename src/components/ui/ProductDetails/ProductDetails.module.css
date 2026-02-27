@@ -1,17 +1,17 @@
-.container {
+.wrapper {
   display: flex;
   justify-content: center;
   gap: 2rem;
 }
 
-.container img {
+.wrapper img {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   max-width: 600px;
   height: 100%;
 }
 
-.wrapper {
+.content {
   display: flex;
   flex-direction: column;
   max-width: 400px;

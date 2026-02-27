@@ -35,7 +35,7 @@ const HomePage = () => {
       <Head title="Home" description="Descrição da página Home" />
 
       <Header />
-      <main className={styles.wrapper}>{content}</main>
+      <main className={styles.container}>{content}</main>
       <Footer />
     </>
   );

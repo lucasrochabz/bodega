@@ -33,7 +33,7 @@ const ProductDetailsPage = () => {
       />
 
       <Header />
-      <main className={styles.wrapper}>{content}</main>
+      <main className={styles.container}>{content}</main>
       <Footer />
     </>
   );
