@@ -9,7 +9,8 @@ import styles from './ForgotPasswordPage.module.css';
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
-  const { sendEmail, isLoading } = useForgotPassword();
+  const { sendEmail, isLoading, error } = useForgotPassword();
+  const buttonLabel = isLoading ? 'Enviando...' : 'Enviar email';
 
   const { t } = useTranslation();
 
@@ -48,7 +49,7 @@ const ForgotPasswordPage = () => {
               required
             />
 
-            <Button variant="primary">Enviar email</Button>
+            <Button disabled={isLoading}>{buttonLabel}</Button>
           </form>
         </section>
       </main>

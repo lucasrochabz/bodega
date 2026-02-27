@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types';
 import styles from './Button.module.css';
 
-const Button = ({ variant, children, ...props }) => {
+const Button = ({ variant = 'primary', children, ...props }) => {
+  const variantClass = styles[variant] || styles.primary;
+
   return (
-    <button {...props} className={`${styles.btn} ${styles[variant]}`}>
+    <button {...props} className={`${styles.base} ${variantClass}`}>
       {children}
     </button>
   );

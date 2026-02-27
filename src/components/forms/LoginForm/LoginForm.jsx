@@ -8,13 +8,14 @@ import { Button } from '../../ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
-  const { login, loading, error, clearError } = useContext(AuthContext);
   const inputElement = useRef(null);
+  const { login, loading, error, clearError } = useContext(AuthContext);
+  const buttonLabel = loading ? 'Aguarde...' : 'Entrar';
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showToast, setShowToast] = useState(false);
 
   const { t } = useTranslation();
 
@@ -40,24 +41,18 @@ const LoginForm = () => {
     inputElement.current.focus();
   }, []);
 
-  useEffect(() => {
-    if (error) {
-      setShowToast(true);
-    }
-  }, [error]);
-
   return (
     <>
       <Toast
-        show={showToast}
+        show={!!error}
         message={error}
         onClose={() => {
-          setShowToast(false);
           clearError();
         }}
       />
 
       <section className={styles.container}>
+        {/* fix: tirar esse h1 daqui */}
         <h1 className="title">{t('login.title')}</h1>
 
         <form className={styles.form} onSubmit={verifyUser}>
@@ -92,9 +87,7 @@ const LoginForm = () => {
             </button>
           </div>
 
-          <Button variant="primary" disabled={loading}>
-            {loading ? 'Aguarde...' : 'Entrar'}
-          </Button>
+          <Button disabled={loading}>{buttonLabel}</Button>
         </form>
 
         <Link to={ROUTES.FORGOT_PASSWORD} style={{ padding: '1rem 0' }}>

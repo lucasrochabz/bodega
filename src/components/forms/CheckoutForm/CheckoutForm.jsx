@@ -12,6 +12,7 @@ const CheckoutForm = ({ userData }) => {
   const { orderId } = useParams();
 
   const { createPayment, isLoading } = useCreatePayment();
+  const buttonLabel = isLoading ? 'Aguarde...' : 'Realizar Pagamento';
 
   const handleMakePayment = async (event) => {
     event.preventDefault();
@@ -122,7 +123,7 @@ const CheckoutForm = ({ userData }) => {
         <Input type="number" label="CVV" id="card_value" placeholder="000" />
       </div>
 
-      <Button variant="primary">Realizar Pagamento</Button>
+      <Button disabled={isLoading}>{buttonLabel}</Button>
     </form>
   );
 };

@@ -194,7 +194,7 @@ const SignUpForm = () => {
           required={field.required}
         />
       ))}
-      <Button variant="primary">Cadastrar</Button>
+      <Button>Cadastrar</Button>
     </form>
   );
 };
