@@ -44,8 +44,8 @@ const SignUpForm = () => {
     },
 
     {
-      type: 'email',
       label: 'E-mail',
+      type: 'email',
       name: 'email',
       id: 'email',
       value: formData.email,
@@ -53,16 +53,16 @@ const SignUpForm = () => {
       required: true,
     },
     {
-      type: 'password',
       label: 'Senha',
+      type: 'password',
       name: 'password',
       id: 'password',
       value: formData.password,
       required: true,
     },
     {
-      type: 'number',
       label: 'CEP',
+      type: 'number',
       name: 'zipCode',
       id: 'zip-code',
       value: formData.zipCode,
@@ -78,8 +78,8 @@ const SignUpForm = () => {
       readOnly: true,
     },
     {
-      type: 'number',
       label: 'Número',
+      type: 'number',
       name: 'number',
       id: 'number',
       value: formData.number,
