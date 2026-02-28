@@ -74,7 +74,6 @@ const UserUpdateForm = ({ data }) => {
     // fix: corrigir name dos inputs
     <form className={`${styles.form} anim-show-left`} onSubmit={handleSubmit}>
       <Input
-        type="text"
         label="Nome"
         name="firstName"
         id="first-name"
@@ -85,7 +84,6 @@ const UserUpdateForm = ({ data }) => {
       />
 
       <Input
-        type="text"
         label="Sobrenome"
         name="lastName"
         id="last-name"
@@ -118,7 +116,6 @@ const UserUpdateForm = ({ data }) => {
       />
 
       <Input
-        type="text"
         label="Endereço"
         name="endereco"
         id="endereco"
@@ -138,7 +135,6 @@ const UserUpdateForm = ({ data }) => {
       />
 
       <Input
-        type="text"
         label="Bairro"
         name="neighborhood"
         id="bairro"
@@ -148,7 +144,6 @@ const UserUpdateForm = ({ data }) => {
       />
 
       <Input
-        type="text"
         label="Cidade"
         name="cidade"
         id="cidade"
@@ -158,7 +153,6 @@ const UserUpdateForm = ({ data }) => {
       />
 
       <Input
-        type="text"
         label="Estado"
         name="estado"
         id="estado"
