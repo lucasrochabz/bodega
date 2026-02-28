@@ -36,10 +36,12 @@ const ForgotPasswordPage = () => {
       <main className={styles.authLayout}>
         <section className={styles.container}>
           <h1 className="title">{t('forgot.title')}</h1>
+
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="email" className="label">
               E-mail
             </label>
+
             <input
               type="email"
               name="email"
