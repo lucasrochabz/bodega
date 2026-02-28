@@ -13,7 +13,7 @@ const useProducts = ({ page, pageSize }) => {
 
       try {
         const result = await productsService.getAllProducts({ page, pageSize });
-        setData(result.data);
+        setData(result);
       } catch (err) {
         setError(err.message);
       } finally {

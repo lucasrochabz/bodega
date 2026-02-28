@@ -16,17 +16,28 @@ const OrderCheckoutPage = () => {
 
   const { isLoading, error, data: orderData } = useOrder(orderId);
 
-  if (isLoading || !userData || !orderData) return <Loading />;
-  if (error) return <div>{error}</div>;
+  let content;
+  if (isLoading) content = <Loading />;
+  else if (error) content = <div>{error}</div>;
+  else if (!userData) content = <div>Dados do usuário não encontrado</div>;
+  else if (!orderData) content = <div>Dados do pedido não encontrado</div>;
+  else {
+    content = (
+      <div className={styles.checkout}>
+        <CheckoutForm userData={userData} />
+        <OrderSummary orderData={orderData} />
+      </div>
+    );
+  }
+
   return (
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
       <Header />
-      <h2 className="title">Finalizar Compra</h2>
 
-      <main className={styles.checkout}>
-        <CheckoutForm userData={userData} />
-        <OrderSummary orderData={orderData} />
+      <main className={styles.container}>
+        <h2 className="title">Finalizar Compra</h2>
+        {content}
       </main>
 
       <Footer />

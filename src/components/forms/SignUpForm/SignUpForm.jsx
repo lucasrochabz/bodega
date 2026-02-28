@@ -1,190 +1,187 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import useAddress from '../../../hooks/shared/useAddress';
+import useSignup from '../../../hooks/users/useSignup';
 import { useDebounce } from '../../../hooks';
-import { usersService } from '../../../services/usersService';
-import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
+import { Toast } from '../../ui/Toast';
 import styles from './SignUpForm.module.css';
 
-// fix usar hook mutation de user aqui
-// fix: usar forma melhor para não repetir tanto useState
 const SignUpForm = () => {
   const navigate = useNavigate();
 
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [zipCode, setZipCode] = useState('');
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    zipCode: '',
+    street: '',
+    number: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+  });
 
-  const debouncedZipCode = useDebounce(zipCode, 500);
+  const fields = [
+    {
+      label: 'Nome',
+      name: 'firstName',
+      id: 'first-name',
+      value: formData.firstName,
+      placeholder: 'Primeiro nome',
+      required: true,
+    },
+    {
+      label: 'Sobrenome',
+      name: 'lastName',
+      id: 'last-name',
+      value: formData.lastName,
+      placeholder: 'Sobrenome',
+      required: true,
+    },
 
-  const [street, setStreet] = useState('');
-  const [number, setNumber] = useState('');
-  const [neighborhood, setNeighborhood] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
+    {
+      label: 'E-mail',
+      type: 'email',
+      name: 'email',
+      id: 'email',
+      value: formData.email,
+      placeholder: 'exemplo@email.com',
+      required: true,
+    },
+    {
+      label: 'Senha',
+      type: 'password',
+      name: 'password',
+      id: 'password',
+      value: formData.password,
+      required: true,
+    },
+    {
+      label: 'CEP',
+      type: 'number',
+      name: 'zipCode',
+      id: 'zip-code',
+      value: formData.zipCode,
+      placeholder: '60000000',
+      required: true,
+    },
+    {
+      label: 'Endereço',
+      name: 'street',
+      id: 'street',
+      value: formData.street,
+      required: true,
+      readOnly: true,
+    },
+    {
+      label: 'Número',
+      type: 'number',
+      name: 'number',
+      id: 'number',
+      value: formData.number,
+      required: true,
+    },
+    {
+      label: 'Bairro',
+      name: 'neighborhood',
+      id: 'neighborhood',
+      value: formData.neighborhood,
+      required: true,
+      readOnly: true,
+    },
+    {
+      label: 'Cidade',
+      name: 'city',
+      id: 'city',
+      value: formData.city,
+      required: true,
+      readOnly: true,
+    },
+    {
+      label: 'Estado',
+      name: 'state',
+      id: 'state',
+      value: formData.state,
+      required: true,
+      readOnly: true,
+    },
+  ];
 
-  const { t } = useTranslation();
+  const debouncedZipCode = useDebounce(formData.zipCode, 500);
+  const { address, error } = useAddress(debouncedZipCode);
 
-  useEffect(() => {
-    if (debouncedZipCode.length !== 8) {
-      setStreet('');
-      setNeighborhood('');
-      setCity('');
-      setState('');
-      return;
-    }
+  const { signup, isLoading } = useSignup();
+  const buttonLabel = isLoading ? 'Cadastrando...' : 'Cadastrar';
 
-    const handleZipCode = async () => {
-      const result = await addressService.getAddressData(debouncedZipCode);
-
-      if (result.error) {
-        alert(result.error);
-        return;
-      }
-
-      setStreet(result.street);
-      setNeighborhood(result.neighborhood);
-      setCity(result.city);
-      setState(result.state);
-    };
-
-    handleZipCode();
-  }, [debouncedZipCode]);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    await usersService.signup({
-      firstName: firstName,
-      lastName: lastName,
-      email: email,
-      password: password,
-      zipCode: zipCode,
-      street: street,
-      number: number,
-      neighborhood: neighborhood,
-      city: city,
-      state: state,
-    });
-
-    setFirstName('');
-    setEmail('');
-    setPassword('');
-    setZipCode('');
-    setNumber('');
+    await signup(formData);
     navigate(ROUTES.LOGIN);
   };
 
+  useEffect(() => {
+    if (!address) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      street: address.street,
+      neighborhood: address.neighborhood,
+      city: address.city,
+      state: address.state,
+    }));
+  }, [address]);
+
+  useEffect(() => {
+    if (debouncedZipCode.length !== 8) {
+      setFormData((prev) => ({
+        ...prev,
+        street: '',
+        neighborhood: '',
+        city: '',
+        state: '',
+      }));
+    }
+  }, [debouncedZipCode]);
+
   return (
-    <section className={styles.form}>
-      <h1 className="title">{t('register.title')}</h1>
+    <>
+      <Toast show={!!error} message={error} />
 
       <form
         className={`${styles.signup} anim-show-left`}
         onSubmit={handleSignup}
       >
-        <Input
-          type="text"
-          label="Nome"
-          id="first-name"
-          value={firstName}
-          setValue={setFirstName}
-          placeholder="Primeiro nome"
-          required
-        />
+        {fields.map((field) => (
+          <Input
+            key={field.id}
+            label={field.label}
+            type={field.type}
+            name={field.name}
+            id={field.id}
+            value={field.value}
+            onChange={handleChange}
+            placeholder={field.placeholder}
+            readOnly={field.readOnly}
+            required={field.required}
+          />
+        ))}
 
-        <Input
-          type="text"
-          label="Sobrenome"
-          id="last-name"
-          value={lastName}
-          setValue={setLastName}
-          placeholder="Sobrenome"
-          required
-        />
-
-        <Input
-          type="email"
-          label="E-mail"
-          id="email"
-          value={email}
-          setValue={setEmail}
-          placeholder="exemplo@email.com"
-          required
-        />
-
-        <Input
-          type="password"
-          label="Senha"
-          id="password"
-          value={password}
-          setValue={setPassword}
-          required
-        />
-
-        <Input
-          type="number"
-          label="CEP"
-          id="cep"
-          value={zipCode}
-          setValue={setZipCode}
-          placeholder="60000000"
-          required
-        />
-
-        <Input
-          type="text"
-          label="Endereço"
-          id="endereco"
-          value={street}
-          readOnly
-          required
-        />
-
-        <Input
-          type="number"
-          label="Número"
-          id="numero"
-          value={number}
-          setValue={setNumber}
-          required
-        />
-
-        <Input
-          type="text"
-          label="Bairro"
-          id="bairro"
-          value={neighborhood}
-          readOnly
-          required
-        />
-
-        <Input
-          type="text"
-          label="Cidade"
-          id="cidade"
-          value={city}
-          readOnly
-          required
-        />
-
-        <Input
-          type="text"
-          label="Estado"
-          id="estado"
-          value={state}
-          readOnly
-          required
-        />
-
-        <Button variant="primary">Cadastrar</Button>
+        <Button disabled={isLoading}>{buttonLabel}</Button>
       </form>
-    </section>
+    </>
   );
 };
 

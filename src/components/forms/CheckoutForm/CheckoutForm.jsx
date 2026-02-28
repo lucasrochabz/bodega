@@ -12,6 +12,7 @@ const CheckoutForm = ({ userData }) => {
   const { orderId } = useParams();
 
   const { createPayment, isLoading } = useCreatePayment();
+  const buttonLabel = isLoading ? 'Aguarde...' : 'Realizar Pagamento';
 
   const handleMakePayment = async (event) => {
     event.preventDefault();
@@ -48,7 +49,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Endereço"
           id="street"
           value={userData.address.street}
@@ -63,7 +63,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Bairro"
           id="neighborhood"
           value={userData.address.neighborhood}
@@ -71,7 +70,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Cidade"
           id="city"
           value={userData.address.city}
@@ -79,7 +77,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Estado"
           id="state"
           value={userData.address.state}
@@ -122,7 +119,7 @@ const CheckoutForm = ({ userData }) => {
         <Input type="number" label="CVV" id="card_value" placeholder="000" />
       </div>
 
-      <Button variant="primary">Realizar Pagamento</Button>
+      <Button disabled={isLoading}>{buttonLabel}</Button>
     </form>
   );
 };

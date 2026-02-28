@@ -10,14 +10,15 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './ResetPasswordPage.module.css';
 
 const ResetPasswordPage = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
+
   const [newPassword, setNewPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const { sendNewPassword, isloading, error } = useResetPassword();
-
-  const token = searchParams.get('token');
+  const { sendNewPassword, isLoading, error } = useResetPassword();
+  const buttonLabel = isLoading ? 'Redefinindo...' : 'Redefinir senha';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -72,9 +73,7 @@ const ResetPasswordPage = () => {
 
             {error && <p>{error}</p>}
 
-            <Button variant="primary" disabled={isloading}>
-              {isloading ? 'Redefinindo' : 'Redefinir senha'}
-            </Button>
+            <Button disabled={isLoading}>{buttonLabel}</Button>
           </form>
         </section>
       </main>

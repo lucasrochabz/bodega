@@ -11,7 +11,7 @@ const useForgotPassword = () => {
 
     try {
       const response = await authService.forgotPassword(email);
-      return response.data;
+      return response;
     } catch (err) {
       setError(err.message);
       throw err;

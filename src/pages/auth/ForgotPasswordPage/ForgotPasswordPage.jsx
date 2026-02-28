@@ -9,7 +9,8 @@ import styles from './ForgotPasswordPage.module.css';
 
 const ForgotPasswordPage = () => {
   const [email, setEmail] = useState('');
-  const { sendEmail, isLoading } = useForgotPassword();
+  const { sendEmail, isLoading, error } = useForgotPassword();
+  const buttonLabel = isLoading ? 'Enviando...' : 'Enviar email';
 
   const { t } = useTranslation();
 
@@ -35,10 +36,12 @@ const ForgotPasswordPage = () => {
       <main className={styles.authLayout}>
         <section className={styles.container}>
           <h1 className="title">{t('forgot.title')}</h1>
+
           <form className={styles.form} onSubmit={handleSubmit}>
             <label htmlFor="email" className="label">
               E-mail
             </label>
+
             <input
               type="email"
               name="email"
@@ -48,7 +51,7 @@ const ForgotPasswordPage = () => {
               required
             />
 
-            <Button variant="primary">Enviar email</Button>
+            <Button disabled={isLoading}>{buttonLabel}</Button>
           </form>
         </section>
       </main>

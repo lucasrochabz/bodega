@@ -2,30 +2,40 @@ import { useState } from 'react';
 import useProducts from '../../hooks/products/useProducts';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
+import { Loading } from '../../components/ui/Loading';
 import { ProductList } from '../../components/ui/ProductList';
 import { Pagination } from '../../components/ui/Pagination';
 import { Footer } from '../../components/layout/Footer';
+import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
   const pageSize = 4;
-
   const { isLoading, error, data } = useProducts({ page, pageSize });
 
-  if (isLoading) return <div>Carregando...</div>;
-  if (error) return <div>{error}</div>;
+  let content;
+  if (isLoading) content = <Loading />;
+  else if (error) content = <div>{error}</div>;
+  else if (!data?.items.length) content = <div>Produtos não encontrados.</div>;
+  else {
+    content = (
+      <>
+        <ProductList data={data.items} />
+        <Pagination
+          pagination={data.pagination}
+          page={page}
+          setPage={setPage}
+        />
+      </>
+    );
+  }
 
-  // fix: data.items.length acho que isso é melhor
-  if (!data) return <div>Produto não encontrado.</div>;
-
-  // fix: acho que tenho que passar data.items
   return (
     <>
       <Head title="Home" description="Descrição da página Home" />
 
       <Header />
-      <ProductList data={data} />
-      <Pagination pagination={data.pagination} page={page} setPage={setPage} />
+      <main className={styles.container}>{content}</main>
       <Footer />
     </>
   );

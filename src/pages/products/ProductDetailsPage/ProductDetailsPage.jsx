@@ -4,8 +4,10 @@ import { AuthContext } from '../../../contexts/AuthContext';
 import useProduct from '../../../hooks/products/useProduct';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
+import { Loading } from '../../../components/ui/Loading';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
 import { Footer } from '../../../components/layout/Footer';
+import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -13,9 +15,16 @@ const ProductDetailsPage = () => {
 
   const { isLoading, data, error } = useProduct(productId);
 
-  if (isLoading) return <div>Carregando...</div>;
-  if (error) return <div>{error}</div>;
-  if (!data) return <div>Produto não encontrado.</div>;
+  let content;
+  if (isLoading) content = <Loading />;
+  else if (error) content = <div>{error}</div>;
+  else if (!data) content = <div>Produto não encontrado.</div>;
+  else {
+    content = (
+      <ProductDetails product={data} isAuthenticated={isAuthenticated} />
+    );
+  }
+
   return (
     <>
       <Head
@@ -24,7 +33,7 @@ const ProductDetailsPage = () => {
       />
 
       <Header />
-      <ProductDetails product={data} isAuthenticated={isAuthenticated} />
+      <main className={styles.container}>{content}</main>
       <Footer />
     </>
   );

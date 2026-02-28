@@ -1,4 +1,4 @@
-.btn {
+.base {
   font-size: 1rem;
   font-weight: bold;
   border: none;
@@ -31,15 +31,15 @@
 
 .logout {
   background-color: var(--color-bg);
-  color: var(--color-primary);
-  border: 2px solid var(--color-primary);
+  color: #fb2c36;
+  border: 2px solid #fb2c36;
   font-weight: bold;
   transition: 0.3s;
 }
 
 .logout:hover,
 .logout:focus {
-  background-color: var(--color-primary);
+  background-color: #fb2c36;
   color: var(--color-bg);
 }
 

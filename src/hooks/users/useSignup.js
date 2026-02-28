@@ -1,16 +1,17 @@
 import { useState } from 'react';
-import { paymentsService } from '../../services/paymentsService';
+import { usersService } from '../../services/usersService';
 
-const useCreatePayment = () => {
+// fix: usar return boolean (mutation)
+const useSignup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const createPayment = async (payload) => {
+  const signup = async (payload) => {
     setIsLoading(true);
     setError(null);
 
     try {
-      const response = await paymentsService.checkout(payload);
+      const response = await usersService.signup(payload);
       return response;
     } catch (err) {
       setError(err.message);
@@ -20,7 +21,7 @@ const useCreatePayment = () => {
     }
   };
 
-  return { createPayment, isLoading, error };
+  return { signup, isLoading, error };
 };
 
-export default useCreatePayment;
+export default useSignup;

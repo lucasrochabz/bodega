@@ -13,7 +13,7 @@ const useOrders = () => {
 
       try {
         const result = await ordersService.getMyOrders();
-        setData(result.data);
+        setData(result);
       } catch (err) {
         setError(err.message);
       } finally {

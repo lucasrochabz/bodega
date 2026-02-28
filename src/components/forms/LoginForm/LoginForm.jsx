@@ -1,22 +1,18 @@
 import { useContext, useEffect, useRef, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { ROUTES } from '../../../routes/paths';
 import { Toast } from '../../ui/Toast';
 import { Button } from '../../ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
-  const { login, loading, error, clearError } = useContext(AuthContext);
   const inputElement = useRef(null);
+  const { login, loading, error, clearError } = useContext(AuthContext);
+  const buttonLabel = loading ? 'Aguarde...' : 'Entrar';
+
   const [showPassword, setShowPassword] = useState(false);
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showToast, setShowToast] = useState(false);
-
-  const { t } = useTranslation();
 
   const validateInput = (e) => {
     e.preventDefault();
@@ -40,71 +36,50 @@ const LoginForm = () => {
     inputElement.current.focus();
   }, []);
 
-  useEffect(() => {
-    if (error) {
-      setShowToast(true);
-    }
-  }, [error]);
-
   return (
     <>
       <Toast
-        show={showToast}
+        show={!!error}
         message={error}
         onClose={() => {
-          setShowToast(false);
           clearError();
         }}
       />
 
-      <section className={styles.container}>
-        <h1 className="title">{t('login.title')}</h1>
+      <form className={styles.form} onSubmit={verifyUser}>
+        <label htmlFor="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          ref={inputElement}
+          required
+        />
 
-        <form className={styles.form} onSubmit={verifyUser}>
-          <label htmlFor="email">Email</label>
+        <label htmlFor="password">Senha</label>
+        <div className={styles.wrapper}>
           <input
-            type="email"
-            id="email"
-            name="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            ref={inputElement}
+            type={showPassword ? 'text' : 'password'}
+            id="password"
+            name="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
           />
 
-          <label htmlFor="password">Senha</label>
-          <div className={styles.wrapper}>
-            <input
-              type={showPassword ? 'text' : 'password'}
-              id="password"
-              name="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
+          <button
+            className={styles.btnPassword}
+            type="button"
+            onClick={() => setShowPassword((prev) => !prev)}
+          >
+            {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
+          </button>
+        </div>
 
-            <button
-              className={styles.btnPassword}
-              type="button"
-              onClick={() => setShowPassword((prev) => !prev)}
-            >
-              {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
-            </button>
-          </div>
-
-          <Button variant="primary" disabled={loading}>
-            {loading ? 'Aguarde...' : 'Entrar'}
-          </Button>
-        </form>
-
-        <Link to={ROUTES.FORGOT_PASSWORD} style={{ padding: '1rem 0' }}>
-          Perdeu a senha?
-        </Link>
-
-        <Link to={ROUTES.REGISTER} className={styles.btnForm}>
-          Criar conta
-        </Link>
-      </section>
+        <Button disabled={loading}>{buttonLabel}</Button>
+      </form>
     </>
   );
 };

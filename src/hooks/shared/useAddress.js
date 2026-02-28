@@ -3,7 +3,7 @@ import { addressService } from '../../services/addressService';
 
 const useAddress = (zipCode) => {
   const [address, setAddress] = useState(null);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -13,30 +13,24 @@ const useAddress = (zipCode) => {
         return;
       }
 
-      setLoading(true);
+      setIsLoading(true);
       setError(null);
 
       try {
-        const result = await addressService.newgetAddress(zipCode);
-
-        if (result.erro) {
-          setError(result.erro);
-          setAddress(null);
-          return;
-        }
+        const result = await addressService.getAddress(zipCode);
 
         setAddress(result);
       } catch (err) {
         setError(err.message);
         setAddress(null);
       } finally {
-        setLoading(false);
+        setIsLoading(false);
       }
     };
     fetchAddress();
   }, [zipCode]);
 
-  return { address, loading, error };
+  return { address, isLoading, error };
 };
 
 export default useAddress;

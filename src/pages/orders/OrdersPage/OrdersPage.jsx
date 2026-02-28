@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import useOrders from '../../../hooks/orders/useOrders';
 import { Head } from '../../../components/shared/Head';
+import { Loading } from '../../../components/ui/Loading';
 import { OrderList } from '../../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
@@ -15,26 +16,34 @@ const OrdersPage = () => {
 
   const ordersToShow = search ? filtredOrders : allOrders;
 
-  if (isLoading) return <div>Carregando...</div>;
-  if (error) return <div>Erro: {error}</div>;
+  let content;
+  if (isLoading) content = <Loading />;
+  else if (error) content = <div>Erro: {error}</div>;
+  else if (ordersToShow.length === 0) {
+    content = <div>Nenhum pedido encontrado.</div>;
+  } else {
+    content = (
+      <>
+        <input
+          className={styles.search}
+          type="search"
+          name="search"
+          placeholder="Buscar..."
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+        />
+
+        <section className={`${styles.orders} anim-show-left`}>
+          <OrderList orders={ordersToShow} />
+        </section>
+      </>
+    );
+  }
+
   return (
     <>
       <Head title="Pedidos" description="Descrição da página Pedidos" />
-      <input
-        className={styles.search}
-        type="search"
-        name="search"
-        placeholder="Buscar..."
-        onChange={(e) => setSearch(e.target.value)}
-        value={search}
-      />
-      <section className={`${styles.orders} anim-show-left`}>
-        {ordersToShow.length === 0 ? (
-          <div>Nenhum pedido encontrado.</div>
-        ) : (
-          <OrderList orders={ordersToShow} />
-        )}
-      </section>
+      {content}
     </>
   );
 };
