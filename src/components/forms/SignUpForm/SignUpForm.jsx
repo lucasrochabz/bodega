@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useAddress from '../../../hooks/shared/useAddress';
 import { useDebounce } from '../../../hooks';
 import { usersService } from '../../../services/usersService';
-import { addressService } from '../../../services/addressService';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
+import { Toast } from '../../ui/Toast';
 import styles from './SignUpForm.module.css';
 
-// fix usar hook mutation de user aqui
 const SignUpForm = () => {
   const navigate = useNavigate();
 
@@ -27,7 +27,6 @@ const SignUpForm = () => {
 
   const fields = [
     {
-      type: 'text',
       label: 'Nome',
       name: 'firstName',
       id: 'first-name',
@@ -36,7 +35,6 @@ const SignUpForm = () => {
       required: true,
     },
     {
-      type: 'text',
       label: 'Sobrenome',
       name: 'lastName',
       id: 'last-name',
@@ -72,7 +70,6 @@ const SignUpForm = () => {
       required: true,
     },
     {
-      type: 'text',
       label: 'Endereço',
       name: 'street',
       id: 'street',
@@ -89,7 +86,6 @@ const SignUpForm = () => {
       required: true,
     },
     {
-      type: 'text',
       label: 'Bairro',
       name: 'neighborhood',
       id: 'neighborhood',
@@ -98,7 +94,6 @@ const SignUpForm = () => {
       readOnly: true,
     },
     {
-      type: 'text',
       label: 'Cidade',
       name: 'city',
       id: 'city',
@@ -107,7 +102,6 @@ const SignUpForm = () => {
       readOnly: true,
     },
     {
-      type: 'text',
       label: 'Estado',
       name: 'state',
       id: 'state',
@@ -118,6 +112,7 @@ const SignUpForm = () => {
   ];
 
   const debouncedZipCode = useDebounce(formData.zipCode, 500);
+  const { address, error } = useAddress(debouncedZipCode);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -126,6 +121,26 @@ const SignUpForm = () => {
       [name]: value,
     }));
   };
+
+  // fix usar hook mutation de user aqui
+  const handleSignup = async (event) => {
+    event.preventDefault();
+
+    await usersService.signup(formData);
+    navigate(ROUTES.LOGIN);
+  };
+
+  useEffect(() => {
+    if (!address) return;
+
+    setFormData((prev) => ({
+      ...prev,
+      street: address.street,
+      neighborhood: address.neighborhood,
+      city: address.city,
+      state: address.state,
+    }));
+  }, [address]);
 
   useEffect(() => {
     if (debouncedZipCode.length !== 8) {
@@ -136,66 +151,34 @@ const SignUpForm = () => {
         city: '',
         state: '',
       }));
-      return;
     }
-
-    const handleZipCode = async () => {
-      const result = await addressService.getAddressData(debouncedZipCode);
-
-      if (result.error) {
-        alert(result.error);
-        return;
-      }
-
-      setFormData((prev) => ({
-        ...prev,
-        street: result.street,
-        neighborhood: result.neighborhood,
-        city: result.city,
-        state: result.state,
-      }));
-    };
-
-    handleZipCode();
   }, [debouncedZipCode]);
 
-  const handleSignup = async (event) => {
-    event.preventDefault();
-
-    await usersService.signup({
-      firstName: '',
-      lastName: '',
-      email: '',
-      password: '',
-      zipCode: '',
-      street: '',
-      number: '',
-      neighborhood: '',
-      city: '',
-      state: '',
-    });
-
-    navigate(ROUTES.LOGIN);
-  };
-
   return (
-    <form className={`${styles.signup} anim-show-left`} onSubmit={handleSignup}>
-      {fields.map((field) => (
-        <Input
-          key={field.id}
-          type={field.type}
-          label={field.label}
-          name={field.name}
-          id={field.id}
-          value={field.value}
-          onChange={handleChange}
-          placeholder={field.placeholder}
-          readOnly={field.readOnly}
-          required={field.required}
-        />
-      ))}
-      <Button>Cadastrar</Button>
-    </form>
+    <>
+      <Toast show={!!error} message={error} />
+
+      <form
+        className={`${styles.signup} anim-show-left`}
+        onSubmit={handleSignup}
+      >
+        {fields.map((field) => (
+          <Input
+            key={field.id}
+            label={field.label}
+            type={field.type}
+            name={field.name}
+            id={field.id}
+            value={field.value}
+            onChange={handleChange}
+            placeholder={field.placeholder}
+            readOnly={field.readOnly}
+            required={field.required}
+          />
+        ))}
+        <Button>Cadastrar</Button>
+      </form>
+    </>
   );
 };
 

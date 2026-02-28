@@ -1,7 +1,15 @@
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
 
-const Input = ({ label, name, id, setValue, onChange, ...props }) => {
+const Input = ({
+  label,
+  type = 'text',
+  name,
+  id,
+  setValue,
+  onChange,
+  ...props
+}) => {
   const handleChange = (event) => {
     if (setValue) {
       setValue(event.target.value);
@@ -18,6 +26,7 @@ const Input = ({ label, name, id, setValue, onChange, ...props }) => {
       </label>
       <input
         className={styles.input}
+        type={type}
         name={name}
         id={id}
         onChange={handleChange}
@@ -29,6 +38,7 @@ const Input = ({ label, name, id, setValue, onChange, ...props }) => {
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
+  type: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
   setValue: PropTypes.func,
