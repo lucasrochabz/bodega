@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useAddress from '../../../hooks/shared/useAddress';
+import useSignup from '../../../hooks/users/useSignup';
 import { useDebounce } from '../../../hooks';
-import { usersService } from '../../../services/usersService';
 import { ROUTES } from '../../../routes/paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
@@ -114,6 +114,9 @@ const SignUpForm = () => {
   const debouncedZipCode = useDebounce(formData.zipCode, 500);
   const { address, error } = useAddress(debouncedZipCode);
 
+  const { signup, isLoading } = useSignup();
+  const buttonLabel = isLoading ? 'Cadastrando...' : 'Cadastrar';
+
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -122,11 +125,10 @@ const SignUpForm = () => {
     }));
   };
 
-  // fix usar hook mutation de user aqui
   const handleSignup = async (event) => {
     event.preventDefault();
 
-    await usersService.signup(formData);
+    await signup(formData);
     navigate(ROUTES.LOGIN);
   };
 
@@ -176,7 +178,8 @@ const SignUpForm = () => {
             required={field.required}
           />
         ))}
-        <Button>Cadastrar</Button>
+
+        <Button disabled={isLoading}>{buttonLabel}</Button>
       </form>
     </>
   );
