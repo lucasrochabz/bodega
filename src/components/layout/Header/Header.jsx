@@ -6,9 +6,9 @@ import { ROUTES } from '../../../routes/paths';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
+// fix: add loading
 const Header = ({ hideLinks = false }) => {
   const { data, isAuthenticated } = useContext(AuthContext);
-
   const userName = data?.firstName;
 
   const authRoute = isAuthenticated ? ROUTES.ACCOUNT : ROUTES.LOGIN;
