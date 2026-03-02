@@ -1,7 +1,8 @@
 {
   "login": {
     "title": "Login",
-    "success": "Login successful"
+    "success": "Login successful",
+    "signup": "Signup"
   },
   "register": {
     "title": "Create your account",

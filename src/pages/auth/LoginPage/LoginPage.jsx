@@ -31,7 +31,7 @@ const LoginPage = () => {
           </Link>
 
           <Link to={ROUTES.REGISTER} className={styles.btnForm}>
-            Criar conta
+            {t('login.signup')}
           </Link>
         </section>
       </main>

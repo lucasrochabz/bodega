@@ -6,6 +6,8 @@ import { usersService } from '../services/usersService';
 
 export const AuthContext = createContext();
 
+// fix: dividir contexts
+// fix: add refresh token
 export const AuthProvider = ({ children }) => {
   const { loading, startLoading, stopLoading } = useLoading();
   const [token, setToken] = useLocalStorage('token', null);
@@ -34,6 +36,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // fix: add useCallback
   const login = async (email, password) => {
     startLoading();
     setError(null);
@@ -50,6 +53,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // fix: add useCallback
   const update = async (body) => {
     if (!token) return;
 
@@ -68,6 +72,7 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  // fix: add useCallback
   const logout = () => {
     setToken(null);
     setData(null);
@@ -82,23 +87,19 @@ export const AuthProvider = ({ children }) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [token]);
 
-  return (
-    <AuthContext.Provider
-      // fix: saber porque devo usar useMemo no value
-      value={{
-        login,
-        logout,
-        update,
-        isAuthenticated,
-        loading,
-        error,
-        clearError,
-        data,
-      }}
-    >
-      {children}
-    </AuthContext.Provider>
-  );
+  // fix: saber porque devo usar useMemo no value
+  const value = {
+    login,
+    logout,
+    update,
+    isAuthenticated,
+    loading,
+    error,
+    clearError,
+    data,
+  };
+
+  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
 AuthProvider.propTypes = {

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../routes/paths';
-import { LanguageSwitcher } from '../../ui/LanguageSwitcher';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
 const Header = ({ hideLinks = false }) => {
