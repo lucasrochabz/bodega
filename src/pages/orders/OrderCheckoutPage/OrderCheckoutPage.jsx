@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { UserContext } from '@/contexts/UserContext';
 import useOrder from '../../../hooks/orders/useOrder';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
@@ -11,7 +11,7 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './OrderCheckoutPage.module.css';
 
 const OrderCheckoutPage = () => {
-  const { data: userData } = useContext(AuthContext);
+  const { data: userData } = useContext(UserContext);
   const { orderId } = useParams();
 
   const { isLoading, error, data: orderData } = useOrder(orderId);

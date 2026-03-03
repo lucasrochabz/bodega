@@ -1,14 +1,16 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { AuthContext } from '@/contexts/AuthContext';
+import { UserContext } from '@/contexts/UserContext';
 import { ROUTES } from '../../../routes/paths';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
 // fix: add loading
 const Header = ({ hideLinks = false }) => {
-  const { data, isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
+  const { data } = useContext(UserContext);
   const userName = data?.firstName;
 
   const authRoute = isAuthenticated ? ROUTES.ACCOUNT : ROUTES.LOGIN;

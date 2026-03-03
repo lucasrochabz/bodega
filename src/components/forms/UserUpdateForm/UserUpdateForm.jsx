@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect, useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { UserContext } from '@/contexts/UserContext';
 import useAddress from '../../../hooks/shared/useAddress';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
-  const { update, loading } = useContext(AuthContext);
+  const { update, loading } = useContext(UserContext);
   const buttonLabel = loading ? 'Atualizando...' : 'Atualizar';
 
   const [formData, setFormData] = useState({

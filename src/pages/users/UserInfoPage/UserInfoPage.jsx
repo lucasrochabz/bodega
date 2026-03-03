@@ -1,11 +1,11 @@
 import { useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { UserContext } from '@/contexts/UserContext';
 import { Head } from '../../../components/shared/Head';
 import { Loading } from '../../../components/ui/Loading';
 import { UserUpdateForm } from '../../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
-  const { loading, data } = useContext(AuthContext);
+  const { loading, data } = useContext(UserContext);
 
   let content;
   if (loading) content = <Loading />;
