@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLoading, useLocalStorage } from '../hooks';
 import { authService } from '../services/authService';
 import { usersService } from '../services/usersService';
@@ -15,10 +15,11 @@ export const AuthProvider = ({ children }) => {
 
   const isAuthenticated = !!token;
 
-  const clearError = () => setError(null);
+  const clearError = useCallback(() => {
+    setError(null);
+  }, [setError]);
 
-  // fix: add useCallback para deixar função mais pura
-  const getMe = async () => {
+  const getMe = useCallback(async () => {
     startLoading();
     setError(null);
 
@@ -29,74 +30,79 @@ export const AuthProvider = ({ children }) => {
     } catch (err) {
       console.error(err.message);
       setError(err.message);
-      logout();
+      setToken(null);
+      setData(null);
     } finally {
       stopLoading();
     }
-  };
+  }, [startLoading, stopLoading, setToken, setError, setData]);
 
-  // fix: add useCallback
-  const login = async (email, password) => {
-    startLoading();
-    setError(null);
+  const login = useCallback(
+    async (email, password) => {
+      startLoading();
+      setError(null);
 
-    try {
-      const result = await authService.login({ email, password });
+      try {
+        const result = await authService.login({ email, password });
 
-      setToken(result);
-    } catch (err) {
-      console.error(err.message);
-      setError(err.message);
-    } finally {
-      stopLoading();
-    }
-  };
+        setToken(result);
+      } catch (err) {
+        console.error(err.message);
+        setError(err.message);
+      } finally {
+        stopLoading();
+      }
+    },
+    [startLoading, stopLoading, setToken, setError],
+  );
 
-  // fix: add useCallback
-  const update = async (body) => {
-    if (!token) return;
+  const update = useCallback(
+    async (body) => {
+      // fix: acho que tenho que remover isso
+      if (!token) return;
 
-    startLoading();
-    setError(null);
+      startLoading();
+      setError(null);
 
-    try {
-      await usersService.update(body);
+      try {
+        await usersService.update(body);
 
-      await getMe();
-    } catch (err) {
-      console.error(err.message);
-      setError(err.message);
-    } finally {
-      stopLoading();
-    }
-  };
+        await getMe();
+      } catch (err) {
+        console.error(err.message);
+        setError(err.message);
+      } finally {
+        stopLoading();
+      }
+    },
+    [startLoading, stopLoading, token, getMe],
+  );
 
-  // fix: add useCallback
-  const logout = () => {
+  const logout = useCallback(() => {
     setToken(null);
     setData(null);
     setError(null);
-  };
+  }, [setToken]);
 
   useEffect(() => {
     if (token) {
       getMe();
     }
-    // para colocar o getUser como dependência tenho que colocar o useCallback nele
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [token]);
+  }, [token, getMe]);
 
-  // fix: saber porque devo usar useMemo no value
-  const value = {
-    login,
-    logout,
-    update,
-    isAuthenticated,
-    loading,
-    error,
-    clearError,
-    data,
-  };
+  const value = useMemo(
+    () => ({
+      login,
+      logout,
+      update,
+      isAuthenticated,
+      loading,
+      error,
+      clearError,
+      data,
+    }),
+    [login, logout, update, isAuthenticated, loading, error, clearError, data],
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

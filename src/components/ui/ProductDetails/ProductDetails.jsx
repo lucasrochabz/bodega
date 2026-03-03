@@ -24,11 +24,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
   const hasStock = product.stock > 0;
   const isButtonDisabled = isLoading || !hasStock;
 
-  const buttonLabel = !hasStock
-    ? 'Esgotado'
-    : isAuthenticated
-      ? 'Finalizar Pedido'
-      : 'Faça login para comprar';
+  const buttonLabel = !hasStock ? 'Esgotado' : 'Finalizar Pedido';
 
   const handleImageClick = (event) => {
     event.stopPropagation();
@@ -67,6 +63,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
 
       <div className={styles.content}>
         <h1>{product.name}</h1>
+
         <span className={styles.price}>
           {formattedPriceToBRL(product.price)}
         </span>
