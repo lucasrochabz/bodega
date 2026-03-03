@@ -7,11 +7,10 @@ import { AuthContext } from './AuthContext';
 // fix: dividir contexts
 // fix: add refresh token
 export const AuthProvider = ({ children }) => {
-  const { loading, startLoading, stopLoading } = useLoading();
-
   const [token, setToken] = useLocalStorage('token', null);
   const isAuthenticated = !!token;
 
+  const { loading, startLoading, stopLoading } = useLoading();
   const [error, setError] = useState(null);
 
   const clearError = useCallback(() => {

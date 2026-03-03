@@ -8,7 +8,7 @@ const UserInfoPage = () => {
   const { loading, data } = useContext(UserContext);
 
   let content;
-  if (loading) content = <Loading />;
+  if (loading.getMe) content = <Loading />;
   else if (!data) content = <div>Informações do usuário não encontradas.</div>;
   else {
     content = <UserUpdateForm data={data} />;

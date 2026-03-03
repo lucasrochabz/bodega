@@ -1,18 +1,27 @@
 import PropTypes from 'prop-types';
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { AuthContext } from './AuthContext';
-import { UserContext } from './UserContext';
-import { useLoading } from '@/hooks';
 import { authService } from '@/services/authService';
 import { usersService } from '@/services/usersService';
+import { AuthContext } from './AuthContext';
+import { UserContext } from './UserContext';
 
 // fix: acho que tenho que add logout aqui
 export const UserProvider = ({ children }) => {
   const { token } = useContext(AuthContext);
 
-  const { loading, startLoading, stopLoading } = useLoading();
+  const [loading, setLoading] = useState({
+    getMe: false,
+    update: false,
+  });
   const [error, setError] = useState(null);
   const [data, setData] = useState(null);
+
+  const setLoadingKey = useCallback((key, value) => {
+    setLoading((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  }, []);
 
   const clearError = useCallback(() => {
     setError(null);
@@ -20,7 +29,8 @@ export const UserProvider = ({ children }) => {
 
   const getMe = useCallback(async () => {
     if (!token) return;
-    startLoading();
+
+    setLoadingKey('getMe', true);
     setError(null);
 
     try {
@@ -32,15 +42,15 @@ export const UserProvider = ({ children }) => {
       setError(err.message);
       setData(null);
     } finally {
-      stopLoading();
+      setLoadingKey('getMe', false);
     }
-  }, [token, startLoading, stopLoading]);
+  }, [token, setLoadingKey]);
 
   const update = useCallback(
     async (body) => {
       if (!token) return;
 
-      startLoading();
+      setLoadingKey('update', true);
       setError(null);
 
       try {
@@ -50,10 +60,10 @@ export const UserProvider = ({ children }) => {
         console.error(err.message);
         setError(err.message);
       } finally {
-        stopLoading();
+        setLoadingKey('update', false);
       }
     },
-    [token, startLoading, stopLoading, getMe],
+    [token, setLoadingKey, getMe],
   );
 
   useEffect(() => {
