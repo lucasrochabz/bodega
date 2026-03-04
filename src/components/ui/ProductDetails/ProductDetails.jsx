@@ -14,7 +14,7 @@ const images = import.meta.glob('/src/assets/images/*', {
 });
 
 const ProductDetails = ({ product, isAuthenticated }) => {
-  const imageModule = images[`/src/assets/images/${product.image_path}`];
+  const imageModule = images[`/src/assets/images/${product.imagePath}`];
   const imagePath = imageModule?.default;
 
   const navigate = useNavigate();

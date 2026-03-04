@@ -7,6 +7,7 @@ import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './CheckoutForm.module.css';
 
+// fix: add name nos inputs
 const CheckoutForm = ({ userData }) => {
   const navigate = useNavigate();
   const { orderId } = useParams();
