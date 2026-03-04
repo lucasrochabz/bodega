@@ -8,12 +8,9 @@ const usersService = {
     });
   },
 
-  update: (token, payload) => {
+  update: (payload) => {
     return apiClient('/api/v1/users/update', {
       method: 'PATCH',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       body: JSON.stringify(payload),
     });
   },

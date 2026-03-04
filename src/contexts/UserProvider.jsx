@@ -28,13 +28,11 @@ export const UserProvider = ({ children }) => {
   }, []);
 
   const getMe = useCallback(async () => {
-    if (!token) return;
-
     setLoadingKey('getMe', true);
     setError(null);
 
     try {
-      const result = await authService.getMe(token);
+      const result = await authService.getMe();
 
       setData(result);
     } catch (err) {
@@ -44,17 +42,15 @@ export const UserProvider = ({ children }) => {
     } finally {
       setLoadingKey('getMe', false);
     }
-  }, [token, setLoadingKey]);
+  }, [setLoadingKey]);
 
   const update = useCallback(
     async (body) => {
-      if (!token) return;
-
       setLoadingKey('update', true);
       setError(null);
 
       try {
-        await usersService.update(token, body);
+        await usersService.update(body);
         await getMe();
       } catch (err) {
         console.error(err.message);
@@ -63,15 +59,15 @@ export const UserProvider = ({ children }) => {
         setLoadingKey('update', false);
       }
     },
-    [token, setLoadingKey, getMe],
+    [setLoadingKey, getMe],
   );
 
   useEffect(() => {
-    if (token) {
-      getMe();
-    } else {
+    if (!token) {
       setData(null);
+      return;
     }
+    getMe();
   }, [token, getMe]);
 
   const value = useMemo(

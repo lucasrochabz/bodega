@@ -1,34 +1,25 @@
 import { apiClient } from '../http/client';
 
 const ordersService = {
-  getMyOrders: async (token) => {
+  getMyOrders: async () => {
     const response = await apiClient('/api/v1/orders/me', {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
 
     return response.data;
   },
 
-  getOrder: async (token, orderId) => {
+  getOrder: async (orderId) => {
     const response = await apiClient(`/api/v1/orders/${orderId}`, {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
 
     return response.data;
   },
 
-  createOrder: async (token, payload) => {
+  createOrder: async (payload) => {
     const response = await apiClient('/api/v1/orders', {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
       body: JSON.stringify(payload),
     });
 

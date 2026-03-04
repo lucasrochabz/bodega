@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLoading, useLocalStorage } from '../hooks';
+import { setHandler } from '@/http/request';
 import { authService } from '../services/authService';
 import { AuthContext } from './AuthContext';
 
@@ -40,6 +41,12 @@ export const AuthProvider = ({ children }) => {
     setToken(null);
     setError(null);
   }, [setToken]);
+
+  useEffect(() => {
+    setHandler(() => {
+      logout();
+    });
+  }, [logout]);
 
   const value = useMemo(
     () => ({

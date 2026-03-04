@@ -1,12 +1,9 @@
 import { apiClient } from '../http/client';
 
 const authService = {
-  getMe: async (token) => {
+  getMe: async () => {
     const response = await apiClient('/api/v1/auth/me', {
       method: 'GET',
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
     });
 
     return response.data;
