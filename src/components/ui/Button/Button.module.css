@@ -29,6 +29,7 @@
   box-shadow: 0 0 0 3px lightyellow, 0 0 0 4px var(--color-accent);
 }
 
+/* fix: colocar essa cor vermelha no css global */
 .logout {
   background-color: var(--color-bg);
   color: #fb2c36;
