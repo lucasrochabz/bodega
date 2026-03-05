@@ -1,4 +1,4 @@
-import { apiClient } from '../http/client';
+import { apiClient } from './http/client';
 
 const authService = {
   getMe: async () => {

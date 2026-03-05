@@ -1,4 +1,4 @@
-import { BASE_API_URL } from '../config';
+import { BASE_API_URL } from '../../config';
 import { request } from './request';
 
 export const apiClient = (endpoint, options = {}) => {

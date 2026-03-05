@@ -1,4 +1,4 @@
-import { apiClient } from '../http/client';
+import { apiClient } from './http/client';
 
 const productsService = {
   // fix: simular error na api para ver o que acontece

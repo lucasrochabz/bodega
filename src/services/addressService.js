@@ -1,4 +1,4 @@
-import { apiClient } from '../http/client';
+import { apiClient } from './http/client';
 
 const addressService = {
   // fix: atualizar isso para deixar igual a de baixo

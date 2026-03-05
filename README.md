@@ -98,6 +98,10 @@ bodega/
 │   │   └── appRoutes.jsx
 │   │
 │   ├── services/
+│   │   └── http/
+│   │       ├── client.js
+│   │       └── request.js
+│   │
 │   ├── styles/
 │   │   ├── animations/
 │   │   ├── colors/
