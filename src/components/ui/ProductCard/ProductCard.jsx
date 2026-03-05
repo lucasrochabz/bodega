@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { productPropType } from '../../../types/propTypes';
-import { ROUTES } from '../../../../paths';
+import { ROUTES } from '../../../paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import styles from './ProductCard.module.css';
 

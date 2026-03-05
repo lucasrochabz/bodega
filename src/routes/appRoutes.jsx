@@ -1,4 +1,4 @@
-import { ROUTES } from '../../paths';
+import { ROUTES } from '../paths';
 import publicRoutes from './public';
 import privateRoutes from './private';
 import { HomePage } from '@/pages/HomePage';

@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useAddress from '../../../hooks/shared/useAddress';
 import useSignup from '../../../hooks/users/useSignup';
 import { useDebounce } from '../../../hooks';
-import { ROUTES } from '../../../../paths';
+import { ROUTES } from '../../../paths';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import { Toast } from '../../ui/Toast';

@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { ROUTES } from '../../../../paths';
+import { ROUTES } from '../../../paths';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { SignUpForm } from '../../../components/forms/SignUpForm';

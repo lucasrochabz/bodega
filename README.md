@@ -107,7 +107,8 @@ bodega/
 │   ├── types/
 │   ├── utils/
 │   ├── App.jsx
-│   └── main.jsx
+│   ├── main.jsx
+│   └── paths.js
 │
 ├── .env.example
 ├── .gitignore

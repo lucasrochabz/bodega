@@ -1,4 +1,4 @@
-import { ROUTES } from '../../../paths';
+import { ROUTES } from '../../paths';
 import { ProtectedRoute } from '../../components/auth/ProtectedRoute';
 import { Welcome } from '../../components/ui/Welcome';
 import { UserInfoPage } from '../../pages/users';
