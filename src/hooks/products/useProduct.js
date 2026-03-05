@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { productsService } from '../../services/productsService';
 
-const useProduct = (productId) => {
+export const useProduct = (productId) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -26,5 +26,3 @@ const useProduct = (productId) => {
 
   return { data, isLoading, error };
 };
-
-export default useProduct;

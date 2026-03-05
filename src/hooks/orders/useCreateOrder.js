@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { ordersService } from '../../services/ordersService';
 
-const useCreateOrder = () => {
+export const useCreateOrder = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -22,5 +22,3 @@ const useCreateOrder = () => {
 
   return { createOrder, isLoading, error };
 };
-
-export default useCreateOrder;

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { usersService } from '../../services/usersService';
 
 // fix: usar return boolean (mutation)
-const useSignup = () => {
+export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -23,5 +23,3 @@ const useSignup = () => {
 
   return { signup, isLoading, error };
 };
-
-export default useSignup;

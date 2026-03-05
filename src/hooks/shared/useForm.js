@@ -11,7 +11,7 @@ const typesFields = {
   },
 };
 
-const useForm = (type) => {
+export const useForm = (type) => {
   const [value, setValue] = useState('');
   const [error, setError] = useState(null);
 
@@ -49,5 +49,3 @@ const useForm = (type) => {
     onBlur: () => validate(value),
   };
 };
-
-export default useForm;

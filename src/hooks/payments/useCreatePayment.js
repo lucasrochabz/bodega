@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { paymentsService } from '../../services/paymentsService';
 
-const useCreatePayment = () => {
+export const useCreatePayment = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -22,5 +22,3 @@ const useCreatePayment = () => {
 
   return { createPayment, isLoading, error };
 };
-
-export default useCreatePayment;

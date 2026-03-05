@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 
-const useLoading = () => {
+export const useLoading = () => {
   const [loading, setLoading] = useState(false);
 
   const startLoading = useCallback(() => {
@@ -17,5 +17,3 @@ const useLoading = () => {
     stopLoading,
   };
 };
-
-export default useLoading;

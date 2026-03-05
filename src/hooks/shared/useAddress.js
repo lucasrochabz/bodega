@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { addressService } from '../../services/addressService';
 
-const useAddress = (zipCode) => {
+export const useAddress = (zipCode) => {
   const [address, setAddress] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -32,5 +32,3 @@ const useAddress = (zipCode) => {
 
   return { address, isLoading, error };
 };
-
-export default useAddress;

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useAddress from '../../../hooks/shared/useAddress';
-import useSignup from '../../../hooks/users/useSignup';
+import { useAddress } from '../../../hooks/shared/useAddress';
+import { useSignup } from '../../../hooks/users/useSignup';
 import { useDebounce } from '../../../hooks';
 import { ROUTES } from '../../../paths';
 import { Input } from '../../ui/Input';

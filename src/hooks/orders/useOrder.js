@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ordersService } from '../../services/ordersService';
 
-const useOrder = (orderId) => {
+export const useOrder = (orderId) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -26,5 +26,3 @@ const useOrder = (orderId) => {
 
   return { isLoading, data, error };
 };
-
-export default useOrder;

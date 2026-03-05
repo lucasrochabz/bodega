@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { authService } from '../../services/authService';
 
-const useResetPassword = () => {
+export const useResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -22,5 +22,3 @@ const useResetPassword = () => {
 
   return { sendNewPassword, isLoading, error };
 };
-
-export default useResetPassword;
