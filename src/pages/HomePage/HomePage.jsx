@@ -10,7 +10,7 @@ import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
-  const pageSize = 4;
+  const pageSize = 6;
   const { isLoading, error, data } = useProducts({ page, pageSize });
 
   let content;

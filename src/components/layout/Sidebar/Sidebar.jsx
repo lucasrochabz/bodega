@@ -11,7 +11,7 @@ const Sidebar = () => {
 
   const handleLogout = () => {
     logout();
-    navigate(ROUTES.LOGIN);
+    navigate(ROUTES.auth.login);
   };
 
   return (
@@ -19,10 +19,10 @@ const Sidebar = () => {
       <nav aria-label="Menu lateral">
         <ul className={styles.sidebarList}>
           <li>
-            <NavLink to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</NavLink>
+            <NavLink to={ROUTES.account.myInfo}>Minhas informações</NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES.ACCOUNT_ORDERS} end>
+            <NavLink to={ROUTES.account.orders} end>
               Meus Pedidos
             </NavLink>
           </li>

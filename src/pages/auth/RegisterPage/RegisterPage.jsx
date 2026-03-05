@@ -13,7 +13,7 @@ const RegisterPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
   const { t } = useTranslation();
 
-  if (isAuthenticated) return <Navigate to={ROUTES.ACCOUNT} />;
+  if (isAuthenticated) return <Navigate to={ROUTES.account.base} />;
   return (
     <>
       <Head title="Register" description="Descrição da página Register" />

@@ -9,8 +9,8 @@ const routes = [
   ...privateRoutes,
 
   // Rotas não encontradas
-  { path: ROUTES.HOME, element: <HomePage /> },
-  { path: ROUTES.NOT_FOUND, element: <NotFoundPage /> },
+  { path: ROUTES.home, element: <HomePage /> },
+  { path: ROUTES.notFound, element: <NotFoundPage /> },
   { path: '*', element: <NotFoundPage /> },
 ];
 

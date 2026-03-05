@@ -46,7 +46,7 @@ const ResetPasswordPage = () => {
           show={showModal}
           onClose={() => {
             setShowModal(false);
-            navigate(ROUTES.LOGIN);
+            navigate(ROUTES.auth.login);
           }}
         >
           <h2>Senha Redefinida</h2>

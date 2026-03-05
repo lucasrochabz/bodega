@@ -32,14 +32,14 @@ const ProductDetails = ({ product, isAuthenticated }) => {
   };
 
   const handleReturn = () => {
-    navigate(ROUTES.HOME);
+    navigate(ROUTES.home);
   };
 
   const handleButtonClick = () => {
     if (!hasStock) return;
 
     if (!isAuthenticated) {
-      navigate(ROUTES.LOGIN);
+      navigate(ROUTES.auth.login);
       return;
     }
 
@@ -53,7 +53,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
     });
 
     if (response?.id) {
-      navigate(`${ROUTES.CHECKOUT_BASE}/${response.id}`);
+      navigate(`${ROUTES.checkout.base}/${response.id}`);
     }
   };
 

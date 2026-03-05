@@ -19,7 +19,7 @@ const MenuMobile = () => {
 
   const handleLogout = () => {
     logout();
-    navigate(ROUTES.LOGIN);
+    navigate(ROUTES.auth.login);
   };
 
   return (
@@ -34,13 +34,13 @@ const MenuMobile = () => {
         <nav aria-label="Menu principal">
           <ul className={styles.menuList}>
             <li>
-              <Link to={ROUTES.HOME}>Home</Link>
+              <Link to={ROUTES.home}>Home</Link>
             </li>
             <li>
-              <Link to={ROUTES.ACCOUNT_MY_INFO}>Minhas informações</Link>
+              <Link to={ROUTES.account.myInfo}>Minhas informações</Link>
             </li>
             <li>
-              <Link to={ROUTES.ACCOUNT_ORDERS}>Meus pedidos</Link>
+              <Link to={ROUTES.account.orders}>Meus pedidos</Link>
             </li>
             <li>
               <Button variant="logout" onClick={handleLogout}>

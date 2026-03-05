@@ -7,10 +7,10 @@ import {
 } from '@/pages/auth';
 
 const authRoutes = [
-  { path: ROUTES.LOGIN, element: <LoginPage /> },
-  { path: ROUTES.REGISTER, element: <RegisterPage /> },
-  { path: ROUTES.FORGOT_PASSWORD, element: <ForgotPasswordPage /> },
-  { path: `${ROUTES.RESET_PASSWORD}`, element: <ResetPasswordPage /> },
+  { path: ROUTES.auth.login, element: <LoginPage /> },
+  { path: ROUTES.auth.register, element: <RegisterPage /> },
+  { path: ROUTES.auth.forgotPassword, element: <ForgotPasswordPage /> },
+  { path: ROUTES.auth.resetPassword, element: <ResetPasswordPage /> },
 ];
 
 export default authRoutes;

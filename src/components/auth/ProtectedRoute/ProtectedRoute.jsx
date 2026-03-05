@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
 import { ROUTES } from '../../../paths';
+import { AuthContext } from '../../../contexts/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useContext(AuthContext);
 
   if (!isAuthenticated) {
-    return <Navigate to={ROUTES.LOGIN} replace />;
+    return <Navigate to={ROUTES.auth.login} replace />;
   }
 
   return children ?? <Outlet />;

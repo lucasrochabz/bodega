@@ -129,7 +129,7 @@ const SignUpForm = () => {
     event.preventDefault();
 
     await signup(formData);
-    navigate(ROUTES.LOGIN);
+    navigate(ROUTES.auth.login);
   };
 
   useEffect(() => {

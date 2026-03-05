@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../paths';
 import { formattedDate } from '../../../utils/dateUtils';
 import styles from './OrderCard.module.css';
 
@@ -10,7 +9,7 @@ const OrderCard = ({ order }) => {
   const handleNavigate = (event, orderId) => {
     event.preventDefault();
 
-    navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderId}`);
+    navigate(`details/${orderId}`);
   };
 
   return (

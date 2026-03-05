@@ -1,20 +1,36 @@
 export const ROUTES = {
-  // ROTAS RAIZ
-  HOME: '/',
-  LOGIN: '/login',
-  REGISTER: '/register',
-  FORGOT_PASSWORD: '/forgot-password',
-  RESET_PASSWORD: '/reset-password',
+  home: '/',
+  notFound: '/404',
 
-  PRODUCT_DETAILS_BASE: '/product',
-  CHECKOUT_BASE: '/checkout',
+  product: {
+    base: '/product',
+    details: (id = ':productId') => `/product/${id}`,
+  },
 
-  ACCOUNT: '/account',
-  ADMIN: '/admin',
-  NOT_FOUND: '/404',
+  checkout: {
+    base: '/checkout',
+  },
 
-  // ROTAS INTERNAS
-  ACCOUNT_MY_INFO: '/account/my-info',
-  ACCOUNT_ORDERS: '/account/orders',
-  ACCOUNT_ORDER_DETAILS: '/account/orders/details',
+  auth: {
+    login: '/login',
+    register: '/register',
+    forgotPassword: '/forgot-password',
+    resetPassword: '/reset-password',
+  },
+
+  account: {
+    base: '/account',
+
+    // relativo (para children)
+    myInfo: 'my-info',
+    orders: 'orders',
+    orderDetails: 'orders/details/:orderId',
+
+    // helpers ABSOLUTO (para navigate)
+    goToOrderDetails: (orderId) => `/account/orders/details/${orderId}`,
+  },
+
+  admin: {
+    base: '/admin',
+  },
 };

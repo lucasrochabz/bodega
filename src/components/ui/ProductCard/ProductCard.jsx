@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(`${ROUTES.PRODUCT_DETAILS_BASE}/${item.id}`);
+    navigate(`${ROUTES.product.base}/${item.id}`);
   };
 
   return (

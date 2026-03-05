@@ -6,7 +6,7 @@ import { OrdersPage, OrderDetailsPage } from '../../pages/orders';
 
 const accountRoutes = [
   {
-    path: ROUTES.ACCOUNT,
+    path: ROUTES.account.base,
     element: <ProtectedRoute />,
     children: [
       {
@@ -16,8 +16,8 @@ const accountRoutes = [
         },
         children: [
           { index: true, element: <Welcome /> },
-          { path: 'my-info', element: <UserInfoPage /> },
-          { path: 'orders', element: <OrdersPage /> },
+          { path: ROUTES.account.myInfo, element: <UserInfoPage /> },
+          { path: ROUTES.account.orders, element: <OrdersPage /> },
           { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },
         ],
       },

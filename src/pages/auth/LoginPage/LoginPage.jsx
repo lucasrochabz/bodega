@@ -14,7 +14,7 @@ const LoginPage = () => {
 
   const { t } = useTranslation();
 
-  if (isAuthenticated) return <Navigate to={ROUTES.HOME} replace />;
+  if (isAuthenticated) return <Navigate to={ROUTES.home} replace />;
   return (
     <>
       <Head title="Login" description="Descrição da página Login" />
@@ -26,11 +26,11 @@ const LoginPage = () => {
 
           <LoginForm />
 
-          <Link to={ROUTES.FORGOT_PASSWORD} style={{ padding: '1rem 0' }}>
+          <Link to={ROUTES.auth.forgotPassword} style={{ padding: '1rem 0' }}>
             Perdeu a senha?
           </Link>
 
-          <Link to={ROUTES.REGISTER} className={styles.btnForm}>
+          <Link to={ROUTES.auth.register} className={styles.btnForm}>
             {t('login.signup')}
           </Link>
         </section>
