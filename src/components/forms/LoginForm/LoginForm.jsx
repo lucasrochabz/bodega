@@ -6,8 +6,8 @@ import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
   const inputElement = useRef(null);
-  const { login, loading, error, clearError } = useContext(AuthContext);
-  const buttonLabel = loading ? 'Aguarde...' : 'Entrar';
+  const { login, isLoading, error, clearError } = useContext(AuthContext);
+  const buttonLabel = isLoading ? 'Aguarde...' : 'Entrar';
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -78,7 +78,7 @@ const LoginForm = () => {
           </button>
         </div>
 
-        <Button disabled={loading}>{buttonLabel}</Button>
+        <Button disabled={isLoading}>{buttonLabel}</Button>
       </form>
     </>
   );

@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useLocalStorage('token', null);
   const isAuthenticated = !!token;
 
-  const { loading, startLoading, stopLoading } = useLoading();
+  const { isLoading, startLoading, stopLoading } = useLoading();
   const [error, setError] = useState(null);
 
   const clearError = useCallback(() => {
@@ -54,11 +54,11 @@ export const AuthProvider = ({ children }) => {
       isAuthenticated,
       login,
       logout,
-      loading,
+      isLoading,
       error,
       clearError,
     }),
-    [token, isAuthenticated, login, logout, loading, error, clearError],
+    [token, isAuthenticated, login, logout, isLoading, error, clearError],
   );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

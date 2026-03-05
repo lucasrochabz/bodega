@@ -9,7 +9,7 @@ import { UserContext } from './UserContext';
 export const UserProvider = ({ children }) => {
   const { token } = useContext(AuthContext);
 
-  const [loading, setLoading] = useState({
+  const [isLoading, setIsLoading] = useState({
     getMe: false,
     update: false,
   });
@@ -17,7 +17,7 @@ export const UserProvider = ({ children }) => {
   const [data, setData] = useState(null);
 
   const setLoadingKey = useCallback((key, value) => {
-    setLoading((prev) => ({
+    setIsLoading((prev) => ({
       ...prev,
       [key]: value,
     }));
@@ -72,14 +72,14 @@ export const UserProvider = ({ children }) => {
 
   const value = useMemo(
     () => ({
-      loading,
+      isLoading,
       error,
       clearError,
       data,
       getMe,
       update,
     }),
-    [loading, error, clearError, data, getMe, update],
+    [isLoading, error, clearError, data, getMe, update],
   );
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

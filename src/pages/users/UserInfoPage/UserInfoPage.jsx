@@ -5,10 +5,10 @@ import { Loading } from '../../../components/ui/Loading';
 import { UserUpdateForm } from '../../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
-  const { loading, data } = useContext(UserContext);
+  const { isLoading, data } = useContext(UserContext);
 
   let content;
-  if (loading.getMe) content = <Loading />;
+  if (isLoading.getMe) content = <Loading />;
   else if (!data) content = <div>Informações do usuário não encontradas.</div>;
   else {
     content = <UserUpdateForm data={data} />;
