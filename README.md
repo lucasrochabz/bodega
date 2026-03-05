@@ -86,8 +86,7 @@ bodega/
 │   │   └── auth/
 │   │   │   └── LoginPage/
 │   │   │       ├── LoginPage.jsx
-│   │   │       ├── LoginPage.module.css
-│   │   │       └── index.js
+│   │   │       └── LoginPage.module.css
 │   │   │
 │   │   ├── orders/
 │   │   ├── products/
