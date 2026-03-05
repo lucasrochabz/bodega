@@ -133,8 +133,6 @@ const SignUpForm = () => {
   };
 
   useEffect(() => {
-    if (!address) return;
-
     setFormData((prev) => ({
       ...prev,
       street: address.street,
@@ -143,18 +141,6 @@ const SignUpForm = () => {
       state: address.state,
     }));
   }, [address]);
-
-  useEffect(() => {
-    if (debouncedZipCode.length !== 8) {
-      setFormData((prev) => ({
-        ...prev,
-        street: '',
-        neighborhood: '',
-        city: '',
-        state: '',
-      }));
-    }
-  }, [debouncedZipCode]);
 
   return (
     <>

@@ -2,17 +2,23 @@ import { useEffect, useState } from 'react';
 import { addressService } from '../../services/addressService';
 
 export const useAddress = (zipCode) => {
-  const [address, setAddress] = useState(null);
+  const [address, setAddress] = useState({
+    street: '',
+    neighborhood: '',
+    city: '',
+    state: '',
+  });
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchAddress = async () => {
-      if (!zipCode || zipCode.length !== 8) {
-        setAddress(null);
-        return;
-      }
+    if (!zipCode || zipCode.length !== 8) {
+      setAddress({ street: '', neighborhood: '', city: '', state: '' });
+      setError(null);
+      return;
+    }
 
+    const fetchAddress = async () => {
       setIsLoading(true);
       setError(null);
 
@@ -22,7 +28,7 @@ export const useAddress = (zipCode) => {
         setAddress(result);
       } catch (err) {
         setError(err.message);
-        setAddress(null);
+        setAddress({ street: '', neighborhood: '', city: '', state: '' });
       } finally {
         setIsLoading(false);
       }
