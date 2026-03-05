@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ROUTES } from '../../../routes/paths';
+import { ROUTES } from '../../../../paths';
 import useCreatePayment from '../../../hooks/payments/useCreatePayment';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';

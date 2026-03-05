@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../routes/paths';
+import { ROUTES } from '../../../paths';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';

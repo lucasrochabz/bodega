@@ -1,7 +1,7 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthProvider';
 import { UserProvider } from './contexts/UserProvider';
-import routes from './routes/index';
+import routes from './routes/appRoutes';
 
 const router = createBrowserRouter(routes);
 

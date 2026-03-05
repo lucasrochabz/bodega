@@ -94,6 +94,10 @@ bodega/
 │   │   └── users/
 │   │
 │   ├── routes/
+│   │   ├── private/
+│   │   ├── public/
+│   │   └── appRoutes.jsx
+│   │
 │   ├── services/
 │   ├── styles/
 │   │   ├── animations/

@@ -3,7 +3,7 @@ import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
 import { useToggle } from '../../../hooks';
 import useCreateOrder from '../../../hooks/orders/useCreateOrder';
-import { ROUTES } from '../../../routes/paths';
+import { ROUTES } from '../../../../paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
