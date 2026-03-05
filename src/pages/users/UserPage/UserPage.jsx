@@ -7,6 +7,8 @@ import { MenuMobile } from '../../../components/ui/MenuMobile';
 import { Footer } from '../../../components/layout/Footer';
 import styles from './UserPage.module.css';
 
+// fix: usar o ROUTES para evitar hardcode no paths
+// fix: usar useMemo para os títulos
 const UserPage = () => {
   // fix: substituir location.pathname por location.pathname.startsWith(...)
   const location = useLocation();

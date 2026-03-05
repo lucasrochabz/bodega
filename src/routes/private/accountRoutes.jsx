@@ -7,21 +7,20 @@ import { OrdersPage, OrderDetailsPage } from '../../pages/orders';
 const accountRoutes = [
   {
     path: ROUTES.ACCOUNT,
-    lazy: async () => {
-      const { UserPage } = await import('../../pages/users');
-      return {
-        element: (
-          <ProtectedRoute>
-            <UserPage />
-          </ProtectedRoute>
-        ),
-      };
-    },
+    element: <ProtectedRoute />,
     children: [
-      { index: true, element: <Welcome /> },
-      { path: 'my-info', element: <UserInfoPage /> },
-      { path: 'orders', element: <OrdersPage /> },
-      { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },
+      {
+        lazy: async () => {
+          const { UserPage } = await import('../../pages/users');
+          return { element: <UserPage /> };
+        },
+        children: [
+          { index: true, element: <Welcome /> },
+          { path: 'my-info', element: <UserInfoPage /> },
+          { path: 'orders', element: <OrdersPage /> },
+          { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },
+        ],
+      },
     ],
   },
 ];
