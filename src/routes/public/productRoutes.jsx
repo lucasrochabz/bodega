@@ -5,11 +5,11 @@ import { OrderCheckoutPage } from '../../pages/orders';
 
 const productRoutes = [
   {
-    path: `${ROUTES.PRODUCT_DETAILS_BASE}/:productId`,
+    path: ROUTES.product.details,
     element: <ProductDetailsPage />,
   },
   {
-    path: `${ROUTES.CHECKOUT_BASE}/:orderId`,
+    path: ROUTES.checkout.details,
     element: (
       <ProtectedRoute>
         <OrderCheckoutPage />

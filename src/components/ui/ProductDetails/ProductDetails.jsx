@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../../paths';
 import { useToggle } from '../../../hooks';
 import useCreateOrder from '../../../hooks/orders/useCreateOrder';
-import { ROUTES } from '../../../paths';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
@@ -53,7 +53,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
     });
 
     if (response?.id) {
-      navigate(`${ROUTES.checkout.base}/${response.id}`);
+      navigate(ROUTES.checkout.goToDetails(response.id));
     }
   };
 

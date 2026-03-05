@@ -18,7 +18,7 @@ const accountRoutes = [
           { index: true, element: <Welcome /> },
           { path: ROUTES.account.myInfo, element: <UserInfoPage /> },
           { path: ROUTES.account.orders, element: <OrdersPage /> },
-          { path: 'orders/details/:orderId', element: <OrderDetailsPage /> },
+          { path: ROUTES.account.orderDetails, element: <OrderDetailsPage /> },
         ],
       },
     ],

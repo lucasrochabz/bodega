@@ -4,11 +4,16 @@ export const ROUTES = {
 
   product: {
     base: '/product',
-    details: (id = ':productId') => `/product/${id}`,
+    details: '/product/:productId',
+
+    goToDetails: (productId) => `/product/${productId}`,
   },
 
   checkout: {
     base: '/checkout',
+    details: '/checkout/:orderId',
+
+    goToDetails: (orderId) => `/checkout/${orderId}`,
   },
 
   auth: {
