@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { useMedia } from '../../../hooks';
+import { useMedia } from '../../../hooks/shared';
 import { ROUTES } from '../../../paths';
 import { Button } from '../Button';
 import styles from './MenuMobile.module.css';
