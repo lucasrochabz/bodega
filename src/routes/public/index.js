@@ -1,6 +1,6 @@
-import authRoutes from './authRoutes';
-import productRoutes from './productRoutes';
-import checkoutRoutes from './checkoutRoutes';
+import authRoutes from './auth.routes';
+import productRoutes from './product.routes';
+import checkoutRoutes from './checkout.routes';
 
 const publicRoutes = [...authRoutes, ...productRoutes, ...checkoutRoutes];
 

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { useLoading, useLocalStorage } from '../hooks';
 import { setHandler } from '@/services/http/request';
-import { authService } from '../services/authService';
+import { authService } from '../services/auth.service';
 import { AuthContext } from './AuthContext';
 
 // fix: dividir contexts

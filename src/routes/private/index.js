@@ -1,4 +1,4 @@
-import accountRoutes from './accountRoutes';
+import accountRoutes from './account.routes';
 
 const privateRoutes = [...accountRoutes];
 
