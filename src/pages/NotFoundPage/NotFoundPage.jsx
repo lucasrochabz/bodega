@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../routes/paths';
+import { ROUTES } from '../../paths';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';
@@ -17,7 +17,7 @@ const NotFoundPage = () => {
       <section className={styles.notFound}>
         <h1 className="title">Erro: 404</h1>
         <p>Página não encontrada.</p>
-        <Link to={ROUTES.HOME} className="btn-header">
+        <Link to={ROUTES.home} className="btn-header">
           Voltar à Home
         </Link>
       </section>

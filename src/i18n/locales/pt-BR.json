@@ -1,7 +1,8 @@
 {
   "login": {
     "title": "Entrar",
-    "success": "Login realizado com sucesso"
+    "success": "Login realizado com sucesso",
+    "signup": "Criar conta"
   },
   "register": {
     "title": "Crie a sua conta",

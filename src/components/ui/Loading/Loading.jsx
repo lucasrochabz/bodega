@@ -1,13 +1,16 @@
+import PropTypes from 'prop-types';
 import styles from './Loading.module.css';
 
-// fix: mudar para não preencher a tela toda
-const Loading = () => {
+const Loading = ({ message = 'Carregando...' }) => {
   return (
-    <section className={styles.container}>
-      <span className={`${styles.loading} anim-pulse`}>Carregando...</span>
-      <div className="test"></div>
-    </section>
+    <div role="status" aria-live="polite">
+      <span>{message}</span>
+    </div>
   );
+};
+
+Loading.propTypes = {
+  message: PropTypes.string,
 };
 
 export default Loading;

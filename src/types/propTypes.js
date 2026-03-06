@@ -20,5 +20,5 @@ export const addressPropType = PropTypes.shape({
   neighborhood: PropTypes.string.isRequired,
   city: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,
-  zip_code: PropTypes.string.isRequired,
+  zipCode: PropTypes.string.isRequired,
 });

@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ROUTES } from '../../../routes/paths';
-import useCreatePayment from '../../../hooks/payments/useCreatePayment';
+import { ROUTES } from '../../../paths';
+import { useCreatePayment } from '../../../hooks/payments/useCreatePayment';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './CheckoutForm.module.css';
 
+// fix: add name nos inputs
 const CheckoutForm = ({ userData }) => {
   const navigate = useNavigate();
   const { orderId } = useParams();
 
   const { createPayment, isLoading } = useCreatePayment();
+  const buttonLabel = isLoading ? 'Aguarde...' : 'Realizar Pagamento';
 
   const handleMakePayment = async (event) => {
     event.preventDefault();
@@ -24,7 +26,7 @@ const CheckoutForm = ({ userData }) => {
     });
 
     if (response) {
-      navigate(`${ROUTES.ACCOUNT_ORDER_DETAILS}/${orderId}`);
+      navigate(ROUTES.account.goToOrderDetails(orderId));
     }
   };
 
@@ -48,7 +50,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Endereço"
           id="street"
           value={userData.address.street}
@@ -63,7 +64,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Bairro"
           id="neighborhood"
           value={userData.address.neighborhood}
@@ -71,7 +71,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Cidade"
           id="city"
           value={userData.address.city}
@@ -79,7 +78,6 @@ const CheckoutForm = ({ userData }) => {
         />
 
         <Input
-          type="text"
           label="Estado"
           id="state"
           value={userData.address.state}
@@ -122,7 +120,7 @@ const CheckoutForm = ({ userData }) => {
         <Input type="number" label="CVV" id="card_value" placeholder="000" />
       </div>
 
-      <Button variant="primary">Realizar Pagamento</Button>
+      <Button disabled={isLoading}>{buttonLabel}</Button>
     </form>
   );
 };

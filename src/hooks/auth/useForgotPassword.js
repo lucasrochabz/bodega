@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { authService } from '../../services/authService';
 
-const useForgotPassword = () => {
+export const useForgotPassword = () => {
   const [isLoading, setIsloading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -11,7 +11,7 @@ const useForgotPassword = () => {
 
     try {
       const response = await authService.forgotPassword(email);
-      return response.data;
+      return response;
     } catch (err) {
       setError(err.message);
       throw err;
@@ -22,5 +22,3 @@ const useForgotPassword = () => {
 
   return { sendEmail, isLoading, error };
 };
-
-export default useForgotPassword;

@@ -1,4 +1,4 @@
-import { apiClient } from '../http/client';
+import { apiClient } from './http/client';
 
 const addressService = {
   // fix: atualizar isso para deixar igual a de baixo
@@ -22,10 +22,12 @@ const addressService = {
     };
   },
 
-  newgetAddress: (zipCode) => {
-    return apiClient(`https://viacep.com.br/ws/${zipCode}/json`, {
+  getAddress: async (zipCode) => {
+    const response = await apiClient(`/api/v1/address/${zipCode}`, {
       method: 'GET',
     });
+
+    return response.data;
   },
 };
 

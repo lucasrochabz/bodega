@@ -1,17 +1,19 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { AuthContext } from '../../../contexts/AuthContext';
-import { ROUTES } from '../../../routes/paths';
-import { LanguageSwitcher } from '../../ui/LanguageSwitcher';
+import { ROUTES } from '../../../paths';
+import { AuthContext } from '@/contexts/AuthContext';
+import { UserContext } from '@/contexts/UserContext';
+import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
 import styles from './Header.module.css';
 
+// fix: add loading
 const Header = ({ hideLinks = false }) => {
-  const { data, isAuthenticated } = useContext(AuthContext);
-
+  const { isAuthenticated } = useContext(AuthContext);
+  const { data } = useContext(UserContext);
   const userName = data?.firstName;
 
-  const authRoute = isAuthenticated ? ROUTES.ACCOUNT : ROUTES.LOGIN;
+  const authRoute = isAuthenticated ? ROUTES.account.base : ROUTES.auth.login;
   const authLinkLabel = isAuthenticated
     ? `Olá, ${userName}`
     : 'Entre ou cadastre-se';
@@ -19,7 +21,7 @@ const Header = ({ hideLinks = false }) => {
   return (
     <header className={styles.bg}>
       <nav className={styles.header}>
-        <Link to={ROUTES.HOME} aria-label="Bodega - Home">
+        <Link to={ROUTES.home} aria-label="Bodega - Home">
           <span className={styles.logo}>Bodega</span>
         </Link>
 

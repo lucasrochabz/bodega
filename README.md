@@ -86,15 +86,22 @@ bodega/
 │   │   └── auth/
 │   │   │   └── LoginPage/
 │   │   │       ├── LoginPage.jsx
-│   │   │       ├── LoginPage.module.css
-│   │   │       └── index.js
+│   │   │       └── LoginPage.module.css
 │   │   │
 │   │   ├── orders/
 │   │   ├── products/
 │   │   └── users/
 │   │
 │   ├── routes/
+│   │   ├── private/
+│   │   ├── public/
+│   │   └── appRoutes.jsx
+│   │
 │   ├── services/
+│   │   └── http/
+│   │       ├── client.js
+│   │       └── request.js
+│   │
 │   ├── styles/
 │   │   ├── animations/
 │   │   ├── colors/
@@ -103,13 +110,15 @@ bodega/
 │   ├── types/
 │   ├── utils/
 │   ├── App.jsx
-│   └── main.jsx
+│   ├── main.jsx
+│   └── paths.js
 │
 ├── .env.example
 ├── .gitignore
 ├── cypress.config.js
 ├── eslint.config.js
 ├── index.html
+├── jsconfig.json
 ├── package-lock.json
 ├── package.json
 ├── README.md

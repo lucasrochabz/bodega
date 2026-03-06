@@ -6,7 +6,7 @@ import styles from './ProductList.module.css';
 const ProductList = ({ data }) => {
   return (
     <section className={styles.productList}>
-      {data.items.map((item) => (
+      {data.map((item) => (
         <ProductCard key={item.id} item={item} />
       ))}
     </section>
@@ -14,9 +14,7 @@ const ProductList = ({ data }) => {
 };
 
 ProductList.propTypes = {
-  data: PropTypes.shape({
-    items: PropTypes.arrayOf(productPropType),
-  }).isRequired,
+  data: PropTypes.arrayOf(productPropType).isRequired,
 };
 
 export default ProductList;

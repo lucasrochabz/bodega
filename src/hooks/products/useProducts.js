@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { productsService } from '../../services/productsService';
 
-const useProducts = ({ page, pageSize }) => {
+export const useProducts = ({ page, pageSize }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const useProducts = ({ page, pageSize }) => {
 
       try {
         const result = await productsService.getAllProducts({ page, pageSize });
-        setData(result.data);
+        setData(result);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -26,5 +26,3 @@ const useProducts = ({ page, pageSize }) => {
 
   return { data, isLoading, error };
 };
-
-export default useProducts;

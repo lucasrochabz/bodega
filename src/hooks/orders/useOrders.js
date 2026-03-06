@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ordersService } from '../../services/ordersService';
 
-const useOrders = () => {
+export const useOrders = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -13,7 +13,7 @@ const useOrders = () => {
 
       try {
         const result = await ordersService.getMyOrders();
-        setData(result.data);
+        setData(result);
       } catch (err) {
         setError(err.message);
       } finally {
@@ -26,5 +26,3 @@ const useOrders = () => {
 
   return { isLoading, data, error };
 };
-
-export default useOrders;

@@ -3,12 +3,13 @@ import { formattedDate } from '../../../utils/dateUtils';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import styles from './OrderDetails.module.css';
 
-const OrderDetails = ({ order }) => {
-  const images = import.meta.glob('/src/assets/images/*', {
-    eager: true,
-  });
+const images = import.meta.glob('/src/assets/images/*', {
+  eager: true,
+});
 
-  const imagePath = images[`/src/assets/images/${order.image_path}`].default;
+const OrderDetails = ({ order }) => {
+  const imageModule = images[`/src/assets/images/${order.image_path}`];
+  const imagePath = imageModule?.default;
 
   return (
     <div className={styles.orderDetails}>

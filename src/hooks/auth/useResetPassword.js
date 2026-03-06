@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { authService } from '../../services/authService';
 
-const useResetPassword = () => {
-  const [isloading, setIsloading] = useState(false);
+export const useResetPassword = () => {
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const sendNewPassword = async ({ token, newPassword }) => {
-    setIsloading(true);
+    setIsLoading(true);
     setError(null);
 
     try {
@@ -16,11 +16,9 @@ const useResetPassword = () => {
       setError(err.message);
       throw err;
     } finally {
-      setIsloading(false);
+      setIsLoading(false);
     }
   };
 
-  return { sendNewPassword, isloading, error };
+  return { sendNewPassword, isLoading, error };
 };
-
-export default useResetPassword;

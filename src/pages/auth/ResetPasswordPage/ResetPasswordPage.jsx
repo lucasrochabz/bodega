@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../routes/paths';
-import useResetPassword from '../../../hooks/auth/useResetPassword';
+import { ROUTES } from '../../../paths';
+import { useResetPassword } from '../../../hooks/auth/useResetPassword';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { Dialog } from '../../../components/ui/Dialog';
@@ -10,14 +10,15 @@ import { Footer } from '../../../components/layout/Footer';
 import styles from './ResetPasswordPage.module.css';
 
 const ResetPasswordPage = () => {
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
+
   const [newPassword, setNewPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
 
-  const [searchParams] = useSearchParams();
-  const navigate = useNavigate();
-  const { sendNewPassword, isloading, error } = useResetPassword();
-
-  const token = searchParams.get('token');
+  const { sendNewPassword, isLoading, error } = useResetPassword();
+  const buttonLabel = isLoading ? 'Redefinindo...' : 'Redefinir senha';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -45,7 +46,7 @@ const ResetPasswordPage = () => {
           show={showModal}
           onClose={() => {
             setShowModal(false);
-            navigate(ROUTES.LOGIN);
+            navigate(ROUTES.auth.login);
           }}
         >
           <h2>Senha Redefinida</h2>
@@ -72,9 +73,7 @@ const ResetPasswordPage = () => {
 
             {error && <p>{error}</p>}
 
-            <Button variant="primary" disabled={isloading}>
-              {isloading ? 'Redefinindo' : 'Redefinir senha'}
-            </Button>
+            <Button disabled={isLoading}>{buttonLabel}</Button>
           </form>
         </section>
       </main>

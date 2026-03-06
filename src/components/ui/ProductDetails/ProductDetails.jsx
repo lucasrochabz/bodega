@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
+import { ROUTES } from '../../../paths';
 import { useToggle } from '../../../hooks';
-import useCreateOrder from '../../../hooks/orders/useCreateOrder';
-import { ROUTES } from '../../../routes/paths';
+import { useCreateOrder } from '../../../hooks/orders/useCreateOrder';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
@@ -14,6 +14,9 @@ const images = import.meta.glob('/src/assets/images/*', {
 });
 
 const ProductDetails = ({ product, isAuthenticated }) => {
+  const imageModule = images[`/src/assets/images/${product.imagePath}`];
+  const imagePath = imageModule?.default;
+
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
   const { createOrder, isLoading } = useCreateOrder();
@@ -21,13 +24,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
   const hasStock = product.stock > 0;
   const isButtonDisabled = isLoading || !hasStock;
 
-  const buttonLabel = !hasStock
-    ? 'Esgotado'
-    : isAuthenticated
-      ? 'Finalizar Pedido'
-      : 'Faça login para comprar';
-
-  const imagePath = images[`/src/assets/images/${product.image_path}`]?.default;
+  const buttonLabel = !hasStock ? 'Esgotado' : 'Finalizar Pedido';
 
   const handleImageClick = (event) => {
     event.stopPropagation();
@@ -35,14 +32,14 @@ const ProductDetails = ({ product, isAuthenticated }) => {
   };
 
   const handleReturn = () => {
-    navigate(ROUTES.HOME);
+    navigate(ROUTES.home);
   };
 
   const handleButtonClick = () => {
     if (!hasStock) return;
 
     if (!isAuthenticated) {
-      navigate(ROUTES.LOGIN);
+      navigate(ROUTES.auth.login);
       return;
     }
 
@@ -56,16 +53,17 @@ const ProductDetails = ({ product, isAuthenticated }) => {
     });
 
     if (response?.id) {
-      navigate(`${ROUTES.CHECKOUT_BASE}/${response.id}`);
+      navigate(ROUTES.checkout.goToDetails(response.id));
     }
   };
 
   return (
-    <section className={styles.container}>
+    <section className={styles.wrapper}>
       <img src={imagePath} alt={product.name} onClick={handleImageClick} />
 
-      <div className={styles.wrapper}>
+      <div className={styles.content}>
         <h1>{product.name}</h1>
+
         <span className={styles.price}>
           {formattedPriceToBRL(product.price)}
         </span>

@@ -30,7 +30,7 @@ const AdminPage = () => {
             onChange={handleImgChange}
           />
 
-          <Button variant="primary">Enviar</Button>
+          <Button>Enviar</Button>
         </form>
 
         <div>

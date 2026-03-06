@@ -1,20 +1,26 @@
 import { useContext } from 'react';
-import { AuthContext } from '../../../contexts/AuthContext';
+import { UserContext } from '@/contexts/UserContext';
 import { Head } from '../../../components/shared/Head';
+import { Loading } from '../../../components/ui/Loading';
 import { UserUpdateForm } from '../../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
-  const { loading, data } = useContext(AuthContext);
+  const { isLoading, data } = useContext(UserContext);
 
-  if (loading) return <div>Carregando...</div>;
-  if (!data) return null;
+  let content;
+  if (isLoading.getMe) content = <Loading />;
+  else if (!data) content = <div>Informações do usuário não encontradas.</div>;
+  else {
+    content = <UserUpdateForm data={data} />;
+  }
+
   return (
     <>
       <Head
         title="Informações"
         description="Descrição da página Minhas Informações"
       />
-      <UserUpdateForm data={data} />
+      {content}
     </>
   );
 };
