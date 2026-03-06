@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
-import { useResetPassword } from '../../../hooks/auth/useResetPassword';
+import { useResetPassword } from '@/hooks/auth';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { Dialog } from '../../../components/ui/Dialog';

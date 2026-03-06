@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { paymentsService } from '../../services/paymentsService';
+import { paymentsService } from '../../services/payments.service';
 
 export const useCreatePayment = () => {
   const [isLoading, setIsLoading] = useState(false);

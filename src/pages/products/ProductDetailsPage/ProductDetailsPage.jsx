@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { useProduct } from '../../../hooks/products/useProduct';
+import { useProduct } from '@/hooks/products';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { Loading } from '../../../components/ui/Loading';

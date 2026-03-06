@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { usersService } from '../../services/usersService';
+import { usersService } from '../../services/users.service';
 
 // fix: usar return boolean (mutation)
 export const useSignup = () => {

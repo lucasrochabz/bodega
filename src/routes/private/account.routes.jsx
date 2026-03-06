@@ -4,7 +4,7 @@ import { Welcome } from '../../components/ui/Welcome';
 import { UserInfoPage } from '../../pages/users';
 import { OrdersPage, OrderDetailsPage } from '../../pages/orders';
 
-const accountRoutes = [
+export const accountRoutes = [
   {
     path: ROUTES.account.base,
     element: <ProtectedRoute />,
@@ -24,5 +24,3 @@ const accountRoutes = [
     ],
   },
 ];
-
-export default accountRoutes;

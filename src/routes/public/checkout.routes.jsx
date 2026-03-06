@@ -2,7 +2,7 @@ import { ROUTES } from '../../paths';
 import { ProtectedRoute } from '../../components/auth/ProtectedRoute';
 import { OrderCheckoutPage } from '../../pages/orders';
 
-const checkoutRoutes = [
+export const checkoutRoutes = [
   {
     path: ROUTES.checkout.details,
     element: (
@@ -12,5 +12,3 @@ const checkoutRoutes = [
     ),
   },
 ];
-
-export default checkoutRoutes;

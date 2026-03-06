@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { productsService } from '../../services/productsService';
+import { productsService } from '../../services/products.service';
 
 export const useProduct = (productId) => {
   const [isLoading, setIsLoading] = useState(false);

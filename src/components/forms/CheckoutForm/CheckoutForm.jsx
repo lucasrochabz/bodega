@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
-import { useCreatePayment } from '../../../hooks/payments/useCreatePayment';
+import { useCreatePayment } from '@/hooks/payments';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './CheckoutForm.module.css';
