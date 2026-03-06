@@ -1,10 +1,10 @@
 import { ROUTES } from '../paths';
-import publicRoutes from './public';
-import privateRoutes from './private';
 import { HomePage } from '@/pages/HomePage';
+import { publicRoutes } from './public';
+import { privateRoutes } from './private';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
-const routes = [
+export const routes = [
   { path: ROUTES.home, element: <HomePage /> },
 
   ...publicRoutes,
@@ -14,5 +14,3 @@ const routes = [
   { path: ROUTES.notFound, element: <NotFoundPage /> },
   { path: '*', element: <NotFoundPage /> },
 ];
-
-export default routes;

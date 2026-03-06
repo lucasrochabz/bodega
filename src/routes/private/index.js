@@ -1,5 +1,3 @@
-import accountRoutes from './account.routes';
+import { accountRoutes } from './account.routes';
 
-const privateRoutes = [...accountRoutes];
-
-export default privateRoutes;
+export const privateRoutes = [...accountRoutes];
