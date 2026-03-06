@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useForgotPassword } from '../../../hooks/auth';
+import { useForgotPassword } from '@/hooks/auth';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { Button } from '../../../components/ui/Button';

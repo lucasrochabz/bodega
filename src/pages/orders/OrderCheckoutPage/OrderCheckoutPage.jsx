@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '@/contexts/UserContext';
-import { useOrder } from '../../../hooks/orders';
+import { useOrder } from '@/hooks/orders';
 import { Head } from '../../../components/shared/Head';
 import { Header } from '../../../components/layout/Header';
 import { Loading } from '../../../components/ui/Loading';

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '@/contexts/UserContext';
-import { useAddress } from '../../../hooks/shared';
+import { useAddress } from '@/hooks/shared';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';

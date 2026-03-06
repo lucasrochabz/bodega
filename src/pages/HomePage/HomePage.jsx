@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useProducts } from '../../hooks/products';
+import { useProducts } from '@/hooks/products';
 import { Head } from '../../components/shared/Head';
 import { Header } from '../../components/layout/Header';
 import { Loading } from '../../components/ui/Loading';
