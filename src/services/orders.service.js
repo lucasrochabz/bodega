@@ -1,16 +1,18 @@
 import { apiClient } from './http/client';
 
 const ordersService = {
-  getMyOrders: async () => {
+  getMyOrders: async (options = {}) => {
     const response = await apiClient('/api/v1/orders/me', {
+      ...options,
       method: 'GET',
     });
 
     return response.data;
   },
 
-  getOrder: async (orderId) => {
+  getOrder: async (orderId, options = {}) => {
     const response = await apiClient(`/api/v1/orders/${orderId}`, {
+      ...options,
       method: 'GET',
     });
 
