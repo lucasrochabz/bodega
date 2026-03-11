@@ -26,6 +26,7 @@ const LoginPage = () => {
 
           <LoginForm />
 
+          {/* fix: corrigir esse estilo inline */}
           <Link to={ROUTES.auth.forgotPassword} style={{ padding: '1rem 0' }}>
             Perdeu a senha?
           </Link>

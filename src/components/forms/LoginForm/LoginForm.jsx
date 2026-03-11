@@ -14,6 +14,7 @@ const LoginForm = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // fix: pode ser integrado ao verifyUser ou ver o que faço quando colocar o Yup
   const validateInput = (e) => {
     e.preventDefault();
 
