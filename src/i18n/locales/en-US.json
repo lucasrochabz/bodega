@@ -12,5 +12,8 @@
   "forgot": {
     "title": "Forgot your password?",
     "success": "If an account exists, a password reset link has been sent."
+  },
+  "errors": {
+    "PRODUCT_NOT_FOUND": "Product not found"
   }
 }
