@@ -5,10 +5,7 @@ const productsService = {
   getAllProducts: async (page, pageSize, options = {}) => {
     const response = await apiClient(
       `/api/v1/products?page=${page}&pageSize=${pageSize}`,
-      {
-        ...options,
-        method: 'GET',
-      },
+      { ...options, method: 'GET' },
     );
 
     return response.data;

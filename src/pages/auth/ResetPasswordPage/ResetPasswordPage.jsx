@@ -27,7 +27,7 @@ const ResetPasswordPage = () => {
 
     const response = await sendNewPassword({ token, newPassword });
 
-    if (response?.success) {
+    if (response) {
       return setShowModal(true);
     }
   };

@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { usersService } from '../../services/users.service';
 
-// fix: usar return boolean (mutation)
 export const useSignup = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -15,7 +14,7 @@ export const useSignup = () => {
       return response;
     } catch (err) {
       setError(err.message);
-      throw err;
+      return null;
     } finally {
       setIsLoading(false);
     }

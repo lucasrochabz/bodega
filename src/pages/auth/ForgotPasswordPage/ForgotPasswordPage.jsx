@@ -22,8 +22,8 @@ const ForgotPasswordPage = () => {
     if (response) {
       alert('Email enviado.');
       window.location.href = response;
+      setEmail('');
     }
-    setEmail('');
   };
 
   return (

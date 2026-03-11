@@ -14,7 +14,7 @@ export const useForgotPassword = () => {
       return response;
     } catch (err) {
       setError(err.message);
-      throw err;
+      return null;
     } finally {
       setIsloading(false);
     }

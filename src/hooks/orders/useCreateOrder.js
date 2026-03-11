@@ -14,7 +14,7 @@ export const useCreateOrder = () => {
       return response;
     } catch (err) {
       setError(err.message);
-      throw err;
+      return null;
     } finally {
       setIsLoading(false);
     }
