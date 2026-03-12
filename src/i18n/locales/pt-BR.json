@@ -11,5 +11,9 @@
   "forgot": {
     "title": "Perdeu a senha?",
     "success": "Login realizado com sucesso"
+  },
+  "reset": {
+    "title": "Redefinir senha",
+    "success": "Senha redefinida com sucesso"
   }
 }

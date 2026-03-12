@@ -1,13 +1,3 @@
-.container {
-  min-height: calc(100vh - 130px);
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.container h2 {
-  margin-bottom: 2rem;
-}
-
 .checkout {
   display: grid;
   grid-template-columns: 1fr 400px;

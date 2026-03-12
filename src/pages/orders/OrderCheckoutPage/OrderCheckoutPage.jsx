@@ -3,11 +3,10 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '@/contexts/UserContext';
 import { useOrder } from '@/hooks/orders';
 import { Head } from '../../../components/shared/Head';
-import { Header } from '../../../components/layout/Header';
+import { Layout } from '@/components/layout/Layout';
 import { Loading } from '../../../components/ui/Loading';
 import { CheckoutForm } from '../../../components/forms/CheckoutForm';
 import { OrderSummary } from '../../../components/ui/OrderSummary';
-import { Footer } from '../../../components/layout/Footer';
 import styles from './OrderCheckoutPage.module.css';
 
 const OrderCheckoutPage = () => {
@@ -33,14 +32,11 @@ const OrderCheckoutPage = () => {
   return (
     <>
       <Head title="Checkout" description="Descrição da página Checkout" />
-      <Header />
 
-      <main className={styles.container}>
+      <Layout>
         <h2 className="title">Finalizar Compra</h2>
         {content}
-      </main>
-
-      <Footer />
+      </Layout>
     </>
   );
 };

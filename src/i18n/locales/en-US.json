@@ -13,6 +13,10 @@
     "title": "Forgot your password?",
     "success": "If an account exists, a password reset link has been sent."
   },
+  "reset": {
+    "title": "Reset password",
+    "success": "Password reset successfully."
+  },
   "errors": {
     "PRODUCT_NOT_FOUND": "Product not found"
   }
