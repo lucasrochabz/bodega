@@ -3,11 +3,9 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useProduct } from '@/hooks/products';
 import { Head } from '../../../components/shared/Head';
-import { Header } from '../../../components/layout/Header';
+import { Layout } from '@/components/layout/Layout';
 import { Loading } from '../../../components/ui/Loading';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
-import { Footer } from '../../../components/layout/Footer';
-import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -32,9 +30,7 @@ const ProductDetailsPage = () => {
         description="Descrição da página Detalhe do Produto"
       />
 
-      <Header />
-      <main className={styles.container}>{content}</main>
-      <Footer />
+      <Layout>{content}</Layout>
     </>
   );
 };

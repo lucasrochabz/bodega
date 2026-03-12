@@ -4,9 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../../paths';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { Head } from '../../../components/shared/Head';
-import { Header } from '../../../components/layout/Header';
+import { AuthLayout } from '@/components/layout/AuthLayout';
 import { LoginForm } from '../../../components/forms/LoginForm';
-import { Footer } from '../../../components/layout/Footer';
 import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
@@ -18,25 +17,17 @@ const LoginPage = () => {
   return (
     <>
       <Head title="Login" description="Descrição da página Login" />
-      <Header />
+      <AuthLayout page="login">
+        <LoginForm />
 
-      <main className={styles.authLayout}>
-        <section className={styles.wrapper}>
-          <h1 className="title">{t('login.title')}</h1>
+        <div className={styles.authLinks}>
+          <Link to={ROUTES.auth.forgotPassword}>Perdeu a senha?</Link>
 
-          <LoginForm />
-
-          <div className={styles.authLinks}>
-            <Link to={ROUTES.auth.forgotPassword}>Perdeu a senha?</Link>
-
-            <Link to={ROUTES.auth.register} className={styles.btnForm}>
-              {t('login.signup')}
-            </Link>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
+          <Link to={ROUTES.auth.register} className={styles.btnForm}>
+            {t('login.signup')}
+          </Link>
+        </div>
+      </AuthLayout>
     </>
   );
 };

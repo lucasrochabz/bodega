@@ -1,12 +1,10 @@
 import { useState } from 'react';
 import { useProducts } from '@/hooks/products';
 import { Head } from '../../components/shared/Head';
-import { Header } from '../../components/layout/Header';
+import { Layout } from '@/components/layout/Layout';
 import { Loading } from '../../components/ui/Loading';
 import { ProductList } from '../../components/ui/ProductList';
 import { Pagination } from '../../components/ui/Pagination';
-import { Footer } from '../../components/layout/Footer';
-import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
@@ -34,9 +32,7 @@ const HomePage = () => {
     <>
       <Head title="Home" description="Descrição da página Home" />
 
-      <Header />
-      <main className={styles.container}>{content}</main>
-      <Footer />
+      <Layout>{content}</Layout>
     </>
   );
 };

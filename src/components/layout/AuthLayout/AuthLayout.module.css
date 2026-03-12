@@ -1,3 +1,9 @@
+/* .container {
+  min-height: calc(100vh - 130px);
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
 .authLayout {
   min-height: calc(100vh - 66px);
   display: grid;
@@ -14,18 +20,17 @@
 }
 
 .wrapper {
-  max-width: 460px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  max-width: 460px;
   gap: 1rem;
-  margin: 1rem 0;
 }
 
 @media (max-width: 800px) {
   .authLayout {
     grid-template-columns: 1fr;
     padding: 0 1rem;
-    margin: 2rem 0;
   }
   .authLayout::before {
     display: none;

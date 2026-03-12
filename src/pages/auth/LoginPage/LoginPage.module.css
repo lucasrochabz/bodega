@@ -1,26 +1,3 @@
-.authLayout {
-  min-height: calc(100vh - 66px);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin: -2rem 0;
-}
-
-.authLayout::before {
-  content: '';
-  display: block;
-  background: url('../../../assets/images/login.jpg') no-repeat center;
-  background-size: cover;
-}
-
-.wrapper {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: 460px;
-  gap: 1rem;
-}
-
 .authLinks {
   display: flex;
   flex-direction: column;
@@ -39,14 +16,4 @@
 .btnForm:focus {
   outline: none;
   text-decoration: underline;
-}
-
-@media (max-width: 800px) {
-  .authLayout {
-    grid-template-columns: 1fr;
-    padding: 0 1rem;
-  }
-  .authLayout::before {
-    display: none;
-  }
 }

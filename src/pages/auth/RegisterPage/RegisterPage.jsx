@@ -1,33 +1,23 @@
 import { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
 import { ROUTES } from '../../../paths';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { Head } from '../../../components/shared/Head';
-import { Header } from '../../../components/layout/Header';
+import { AuthLayout } from '@/components/layout/AuthLayout';
 import { SignUpForm } from '../../../components/forms/SignUpForm';
-import { Footer } from '../../../components/layout/Footer';
-import styles from './RegisterPage.module.css';
 
+// fix: corrigir estilo
 const RegisterPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  const { t } = useTranslation();
 
   if (isAuthenticated) return <Navigate to={ROUTES.account.base} />;
   return (
     <>
       <Head title="Register" description="Descrição da página Register" />
 
-      <Header />
-
-      <main className={styles.authLayout}>
-        <section className={styles.wrapper}>
-          <h1 className="title">{t('register.title')}</h1>
-
-          <SignUpForm />
-        </section>
-      </main>
-      <Footer />
+      <AuthLayout page="register">
+        <SignUpForm />
+      </AuthLayout>
     </>
   );
 };
