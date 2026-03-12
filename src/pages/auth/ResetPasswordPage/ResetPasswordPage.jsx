@@ -25,10 +25,7 @@ const ResetPasswordPage = () => {
     if (!token) return alert('Token inválido');
 
     const response = await sendNewPassword({ token, newPassword });
-
-    if (response) {
-      return setShowModal(true);
-    }
+    if (response) return setShowModal(true);
   };
 
   return (
