@@ -21,6 +21,12 @@
   gap: 1rem;
 }
 
+.authLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 .btnForm {
   align-self: flex-start;
   font-family: Georgia, 'Times New Roman', Times, serif;

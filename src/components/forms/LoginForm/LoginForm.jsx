@@ -1,7 +1,10 @@
 import { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { Toast } from '../../ui/Toast';
+import { useFormValidation } from '@/hooks/shared';
+import { loginSchema } from '@/schemas/loginSchema';
+import { Input } from '@/components/ui/Input';
 import { Button } from '../../ui/Button';
+import { Toast } from '../../ui/Toast';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
@@ -11,27 +14,14 @@ const LoginForm = () => {
 
   const [showPassword, setShowPassword] = useState(false);
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-
-  // fix: pode ser integrado ao verifyUser ou ver o que faço quando colocar o Yup
-  const validateInput = (e) => {
-    e.preventDefault();
-
-    if (email === '' || password === '') {
-      console.log('os campos estão vazios');
-      return false;
-    } else {
-      console.log('Login feito');
-      return true;
-    }
-  };
-
-  const verifyUser = async (event) => {
-    event.preventDefault();
-
-    await login(email, password);
-  };
+  const { values, errors, handleChange, handleSubmit } = useFormValidation(
+    loginSchema,
+    login,
+    {
+      email: '',
+      password: '',
+    },
+  );
 
   useEffect(() => {
     inputElement.current.focus();
@@ -47,37 +37,36 @@ const LoginForm = () => {
         }}
       />
 
-      <form className={styles.form} onSubmit={verifyUser}>
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+      <form className={styles.form} onSubmit={handleSubmit}>
+        <Input
           ref={inputElement}
-          required
+          label="Email"
+          type="email"
+          name="email"
+          id="email"
+          value={values.email}
+          onChange={handleChange}
         />
 
-        <label htmlFor="password">Senha</label>
-        <div className={styles.wrapper}>
-          <input
-            type={showPassword ? 'text' : 'password'}
-            id="password"
-            name="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
+        {errors.email && <small>{errors.email}</small>}
 
-          <button
-            className={styles.btnPassword}
-            type="button"
-            onClick={() => setShowPassword((prev) => !prev)}
-          >
-            {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
-          </button>
-        </div>
+        <Input
+          label="Senha"
+          type="password"
+          name="password"
+          id="password"
+          value={values.password}
+          onChange={handleChange}
+        />
+        {errors.password && <small>{errors.password}</small>}
+
+        <button
+          className={styles.btnPassword}
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+        >
+          {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
+        </button>
 
         <Button disabled={isLoading}>{buttonLabel}</Button>
       </form>

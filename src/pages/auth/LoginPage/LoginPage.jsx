@@ -26,14 +26,13 @@ const LoginPage = () => {
 
           <LoginForm />
 
-          {/* fix: corrigir esse estilo inline */}
-          <Link to={ROUTES.auth.forgotPassword} style={{ padding: '1rem 0' }}>
-            Perdeu a senha?
-          </Link>
+          <div className={styles.authLinks}>
+            <Link to={ROUTES.auth.forgotPassword}>Perdeu a senha?</Link>
 
-          <Link to={ROUTES.auth.register} className={styles.btnForm}>
-            {t('login.signup')}
-          </Link>
+            <Link to={ROUTES.auth.register} className={styles.btnForm}>
+              {t('login.signup')}
+            </Link>
+          </div>
         </section>
       </main>
 

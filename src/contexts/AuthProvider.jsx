@@ -19,12 +19,12 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = useCallback(
-    async (email, password) => {
+    async (payload) => {
       startLoading();
       setError(null);
 
       try {
-        const result = await authService.login({ email, password });
+        const result = await authService.login(payload);
 
         setToken(result);
       } catch (err) {
