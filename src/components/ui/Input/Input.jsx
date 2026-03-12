@@ -32,7 +32,6 @@ Input.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  // setValue: PropTypes.func,
   onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
