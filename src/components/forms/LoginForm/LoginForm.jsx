@@ -1,4 +1,5 @@
 import { useContext, useEffect, useRef, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useFormValidation } from '@/hooks/shared';
 import { loginSchema } from '@/schemas/loginSchema';
@@ -8,9 +9,12 @@ import { Toast } from '../../ui/Toast';
 import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
+  const { t } = useTranslation();
   const inputElement = useRef(null);
   const { login, isLoading, error, clearError } = useContext(AuthContext);
-  const buttonLabel = isLoading ? 'Aguarde...' : 'Entrar';
+  const buttonLabel = isLoading
+    ? t('auth.login.loading')
+    : t('auth.login.title');
 
   const [showPassword, setShowPassword] = useState(false);
 

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
 import { useResetPassword } from '@/hooks/auth';
-import { Head } from '../../../components/shared/Head';
 import { AuthLayout } from '@/components/layout/AuthLayout';
 import { Dialog } from '../../../components/ui/Dialog';
 import { Button } from '../../../components/ui/Button';
@@ -29,47 +28,40 @@ const ResetPasswordPage = () => {
   };
 
   return (
-    <>
-      <Head
-        title="Redefinir senha"
-        description="Descrição da página Redefinir senha"
-      />
+    <AuthLayout page="reset">
+      {showModal && (
+        <Dialog
+          show={showModal}
+          onClose={() => {
+            setShowModal(false);
+            navigate(ROUTES.auth.login);
+          }}
+        >
+          <h2>Senha Redefinida</h2>
+          <p>Você já pode acessar a plataforma com a nova senha.</p>
+        </Dialog>
+      )}
 
-      <AuthLayout page="reset">
-        {showModal && (
-          <Dialog
-            show={showModal}
-            onClose={() => {
-              setShowModal(false);
-              navigate(ROUTES.auth.login);
-            }}
-          >
-            <h2>Senha Redefinida</h2>
-            <p>Você já pode acessar a plataforma com a nova senha.</p>
-          </Dialog>
-        )}
+      <form onSubmit={handleSubmit} className={styles.form}>
+        <label htmlFor="newPassword" className="label">
+          Nova senha
+        </label>
 
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <label htmlFor="newPassword" className="label">
-            Nova senha
-          </label>
+        <input
+          type="password"
+          name="newPassword"
+          id="newPassword"
+          onChange={(e) => setNewPassword(e.target.value)}
+          value={newPassword}
+          required
+          className="input"
+        />
 
-          <input
-            type="password"
-            name="newPassword"
-            id="newPassword"
-            onChange={(e) => setNewPassword(e.target.value)}
-            value={newPassword}
-            required
-            className="input"
-          />
+        {error && <p>{error}</p>}
 
-          {error && <p>{error}</p>}
-
-          <Button disabled={isLoading}>{buttonLabel}</Button>
-        </form>
-      </AuthLayout>
-    </>
+        <Button disabled={isLoading}>{buttonLabel}</Button>
+      </form>
+    </AuthLayout>
   );
 };
 

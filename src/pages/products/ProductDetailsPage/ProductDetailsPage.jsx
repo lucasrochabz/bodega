@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useProduct } from '@/hooks/products';
-import { Head } from '../../../components/shared/Head';
 import { Layout } from '@/components/layout/Layout';
 import { Loading } from '../../../components/ui/Loading';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
@@ -23,16 +22,7 @@ const ProductDetailsPage = () => {
     );
   }
 
-  return (
-    <>
-      <Head
-        title="Detalhe do Produto"
-        description="Descrição da página Detalhe do Produto"
-      />
-
-      <Layout>{content}</Layout>
-    </>
-  );
+  return <Layout title="Detalhe do Produto">{content}</Layout>;
 };
 
 export default ProductDetailsPage;

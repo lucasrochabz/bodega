@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '@/contexts/UserContext';
 import { useOrder } from '@/hooks/orders';
-import { Head } from '../../../components/shared/Head';
 import { Layout } from '@/components/layout/Layout';
 import { Loading } from '../../../components/ui/Loading';
 import { CheckoutForm } from '../../../components/forms/CheckoutForm';
@@ -30,14 +29,10 @@ const OrderCheckoutPage = () => {
   }
 
   return (
-    <>
-      <Head title="Checkout" description="Descrição da página Checkout" />
-
-      <Layout>
-        <h2 className="title">Finalizar Compra</h2>
-        {content}
-      </Layout>
-    </>
+    <Layout title="Checkout">
+      <h2 className="title">Finalizar Compra</h2>
+      {content}
+    </Layout>
   );
 };
 

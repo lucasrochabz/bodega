@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { useProducts } from '@/hooks/products';
-import { Head } from '../../components/shared/Head';
 import { Layout } from '@/components/layout/Layout';
 import { Loading } from '../../components/ui/Loading';
 import { ProductList } from '../../components/ui/ProductList';
@@ -28,13 +27,7 @@ const HomePage = () => {
     );
   }
 
-  return (
-    <>
-      <Head title="Home" description="Descrição da página Home" />
-
-      <Layout>{content}</Layout>
-    </>
-  );
+  return <Layout title="Home">{content}</Layout>;
 };
 
 export default HomePage;

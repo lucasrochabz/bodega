@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
+// fix: mudar nome de componente para SEO
 const Head = ({ title, description }) => {
   useEffect(() => {
     document.title = 'Bodega | ' + title;
