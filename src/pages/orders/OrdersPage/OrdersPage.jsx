@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useOrders } from '@/hooks/orders';
 import { Head } from '../../../components/shared/Head';
 import { Loading } from '../../../components/ui/Loading';
+import { EmptyState } from '@/components/ui/EmptyState';
 import { OrderList } from '../../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
@@ -20,7 +21,7 @@ const OrdersPage = () => {
   if (isLoading) content = <Loading />;
   else if (error) content = <div>Erro: {error}</div>;
   else if (ordersToShow.length === 0) {
-    content = <div>Nenhum pedido encontrado.</div>;
+    content = <EmptyState />;
   } else {
     content = (
       <>

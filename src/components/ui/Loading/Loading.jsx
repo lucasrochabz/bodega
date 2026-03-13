@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
-import styles from './Loading.module.css';
 
+// fix: mudar nome para LoadingState
 const Loading = ({ message = 'Carregando...' }) => {
   return (
     <div role="status" aria-live="polite">

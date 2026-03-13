@@ -23,7 +23,9 @@ export const useProducts = (page, pageSize) => {
           setError(err.message);
         }
       } finally {
-        setIsLoading(false);
+        if (!controller.signal.aborted) {
+          setIsLoading(false);
+        }
       }
     };
 
