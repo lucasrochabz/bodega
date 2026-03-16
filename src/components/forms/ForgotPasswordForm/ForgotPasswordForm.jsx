@@ -8,7 +8,6 @@ const ForgotPasswordForm = () => {
   const [email, setEmail] = useState('');
 
   const { sendEmail, isLoading, error } = useForgotPassword();
-  const buttonLabel = isLoading ? 'Enviando...' : 'Enviar email';
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -34,7 +33,9 @@ const ForgotPasswordForm = () => {
         required
       />
 
-      <Button disabled={isLoading}>{buttonLabel}</Button>
+      <Button disabled={isLoading}>
+        {isLoading ? 'Enviando...' : 'Enviar email'}
+      </Button>
     </form>
   );
 };

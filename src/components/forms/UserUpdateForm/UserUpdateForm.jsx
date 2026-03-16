@@ -9,7 +9,6 @@ import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
   const { update, isLoading } = useContext(UserContext);
-  const buttonLabel = isLoading.update ? 'Atualizando...' : 'Atualizar';
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -161,7 +160,9 @@ const UserUpdateForm = ({ data }) => {
         required
       />
 
-      <Button disabled={isLoading.update}>{buttonLabel}</Button>
+      <Button disabled={isLoading.update}>
+        {isLoading.update ? 'Atualizando...' : 'Atualizar'}
+      </Button>
     </form>
   );
 };

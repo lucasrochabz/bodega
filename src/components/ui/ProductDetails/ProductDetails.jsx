@@ -24,8 +24,6 @@ const ProductDetails = ({ product, isAuthenticated }) => {
   const hasStock = product.stock > 0;
   const isButtonDisabled = isLoading || !hasStock;
 
-  const buttonLabel = !hasStock ? 'Esgotado' : 'Finalizar Pedido';
-
   const handleImageClick = (event) => {
     event.stopPropagation();
     toggleShowModal();
@@ -79,7 +77,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
             disabled={isButtonDisabled}
             onClick={handleButtonClick}
           >
-            {buttonLabel}
+            {!hasStock ? 'Esgotado' : 'Finalizar Pedido'}
           </Button>
         </div>
       </div>

@@ -114,7 +114,6 @@ const SignUpForm = () => {
   const { address, error } = useAddress(debouncedZipCode);
 
   const { signup, isLoading } = useSignup();
-  const buttonLabel = isLoading ? 'Cadastrando...' : 'Cadastrar';
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -164,7 +163,9 @@ const SignUpForm = () => {
           />
         ))}
 
-        <Button disabled={isLoading}>{buttonLabel}</Button>
+        <Button disabled={isLoading}>
+          {isLoading ? 'Cadastrando...' : 'Cadastrar'}
+        </Button>
       </form>
     </>
   );

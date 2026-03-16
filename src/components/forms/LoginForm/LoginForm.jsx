@@ -13,9 +13,6 @@ const LoginForm = () => {
 
   const inputElement = useRef(null);
   const { login, isLoading, error, clearError } = useContext(AuthContext);
-  const buttonLabel = isLoading
-    ? t('auth.login.loading')
-    : t('auth.login.title');
 
   const [showPassword, setShowPassword] = useState(false);
 
@@ -73,7 +70,9 @@ const LoginForm = () => {
           {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
         </button>
 
-        <Button disabled={isLoading}>{buttonLabel}</Button>
+        <Button disabled={isLoading}>
+          {isLoading ? t('auth.login.loading') : t('auth.login.title')}
+        </Button>
       </form>
     </>
   );
