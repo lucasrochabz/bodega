@@ -10,6 +10,7 @@ import styles from './LoginForm.module.css';
 
 const LoginForm = () => {
   const { t } = useTranslation();
+
   const inputElement = useRef(null);
   const { login, isLoading, error, clearError } = useContext(AuthContext);
   const buttonLabel = isLoading

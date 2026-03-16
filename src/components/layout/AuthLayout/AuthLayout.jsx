@@ -17,13 +17,13 @@ const AuthLayout = ({ children, page }) => {
 
       <Header />
 
-      <section className={styles.authLayout}>
-        <div className={styles.wrapper}>
+      <main className={styles.authLayout}>
+        <section className={styles.wrapper}>
           <h1 className="title">{t(`auth.${page}.title`)}</h1>
 
           {children}
-        </div>
-      </section>
+        </section>
+      </main>
       <Footer />
     </>
   );

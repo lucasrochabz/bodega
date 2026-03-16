@@ -3,7 +3,6 @@ import styles from './Input.module.css';
 import { forwardRef } from 'react';
 
 // fix: integrar erro direto aqui
-// fix: tentar usar o ref
 const Input = forwardRef(
   ({ label, type = 'text', name, id, ...props }, ref) => {
     return (
@@ -32,7 +31,6 @@ Input.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
