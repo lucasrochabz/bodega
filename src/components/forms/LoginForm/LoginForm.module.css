@@ -3,26 +3,6 @@
   flex-direction: column;
 }
 
-.form label {
-  margin-bottom: 0.4rem;
-}
-
-.form input {
-  border: 1px solid gray;
-  font-size: 1rem;
-  border-radius: 5px;
-  padding: 0.8rem;
-  transition: 0.3s;
-  margin-bottom: 1rem;
-}
-
-.form input:hover, 
-.form input:focus {
-  outline: none;
-  border: 1px solid var(--color-primary);
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
 .wrapper  {
   position: relative;
   display: flex;
@@ -32,13 +12,4 @@
 .wrapper input {
   width: 100%;
   padding-right: 90px;
-}
-
-.btnPassword {
-  position: absolute;
-  cursor: pointer;
-  background: none;
-  border: none;
-  right: 0.8rem;
-  margin-bottom: 1rem;
 }

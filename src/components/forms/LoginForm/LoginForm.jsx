@@ -1,17 +1,16 @@
 import PropTypes from 'prop-types';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useFormValidation } from '@/hooks/shared';
 import { loginSchema } from '@/schemas/loginSchema';
 import { Input } from '@/components/ui/Input';
+import { PasswordInput } from '@/components/ui/PasswordInput';
 import { Button } from '@/components/ui/Button';
 import styles from './LoginForm.module.css';
 
 const LoginForm = ({ onSubmit, isLoading }) => {
   const { t } = useTranslation();
-
   const inputElement = useRef(null);
-  const [showPassword, setShowPassword] = useState(false);
 
   const { values, errors, handleChange, handleSubmit } = useFormValidation(
     loginSchema,
@@ -40,23 +39,8 @@ const LoginForm = ({ onSubmit, isLoading }) => {
 
       {errors.email && <small>{errors.email}</small>}
 
-      <Input
-        label="Senha"
-        type={showPassword ? 'text' : 'password'}
-        name="password"
-        id="password"
-        value={values.password}
-        onChange={handleChange}
-      />
+      <PasswordInput value={values.password} onChange={handleChange} />
       {errors.password && <small>{errors.password}</small>}
-
-      <button
-        className={styles.btnPassword}
-        type="button"
-        onClick={() => setShowPassword((prev) => !prev)}
-      >
-        {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
-      </button>
 
       <Button disabled={isLoading}>
         {isLoading ? t('auth.login.loading') : t('auth.login.title')}
