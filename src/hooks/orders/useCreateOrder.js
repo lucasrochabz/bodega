@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ordersService } from '../../services/ordersService';
+import { ordersService } from '../../services/orders.service';
 
 export const useCreateOrder = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +14,7 @@ export const useCreateOrder = () => {
       return response;
     } catch (err) {
       setError(err.message);
-      throw err;
+      return null;
     } finally {
       setIsLoading(false);
     }

@@ -1,7 +1,9 @@
 import { useState } from 'react';
-import { useOrders } from '../../../hooks/orders/useOrders';
-import { Head } from '../../../components/shared/Head';
-import { Loading } from '../../../components/ui/Loading';
+import { useOrders } from '@/hooks/orders';
+import { SEO } from '../../../components/shared/SEO';
+import { LoadingState } from '@/components/ui/LoadingState';
+import { ErrorState } from '@/components/ui/ErrorState';
+import { EmptyState } from '@/components/ui/EmptyState';
 import { OrderList } from '../../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
 
@@ -17,10 +19,10 @@ const OrdersPage = () => {
   const ordersToShow = search ? filtredOrders : allOrders;
 
   let content;
-  if (isLoading) content = <Loading />;
-  else if (error) content = <div>Erro: {error}</div>;
+  if (isLoading) content = <LoadingState />;
+  else if (error) content = <ErrorState message={error} />;
   else if (ordersToShow.length === 0) {
-    content = <div>Nenhum pedido encontrado.</div>;
+    content = <EmptyState />;
   } else {
     content = (
       <>
@@ -42,7 +44,7 @@ const OrdersPage = () => {
 
   return (
     <>
-      <Head title="Pedidos" description="Descrição da página Pedidos" />
+      <SEO title="Pedidos" description="Descrição da página Pedidos" />
       {content}
     </>
   );

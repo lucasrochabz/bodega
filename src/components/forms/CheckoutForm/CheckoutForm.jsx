@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useNavigate, useParams } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
-import { useCreatePayment } from '../../../hooks/payments/useCreatePayment';
+import { useCreatePayment } from '@/hooks/payments';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './CheckoutForm.module.css';
@@ -13,7 +13,6 @@ const CheckoutForm = ({ userData }) => {
   const { orderId } = useParams();
 
   const { createPayment, isLoading } = useCreatePayment();
-  const buttonLabel = isLoading ? 'Aguarde...' : 'Realizar Pagamento';
 
   const handleMakePayment = async (event) => {
     event.preventDefault();
@@ -120,7 +119,9 @@ const CheckoutForm = ({ userData }) => {
         <Input type="number" label="CVV" id="card_value" placeholder="000" />
       </div>
 
-      <Button disabled={isLoading}>{buttonLabel}</Button>
+      <Button disabled={isLoading}>
+        {isLoading ? 'Aguarde...' : 'Realizar Pagamento'}
+      </Button>
     </form>
   );
 };

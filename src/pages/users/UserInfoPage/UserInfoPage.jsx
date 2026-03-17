@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import { UserContext } from '@/contexts/UserContext';
-import { Head } from '../../../components/shared/Head';
-import { Loading } from '../../../components/ui/Loading';
+import { SEO } from '../../../components/shared/SEO';
+import { LoadingState } from '@/components/ui/LoadingState';
 import { UserUpdateForm } from '../../../components/forms/UserUpdateForm';
 
 const UserInfoPage = () => {
   const { isLoading, data } = useContext(UserContext);
 
   let content;
-  if (isLoading.getMe) content = <Loading />;
+  if (isLoading.getMe) content = <LoadingState />;
   else if (!data) content = <div>Informações do usuário não encontradas.</div>;
   else {
     content = <UserUpdateForm data={data} />;
@@ -16,7 +16,7 @@ const UserInfoPage = () => {
 
   return (
     <>
-      <Head
+      <SEO
         title="Informações"
         description="Descrição da página Minhas Informações"
       />

@@ -1,48 +1,36 @@
 import PropTypes from 'prop-types';
 import styles from './Input.module.css';
+import { forwardRef } from 'react';
 
-const Input = ({
-  label,
-  type = 'text',
-  name,
-  id,
-  setValue,
-  onChange,
-  ...props
-}) => {
-  const handleChange = (event) => {
-    if (setValue) {
-      setValue(event.target.value);
-    }
-    if (onChange) {
-      onChange(event);
-    }
-  };
+// fix: integrar erro direto aqui
+const Input = forwardRef(
+  ({ label, type = 'text', name, id, ...props }, ref) => {
+    return (
+      <>
+        <label htmlFor={id} className={styles.label}>
+          {label}
+        </label>
 
-  return (
-    <>
-      <label htmlFor={id} className={styles.label}>
-        {label}
-      </label>
-      <input
-        className={styles.input}
-        type={type}
-        name={name}
-        id={id}
-        onChange={handleChange}
-        {...props}
-      />
-    </>
-  );
-};
+        <input
+          ref={ref}
+          className={styles.input}
+          type={type}
+          name={name}
+          id={id}
+          {...props}
+        />
+      </>
+    );
+  },
+);
+
+Input.displayName = 'Input';
 
 Input.propTypes = {
   label: PropTypes.string.isRequired,
   type: PropTypes.string,
   name: PropTypes.string.isRequired,
   id: PropTypes.string.isRequired,
-  setValue: PropTypes.func,
-  onChange: PropTypes.func,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 

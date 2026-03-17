@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { authService } from '../../services/authService';
+import { authService } from '../../services/auth.service';
 
 export const useResetPassword = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +14,7 @@ export const useResetPassword = () => {
       return response;
     } catch (err) {
       setError(err.message);
-      throw err;
+      return null;
     } finally {
       setIsLoading(false);
     }

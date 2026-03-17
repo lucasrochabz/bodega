@@ -2,14 +2,13 @@ import PropTypes from 'prop-types';
 import { addressPropType } from '../../../types/propTypes';
 import { useState, useEffect, useContext } from 'react';
 import { UserContext } from '@/contexts/UserContext';
-import { useAddress } from '../../../hooks/shared/useAddress';
+import { useAddress } from '@/hooks/shared';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import styles from './UserUpdateForm.module.css';
 
 const UserUpdateForm = ({ data }) => {
   const { update, isLoading } = useContext(UserContext);
-  const buttonLabel = isLoading.update ? 'Atualizando...' : 'Atualizar';
 
   const [formData, setFormData] = useState({
     firstName: '',
@@ -161,7 +160,9 @@ const UserUpdateForm = ({ data }) => {
         required
       />
 
-      <Button disabled={isLoading.update}>{buttonLabel}</Button>
+      <Button disabled={isLoading.update}>
+        {isLoading.update ? 'Atualizando...' : 'Atualizar'}
+      </Button>
     </form>
   );
 };

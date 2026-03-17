@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { useLoading, useLocalStorage } from '../hooks';
+import { useLoading, useLocalStorage } from '@/hooks/shared';
 import { setHandler } from '@/services/http/request';
-import { authService } from '../services/authService';
+import { authService } from '../services/auth.service';
 import { AuthContext } from './AuthContext';
 
 // fix: dividir contexts
@@ -19,12 +19,12 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = useCallback(
-    async (email, password) => {
+    async (payload) => {
       startLoading();
       setError(null);
 
       try {
-        const result = await authService.login({ email, password });
+        const result = await authService.login(payload);
 
         setToken(result);
       } catch (err) {

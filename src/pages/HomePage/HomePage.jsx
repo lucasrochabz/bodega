@@ -1,22 +1,21 @@
 import { useState } from 'react';
-import { useProducts } from '../../hooks/products/useProducts';
-import { Head } from '../../components/shared/Head';
-import { Header } from '../../components/layout/Header';
-import { Loading } from '../../components/ui/Loading';
+import { useProducts } from '@/hooks/products';
+import { MainLayout } from '@/components/layout/MainLayout';
+import { LoadingState } from '../../components/ui/LoadingState';
+import { ErrorState } from '@/components/ui/ErrorState';
+import { EmptyState } from '@/components/ui/EmptyState';
 import { ProductList } from '../../components/ui/ProductList';
 import { Pagination } from '../../components/ui/Pagination';
-import { Footer } from '../../components/layout/Footer';
-import styles from './HomePage.module.css';
 
 const HomePage = () => {
   const [page, setPage] = useState(1);
   const pageSize = 6;
-  const { isLoading, error, data } = useProducts({ page, pageSize });
+  const { isLoading, error, data } = useProducts(page, pageSize);
 
   let content;
-  if (isLoading) content = <Loading />;
-  else if (error) content = <div>{error}</div>;
-  else if (!data?.items.length) content = <div>Produtos não encontrados.</div>;
+  if (isLoading) content = <LoadingState />;
+  else if (error) content = <ErrorState message={error} />;
+  else if (!data?.items.length) content = <EmptyState />;
   else {
     content = (
       <>
@@ -30,15 +29,7 @@ const HomePage = () => {
     );
   }
 
-  return (
-    <>
-      <Head title="Home" description="Descrição da página Home" />
-
-      <Header />
-      <main className={styles.container}>{content}</main>
-      <Footer />
-    </>
-  );
+  return <MainLayout title="Home">{content}</MainLayout>;
 };
 
 export default HomePage;

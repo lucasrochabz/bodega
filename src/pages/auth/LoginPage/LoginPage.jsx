@@ -1,43 +1,40 @@
 import { useContext } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ROUTES } from '../../../paths';
-import { AuthContext } from '../../../contexts/AuthContext';
-import { Head } from '../../../components/shared/Head';
-import { Header } from '../../../components/layout/Header';
-import { LoginForm } from '../../../components/forms/LoginForm';
-import { Footer } from '../../../components/layout/Footer';
+import { ROUTES } from '@/paths';
+import { AuthContext } from '@/contexts/AuthContext';
+import { AuthLayout } from '@/components/layout/AuthLayout';
+import { Toast } from '@/components/ui/Toast';
+import { LoginForm } from '@/components/forms/LoginForm';
 import styles from './LoginPage.module.css';
 
 const LoginPage = () => {
-  const { isAuthenticated } = useContext(AuthContext);
+  const { isAuthenticated, login, isLoading, error, clearError } =
+    useContext(AuthContext);
 
   const { t } = useTranslation();
 
   if (isAuthenticated) return <Navigate to={ROUTES.home} replace />;
   return (
-    <>
-      <Head title="Login" description="Descrição da página Login" />
-      <Header />
+    <AuthLayout page="login">
+      <Toast
+        show={!!error}
+        message={error}
+        onClose={() => {
+          clearError();
+        }}
+      />
 
-      <main className={styles.authLayout}>
-        <section className={styles.wrapper}>
-          <h1 className="title">{t('login.title')}</h1>
+      <LoginForm onSubmit={login} isLoading={isLoading} />
 
-          <LoginForm />
+      <div className={styles.authLinks}>
+        <Link to={ROUTES.auth.forgotPassword}>{t('auth.forgot.title')}</Link>
 
-          <Link to={ROUTES.auth.forgotPassword} style={{ padding: '1rem 0' }}>
-            Perdeu a senha?
-          </Link>
-
-          <Link to={ROUTES.auth.register} className={styles.btnForm}>
-            {t('login.signup')}
-          </Link>
-        </section>
-      </main>
-
-      <Footer />
-    </>
+        <Link to={ROUTES.auth.register} className={styles.btnForm}>
+          {t('auth.register.title')}
+        </Link>
+      </div>
+    </AuthLayout>
   );
 };
 

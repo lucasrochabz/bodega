@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { authService } from '@/services/authService';
-import { usersService } from '@/services/usersService';
+import { authService } from '@/services/auth.service';
+import { usersService } from '@/services/users.service';
 import { AuthContext } from './AuthContext';
 import { UserContext } from './UserContext';
 

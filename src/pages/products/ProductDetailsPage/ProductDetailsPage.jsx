@@ -1,13 +1,11 @@
 import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
-import { useProduct } from '../../../hooks/products/useProduct';
-import { Head } from '../../../components/shared/Head';
-import { Header } from '../../../components/layout/Header';
-import { Loading } from '../../../components/ui/Loading';
+import { useProduct } from '@/hooks/products';
+import { MainLayout } from '@/components/layout/MainLayout';
+import { LoadingState } from '../../../components/ui/LoadingState';
+import { ErrorState } from '@/components/ui/ErrorState';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
-import { Footer } from '../../../components/layout/Footer';
-import styles from './ProductDetailsPage.module.css';
 
 const ProductDetailsPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
@@ -16,8 +14,8 @@ const ProductDetailsPage = () => {
   const { isLoading, data, error } = useProduct(productId);
 
   let content;
-  if (isLoading) content = <Loading />;
-  else if (error) content = <div>{error}</div>;
+  if (isLoading) content = <LoadingState />;
+  else if (error) content = <ErrorState message={error} />;
   else if (!data) content = <div>Produto não encontrado.</div>;
   else {
     content = (
@@ -25,18 +23,7 @@ const ProductDetailsPage = () => {
     );
   }
 
-  return (
-    <>
-      <Head
-        title="Detalhe do Produto"
-        description="Descrição da página Detalhe do Produto"
-      />
-
-      <Header />
-      <main className={styles.container}>{content}</main>
-      <Footer />
-    </>
-  );
+  return <MainLayout title="Detalhe do Produto">{content}</MainLayout>;
 };
 
 export default ProductDetailsPage;

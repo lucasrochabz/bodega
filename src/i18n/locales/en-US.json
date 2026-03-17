@@ -1,16 +1,26 @@
 {
-  "login": {
-    "title": "Login",
-    "success": "Login successful",
-    "signup": "Signup"
+  "auth": {
+    "description": "Access your account to manage orders, personal information, and take advantage of the best technology offers.",
+    "login": {
+      "title": "Login",
+      "loading": "Wait...",
+      "success": "Login successful"
+    },
+    "register": {
+      "title": "Create account",
+      "success": "Account created successfully.",
+      "button": "Sign up"
+    },
+    "forgot": {
+      "title": "Forgot your password?",
+      "success": "If an account exists, a password reset link has been sent."
+    },
+    "reset": {
+      "title": "Reset password",
+      "success": "Password reset successfully."
+    }
   },
-  "register": {
-    "title": "Create your account",
-    "success": "Account created successfully.",
-    "button": "Sign up"
-  },
-  "forgot": {
-    "title": "Forgot your password?",
-    "success": "If an account exists, a password reset link has been sent."
+  "errors": {
+    "PRODUCT_NOT_FOUND": "Product not found"
   }
 }

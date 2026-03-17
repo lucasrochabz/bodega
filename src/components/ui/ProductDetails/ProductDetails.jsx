@@ -2,8 +2,8 @@ import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
-import { useToggle } from '../../../hooks';
-import { useCreateOrder } from '../../../hooks/orders/useCreateOrder';
+import { useToggle } from '@/hooks/shared';
+import { useCreateOrder } from '@/hooks/orders';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
@@ -23,8 +23,6 @@ const ProductDetails = ({ product, isAuthenticated }) => {
 
   const hasStock = product.stock > 0;
   const isButtonDisabled = isLoading || !hasStock;
-
-  const buttonLabel = !hasStock ? 'Esgotado' : 'Finalizar Pedido';
 
   const handleImageClick = (event) => {
     event.stopPropagation();
@@ -79,7 +77,7 @@ const ProductDetails = ({ product, isAuthenticated }) => {
             disabled={isButtonDisabled}
             onClick={handleButtonClick}
           >
-            {buttonLabel}
+            {!hasStock ? 'Esgotado' : 'Finalizar Pedido'}
           </Button>
         </div>
       </div>

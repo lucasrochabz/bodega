@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { paymentsService } from '../../services/paymentsService';
+import { paymentsService } from '../../services/payments.service';
 
 export const useCreatePayment = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -14,7 +14,7 @@ export const useCreatePayment = () => {
       return response;
     } catch (err) {
       setError(err.message);
-      throw err;
+      return null;
     } finally {
       setIsLoading(false);
     }

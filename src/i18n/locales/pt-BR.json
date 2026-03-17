@@ -1,15 +1,22 @@
 {
-  "login": {
-    "title": "Entrar",
-    "success": "Login realizado com sucesso",
-    "signup": "Criar conta"
-  },
-  "register": {
-    "title": "Crie a sua conta",
-    "success": "Conta criada com sucesso."
-  },
-  "forgot": {
-    "title": "Perdeu a senha?",
-    "success": "Login realizado com sucesso"
+  "auth": {
+    "description": "Acesse sua conta para gerenciar pedidos, informações pessoais e aproveitar as melhores ofertas de tecnologia.",
+    "login": {
+      "title": "Entrar",
+      "loading": "Aguarde...",
+      "success": "Login realizado com sucesso"
+    },
+    "register": {
+      "title": "Criar conta",
+      "success": "Conta criada com sucesso."
+    },
+    "forgot": {
+      "title": "Esqueceu sua senha?",
+      "success": "Se o email estiver cadastrado, enviaremos instruções para redefinir sua senha."
+    },
+    "reset": {
+      "title": "Redefinir senha",
+      "success": "Senha redefinida com sucesso"
+    }
   }
 }

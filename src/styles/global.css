@@ -47,4 +47,5 @@ ul {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: var(--color-primary);
   font-size: 3rem;
+  margin-bottom: 2rem;
 }
