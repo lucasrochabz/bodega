@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { Head } from '@/components/shared/Head';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
-import styles from './Layout.module.css';
+import styles from './MainLayout.module.css';
 
 const DEFAULT_HEAD = {
   title: 'Loja de tecnologia',
@@ -10,8 +10,7 @@ const DEFAULT_HEAD = {
     'Os melhores produtos de tecnologia em um só lugar com compra fácil e entrega segura.',
 };
 
-// fix: mudar nome para MainLayout
-const Layout = ({
+const MainLayout = ({
   children,
   container = true,
   title = DEFAULT_HEAD.title,
@@ -30,11 +29,11 @@ const Layout = ({
   );
 };
 
-Layout.propTypes = {
+MainLayout.propTypes = {
   children: PropTypes.node.isRequired,
   container: PropTypes.bool,
   title: PropTypes.string,
   description: PropTypes.string,
 };
 
-export default Layout;
+export default MainLayout;

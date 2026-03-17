@@ -14,9 +14,6 @@ const Header = ({ hideLinks = false }) => {
   const userName = data?.firstName;
 
   const authRoute = isAuthenticated ? ROUTES.account.base : ROUTES.auth.login;
-  const authLinkLabel = isAuthenticated
-    ? `Olá, ${userName}`
-    : 'Entre ou cadastre-se';
 
   return (
     <header className={styles.bg}>
@@ -29,7 +26,7 @@ const Header = ({ hideLinks = false }) => {
 
         {!hideLinks && (
           <Link to={authRoute} className={styles.btnHeader}>
-            {authLinkLabel}
+            {isAuthenticated ? `Olá, ${userName}` : 'Entre ou cadastre-se'}
           </Link>
         )}
       </nav>

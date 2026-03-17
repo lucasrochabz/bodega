@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useProducts } from '@/hooks/products';
-import { Layout } from '@/components/layout/Layout';
+import { MainLayout } from '@/components/layout/MainLayout';
 import { Loading } from '../../components/ui/Loading';
 import { ErrorState } from '@/components/ui/ErrorState';
 import { EmptyState } from '@/components/ui/EmptyState';
@@ -29,7 +29,7 @@ const HomePage = () => {
     );
   }
 
-  return <Layout title="Home">{content}</Layout>;
+  return <MainLayout title="Home">{content}</MainLayout>;
 };
 
 export default HomePage;

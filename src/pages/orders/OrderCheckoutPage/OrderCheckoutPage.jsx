@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { UserContext } from '@/contexts/UserContext';
 import { useOrder } from '@/hooks/orders';
-import { Layout } from '@/components/layout/Layout';
+import { MainLayout } from '@/components/layout/MainLayout';
 import { Loading } from '../../../components/ui/Loading';
 import { CheckoutForm } from '../../../components/forms/CheckoutForm';
 import { OrderSummary } from '../../../components/ui/OrderSummary';
@@ -29,10 +29,10 @@ const OrderCheckoutPage = () => {
   }
 
   return (
-    <Layout title="Checkout">
+    <MainLayout title="Checkout">
       <h2 className="title">Finalizar Compra</h2>
       {content}
-    </Layout>
+    </MainLayout>
   );
 };
 

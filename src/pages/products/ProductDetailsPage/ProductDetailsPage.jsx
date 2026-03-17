@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useProduct } from '@/hooks/products';
-import { Layout } from '@/components/layout/Layout';
+import { MainLayout } from '@/components/layout/MainLayout';
 import { Loading } from '../../../components/ui/Loading';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
 
@@ -22,7 +22,7 @@ const ProductDetailsPage = () => {
     );
   }
 
-  return <Layout title="Detalhe do Produto">{content}</Layout>;
+  return <MainLayout title="Detalhe do Produto">{content}</MainLayout>;
 };
 
 export default ProductDetailsPage;
