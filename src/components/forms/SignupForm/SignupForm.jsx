@@ -5,9 +5,9 @@ import { useSignup } from '@/hooks/users';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import { Toast } from '../../ui/Toast';
-import styles from './SignUpForm.module.css';
+import styles from './SignupForm.module.css';
 
-const SignUpForm = ({ onSuccess }) => {
+const SignupForm = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -26,7 +26,6 @@ const SignUpForm = ({ onSuccess }) => {
       label: 'Nome',
       name: 'firstName',
       id: 'first-name',
-      value: formData.firstName,
       placeholder: 'Primeiro nome',
       required: true,
     },
@@ -34,7 +33,6 @@ const SignUpForm = ({ onSuccess }) => {
       label: 'Sobrenome',
       name: 'lastName',
       id: 'last-name',
-      value: formData.lastName,
       placeholder: 'Sobrenome',
       required: true,
     },
@@ -44,7 +42,6 @@ const SignUpForm = ({ onSuccess }) => {
       type: 'email',
       name: 'email',
       id: 'email',
-      value: formData.email,
       placeholder: 'exemplo@email.com',
       required: true,
     },
@@ -53,7 +50,6 @@ const SignUpForm = ({ onSuccess }) => {
       type: 'password',
       name: 'password',
       id: 'password',
-      value: formData.password,
       required: true,
     },
     {
@@ -61,7 +57,6 @@ const SignUpForm = ({ onSuccess }) => {
       type: 'number',
       name: 'zipCode',
       id: 'zip-code',
-      value: formData.zipCode,
       placeholder: '60000000',
       required: true,
     },
@@ -69,7 +64,6 @@ const SignUpForm = ({ onSuccess }) => {
       label: 'Endereço',
       name: 'street',
       id: 'street',
-      value: formData.street,
       required: true,
       readOnly: true,
     },
@@ -78,14 +72,12 @@ const SignUpForm = ({ onSuccess }) => {
       type: 'number',
       name: 'number',
       id: 'number',
-      value: formData.number,
       required: true,
     },
     {
       label: 'Bairro',
       name: 'neighborhood',
       id: 'neighborhood',
-      value: formData.neighborhood,
       required: true,
       readOnly: true,
     },
@@ -93,7 +85,6 @@ const SignUpForm = ({ onSuccess }) => {
       label: 'Cidade',
       name: 'city',
       id: 'city',
-      value: formData.city,
       required: true,
       readOnly: true,
     },
@@ -101,7 +92,6 @@ const SignUpForm = ({ onSuccess }) => {
       label: 'Estado',
       name: 'state',
       id: 'state',
-      value: formData.state,
       required: true,
       readOnly: true,
     },
@@ -152,7 +142,7 @@ const SignUpForm = ({ onSuccess }) => {
             type={field.type}
             name={field.name}
             id={field.id}
-            value={field.value}
+            value={formData[field.name]}
             onChange={handleChange}
             placeholder={field.placeholder}
             readOnly={field.readOnly}
@@ -168,8 +158,8 @@ const SignUpForm = ({ onSuccess }) => {
   );
 };
 
-SignUpForm.propTypes = {
+SignupForm.propTypes = {
   onSuccess: PropTypes.func.isRequired,
 };
 
-export default SignUpForm;
+export default SignupForm;

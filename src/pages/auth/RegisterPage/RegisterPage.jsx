@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { AuthLayout } from '@/components/layout/AuthLayout';
-import { SignUpForm } from '../../../components/forms/SignUpForm';
+import { SignupForm } from '../../../components/forms/SignupForm';
 
 // fix: corrigir estilo
 const RegisterPage = () => {
@@ -17,7 +17,7 @@ const RegisterPage = () => {
   if (isAuthenticated) return <Navigate to={ROUTES.account.base} />;
   return (
     <AuthLayout page="register">
-      <SignUpForm onSuccess={handleSuccess} />
+      <SignupForm onSuccess={handleSuccess} />
     </AuthLayout>
   );
 };
