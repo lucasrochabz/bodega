@@ -1,6 +1,5 @@
+import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../paths';
 import { useAddress, useDebounce } from '@/hooks/shared';
 import { useSignup } from '@/hooks/users';
 import { Input } from '../../ui/Input';
@@ -8,9 +7,7 @@ import { Button } from '../../ui/Button';
 import { Toast } from '../../ui/Toast';
 import styles from './SignUpForm.module.css';
 
-const SignUpForm = () => {
-  const navigate = useNavigate();
-
+const SignUpForm = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -127,7 +124,7 @@ const SignUpForm = () => {
     event.preventDefault();
 
     const response = await signup(formData);
-    if (response) navigate(ROUTES.auth.login);
+    if (response) onSuccess();
   };
 
   useEffect(() => {
@@ -169,6 +166,10 @@ const SignUpForm = () => {
       </form>
     </>
   );
+};
+
+SignUpForm.propTypes = {
+  onSuccess: PropTypes.func.isRequired,
 };
 
 export default SignUpForm;
