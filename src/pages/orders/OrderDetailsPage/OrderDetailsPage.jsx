@@ -1,7 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useOrder } from '@/hooks/orders';
 import { SEO } from '../../../components/shared/SEO';
-import { Loading } from '../../../components/ui/Loading';
+import { LoadingState } from '../../../components/ui/LoadingState';
 import { OrderDetails } from '../../../components/ui/OrderDetails';
 import styles from './OrderDetailsPage.module.css';
 
@@ -10,7 +10,7 @@ const OrderDetailsPage = () => {
   const { isLoading, error, data } = useOrder(orderId);
 
   let content;
-  if (isLoading) content = <Loading />;
+  if (isLoading) content = <LoadingState />;
   else if (error) content = <div>{error}</div>;
   else if (!data) content = <div>Pedido não encontrado.</div>;
   else {

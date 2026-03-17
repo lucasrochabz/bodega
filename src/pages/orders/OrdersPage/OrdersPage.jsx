@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useOrders } from '@/hooks/orders';
 import { SEO } from '../../../components/shared/SEO';
-import { Loading } from '../../../components/ui/Loading';
+import { LoadingState } from '@/components/ui/LoadingState';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { OrderList } from '../../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
@@ -18,7 +18,7 @@ const OrdersPage = () => {
   const ordersToShow = search ? filtredOrders : allOrders;
 
   let content;
-  if (isLoading) content = <Loading />;
+  if (isLoading) content = <LoadingState />;
   else if (error) content = <div>Erro: {error}</div>;
   else if (ordersToShow.length === 0) {
     content = <EmptyState />;

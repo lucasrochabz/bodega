@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useProduct } from '@/hooks/products';
 import { MainLayout } from '@/components/layout/MainLayout';
-import { Loading } from '../../../components/ui/Loading';
+import { LoadingState } from '../../../components/ui/LoadingState';
 import { ProductDetails } from '../../../components/ui/ProductDetails';
 
 const ProductDetailsPage = () => {
@@ -13,7 +13,7 @@ const ProductDetailsPage = () => {
   const { isLoading, data, error } = useProduct(productId);
 
   let content;
-  if (isLoading) content = <Loading />;
+  if (isLoading) content = <LoadingState />;
   else if (error) content = <div>{error}</div>;
   else if (!data) content = <div>Produto não encontrado.</div>;
   else {

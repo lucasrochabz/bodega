@@ -1,7 +1,6 @@
 import { apiClient } from './http/client';
 
 const productsService = {
-  // fix: simular error na api para ver o que acontece
   getAllProducts: async (page, pageSize, options = {}) => {
     const response = await apiClient(
       `/api/v1/products?page=${page}&pageSize=${pageSize}`,

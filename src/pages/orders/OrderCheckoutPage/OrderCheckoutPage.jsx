@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { UserContext } from '@/contexts/UserContext';
 import { useOrder } from '@/hooks/orders';
 import { MainLayout } from '@/components/layout/MainLayout';
-import { Loading } from '../../../components/ui/Loading';
+import { LoadingState } from '../../../components/ui/LoadingState';
 import { CheckoutForm } from '../../../components/forms/CheckoutForm';
 import { OrderSummary } from '../../../components/ui/OrderSummary';
 import styles from './OrderCheckoutPage.module.css';
@@ -15,7 +15,7 @@ const OrderCheckoutPage = () => {
   const { isLoading, error, data: orderData } = useOrder(orderId);
 
   let content;
-  if (isLoading) content = <Loading />;
+  if (isLoading) content = <LoadingState />;
   else if (error) content = <div>{error}</div>;
   else if (!userData) content = <div>Dados do usuário não encontrado</div>;
   else if (!orderData) content = <div>Dados do pedido não encontrado</div>;

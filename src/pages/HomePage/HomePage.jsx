@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useProducts } from '@/hooks/products';
 import { MainLayout } from '@/components/layout/MainLayout';
-import { Loading } from '../../components/ui/Loading';
+import { LoadingState } from '../../components/ui/LoadingState';
 import { ErrorState } from '@/components/ui/ErrorState';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { ProductList } from '../../components/ui/ProductList';
@@ -13,7 +13,7 @@ const HomePage = () => {
   const { isLoading, error, data } = useProducts(page, pageSize);
 
   let content;
-  if (isLoading) content = <Loading />;
+  if (isLoading) content = <LoadingState />;
   else if (error) content = <ErrorState message={error} />;
   else if (!data?.items.length) content = <EmptyState />;
   else {

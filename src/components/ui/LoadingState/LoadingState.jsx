@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
 
-// fix: mudar nome para LoadingState
-const Loading = ({ message = 'Carregando...' }) => {
+const LoadingState = ({ message = 'Carregando...' }) => {
   return (
     <div role="status" aria-live="polite">
       <span>{message}</span>
@@ -9,8 +8,8 @@ const Loading = ({ message = 'Carregando...' }) => {
   );
 };
 
-Loading.propTypes = {
+LoadingState.propTypes = {
   message: PropTypes.string,
 };
 
-export default Loading;
+export default LoadingState;
