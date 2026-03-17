@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useOrders } from '@/hooks/orders';
-import { Head } from '../../../components/shared/Head';
+import { SEO } from '../../../components/shared/SEO';
 import { Loading } from '../../../components/ui/Loading';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { OrderList } from '../../../components/ui/OrderList';
@@ -43,7 +43,7 @@ const OrdersPage = () => {
 
   return (
     <>
-      <Head title="Pedidos" description="Descrição da página Pedidos" />
+      <SEO title="Pedidos" description="Descrição da página Pedidos" />
       {content}
     </>
   );

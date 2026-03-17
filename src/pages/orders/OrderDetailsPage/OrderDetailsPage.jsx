@@ -1,6 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useOrder } from '@/hooks/orders';
-import { Head } from '../../../components/shared/Head';
+import { SEO } from '../../../components/shared/SEO';
 import { Loading } from '../../../components/ui/Loading';
 import { OrderDetails } from '../../../components/ui/OrderDetails';
 import styles from './OrderDetailsPage.module.css';
@@ -19,7 +19,7 @@ const OrderDetailsPage = () => {
 
   return (
     <>
-      <Head title="Pedidos" description="Descrição da página Pedidos" />
+      <SEO title="Pedidos" description="Descrição da página Pedidos" />
 
       <article className={`${styles.container} anim-show-left`}>
         {content}

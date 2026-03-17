@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useTranslation } from 'react-i18next';
-import { Head } from '@/components/shared/Head';
+import { SEO } from '@/components/shared/SEO';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import styles from './AuthLayout.module.css';
@@ -10,7 +10,7 @@ const AuthLayout = ({ children, page }) => {
 
   return (
     <>
-      <Head
+      <SEO
         title={t(`auth.${page}.title`)}
         description={t(`auth.description`)}
       />

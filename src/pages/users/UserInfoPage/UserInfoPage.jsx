@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { UserContext } from '@/contexts/UserContext';
-import { Head } from '../../../components/shared/Head';
+import { SEO } from '../../../components/shared/SEO';
 import { Loading } from '../../../components/ui/Loading';
 import { UserUpdateForm } from '../../../components/forms/UserUpdateForm';
 
@@ -16,7 +16,7 @@ const UserInfoPage = () => {
 
   return (
     <>
-      <Head
+      <SEO
         title="Informações"
         description="Descrição da página Minhas Informações"
       />

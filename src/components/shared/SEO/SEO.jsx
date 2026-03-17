@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 
-// fix: mudar nome de componente para SEO
-const Head = ({ title, description }) => {
+const SEO = ({ title, description }) => {
   useEffect(() => {
     document.title = 'Bodega | ' + title;
     document
@@ -13,9 +12,9 @@ const Head = ({ title, description }) => {
   return null;
 };
 
-Head.propTypes = {
+SEO.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
 };
 
-export default Head;
+export default SEO;

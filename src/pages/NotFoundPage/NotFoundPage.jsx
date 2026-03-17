@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ROUTES } from '../../paths';
-import { Head } from '../../components/shared/Head';
+import { SEO } from '../../components/shared/SEO';
 import { Header } from '../../components/layout/Header';
 import { Footer } from '../../components/layout/Footer';
 import styles from './NotFoundPage.module.css';
@@ -8,7 +8,7 @@ import styles from './NotFoundPage.module.css';
 const NotFoundPage = () => {
   return (
     <>
-      <Head
+      <SEO
         title="Página não encontrada"
         description="Descrição da Página não encontrada"
       />

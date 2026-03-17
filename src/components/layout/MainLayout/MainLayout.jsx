@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Head } from '@/components/shared/Head';
+import { SEO } from '@/components/shared/SEO';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import styles from './MainLayout.module.css';
@@ -18,7 +18,7 @@ const MainLayout = ({
 }) => {
   return (
     <>
-      <Head title={title} description={description} />
+      <SEO title={title} description={description} />
 
       <Header />
 
