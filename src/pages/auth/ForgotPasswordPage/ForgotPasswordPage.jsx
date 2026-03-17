@@ -5,7 +5,7 @@ import { ForgotPasswordForm } from '@/components/forms/ForgotPasswordForm';
 const ForgotPasswordPage = () => {
   const { sendEmail, isLoading } = useForgotPassword();
 
-  const handleSubmit = async (values) => {
+  const onSubmit = async (values) => {
     const response = await sendEmail(values.email);
 
     if (response) {
@@ -16,7 +16,7 @@ const ForgotPasswordPage = () => {
 
   return (
     <AuthLayout page="forgot">
-      <ForgotPasswordForm onSubmit={handleSubmit} isLoading={isLoading} />
+      <ForgotPasswordForm onSubmit={onSubmit} isLoading={isLoading} />
     </AuthLayout>
   );
 };
