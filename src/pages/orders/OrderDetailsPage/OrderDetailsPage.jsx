@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import { useOrder } from '@/hooks/orders';
 import { SEO } from '../../../components/shared/SEO';
 import { LoadingState } from '../../../components/ui/LoadingState';
+import { ErrorState } from '@/components/ui/ErrorState';
 import { OrderDetails } from '../../../components/ui/OrderDetails';
 import styles from './OrderDetailsPage.module.css';
 
@@ -11,7 +12,7 @@ const OrderDetailsPage = () => {
 
   let content;
   if (isLoading) content = <LoadingState />;
-  else if (error) content = <div>{error}</div>;
+  else if (error) content = <ErrorState message={error} />;
   else if (!data) content = <div>Pedido não encontrado.</div>;
   else {
     content = <OrderDetails order={data} />;

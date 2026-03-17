@@ -4,6 +4,7 @@ import { UserContext } from '@/contexts/UserContext';
 import { useOrder } from '@/hooks/orders';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { LoadingState } from '../../../components/ui/LoadingState';
+import { ErrorState } from '@/components/ui/ErrorState';
 import { CheckoutForm } from '../../../components/forms/CheckoutForm';
 import { OrderSummary } from '../../../components/ui/OrderSummary';
 import styles from './OrderCheckoutPage.module.css';
@@ -16,7 +17,7 @@ const OrderCheckoutPage = () => {
 
   let content;
   if (isLoading) content = <LoadingState />;
-  else if (error) content = <div>{error}</div>;
+  else if (error) content = <ErrorState message={error} />;
   else if (!userData) content = <div>Dados do usuário não encontrado</div>;
   else if (!orderData) content = <div>Dados do pedido não encontrado</div>;
   else {

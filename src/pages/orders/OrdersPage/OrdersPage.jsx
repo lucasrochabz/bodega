@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useOrders } from '@/hooks/orders';
 import { SEO } from '../../../components/shared/SEO';
 import { LoadingState } from '@/components/ui/LoadingState';
+import { ErrorState } from '@/components/ui/ErrorState';
 import { EmptyState } from '@/components/ui/EmptyState';
 import { OrderList } from '../../../components/ui/OrderList';
 import styles from './OrdersPage.module.css';
@@ -19,7 +20,7 @@ const OrdersPage = () => {
 
   let content;
   if (isLoading) content = <LoadingState />;
-  else if (error) content = <div>Erro: {error}</div>;
+  else if (error) content = <ErrorState message={error} />;
   else if (ordersToShow.length === 0) {
     content = <EmptyState />;
   } else {

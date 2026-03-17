@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { productsService } from '../../services/products.service';
 
+// fix: corrigir catch error
 export const useProduct = (productId) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
