@@ -3,6 +3,10 @@
   margin-bottom: 2rem;
 }
 
+.top {
+  background-color: #f3f4f7;
+}
+
 .header {
   display: flex;
   justify-content: space-between;
