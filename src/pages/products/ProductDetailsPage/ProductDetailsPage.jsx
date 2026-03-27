@@ -9,9 +9,9 @@ import { ProductDetails } from '../../../components/ui/ProductDetails';
 
 const ProductDetailsPage = () => {
   const { isAuthenticated } = useContext(AuthContext);
-  const { productId } = useParams();
+  const { slug } = useParams();
 
-  const { isLoading, data, error } = useProduct(productId);
+  const { isLoading, data, error } = useProduct(slug);
 
   let content;
   if (isLoading) content = <LoadingState />;
