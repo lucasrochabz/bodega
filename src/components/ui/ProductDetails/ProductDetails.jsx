@@ -3,7 +3,6 @@ import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
 import { ROUTES } from '../../../paths';
 import { useToggle } from '@/hooks/shared';
-import { useCreateOrder } from '@/hooks/orders';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
 import { ImageModal } from '../ImageModal';
@@ -13,16 +12,14 @@ const images = import.meta.glob('/src/assets/images/*', {
   eager: true,
 });
 
-const ProductDetails = ({ product, isAuthenticated }) => {
+const ProductDetails = ({ product, onCreateOrder, isCreatingOrder }) => {
   const imageModule = images[`/src/assets/images/${product.imagePath}`];
   const imagePath = imageModule?.default;
 
   const navigate = useNavigate();
   const [showModal, toggleShowModal] = useToggle(false);
-  const { createOrder, isLoading } = useCreateOrder();
 
   const hasStock = product.stock > 0;
-  const isButtonDisabled = isLoading || !hasStock;
 
   const handleImageClick = (event) => {
     event.stopPropagation();
@@ -31,28 +28,6 @@ const ProductDetails = ({ product, isAuthenticated }) => {
 
   const handleReturn = () => {
     navigate(ROUTES.home);
-  };
-
-  const handleButtonClick = () => {
-    if (!hasStock) return;
-
-    if (!isAuthenticated) {
-      navigate(ROUTES.auth.login);
-      return;
-    }
-
-    handleFinalizeOrder();
-  };
-
-  const handleFinalizeOrder = async () => {
-    const response = await createOrder({
-      status: 'rascunho',
-      products: [{ product_id: product.id, quantity: 1 }],
-    });
-
-    if (response?.id) {
-      navigate(ROUTES.checkout.goToDetails(response.id));
-    }
   };
 
   return (
@@ -74,8 +49,8 @@ const ProductDetails = ({ product, isAuthenticated }) => {
 
           <Button
             variant="secondary"
-            disabled={isButtonDisabled}
-            onClick={handleButtonClick}
+            disabled={isCreatingOrder || !hasStock}
+            onClick={onCreateOrder}
           >
             {!hasStock ? 'Esgotado' : 'Finalizar Pedido'}
           </Button>
@@ -91,7 +66,8 @@ const ProductDetails = ({ product, isAuthenticated }) => {
 
 ProductDetails.propTypes = {
   product: productPropType.isRequired,
-  isAuthenticated: PropTypes.bool.isRequired,
+  onCreateOrder: PropTypes.func.isRequired,
+  isCreatingOrder: PropTypes.bool.isRequired,
 };
 
 export default ProductDetails;
