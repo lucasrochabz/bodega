@@ -17,12 +17,14 @@ const Header = ({ hideLinks = false }) => {
 
   return (
     <header className={styles.bg}>
+      <section className={styles.top}>
+        <LanguageSwitcher />
+      </section>
+
       <nav className={styles.header}>
         <Link to={ROUTES.home} aria-label="Bodega - Home">
           <span className={styles.logo}>Bodega</span>
         </Link>
-
-        <LanguageSwitcher />
 
         {!hideLinks && (
           <Link to={authRoute} className={styles.btnHeader}>
