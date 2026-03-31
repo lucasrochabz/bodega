@@ -1,5 +1,11 @@
 ## Bodega
 
+![Node](https://img.shields.io/badge/node-22.12+-black?&logo=node.js&logoColor=white)
+![React](https://img.shields.io/badge/react-18.3.1-black?&logo=react&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-5.4.19-black?&logo=vite&logoColor=white)
+![Cypress](https://img.shields.io/badge/cypress-14.3.3-black?&logo=cypress&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-black)
+
 ![Imagem do projeto](docs/projeto-bodega01.png)
 ![Imagem do projeto](docs/projeto-bodega02.png)
 
@@ -11,17 +17,38 @@ O back-end, em **Node.js** com **Express**, utiliza **JSON Web Tokens (JWT)** pa
 
 A aplicação segue boas práticas de desenvolvimento, garantindo uma experiência moderna, segura e eficiente.
 
+| Característica          | Descrição              |
+| ----------------------- | ---------------------- |
+| Tipo de aplicação       | SPA                    |
+| Stack                   | React + Vite           |
+| Estilo arquitetural     | Baseada em componentes |
+| Gerenciamento de estado | Client-Side State      |
+| Plataforma de execução  | Vercel                 |
+
+### Funcionalidades
+
+- [x] Autenticação com JWT
+- [x] Cadastro e login de usuários
+- [x] Listagem de produtos
+- [x] Visualização de detalhes do produto
+- [x] Histórico de pedidos
+- [x] Rotas privadas protegidas
+- [x] Internacionalização (i18n)
+
 ### Tecnologias
 
-- **JavaScript**: Linguagem de programação utilizada no projeto.
-- **React**: Biblioteca JavaScript para criação de interfaces de usuário.
-- **React Router**: Gerenciamento de rotas na aplicação.
-- **HTML**: Linguagem de marcação utilizada para estruturar as páginas do projeto.
-- **CSS**: Linguagem de estilos utilizada para a estilização da interface.
+| Tecnologia   | Descrição                |
+| ------------ | ------------------------ |
+| JavaScript   | Linguagem de programação |
+| React        | Biblioteca de UI         |
+| React Router | Rotas na aplicação       |
+| Vite         | Build tool               |
+| HTML         | Estrutura de páginas     |
+| CSS Modules  | Estilos modulares        |
 
 ### Requisitos
 
-- Node na versão versão 22.12 ou superior
+- Node na versão 22.12 ou superior
 - NPM na versão 10.9 ou superior.
 
 ### Como instalar?
