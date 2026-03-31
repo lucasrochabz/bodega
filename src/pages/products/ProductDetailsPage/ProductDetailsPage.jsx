@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
-import { ROUTES } from '@/paths';
+import { ROUTES } from '@/constants/routes';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { useProduct } from '@/hooks/products';
 import { useCreateOrder } from '@/hooks/orders';

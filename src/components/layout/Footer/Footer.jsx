@@ -1,3 +1,5 @@
+import { LINKS } from '@/constants/links';
+import { Anchor } from '@/components/ui/Anchor';
 import styles from './Footer.module.css';
 
 const Footer = () => {
@@ -6,13 +8,9 @@ const Footer = () => {
       <p>Bodega &copy; Todos os direitos reservados.</p>
       <p>
         Feito por{' '}
-        <a
-          href="https://github.com/lucasrochabz"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <Anchor href={LINKS.GITHUB} target="_blank">
           Lucas Rocha
-        </a>
+        </Anchor>
       </p>
     </footer>
   );

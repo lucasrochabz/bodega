@@ -1,5 +1,5 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ROUTES } from '@/paths';
+import { ROUTES } from '@/constants/routes';
 import { AuthLayout } from '@/components/layout/AuthLayout';
 import { ResetPasswordForm } from '@/components/forms/ResetPasswordForm';
 

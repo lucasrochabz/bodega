@@ -1,0 +1,7 @@
+.anchor {
+  font-weight: bold;
+}
+
+.anchor:hover {
+  text-decoration: underline;
+}

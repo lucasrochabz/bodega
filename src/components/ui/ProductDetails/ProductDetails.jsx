@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../paths';
+import { ROUTES } from '../../../constants/routes';
 import { useToggle } from '@/hooks/shared';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import { Button } from '../Button';
