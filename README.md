@@ -97,6 +97,14 @@ bodega/
 │   │   └── storageKeys.js
 │   │
 │   ├── contexts/
+│   │   ├── AuthContext.js
+│   │   ├── AuthProvider.jsx
+│   │   ├── useAuth.js
+│   │   ├── ToastContext.js
+│   │   ├── ToastProvider.jsx
+│   │   ├── UserContext.js
+│   │   └── UserProvider.jsx
+│   │
 │   ├── hooks/
 │   │   ├── auth/
 │   │   ├── orders/
