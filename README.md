@@ -127,6 +127,7 @@ bodega/
 │   │   ├── public/
 │   │   └── app.routes.jsx
 │   │
+│   ├── schemas/
 │   ├── services/
 │   │   └── http/
 │   │       ├── client.js
@@ -140,8 +141,7 @@ bodega/
 │   ├── types/
 │   ├── utils/
 │   ├── App.jsx
-│   ├── main.jsx
-│   └── paths.js
+│   └── main.jsx
 │
 ├── .env.example
 ├── .gitignore
