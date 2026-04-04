@@ -6,6 +6,7 @@ import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import styles from './ResetPasswordForm.module.css';
 
+// fix: add schema
 const ResetPasswordForm = ({ token, onSuccess }) => {
   const [newPassword, setNewPassword] = useState('');
   const [showModal, setShowModal] = useState(false);

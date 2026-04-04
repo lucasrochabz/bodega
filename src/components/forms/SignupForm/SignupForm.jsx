@@ -1,13 +1,12 @@
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { useAddress, useDebounce } from '@/hooks/shared';
-import { useSignup } from '@/hooks/users';
 import { Input } from '../../ui/Input';
 import { Button } from '../../ui/Button';
 import { Toast } from '../../ui/Toast';
 import styles from './SignupForm.module.css';
 
-const SignupForm = ({ onSuccess }) => {
+const SignupForm = ({ onSubmit, isLoading }) => {
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -100,8 +99,6 @@ const SignupForm = ({ onSuccess }) => {
   const debouncedZipCode = useDebounce(formData.zipCode, 500);
   const { address, error } = useAddress(debouncedZipCode);
 
-  const { signup, isLoading } = useSignup();
-
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData((prev) => ({
@@ -110,14 +107,15 @@ const SignupForm = ({ onSuccess }) => {
     }));
   };
 
-  const handleSignup = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
 
-    const response = await signup(formData);
-    if (response) onSuccess();
+    onSubmit(formData);
   };
 
   useEffect(() => {
+    if (!address) return;
+
     setFormData((prev) => ({
       ...prev,
       street: address.street,
@@ -133,7 +131,7 @@ const SignupForm = ({ onSuccess }) => {
 
       <form
         className={`${styles.signup} anim-show-left`}
-        onSubmit={handleSignup}
+        onSubmit={handleSubmit}
       >
         {fields.map((field) => (
           <Input
@@ -159,7 +157,8 @@ const SignupForm = ({ onSuccess }) => {
 };
 
 SignupForm.propTypes = {
-  onSuccess: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default SignupForm;

@@ -1,25 +1,18 @@
-import { useState } from 'react';
-import { useForgotPassword } from '@/hooks/auth';
+import PropTypes from 'prop-types';
+import { useFormValidation } from '@/hooks/shared';
+import { forgotPasswordSchema } from '@/schemas/forgotPasswordSchema';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import styles from './ForgotPasswordForm.module.css';
 
-const ForgotPasswordForm = () => {
-  const [email, setEmail] = useState('');
+const ForgotPasswordForm = ({ onSubmit, isLoading }) => {
+  const initialValues = { email: '' };
 
-  const { sendEmail, isLoading, error } = useForgotPassword();
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
-    const response = await sendEmail(email);
-
-    if (response) {
-      alert('Email enviado.');
-      window.location.href = response;
-      setEmail('');
-    }
-  };
+  const { values, errors, handleChange, handleSubmit } = useFormValidation(
+    forgotPasswordSchema,
+    onSubmit,
+    initialValues,
+  );
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -28,8 +21,8 @@ const ForgotPasswordForm = () => {
         type="email"
         name="email"
         id="email"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
+        value={values.email}
+        onChange={handleChange}
         required
       />
 
@@ -38,6 +31,11 @@ const ForgotPasswordForm = () => {
       </Button>
     </form>
   );
+};
+
+ForgotPasswordForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  isLoading: PropTypes.bool,
 };
 
 export default ForgotPasswordForm;
