@@ -7,7 +7,6 @@ import styles from './ForgotPasswordForm.module.css';
 
 const ForgotPasswordForm = ({ onSubmit, isLoading }) => {
   const initialValues = { email: '' };
-
   const { values, errors, handleChange, handleSubmit } = useFormValidation(
     forgotPasswordSchema,
     onSubmit,

@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/Button';
 import styles from './ResetPasswordForm.module.css';
 
 // fix: add schema
+// fix: add useFormValidation
 const ResetPasswordForm = ({ token, onSuccess }) => {
   const [newPassword, setNewPassword] = useState('');
   const [showModal, setShowModal] = useState(false);
