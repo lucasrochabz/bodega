@@ -1,12 +1,11 @@
 import PropTypes from 'prop-types';
 import { useReducer } from 'react';
+import { initialState, signupFormReducer } from '@/reducers/signupFormReducer';
 import { AddressForm } from '@/components/forms/AddressForm';
 import { Input } from '@/components/ui/Input';
 import { Button } from '@/components/ui/Button';
 import styles from './SignupForm.module.css';
-import { initialState, signupFormReducer } from '@/reducers/formReducer';
 
-// fix: ajustar esse reducer
 const SignupForm = ({ onSubmit, isLoading }) => {
   const [formData, dispatch] = useReducer(signupFormReducer, initialState);
 
