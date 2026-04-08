@@ -10,8 +10,8 @@ const productsService = {
     return response.data;
   },
 
-  getProduct: async (productId, options = {}) => {
-    const response = await apiClient(`/api/v1/products/${productId}`, {
+  getProduct: async (slug, options = {}) => {
+    const response = await apiClient(`/api/v1/products/${slug}`, {
       ...options,
       method: 'GET',
     });

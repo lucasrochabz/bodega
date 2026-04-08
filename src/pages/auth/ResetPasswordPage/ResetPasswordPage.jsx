@@ -1,8 +1,9 @@
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import { ROUTES } from '@/paths';
+import { ROUTES } from '@/constants/routes';
 import { AuthLayout } from '@/components/layout/AuthLayout';
 import { ResetPasswordForm } from '@/components/forms/ResetPasswordForm';
 
+// fix: mudar para onSubmit
 const ResetPasswordPage = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();

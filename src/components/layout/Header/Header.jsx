@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ROUTES } from '../../../paths';
+import { ROUTES } from '../../../constants/routes';
 import { AuthContext } from '@/contexts/AuthContext';
 import { UserContext } from '@/contexts/UserContext';
 import { LanguageSwitcher } from '@/components/ui/LanguageSwitcher';
@@ -17,12 +17,14 @@ const Header = ({ hideLinks = false }) => {
 
   return (
     <header className={styles.bg}>
+      <section className={styles.top}>
+        <LanguageSwitcher />
+      </section>
+
       <nav className={styles.header}>
         <Link to={ROUTES.home} aria-label="Bodega - Home">
           <span className={styles.logo}>Bodega</span>
         </Link>
-
-        <LanguageSwitcher />
 
         {!hideLinks && (
           <Link to={authRoute} className={styles.btnHeader}>
