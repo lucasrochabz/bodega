@@ -1,8 +1,9 @@
-import { BASE_API_URL } from '../../config';
+import { BASE_API_URL } from '@/config';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
 import { request } from './request';
 
 export const apiClient = (endpoint, options = {}) => {
-  const token = localStorage.getItem('token');
+  const token = localStorage.getItem(STORAGE_KEYS.AUTH_TOKEN);
 
   const config = {
     ...options,
