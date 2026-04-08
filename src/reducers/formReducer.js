@@ -18,6 +18,7 @@ export const signupFormReducer = (state, action) => {
         ...state,
         [action.field]: action.value,
       };
+
     case 'SET_ADDRESS':
       return {
         ...state,
