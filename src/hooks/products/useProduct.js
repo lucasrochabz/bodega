@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { productsService } from '../../services/products.service';
 
 // fix: corrigir catch error
-export const useProduct = (productId) => {
+export const useProduct = (slug) => {
   const [isLoading, setIsLoading] = useState(false);
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ export const useProduct = (productId) => {
       setError(null);
 
       try {
-        const result = await productsService.getProduct(productId, {
+        const result = await productsService.getProduct(slug, {
           signal: controller.signal,
         });
         setData(result);
@@ -28,10 +28,10 @@ export const useProduct = (productId) => {
       }
     };
 
-    if (productId) fetchProduct();
+    if (slug) fetchProduct();
 
     return () => controller.abort();
-  }, [productId]);
+  }, [slug]);
 
   return { data, isLoading, error };
 };

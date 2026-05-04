@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../paths';
+import { ROUTES } from '../../../constants/routes';
 import { AuthContext } from '../../../contexts/AuthContext';
 import { Button } from '../../ui/Button';
 import styles from './Sidebar.module.css';

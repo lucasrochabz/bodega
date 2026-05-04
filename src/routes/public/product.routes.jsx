@@ -1,4 +1,4 @@
-import { ROUTES } from '../../paths';
+import { ROUTES } from '../../constants/routes';
 import { ProductDetailsPage } from '../../pages/products';
 
 export const productRoutes = [

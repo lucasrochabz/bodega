@@ -4,9 +4,9 @@ export const ROUTES = {
 
   product: {
     base: '/product',
-    details: '/product/:productId',
+    details: '/product/:slug',
 
-    goToDetails: (productId) => `/product/${productId}`,
+    goToDetails: (slug) => `/product/${slug}`,
   },
 
   checkout: {

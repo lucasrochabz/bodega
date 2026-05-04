@@ -12,13 +12,11 @@ const LoginForm = ({ onSubmit, isLoading }) => {
   const { t } = useTranslation();
   const inputElement = useRef(null);
 
+  const initialValues = { email: '', password: '' };
   const { values, errors, handleChange, handleSubmit } = useFormValidation(
     loginSchema,
     onSubmit,
-    {
-      email: '',
-      password: '',
-    },
+    initialValues,
   );
 
   useEffect(() => {

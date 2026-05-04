@@ -3,19 +3,23 @@
   margin-bottom: 2rem;
 }
 
+.top {
+  background-color: #efefef;
+}
+
 .header {
+  max-width: 1200px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 0;
-  max-width: 1200px;
   margin: 0 auto;
 }
 
 .logo {
+  color: var(--color-primary);
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--color-primary);
 }
 
 .logo:hover {
@@ -37,7 +41,10 @@
 }
 
 @media (max-width: 800px) {
-  .bg {
+  .top {
     padding: 0 1rem;
+  }
+  .header {
+    padding: 1rem;
   }
 }

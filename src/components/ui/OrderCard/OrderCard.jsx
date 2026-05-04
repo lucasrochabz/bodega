@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '@/paths';
+import { ROUTES } from '@/constants/routes';
 import { formattedDate } from '../../../utils/dateUtils';
 import styles from './OrderCard.module.css';
 

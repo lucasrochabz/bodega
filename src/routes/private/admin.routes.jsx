@@ -1,4 +1,4 @@
-import { ROUTES } from '../../paths';
+import { ROUTES } from '../../constants/routes';
 import { AdminPage } from '@/pages/admin/AdminPage';
 
 export const adminRoutes = [

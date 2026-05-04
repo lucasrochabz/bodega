@@ -2,6 +2,8 @@ import PropTypes from 'prop-types';
 import { useEffect } from 'react';
 import styles from './Toast.module.css';
 
+// fix: criar ToastProvider
+// fix: criar o hook useToast
 const Toast = ({ show, message, onClose, duration = 3000 }) => {
   useEffect(() => {
     if (!show) return;

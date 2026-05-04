@@ -1,31 +1,34 @@
 import { useTranslation } from 'react-i18next';
+import { STORAGE_KEYS } from '@/constants/storageKeys';
+import { LANGUAGES } from '@/constants/languages';
 import styles from './LanguageSwitcher.module.css';
+
+const languageOptions = [
+  { code: LANGUAGES.PT_BR, label: '🇧🇷 PT' },
+  { code: LANGUAGES.EN_US, label: '🇺🇸 EN' },
+];
 
 const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
   const changeLang = (lang) => {
     i18n.changeLanguage(lang);
-
-    localStorage.setItem('lang', lang);
+    localStorage.setItem(STORAGE_KEYS.LANGUAGE, lang);
   };
 
   const currentLang = i18n.language;
 
   return (
     <div className={styles.lang}>
-      <button
-        onClick={() => changeLang('pt-BR')}
-        className={currentLang === 'pt-BR' ? styles.active : ''}
-      >
-        🇧🇷 PT
-      </button>
-      <button
-        onClick={() => changeLang('en-US')}
-        className={currentLang === 'en-US' ? styles.active : ''}
-      >
-        🇺🇸 EN
-      </button>
+      {languageOptions.map(({ code, label }) => (
+        <button
+          key={code}
+          onClick={() => changeLang(code)}
+          className={currentLang === code ? styles.active : ''}
+        >
+          {label}
+        </button>
+      ))}
     </div>
   );
 };

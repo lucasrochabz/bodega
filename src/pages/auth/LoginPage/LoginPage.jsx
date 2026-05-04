@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
-import { ROUTES } from '@/paths';
+import { ROUTES } from '@/constants/routes';
 import { AuthContext } from '@/contexts/AuthContext';
 import { AuthLayout } from '@/components/layout/AuthLayout';
 import { Toast } from '@/components/ui/Toast';

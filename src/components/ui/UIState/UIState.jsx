@@ -3,6 +3,7 @@ import { LoadingState } from '../LoadingState';
 import { ErrorState } from '../ErrorState';
 import { EmptyState } from '../EmptyState';
 
+// fix: componente não utilizado
 const UIState = ({ isLoading, error, isEmpty, children }) => {
   console.log(error);
   if (isLoading) return <LoadingState />;

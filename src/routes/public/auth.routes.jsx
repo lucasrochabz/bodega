@@ -1,4 +1,4 @@
-import { ROUTES } from '../../paths';
+import { ROUTES } from '../../constants/routes';
 import {
   ForgotPasswordPage,
   LoginPage,

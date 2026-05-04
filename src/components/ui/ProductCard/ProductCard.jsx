@@ -1,6 +1,6 @@
 import { productPropType } from '../../../types/propTypes';
 import { useNavigate } from 'react-router-dom';
-import { ROUTES } from '../../../paths';
+import { ROUTES } from '../../../constants/routes';
 import { formattedPriceToBRL } from '../../../utils/priceUtils';
 import styles from './ProductCard.module.css';
 
@@ -15,7 +15,7 @@ const ProductCard = ({ item }) => {
   const navigate = useNavigate();
 
   const handleNavigate = () => {
-    navigate(ROUTES.product.goToDetails(item.id));
+    navigate(ROUTES.product.goToDetails(item.slug));
   };
 
   return (
