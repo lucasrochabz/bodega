@@ -10,21 +10,23 @@ const PasswordInput = ({ ...props }) => {
         Senha
       </label>
 
-      <input
-        className={styles.input}
-        type={showPassword ? 'text' : 'password'}
-        name="password"
-        id="password"
-        {...props}
-      />
+      <div className={styles.inputWrapper}>
+        <input
+          className={styles.input}
+          type={showPassword ? 'text' : 'password'}
+          name="password"
+          id="password"
+          {...props}
+        />
 
-      <button
-        className={styles.btnPassword}
-        type="button"
-        onClick={() => setShowPassword((prev) => !prev)}
-      >
-        {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
-      </button>
+        <button
+          className={styles.btnPassword}
+          type="button"
+          onClick={() => setShowPassword((prev) => !prev)}
+        >
+          {showPassword ? '🙈 Ocultar' : '👁️ Mostrar'}
+        </button>
+      </div>
     </>
   );
 };
