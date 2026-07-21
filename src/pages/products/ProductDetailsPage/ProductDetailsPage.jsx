@@ -29,7 +29,7 @@ const ProductDetailsPage = () => {
     });
 
     if (response?.id) {
-      navigate(ROUTES.checkout.goToDetails(response.id));
+      navigate(ROUTES.checkout.detailsPath(response.id));
     }
   };
 

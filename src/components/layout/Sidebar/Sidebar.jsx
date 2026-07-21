@@ -22,7 +22,7 @@ const Sidebar = () => {
             <NavLink to={ROUTES.account.myInfo}>Minhas informações</NavLink>
           </li>
           <li>
-            <NavLink to={ROUTES.account.orders} end>
+            <NavLink to={ROUTES.account.orders.index} end>
               Meus Pedidos
             </NavLink>
           </li>

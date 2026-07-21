@@ -40,7 +40,7 @@ const MenuMobile = () => {
               <Link to={ROUTES.account.myInfo}>Minhas informações</Link>
             </li>
             <li>
-              <Link to={ROUTES.account.orders}>Meus pedidos</Link>
+              <Link to={ROUTES.account.orders.index}>Meus pedidos</Link>
             </li>
             <li>
               <Button variant="logout" onClick={handleLogout}>

@@ -10,7 +10,7 @@ const OrderCard = ({ order }) => {
   const handleNavigate = (event, orderId) => {
     event.preventDefault();
 
-    navigate(ROUTES.account.goToOrderDetails(orderId));
+    navigate(ROUTES.account.orders.detailsPath(orderId));
   };
 
   return (
