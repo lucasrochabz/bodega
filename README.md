@@ -38,7 +38,7 @@ A aplicação segue boas práticas de desenvolvimento, garantindo uma experiênc
 ### Preview
 
 Acesse o projeto online:
-https://bodega-dev.vercel.app/
+https://bodegashop.vercel.app/
 
 ### Tecnologias
 
