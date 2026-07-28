@@ -27,7 +27,7 @@ const CheckoutForm = ({ userData }) => {
     });
 
     if (response) {
-      navigate(ROUTES.account.goToOrderDetails(orderId));
+      navigate(ROUTES.account.orders.detailsPath(orderId));
     }
   };
 

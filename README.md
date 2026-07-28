@@ -35,6 +35,11 @@ A aplicação segue boas práticas de desenvolvimento, garantindo uma experiênc
 - [x] Rotas privadas protegidas
 - [x] Internacionalização (i18n)
 
+### Preview
+
+Acesse o projeto online:
+https://bodegashop.vercel.app/
+
 ### Tecnologias
 
 | Tecnologia   | Descrição                |

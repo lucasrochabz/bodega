@@ -19,7 +19,7 @@ const RegisterPage = () => {
     if (response) navigate(ROUTES.auth.login);
   };
 
-  if (isAuthenticated) return <Navigate to={ROUTES.account.base} />;
+  if (isAuthenticated) return <Navigate to={ROUTES.account.index} />;
   return (
     <AuthLayout page="register">
       <SignupForm onSubmit={onSubmit} isLoading={isLoading} />

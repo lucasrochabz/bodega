@@ -13,7 +13,7 @@ const Header = ({ hideLinks = false }) => {
   const { data } = useContext(UserContext);
   const userName = data?.firstName;
 
-  const authRoute = isAuthenticated ? ROUTES.account.base : ROUTES.auth.login;
+  const authRoute = isAuthenticated ? ROUTES.account.index : ROUTES.auth.login;
 
   return (
     <header className={styles.bg}>

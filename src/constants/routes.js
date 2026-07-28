@@ -3,17 +3,17 @@ export const ROUTES = {
   notFound: '/404',
 
   product: {
-    base: '/product',
+    index: '/product',
     details: '/product/:slug',
 
-    goToDetails: (slug) => `/product/${slug}`,
+    detailsPath: (slug) => `/product/${slug}`,
   },
 
   checkout: {
-    base: '/checkout',
+    index: '/checkout',
     details: '/checkout/:orderId',
 
-    goToDetails: (orderId) => `/checkout/${orderId}`,
+    detailsPath: (orderId) => `/checkout/${orderId}`,
   },
 
   auth: {
@@ -24,18 +24,20 @@ export const ROUTES = {
   },
 
   account: {
-    base: '/account',
+    index: '/account',
 
     // relativo (para children)
     myInfo: 'my-info',
-    orders: 'orders',
-    orderDetails: 'orders/details/:orderId',
+    orders: {
+      index: 'orders',
+      details: 'orders/details/:orderId',
 
-    // helpers ABSOLUTO (para navigate)
-    goToOrderDetails: (orderId) => `/account/orders/details/${orderId}`,
+      // helpers ABSOLUTO (para navigate)
+      detailsPath: (orderId) => `/account/orders/details/${orderId}`,
+    },
   },
 
   admin: {
-    base: '/admin',
+    index: '/admin',
   },
 };

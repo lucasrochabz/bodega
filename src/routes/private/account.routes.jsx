@@ -1,12 +1,12 @@
-import { ROUTES } from '../../constants/routes';
-import { ProtectedRoute } from '../../components/auth/ProtectedRoute';
-import { Welcome } from '../../components/ui/Welcome';
-import { UserInfoPage } from '../../pages/users';
-import { OrdersPage, OrderDetailsPage } from '../../pages/orders';
+import { ROUTES } from '@/constants/routes';
+import { ProtectedRoute } from '@/components/auth/ProtectedRoute';
+import { Welcome } from '@/components/ui/Welcome';
+import { UserInfoPage } from '@/pages/users';
+import { OrdersPage, OrderDetailsPage } from '@/pages/orders';
 
 export const accountRoutes = [
   {
-    path: ROUTES.account.base,
+    path: ROUTES.account.index,
     element: <ProtectedRoute />,
     children: [
       {
@@ -17,8 +17,11 @@ export const accountRoutes = [
         children: [
           { index: true, element: <Welcome /> },
           { path: ROUTES.account.myInfo, element: <UserInfoPage /> },
-          { path: ROUTES.account.orders, element: <OrdersPage /> },
-          { path: ROUTES.account.orderDetails, element: <OrderDetailsPage /> },
+          { path: ROUTES.account.orders.index, element: <OrdersPage /> },
+          {
+            path: ROUTES.account.orders.details,
+            element: <OrderDetailsPage />,
+          },
         ],
       },
     ],
